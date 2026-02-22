@@ -1430,7 +1430,7 @@
             <div class="route-places">
               ${section.places.map((place, i) => {
                 const isHighlight = section.highlights?.includes(place);
-                return `<span class="route-place ${isHighlight ? 'highlight' : ''}" onclick="showPlaceFromRoute('${place}')">${place}</span>` +
+                return `<span class="route-place ${isHighlight ? 'highlight' : ''}" onclick="showPlaceFromRoute('${place.replace(/'/g, "\\'")}')">${place}</span>` +
                   (i < section.places.length - 1 ? '<span class="route-arrow">→</span>' : '');
               }).join('')}
             </div>
