@@ -3182,6 +3182,152 @@ const PLACES = [
     "address": "R. das Azeiteiras 65, 3000-065 Coimbra",
     "description": "아늑한 분위기의 가정식. 타일 장식이 예쁨",
     "days": ["DAY 6"]
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 💰 2025-02-22 가성비 맛집 추가 (총 43개 맞춤)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "name": "A Merendinha do Arco",
+    "searchName": "A Merendinha do Arco Lisboa",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "08:00-20:00",
+    "type": "budget",
+    "address": "R. dos Sapateiros 230, 1100-581 Lisboa",
+    "description": "호시우 역 근처. 대구 튀김(Pataniscas)과 해물밥 맛집 ⭐",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Crisfama",
+    "searchName": "Crisfama Lisboa",
+    "rating": 4.8,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "R. da Cruz de Santa Apolónia 58, 1100-188 Lisboa",
+    "description": "알파마 근처. 친절한 사장님과 집밥 같은 요리",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Super Mário",
+    "searchName": "Restaurante Super Mário Lisboa",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "09:00-21:00",
+    "type": "budget",
+    "address": "R. do Duque 9, 1200-158 Lisboa",
+    "description": "바이샤 지구 초저렴 맛집. 비파나와 맥주",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Estrela da Bica",
+    "searchName": "Estrela da Bica Lisboa",
+    "rating": 4.4,
+    "price": "€",
+    "hours": "12:00-00:00",
+    "type": "budget",
+    "address": "Tv. do Cabral 33, 1200-073 Lisboa",
+    "description": "비카 푸니쿨라 옆. 퓨전 타파스와 아늑한 분위기",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Buraquinho",
+    "searchName": "O Buraquinho Porto",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "12:00-14:30, 19:00-22:00",
+    "type": "budget",
+    "address": "Praça dos Poveiros 33, 4000-398 Porto",
+    "description": "현지인들의 타스카. 돼지고기 샌드위치 추천",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Casa Expresso",
+    "searchName": "Casa Expresso Porto",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "Praça de Carlos Alberto 73, 4050-157 Porto",
+    "description": "알리아두스 근처. 전통 포르투갈 간 요리(Iscas)",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Churrasqueira Lameiras",
+    "searchName": "Churrasqueira Lameiras Porto",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "11:30-15:00, 18:30-22:00",
+    "type": "budget",
+    "address": "R. do Bonjardim 546, 4000-118 Porto",
+    "description": "트린다드 역 근처. 숯불 치킨과 립 가성비 최고",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "O Rápido",
+    "searchName": "Restaurante O Rápido Porto",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "R. da Madeira 194, 4000-330 Porto",
+    "description": "상벤투 역 바로 옆. 빠르고 맛있는 정식",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Kardoso",
+    "searchName": "Kardoso Porto",
+    "rating": 4.4,
+    "price": "€",
+    "hours": "11:00-23:00",
+    "type": "budget",
+    "address": "R. do Dr. Ricardo Jorge 65, 4050-514 Porto",
+    "description": "클레리구스 근처. 저렴한 프란세지냐와 스테이크",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Cantinho Gourmet",
+    "searchName": "Cantinho Gourmet Sintra",
+    "rating": 4.7,
+    "price": "€",
+    "hours": "10:00-19:00",
+    "type": "budget",
+    "address": "Av. Dr. Miguel Bombarda 49, 2710-590 Sintra",
+    "description": "신트라 역 근처. 치즈, 햄, 와인 타파스",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Pregaria da Sé",
+    "searchName": "Pregaria da Sé Braga",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-23:00",
+    "type": "budget",
+    "address": "R. Dom Paio Mendes 29, 4700-424 Braga",
+    "description": "브라가 대성당 앞. 다양한 프레고(고기 샌드위치)",
+    "days": ["DAY 9"]
+  },
+  {
+    "name": "Caco, o Original",
+    "searchName": "Caco o Original Coimbra",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "12:00-23:00",
+    "type": "budget",
+    "address": "R. do Corpo de Deus 22, 3000-123 Coimbra",
+    "description": "코임브라 구시가. 볼루 두 카쿠(마데이라 빵) 버거",
+    "days": ["DAY 6"]
+  },
+  {
+    "name": "Solar da Madalena",
+    "searchName": "Solar da Madalena Coimbra",
+    "rating": 4.4,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "R. da Madalena 5, 3000-243 Coimbra",
+    "description": "바이샤 지구. 현지인들이 찾는 백반집",
+    "days": ["DAY 6"]
   }
 ];
 

@@ -1071,5 +1071,19 @@ const PLACE_COORDS = {
   "Tulhas": { "lat": 38.7968, "lng": -9.3905 },
   "Cantinho de São Pedro": { "lat": 38.7935, "lng": -9.3815 },
   "Quim dos Ossos": { "lat": 40.2090, "lng": -8.4280 },
-  "A Cozinha da Maria": { "lat": 40.2085, "lng": -8.4270 }
+  "A Cozinha da Maria": { "lat": 40.2085, "lng": -8.4270 },
+  // 2025-02-22 가성비 맛집 추가 (13곳)
+  "A Merendinha do Arco": { "lat": 38.7155, "lng": -9.1400 },
+  "Crisfama": { "lat": 38.7130, "lng": -9.1235 },
+  "Super Mário": { "lat": 38.7115, "lng": -9.1385 },
+  "Estrela da Bica": { "lat": 38.7090, "lng": -9.1465 },
+  "Buraquinho": { "lat": 41.1460, "lng": -8.6050 },
+  "Casa Expresso": { "lat": 41.1475, "lng": -8.6110 },
+  "Churrasqueira Lameiras": { "lat": 41.1510, "lng": -8.6085 },
+  "O Rápido": { "lat": 41.1450, "lng": -8.6100 },
+  "Kardoso": { "lat": 41.1465, "lng": -8.6120 },
+  "Cantinho Gourmet": { "lat": 38.7970, "lng": -9.3860 },
+  "Pregaria da Sé": { "lat": 41.5500, "lng": -8.4275 },
+  "Caco, o Original": { "lat": 40.2080, "lng": -8.4290 },
+  "Solar da Madalena": { "lat": 40.2090, "lng": -8.4300 }
 };
