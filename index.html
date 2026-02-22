@@ -103,6 +103,13 @@
         if (typeof PLACE_GUIDES !== 'undefined') renderSection('PLACE_GUIDES', PLACE_GUIDES);
         if (typeof ROUTES !== 'undefined') renderSection('ROUTES', ROUTES);
 
+        // Service Worker 등록 (PWA 필수)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+                .then(() => printToScreen('✅ Service Worker 등록 완료 (오프라인 지원 가능)'))
+                .catch(err => printToScreen('❌ Service Worker 실패: ' + err));
+        }
+
         // 초기 메시지
         printToScreen('시스템 준비 완료. 버튼을 눌러 데이터를 확인하세요.');
     </script>
