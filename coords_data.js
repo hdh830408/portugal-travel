@@ -1052,5 +1052,24 @@ const PLACE_COORDS = {
   "Retrokitchen": { "lat": 41.5515, "lng": -8.4265 },
   "Buxa": { "lat": 41.4425, "lng": -8.2918 },
   "Petrarum Domus": { "lat": 39.3615, "lng": -9.1572 },
-  "Tia Alice": { "lat": 39.6255, "lng": -8.6685 }
+  "Tia Alice": { "lat": 39.6255, "lng": -8.6685 },
+  // 2025-02-22 가성비 맛집 좌표 추가
+  "Zé dos Cornos": { "lat": 38.7135, "lng": -9.1355 },
+  "O Velho Eurico": { "lat": 38.7130, "lng": -9.1350 },
+  "A Provinciana": { "lat": 38.7155, "lng": -9.1405 },
+  "Das Flores": { "lat": 38.7105, "lng": -9.1430 },
+  "Casa da Índia": { "lat": 38.7100, "lng": -9.1435 },
+  "As Bifanas do Afonso": { "lat": 38.7115, "lng": -9.1375 },
+  "Floresta das Escadinhas": { "lat": 38.7110, "lng": -9.1380 },
+  "Casa Guedes": { "lat": 41.1455, "lng": -8.6045 },
+  "Gazela": { "lat": 41.1445, "lng": -8.6060 },
+  "Pedro dos Frangos": { "lat": 41.1490, "lng": -8.6095 },
+  "Taxca": { "lat": 41.1470, "lng": -8.6120 },
+  "O Buraco": { "lat": 41.1485, "lng": -8.6070 },
+  "A Sandeira do Porto": { "lat": 41.1450, "lng": -8.6135 },
+  "Apeadeiro": { "lat": 38.7975, "lng": -9.3855 },
+  "Tulhas": { "lat": 38.7968, "lng": -9.3905 },
+  "Cantinho de São Pedro": { "lat": 38.7935, "lng": -9.3815 },
+  "Quim dos Ossos": { "lat": 40.2090, "lng": -8.4280 },
+  "A Cozinha da Maria": { "lat": 40.2085, "lng": -8.4270 }
 };

@@ -2977,6 +2977,211 @@ const PLACES = [
     "address": "R. do Adro, 2495-401 Fátima",
     "description": "파티마 최고의 미식 경험. 미슐랭 가이드 추천 ⭐",
     "days": ["DAY 5"]
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 💰 2025-02-22 가성비 맛집(20유로 이하) 대거 추가
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 리스본 (바이샤/알파마/시아두)
+  {
+    "name": "Zé dos Cornos",
+    "searchName": "Zé dos Cornos Lisboa",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "12:00-22:00",
+    "type": "budget",
+    "address": "Beco dos Surradores 5, 1100-591 Lisboa",
+    "description": "현지인들의 성지. 숯불 등갈비와 정어리 구이 ⭐",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "O Velho Eurico",
+    "searchName": "O Velho Eurico Lisboa",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "12:30-15:00, 20:00-23:00",
+    "type": "budget",
+    "address": "Largo São Cristóvão 3, 1100-513 Lisboa",
+    "description": "젊은 셰프들이 운영하는 힙한 타스카. 예약 필수",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "A Provinciana",
+    "searchName": "Restaurante A Provinciana Lisboa",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "Tv. do Forno 23, 1150-193 Lisboa",
+    "description": "호시우 광장 옆 숨은 골목 맛집. 가정식 백반",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Das Flores",
+    "searchName": "Restaurante Das Flores Lisboa",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "12:00-15:30 (점심만)",
+    "type": "budget",
+    "address": "R. das Flores 76, 1200-195 Lisboa",
+    "description": "시아두 가성비 최고. 매일 바뀌는 오늘의 요리",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Casa da Índia",
+    "searchName": "Casa da Índia Lisboa",
+    "rating": 4.2,
+    "price": "€",
+    "hours": "12:00-00:00",
+    "type": "budget",
+    "address": "R. do Loreto 49, 1200-086 Lisboa",
+    "description": "숯불구이 치킨이 맛있는 활기찬 로컬 식당",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "As Bifanas do Afonso",
+    "searchName": "As Bifanas do Afonso Lisboa",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "08:00-19:30",
+    "type": "budget",
+    "address": "R. da Madalena 146, 1100-340 Lisboa",
+    "description": "리스본 최고의 비파나(고기 샌드위치) 맛집 ⭐",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Floresta das Escadinhas",
+    "searchName": "Floresta das Escadinhas Lisboa",
+    "rating": 4.7,
+    "price": "€",
+    "hours": "12:00-15:30",
+    "type": "budget",
+    "address": "R. de Santa Justa 3, 1100-483 Lisboa",
+    "description": "산타 후스타 엘리베이터 근처. 숯불 생선구이",
+    "days": ["DAY 2"]
+  },
+  // 포르투 (시내/리베이라)
+  {
+    "name": "Casa Guedes",
+    "searchName": "Casa Guedes Tradicional Porto",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "10:00-00:00",
+    "type": "budget",
+    "address": "Praça dos Poveiros 130, 4000-398 Porto",
+    "description": "포르투 명물 샌드위치(Sandes de Pernil) ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Gazela",
+    "searchName": "Cervejaria Gazela Porto",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "12:00-22:30",
+    "type": "budget",
+    "address": "R. de Entreparedes 8, 4000-197 Porto",
+    "description": "매콤한 핫도그 '카초리뉴' 맛집. 맥주 안주로 최고",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Pedro dos Frangos",
+    "searchName": "Pedro dos Frangos Porto",
+    "rating": 4.4,
+    "price": "€",
+    "hours": "12:00-23:00",
+    "type": "budget",
+    "address": "R. do Bonjardim 223, 4000-124 Porto",
+    "description": "가성비 최고의 숯불 치킨. 현지인 바글바글",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Taxca",
+    "searchName": "Taxca A Badalhoca Porto",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "11:00-22:00",
+    "type": "budget",
+    "address": "R. da Picaria 26, 4050-477 Porto",
+    "description": "간단한 타파스와 와인을 즐기기 좋은 스탠딩 바",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "O Buraco",
+    "searchName": "Restaurante O Buraco Porto",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "R. do Bolhão 95, 4000-112 Porto",
+    "description": "볼량시장 근처 지하 식당. 오리밥과 문어튀김",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "A Sandeira do Porto",
+    "searchName": "A Sandeira do Porto",
+    "rating": 4.7,
+    "price": "€",
+    "hours": "11:00-23:00",
+    "type": "budget",
+    "address": "R. dos Caldeireiros 85, 4050-140 Porto",
+    "description": "클레리구스 탑 근처. 저렴하고 맛있는 샌드위치",
+    "days": ["DAY 7"]
+  },
+  // 신트라
+  {
+    "name": "Apeadeiro",
+    "searchName": "Restaurante Apeadeiro Sintra",
+    "rating": 4.4,
+    "price": "€",
+    "hours": "11:30-22:00",
+    "type": "budget",
+    "address": "Av. Dr. Miguel Bombarda 3, 2710-590 Sintra",
+    "description": "신트라 역 근처 가성비 최고 식당. 양이 푸짐함 ⭐",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Tulhas",
+    "searchName": "Tulhas Bar Restaurante Sintra",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "type": "restaurant",
+    "address": "R. Gil Vicente 4, 2710-568 Sintra",
+    "description": "구시가 골목 안 창고 개조 식당. 바칼랴우 추천",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Cantinho de São Pedro",
+    "searchName": "Cantinho de São Pedro Sintra",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "12:00-22:00",
+    "type": "budget",
+    "address": "Praça Dom Fernando II 18, 2710-483 Sintra",
+    "description": "현지인들이 찾는 숨은 맛집. 돌판 스테이크",
+    "days": ["DAY 4"]
+  },
+  // 코임브라
+  {
+    "name": "Quim dos Ossos",
+    "searchName": "Quim dos Ossos Coimbra",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "12:00-22:00",
+    "type": "budget",
+    "address": "Beco do Forno 12, 3000-177 Coimbra",
+    "description": "뼈다귀 고기가 유명한 전설적인 타스카 ⭐",
+    "days": ["DAY 6"]
+  },
+  {
+    "name": "A Cozinha da Maria",
+    "searchName": "A Cozinha da Maria Coimbra",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-15:00, 19:00-22:30",
+    "type": "restaurant",
+    "address": "R. das Azeiteiras 65, 3000-065 Coimbra",
+    "description": "아늑한 분위기의 가정식. 타일 장식이 예쁨",
+    "days": ["DAY 6"]
   }
 ];
 
