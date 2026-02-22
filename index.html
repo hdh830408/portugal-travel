@@ -893,6 +893,11 @@
       </a>
     </div>
 
+    <div class="api-section-title" style="margin-top:16px;border-top:1px solid var(--border);padding-top:16px">앱 데이터 관리</div>
+    <button class="btn-nearby-all" onclick="hardRefresh()" style="margin-bottom:16px;background:rgba(232,168,74,.1);color:var(--accent);border-color:var(--accent)">
+      🔄 캐시 삭제 및 최신 버전 받기
+    </button>
+
     <div class="settings-actions">
       <button class="btn-cancel" onclick="toggleSettings()">닫기</button>
       <button class="btn-clear" onclick="clearApiKey()">초기화</button>
@@ -2292,6 +2297,30 @@
       }
     });
     init();
+
+async function hardRefresh() {
+  if (confirm('모든 캐시를 삭제하고 최신 버전을 받아오시겠습니까?')) {
+    try {
+      // Service Worker 등록 해제
+      if ('serviceWorker' in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        for (let registration of registrations) {
+          await registration.unregister();
+        }
+      }
+      // 저장된 캐시 데이터 삭제
+      if ('caches' in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map(key => caches.delete(key)));
+      }
+      // 페이지 새로고침
+      window.location.reload();
+    } catch (e) {
+      console.error(e);
+      window.location.reload();
+    }
+  }
+}
     </script>
 </body>
 </html>
