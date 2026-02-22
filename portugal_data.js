@@ -2262,6 +2262,499 @@ const PLACES = [
     "address": "Estação de Caminhos de Ferro do Rossio, 1100-105 Lisboa",
     "description": "호시우 역 지점. 멋진 역사 건물 내 위치",
     "days": ["DAY 2"]
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🍽️ 2025-02-22 AI 자동 추가: 포르투 맛집 (DAY 7~9)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "name": "Francesinha Café",
+    "searchName": "Francesinha Café Porto Marquês",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "type": "restaurant",
+    "address": "R. do Campo Alegre 1328, 4150-175 Porto",
+    "description": "현지인 추천 프란세지냐. 셰프 페르난도 맛집 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Brasão Aliados",
+    "searchName": "Brasão Cervejaria Aliados Porto",
+    "rating": 4.6,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "restaurant",
+    "address": "R. de Ramalho Ortigão 28, 4000-407 Porto",
+    "description": "오븐 프란세지냐 + 수제맥주. 시청 근처 ⭐",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "O Afonso",
+    "searchName": "Café Restaurante O Afonso Porto",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "restaurant",
+    "address": "Rua da Torrinha 219, 4050-610 Porto",
+    "description": "안소니 보르뎅이 인정한 프란세지냐. 아이르통 세나 박물관 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Lado B Café",
+    "searchName": "Lado B Café Coliseu Porto",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-00:00",
+    "type": "restaurant",
+    "address": "R. de Passos Manuel 190, 4000-382 Porto",
+    "description": "로스트비프 프란세지냐. 비건 옵션 있음",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "O Golfinho",
+    "searchName": "Casa de Pasto O Golfinho Porto",
+    "rating": 4.7,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "Rua de Sá de Noronha 137, 4000-445 Porto",
+    "description": "로컬 타스카. 저렴하고 푸짐한 프란세지냐 ⭐",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Bufete Fase",
+    "searchName": "Bufete Fase Porto",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "08:00-22:00",
+    "type": "budget",
+    "address": "R. Alferes Malheiro 133, 4000-057 Porto",
+    "description": "전설의 프란세지냐. 푸짐한 양 ⭐",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Santa Francesinha",
+    "searchName": "Santa Francesinha Ribeira Porto",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "restaurant",
+    "address": "R. do Bonjardim 314, 4000-116 Porto",
+    "description": "비건 프란세지냐로 유명. 볼량시장 근처",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Taberna Londrina",
+    "searchName": "Taberna Londrina Porto",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-15:00, 19:00-23:00",
+    "type": "restaurant",
+    "address": "Rua Capitão Pombeiro 110, 4000-124 Porto",
+    "description": "현대적 프란세지냐. 독특한 소스",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Bacalhau Porto",
+    "searchName": "Bacalhau Restaurante Porto Ribeira",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-22:30",
+    "type": "seafood",
+    "address": "Cais da Ribeira 21, 4050-511 Porto",
+    "description": "도우루강변 바칼랴우 맛집. 테라스 뷰 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Ribeira Square",
+    "searchName": "Ribeira Square Restaurante Porto",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:30-14:30, 18:00-22:30",
+    "type": "restaurant",
+    "address": "Praça Ribeira 16, 4050-513 Porto",
+    "description": "가족 운영. 타파스+프란세지냐. 달달한 상그리아",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Muro do Bacalhau",
+    "searchName": "Muro do Bacalhau Porto",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "type": "seafood",
+    "address": "Cais da Estiva 122, 4050-080 Porto",
+    "description": "강변 숨은 맛집. 아소르다(빵수프) 추천 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "éLeBê Baixa",
+    "searchName": "éLeBê Baixa Porto Bolhão",
+    "rating": 4.5,
+    "price": "€€€",
+    "hours": "12:00-23:00",
+    "type": "restaurant",
+    "address": "R. do Bonjardim 420, 4000-118 Porto",
+    "description": "모던 비스트로. 볼량시장 근처 세련된 분위기",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Tapabento",
+    "searchName": "Tapabento Porto São Bento",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-15:00, 19:00-22:30",
+    "type": "restaurant",
+    "address": "Rua da Madeira 222, 4000-330 Porto",
+    "description": "상벤투역 옆 타파스. 현지인 인기 ⭐",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "DOP Restaurante",
+    "searchName": "DOP Restaurante Porto Palácio das Artes",
+    "rating": 4.6,
+    "price": "€€€€",
+    "hours": "12:30-15:00, 19:30-23:00",
+    "type": "restaurant",
+    "address": "Largo de São Domingos 18, 4050-545 Porto",
+    "description": "셰프 루이 파울라. 미쉐린급 포르투갈 요리 ⭐",
+    "days": ["DAY 8"]
+  },
+  {
+    "name": "Tasquinha Zé Povinho",
+    "searchName": "Tasquinha Zé Povinho Porto",
+    "rating": 4.7,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "Rua Chã 152, 4050-163 Porto",
+    "description": "포르투 최고 평점 타스카. 전통 가정식 ⭐⭐",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Tito I Matosinhos",
+    "searchName": "Tito I Matosinhos Porto",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "seafood",
+    "address": "R. Heróis de França 452, 4450-163 Matosinhos",
+    "description": "마토지뉴스 해산물. 구운 정어리, 오징어 ⭐",
+    "days": ["DAY 9"]
+  },
+  {
+    "name": "Time Out Market Porto",
+    "searchName": "Time Out Market Porto São Bento",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "10:00-00:00",
+    "type": "restaurant",
+    "address": "Praça de Almeida Garrett, 4000-069 Porto",
+    "description": "상벤투역 푸드마켓. 11개 맛집 집결 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Do Norte Café",
+    "searchName": "Do Norte Café Porto",
+    "rating": 4.4,
+    "price": "€",
+    "hours": "09:00-19:00",
+    "type": "cafe",
+    "address": "R. de Mouzinho da Silveira 32, 4050-416 Porto",
+    "description": "아늑한 카페. 맛있는 커피+브런치",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Padaria Ribeiro",
+    "searchName": "Padaria Ribeiro Porto",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "07:00-20:00",
+    "type": "cafe",
+    "address": "Praça Guilherme Gomes Fernandes 21, 4050-293 Porto",
+    "description": "1880년 전통 베이커리. 에끌레어 추천 ⭐",
+    "days": ["DAY 7"]
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🍽️ 2025-02-22 AI 자동 추가: 리스본 맛집 (DAY 2~3)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "name": "Cervejaria Ramiro",
+    "searchName": "Cervejaria Ramiro Lisboa",
+    "rating": 4.5,
+    "price": "€€€",
+    "hours": "12:00-00:30",
+    "type": "seafood",
+    "address": "Av. Alm. Reis 1 H, 1150-007 Lisboa",
+    "description": "보르뎅 인정 해산물 맛집. 게+새우 필수 ⭐⭐",
+    "days": ["DAY 2", "DAY 3"]
+  },
+  {
+    "name": "A Marisqueira do Lis",
+    "searchName": "A Marisqueira do Lis Lisboa",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "seafood",
+    "address": "Av. Alm. Reis 3, 1150-007 Lisboa",
+    "description": "라미로 대안. 대기줄 없이 신선한 해산물",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "A Cevicheria",
+    "searchName": "A Cevicheria Lisboa Príncipe Real",
+    "rating": 4.5,
+    "price": "€€€",
+    "hours": "12:00-00:00",
+    "type": "seafood",
+    "address": "R. Dom Pedro V 129, 1250-096 Lisboa",
+    "description": "셰프 키코 마르틴스. 페루+포르투갈 퓨전 ⭐⭐",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "A Casa do Bacalhau",
+    "searchName": "A Casa do Bacalhau Lisboa Beato",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-15:00, 19:30-23:00",
+    "type": "seafood",
+    "address": "Rua do Grilo 54, 1950-144 Lisboa",
+    "description": "바칼랴우 전문점. 벽돌 아치 인테리어 ⭐",
+    "days": ["DAY 3"]
+  },
+  {
+    "name": "Laurentina",
+    "searchName": "Restaurante Laurentina Lisboa",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-16:00, 19:00-23:00",
+    "type": "seafood",
+    "address": "Av. Conde Valbom 71A, 1050-067 Lisboa",
+    "description": "1976년 바칼랴우 전문. 콤 나타스 추천 ⭐",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "O Beco",
+    "searchName": "O Beco Alfama Lisboa",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "type": "seafood",
+    "address": "Beco do Arco Escuro 4, 1100-026 Lisboa",
+    "description": "알파마 숨은 골목 맛집. 바칼랴우 전문",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Clube do Bacalhau",
+    "searchName": "Clube do Bacalhau Lisboa Cais do Sodré",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "seafood",
+    "address": "Travessa do Cotovelo 12, 1200-167 Lisboa",
+    "description": "바칼랴우 클럽. 폼발 양식 아치형 내부",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Cervejaria Ribadouro",
+    "searchName": "Cervejaria Ribadouro Lisboa Avenida",
+    "rating": 4.4,
+    "price": "€€€",
+    "hours": "12:00-00:00",
+    "type": "seafood",
+    "address": "Av. da Liberdade 155, 1250-141 Lisboa",
+    "description": "75년 전통. 타이거새우 20kg/일 소비 ⭐",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Bono Lisboa",
+    "searchName": "Bono Lisboa Cais do Sodré",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "seafood",
+    "address": "R. do Alecrim 21, 1200-014 Lisboa",
+    "description": "숨은 해산물 맛집. 농어+블랙라이스 추천",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Baía do Peixe",
+    "searchName": "Baía do Peixe Lisboa",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-22:30",
+    "type": "seafood",
+    "address": "R. Cais de Santarém 59, 1100-104 Lisboa",
+    "description": "테주강변 해산물. 신선한 생선 그릴",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Restaurante Carmo",
+    "searchName": "Restaurante Carmo Lisboa",
+    "rating": 4.3,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "restaurant",
+    "address": "Largo do Carmo 11, 1200-092 Lisboa",
+    "description": "카르모 수녀원 앞. 바칼랴우 아 브라스 ⭐",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Vida de Tasca",
+    "searchName": "Vida de Tasca Lisboa Roma",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-15:00, 19:00-23:00",
+    "type": "restaurant",
+    "address": "R. Moniz Barreto 7, 1700-306 Lisboa",
+    "description": "2024 오픈 타스카. 셰프 레오노르 비토케 추천 ⭐",
+    "days": ["DAY 3"]
+  },
+  {
+    "name": "Guelra",
+    "searchName": "Guelra Restaurante Lisboa Belém",
+    "rating": 4.5,
+    "price": "€€€",
+    "hours": "12:00-15:00, 19:00-23:00",
+    "type": "seafood",
+    "address": "R. de Belém 35, 1300-085 Lisboa",
+    "description": "벨렘 모던 해산물. 바칼랴우 3종 ⭐",
+    "days": ["DAY 3"]
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🍽️ 2025-02-22 AI 자동 추가: 신트라 맛집 (DAY 4~5)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "name": "Casa Piriquita",
+    "searchName": "Casa Piriquita Sintra",
+    "rating": 4.4,
+    "price": "€",
+    "hours": "08:00-20:00",
+    "type": "dessert",
+    "address": "R. das Padarias 1, 2710-602 Sintra",
+    "description": "1862년 전통 베이커리. 트라베세이루+케이자다 ⭐⭐",
+    "days": ["DAY 4", "DAY 5"]
+  },
+  {
+    "name": "Café Saudade",
+    "searchName": "Café Saudade Sintra",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "08:30-20:00",
+    "type": "cafe",
+    "address": "Av. Dr. Miguel Bombarda 6, 2710-590 Sintra",
+    "description": "아름다운 인테리어. 브런치+디저트 추천 ⭐",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Incomum by Luis Santos",
+    "searchName": "Incomum Restaurante Sintra",
+    "rating": 4.5,
+    "price": "€€€",
+    "hours": "12:30-15:00, 19:30-22:00",
+    "type": "restaurant",
+    "address": "R. Dr. Alfredo da Costa 22, 2710-523 Sintra",
+    "description": "모던 포르투갈 요리. 문어+시금치+고구마 ⭐",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Tascantiga",
+    "searchName": "Tascantiga Sintra",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "type": "restaurant",
+    "address": "R. Consiglieri Pedroso 18, 2710-550 Sintra",
+    "description": "전통 요리 재해석. 아늑한 비스트로",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Romaria de Baco",
+    "searchName": "Romaria de Baco Sintra",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "type": "restaurant",
+    "address": "R. Gil Vicente 2, 2710-568 Sintra",
+    "description": "숨은 맛집. 페티스코스+와인 페어링 ⭐",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Nau Palatina",
+    "searchName": "Nau Palatina Sintra",
+    "rating": 4.4,
+    "price": "€€€",
+    "hours": "12:00-22:00",
+    "type": "seafood",
+    "address": "R. Visconde de Monserrate 12, 2710-591 Sintra",
+    "description": "지중해+포르투갈 퓨전. 해산물 카타플라나",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Restaurante Regional",
+    "searchName": "Restaurante Regional de Sintra",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-16:00, 19:00-22:00",
+    "type": "restaurant",
+    "address": "Travessa do Município 2, 2710-592 Sintra",
+    "description": "전통 스튜 맛집. 현지인 추천 ⭐",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Bar do Binho",
+    "searchName": "Bar do Binho Sintra",
+    "rating": 4.3,
+    "price": "€€",
+    "hours": "11:00-20:00",
+    "type": "cafe",
+    "address": "Praça da República 8, 2710-616 Sintra",
+    "description": "포트와인 테이스팅. 국립궁전 뷰 ⭐",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Restaurante Azenhas do Mar",
+    "searchName": "Restaurante Azenhas do Mar Sintra",
+    "rating": 4.3,
+    "price": "€€€",
+    "hours": "12:30-23:00",
+    "type": "seafood",
+    "address": "Restaurante Piscina, 2705-104 Azenhas do Mar",
+    "description": "절벽 위 해산물. 조개+따개비 필수 ⭐⭐",
+    "days": ["DAY 5"]
+  },
+  {
+    "name": "Lawrence's Restaurant",
+    "searchName": "Lawrence's Hotel Restaurant Sintra",
+    "rating": 4.5,
+    "price": "€€€€",
+    "hours": "12:30-15:00, 19:30-22:00",
+    "type": "restaurant",
+    "address": "Rua Consiglieri Pedroso 38-40, 2710-550 Sintra",
+    "description": "역사적 호텔 레스토랑. 파인다이닝 ⭐",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "COMO Restaurante",
+    "searchName": "COMO Restaurante Sintra",
+    "rating": 4.4,
+    "price": "€€€",
+    "hours": "12:00-22:00",
+    "type": "restaurant",
+    "address": "R. Guilherme Gomes Fernandes 19, 2710-721 Sintra",
+    "description": "국립궁전 뷰. 공유 요리+타이거새우",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Dona Maria Café",
+    "searchName": "Café Dona Maria Sintra",
+    "rating": 4.2,
+    "price": "€",
+    "hours": "09:00-20:00",
+    "type": "cafe",
+    "address": "Av. do Movimento das Forças Armadas 1, 2710-400 Sintra",
+    "description": "페나궁 하산 후 시원한 맥주 스팟",
+    "days": ["DAY 4", "DAY 5"]
   }
 ];
 
