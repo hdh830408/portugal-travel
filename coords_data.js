@@ -982,5 +982,55 @@ const PLACE_COORDS = {
   "Solar do Bacalhau": {
     "lat": 40.2085794,
     "lng": -8.4308852
-  }
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 📍 2025-02-22 AI 자동 추가: 새로운 좌표
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 포르투 맛집
+  "Francesinha Café": { "lat": 41.1546, "lng": -8.6345 },
+  "Brasão Aliados": { "lat": 41.1481, "lng": -8.6113 },
+  "O Afonso": { "lat": 41.1578, "lng": -8.6286 },
+  "Lado B Café": { "lat": 41.1468, "lng": -8.6069 },
+  "O Golfinho": { "lat": 41.1523, "lng": -8.6102 },
+  "Bufete Fase": { "lat": 41.1502, "lng": -8.6051 },
+  "Santa Francesinha": { "lat": 41.1489, "lng": -8.6076 },
+  "Taberna Londrina": { "lat": 41.1534, "lng": -8.6098 },
+  "Bacalhau Porto": { "lat": 41.1406, "lng": -8.6152 },
+  "Ribeira Square": { "lat": 41.1405, "lng": -8.6148 },
+  "Muro do Bacalhau": { "lat": 41.1398, "lng": -8.6163 },
+  "éLeBê Baixa": { "lat": 41.1493, "lng": -8.6062 },
+  "Tapabento": { "lat": 41.1451, "lng": -8.6106 },
+  "DOP Restaurante": { "lat": 41.1442, "lng": -8.6128 },
+  "Tasquinha Zé Povinho": { "lat": 41.1465, "lng": -8.6143 },
+  "Tito I Matosinhos": { "lat": 41.1825, "lng": -8.6891 },
+  "Time Out Market Porto": { "lat": 41.1456, "lng": -8.6103 },
+  "Do Norte Café": { "lat": 41.1448, "lng": -8.6092 },
+  "Padaria Ribeiro": { "lat": 41.1462, "lng": -8.6155 },
+  // 리스본 맛집
+  "Cervejaria Ramiro": { "lat": 38.7242, "lng": -9.1337 },
+  "A Marisqueira do Lis": { "lat": 38.7243, "lng": -9.1336 },
+  "A Cevicheria": { "lat": 38.7173, "lng": -9.1478 },
+  "A Casa do Bacalhau": { "lat": 38.7348, "lng": -9.1089 },
+  "Laurentina": { "lat": 38.7376, "lng": -9.1503 },
+  "O Beco": { "lat": 38.7112, "lng": -9.1322 },
+  "Clube do Bacalhau": { "lat": 38.7078, "lng": -9.1432 },
+  "Cervejaria Ribadouro": { "lat": 38.7205, "lng": -9.1452 },
+  "Bono Lisboa": { "lat": 38.7098, "lng": -9.1432 },
+  "Baía do Peixe": { "lat": 38.7125, "lng": -9.1295 },
+  "Restaurante Carmo": { "lat": 38.7124, "lng": -9.1402 },
+  "Vida de Tasca": { "lat": 38.7412, "lng": -9.1365 },
+  "Guelra": { "lat": 38.6978, "lng": -9.2012 },
+  // 신트라 맛집
+  "Casa Piriquita": { "lat": 38.7978, "lng": -9.3903 },
+  "Café Saudade": { "lat": 38.7983, "lng": -9.3891 },
+  "Incomum by Luis Santos": { "lat": 38.7967, "lng": -9.3878 },
+  "Tascantiga": { "lat": 38.7975, "lng": -9.3912 },
+  "Romaria de Baco": { "lat": 38.7981, "lng": -9.3898 },
+  "Nau Palatina": { "lat": 38.7972, "lng": -9.3895 },
+  "Restaurante Regional": { "lat": 38.7988, "lng": -9.3882 },
+  "Bar do Binho": { "lat": 38.7985, "lng": -9.3908 },
+  "Restaurante Azenhas do Mar": { "lat": 38.8378, "lng": -9.4612 },
+  "Lawrence's Restaurant": { "lat": 38.7973, "lng": -9.3923 },
+  "COMO Restaurante": { "lat": 38.7976, "lng": -9.3915 },
+  "Dona Maria Café": { "lat": 38.7965, "lng": -9.3875 }
 };
