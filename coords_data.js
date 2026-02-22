@@ -1085,5 +1085,17 @@ const PLACE_COORDS = {
   "Cantinho Gourmet": { "lat": 38.7970, "lng": -9.3860 },
   "Pregaria da Sé": { "lat": 41.5500, "lng": -8.4275 },
   "Caco, o Original": { "lat": 40.2081, "lng": -8.4292 },
-  "O Mimo": { "lat": 40.2118, "lng": -8.4258 }
+  "O Mimo": { "lat": 40.2118, "lng": -8.4258 },
+  // 2025-02-22 아주다 궁전 및 추가 맛집
+  "Palácio Nacional da Ajuda": { "lat": 38.7076, "lng": -9.1973 },
+  "Rota dos Petiscos": { "lat": 38.7065, "lng": -9.1985 },
+  "Tasquinha do Bé": { "lat": 38.6970, "lng": -9.2025 },
+  "Cantinho do Aziz": { "lat": 38.7145, "lng": -9.1340 }
+  "A Margarida da Belém": { "lat": 38.6973, "lng": -9.2035 },
+  "Canto da Vila": { "lat": 38.7095, "lng": -9.1318 },
+  "Casinha São João": { "lat": 41.1411, "lng": -8.6126 },
+  "Zenith Porto": { "lat": 41.1492, "lng": -8.6150 },
+  "Abadia do Porto": { "lat": 41.1472, "lng": -8.6065 },
+  "Metamorphosis": { "lat": 38.7985, "lng": -9.3870 },
+  "Fangas Maior": { "lat": 40.2088, "lng": -8.4272 }
 };

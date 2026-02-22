@@ -3174,17 +3174,6 @@ const PLACES = [
     "description": "볼량시장 근처 지하 식당. 오리밥과 문어튀김",
     "days": ["DAY 7"]
   },
-  {
-    "name": "A Sandeira do Porto",
-    "searchName": "A Sandeira do Porto",
-    "rating": 4.7,
-    "price": "€",
-    "hours": "11:00-23:00",
-    "type": "budget",
-    "address": "R. dos Caldeireiros 85, 4050-140 Porto",
-    "description": "클레리구스 탑 근처. 저렴하고 맛있는 샌드위치",
-    "days": ["DAY 7"]
-  },
   // 신트라
   {
     "name": "Apeadeiro",
@@ -3288,17 +3277,6 @@ const PLACES = [
     "address": "Tv. do Cabral 33, 1200-073 Lisboa",
     "description": "비카 푸니쿨라 옆. 퓨전 타파스와 아늑한 분위기",
     "days": ["DAY 2"]
-  },
-  {
-    "name": "Buraquinho",
-    "searchName": "O Buraquinho Porto",
-    "rating": 4.6,
-    "price": "€",
-    "hours": "12:00-14:30, 19:00-22:00",
-    "type": "budget",
-    "address": "Praça dos Poveiros 33, 4000-398 Porto",
-    "description": "현지인들의 타스카. 돼지고기 샌드위치 추천",
-    "days": ["DAY 7"]
   },
   {
     "name": "Casa Expresso",
@@ -3434,6 +3412,94 @@ const PLACES = [
     "address": "R. de São Lourenço 5, 1100-530 Lisboa",
     "description": "모라리아 지구의 전설적인 모잠비크 퓨전 식당",
     "days": ["DAY 2"]
+  },
+  {
+    "name": "Uma",
+    "searchName": "Restaurante Uma Lisboa",
+    "type": "seafood",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "address": "R. dos Sapateiros 177, 1100-044 Lisboa",
+    "description": "리스본 3대 해물밥 맛집. 단일 메뉴 '해물밥' 전문 ⭐",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "A Margarida da Belém",
+    "searchName": "A Margarida da Belém Lisboa",
+    "type": "restaurant",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "address": "R. de Belém 57, 1300-085 Lisboa",
+    "description": "벨렝 지구의 숨은 보석. 전통 포르투갈 가정식",
+    "days": ["DAY 3"]
+  },
+  {
+    "name": "Canto da Vila",
+    "searchName": "Canto da Vila Lisboa",
+    "type": "restaurant",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "address": "R. de São João da Praça 2, 1100-521 Lisboa",
+    "description": "대성당 근처 아늑한 식당. 문어 요리와 타파스 추천 ⭐",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Casinha São João",
+    "searchName": "Casinha São João Porto",
+    "type": "restaurant",
+    "rating": 4.7,
+    "price": "€€",
+    "hours": "12:30-23:00",
+    "address": "R. de São João 38, 4050-552 Porto",
+    "description": "리베이라 근처 아늑한 식당. 문어 요리와 스테이크 추천 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Zenith Porto",
+    "searchName": "Zenith Brunch & Cocktails Bar Porto",
+    "type": "cafe",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "09:00-18:00",
+    "address": "Praça de Carlos Alberto 86, 4050-158 Porto",
+    "description": "포르투 최고 인기 브런치 카페. 에그베네딕트, 팬케이크 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Abadia do Porto",
+    "searchName": "Restaurante Abadia do Porto",
+    "type": "restaurant",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "address": "R. de Passos Manuel 161, 4000-382 Porto",
+    "description": "1939년 오픈한 전통 맛집. 양고기와 대구 요리 전문 ⭐",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Metamorphosis",
+    "searchName": "Restaurante Metamorphosis Sintra",
+    "type": "restaurant",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "address": "R. Dr. Alfredo da Costa 7, 2710-523 Sintra",
+    "description": "신트라 역 근처 현지인 맛집. 대구 요리와 스테이크",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Fangas Maior",
+    "searchName": "Fangas Maior Coimbra",
+    "type": "restaurant",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:30-23:00",
+    "address": "R. de Fernandes Tomás 45, 3000-168 Coimbra",
+    "description": "코임브라 구시가 타파스 바. 세련된 포르투갈 요리",
+    "days": ["DAY 6"]
   }
 ];
 
@@ -4286,6 +4352,46 @@ const NEARBY_LANDMARKS = {
     "봉 제수스 두 몬치",
     "봉 제수스 전망대",
     "봉 제수스 푸니쿨라"
+  ],
+  "Uma": [
+    "호시우 광장",
+    "산타 후스타 엘리베이터",
+    "피게이라 광장"
+  ],
+  "A Margarida da Belém": [
+    "제로니무스 수도원",
+    "벨렝 산타 마리아 성당",
+    "발견기념비"
+  ],
+  "Canto da Vila": [
+    "리스본 대성당",
+    "포르타스 두 솔 전망대",
+    "상 조르즈 성"
+  ],
+  "Casinha São João": [
+    "리베이라 광장",
+    "동 루이스 다리",
+    "볼사궁전"
+  ],
+  "Zenith Porto": [
+    "카르무 성당",
+    "렐루서점",
+    "클레리구스 성당/탑"
+  ],
+  "Abadia do Porto": [
+    "볼량시장",
+    "산타 카타리나 거리",
+    "알마스 성당"
+  ],
+  "Metamorphosis": [
+    "신트라 왕궁",
+    "무어성",
+    "헤갈레이라 별장"
+  ],
+  "Fangas Maior": [
+    "코임브라 구 대성당",
+    "퀘브라 코스타스 계단",
+    "코임브라 대학교"
   ]
 };
 

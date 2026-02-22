@@ -893,14 +893,9 @@
       </a>
     </div>
 
-    <div class="api-section-title" style="margin-top:16px;border-top:1px solid var(--border);padding-top:16px">앱 데이터 관리</div>
-    <button class="btn-nearby-all" onclick="hardRefresh()" style="margin-bottom:16px;background:rgba(232,168,74,.1);color:var(--accent);border-color:var(--accent)">
-      🔄 캐시 삭제 및 최신 버전 받기
-    </button>
-
     <div class="settings-actions">
       <button class="btn-cancel" onclick="toggleSettings()">닫기</button>
-      <button class="btn-clear" onclick="clearApiKey()">초기화</button>
+      <button class="btn-clear" onclick="resetApp()">전체 초기화</button>
       <button class="btn-save" id="btnSave" onclick="saveApiKey()">저장</button>
     </div>
   </div>
@@ -2109,22 +2104,6 @@
       document.getElementById('settingsBtn').classList.remove('active');
     }
 
-    function clearApiKey() {
-      ['pt_api_key','pt_api_key_google','pt_api_key_anthropic','pt_model','pt_provider'].forEach(k => localStorage.removeItem(k));
-      localStorage.setItem('pt_model', 'gemini-2.0-flash');
-      localStorage.setItem('pt_provider', 'google');
-      document.getElementById('apiKeyInput').value = '';
-      document.getElementById('apiKeyInputGoogle').value = '';
-      document.getElementById('apiKeyInputAnthropic').value = '';
-      currentProvider = 'google';
-      currentModel = 'gemini-2.0-flash';
-      switchProvider('google', false);
-      refreshApiStatus();
-      showToast('설정 초기화됨');
-      document.getElementById('settingsBtn').style.borderColor = '';
-      document.getElementById('settingsBtn').style.color = '';
-    }
-
     // ═══════════════════════════════════════════
     // AI AGENT
     // ═══════════════════════════════════════════
@@ -2298,29 +2277,31 @@
     });
     init();
 
-async function hardRefresh() {
-  if (confirm('모든 캐시를 삭제하고 최신 버전을 받아오시겠습니까?')) {
-    try {
-      // Service Worker 등록 해제
-      if ('serviceWorker' in navigator) {
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        for (let registration of registrations) {
-          await registration.unregister();
+    async function resetApp() {
+      if (confirm('앱을 초기화하고 최신 데이터를 받아오시겠습니까?\n(저장된 설정과 캐시가 모두 삭제됩니다)')) {
+        // 설정 삭제
+        ['pt_api_key','pt_api_key_google','pt_api_key_anthropic','pt_model','pt_provider'].forEach(k => localStorage.removeItem(k));
+        
+        // 캐시 삭제 (Service Worker 해제)
+        try {
+          if ('serviceWorker' in navigator) {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            for (let registration of registrations) {
+              await registration.unregister();
+            }
+          }
+          if ('caches' in window) {
+            const keys = await caches.keys();
+            await Promise.all(keys.map(key => caches.delete(key)));
+          }
+        } catch (e) {
+          console.error(e);
         }
+        
+        // 페이지 새로고침
+        window.location.reload();
       }
-      // 저장된 캐시 데이터 삭제
-      if ('caches' in window) {
-        const keys = await caches.keys();
-        await Promise.all(keys.map(key => caches.delete(key)));
-      }
-      // 페이지 새로고침
-      window.location.reload();
-    } catch (e) {
-      console.error(e);
-      window.location.reload();
     }
-  }
-}
     </script>
 </body>
 </html>
