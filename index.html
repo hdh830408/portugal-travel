@@ -682,6 +682,20 @@
     .modal-actions{
       display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;
     }
+
+    /* 🖥️ PC/태블릿 대응: 모바일 앱처럼 중앙 정렬 */
+    @media (min-width: 500px) {
+      body { background-color: #111; display: flex; justify-content: center; min-height: 100vh; }
+      #app { width: 100%; max-width: 420px; background-color: var(--bg); box-shadow: 0 0 40px rgba(0,0,0,0.5); position: relative; }
+      
+      /* 고정 요소들도 앱 너비에 맞게 조정 */
+      .settings-panel, .modal, .guide-modal, .tag-popup-overlay { 
+        left: 50%; width: 420px; margin-left: -210px; 
+      }
+      .ai-panel { 
+        left: 50%; width: 420px; margin-left: -210px; right: auto;
+      }
+    }
     </style>
 </head>
 <body>
