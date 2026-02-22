@@ -1,6 +1,4 @@
-const CACHE_NAME = 'portugal-travel-v8';
-const CACHE_NAME = 'portugal-travel-v9';
-const ASSETS = [
+const CACHE_NAME = 'portugal-travel-v1
   './',
   './index.html',
   './portugal_data.js',

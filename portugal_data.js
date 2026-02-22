@@ -1036,6 +1036,7 @@ const PLACES = [
   },
   {
     "name": "Café A Brasileira",
+    "searchName": "Café A Brasileira Lisboa",
     "type": "cafe",
     "rating": 4.2,
     "price": "€€",
@@ -1049,6 +1050,7 @@ const PLACES = [
   },
   {
     "name": "Fábrica Coffee Roasters",
+    "searchName": "Fábrica Coffee Roasters Lisboa",
     "type": "cafe",
     "rating": 4.5,
     "price": "€",
@@ -1062,6 +1064,7 @@ const PLACES = [
   },
   {
     "name": "Manteigaria",
+    "searchName": "Manteigaria Lisboa Chiado",
     "type": "dessert",
     "rating": 4.6,
     "price": "€",
@@ -1075,6 +1078,7 @@ const PLACES = [
   },
   {
     "name": "Confeitaria Nacional",
+    "searchName": "Confeitaria Nacional Lisboa",
     "type": "dessert",
     "rating": 4.3,
     "price": "€",
@@ -1088,6 +1092,7 @@ const PLACES = [
   },
   {
     "name": "Landeau Chocolate",
+    "searchName": "Landeau Chocolate Chiado",
     "type": "dessert",
     "rating": 4.6,
     "price": "€€",
@@ -1101,6 +1106,7 @@ const PLACES = [
   },
   {
     "name": "Gelados Santini",
+    "searchName": "Gelados Santini Lisboa Chiado",
     "type": "dessert",
     "rating": 4.4,
     "price": "€",
@@ -1114,6 +1120,7 @@ const PLACES = [
   },
   {
     "name": "Taberna da Rua das Flores",
+    "searchName": "Taberna da Rua das Flores Lisboa",
     "type": "restaurant",
     "rating": 4.5,
     "price": "€€",
@@ -1127,6 +1134,7 @@ const PLACES = [
   },
   {
     "name": "Cervejaria Trindade",
+    "searchName": "Cervejaria Trindade Lisboa",
     "type": "seafood",
     "rating": 4.2,
     "price": "€€",
@@ -1140,6 +1148,7 @@ const PLACES = [
   },
   {
     "name": "Solar dos Presuntos",
+    "searchName": "Solar dos Presuntos Lisboa",
     "type": "seafood",
     "rating": 4.3,
     "price": "€€€",
@@ -1153,6 +1162,7 @@ const PLACES = [
   },
   {
     "name": "O Trevo",
+    "searchName": "O Trevo Lisboa",
     "type": "budget",
     "rating": 4.2,
     "price": "€",
@@ -1166,6 +1176,7 @@ const PLACES = [
   },
   {
     "name": "Pinóquio",
+    "searchName": "Restaurante Pinóquio Lisboa",
     "type": "seafood",
     "rating": 4.1,
     "price": "€€",
@@ -1179,6 +1190,7 @@ const PLACES = [
   },
   {
     "name": "A Ginjinha",
+    "searchName": "A Ginjinha Espinheira Lisboa",
     "type": "cafe",
     "rating": 4.3,
     "price": "€",
@@ -1192,6 +1204,7 @@ const PLACES = [
   },
   {
     "name": "Beira Gare",
+    "searchName": "Beira Gare Lisboa",
     "type": "budget",
     "rating": 4,
     "price": "€",
@@ -1231,6 +1244,7 @@ const PLACES = [
   },
   {
     "name": "Farol de Santa Luzia",
+    "searchName": "Restaurante Farol de Santa Luzia Lisboa",
     "type": "seafood",
     "rating": 4.3,
     "price": "€€",
@@ -1243,6 +1257,7 @@ const PLACES = [
   },
   {
     "name": "Clube de Fado",
+    "searchName": "Clube de Fado Lisboa",
     "type": "restaurant",
     "rating": 4.4,
     "price": "€€€",
@@ -1255,6 +1270,7 @@ const PLACES = [
   },
   {
     "name": "Pastéis de Belém",
+    "searchName": "Pastéis de Belém Lisboa",
     "type": "dessert",
     "rating": 4.5,
     "price": "€",
@@ -1267,6 +1283,7 @@ const PLACES = [
   },
   {
     "name": "Pão Pão Queijo Queijo",
+    "searchName": "Pão Pão Queijo Queijo Belém",
     "type": "budget",
     "rating": 4.3,
     "price": "€",
@@ -1279,6 +1296,7 @@ const PLACES = [
   },
   {
     "name": "Flor dos Jerónimos",
+    "searchName": "Flor dos Jerónimos Belém",
     "type": "restaurant",
     "rating": 4.2,
     "price": "€€",
@@ -1291,6 +1309,7 @@ const PLACES = [
   },
   {
     "name": "O Frade",
+    "searchName": "O Frade Belém",
     "type": "restaurant",
     "rating": 4.5,
     "price": "€€€",
@@ -1303,6 +1322,7 @@ const PLACES = [
   },
   {
     "name": "Ponto Final",
+    "searchName": "Restaurante Ponto Final Almada",
     "type": "seafood",
     "rating": 4.4,
     "price": "€€",
@@ -1315,6 +1335,7 @@ const PLACES = [
   },
   {
     "name": "Landeau Chocolate LX",
+    "searchName": "Landeau Chocolate LX Factory",
     "type": "dessert",
     "rating": 4.6,
     "price": "€€",
@@ -1327,6 +1348,7 @@ const PLACES = [
   },
   {
     "name": "Cantina LX",
+    "searchName": "Cantina LX Factory",
     "type": "restaurant",
     "rating": 4.3,
     "price": "€€",
@@ -1339,6 +1361,7 @@ const PLACES = [
   },
   {
     "name": "1300 Taberna",
+    "searchName": "1300 Taberna LX Factory",
     "type": "restaurant",
     "rating": 4.4,
     "price": "€€€",
@@ -1351,6 +1374,7 @@ const PLACES = [
   },
   {
     "name": "Casa Piriquita",
+    "searchName": "Casa Piriquita Sintra",
     "type": "dessert",
     "rating": 4.5,
     "price": "€",
@@ -1363,6 +1387,7 @@ const PLACES = [
   },
   {
     "name": "Café Saudade",
+    "searchName": "Café Saudade Sintra",
     "type": "cafe",
     "rating": 4.3,
     "price": "€€",
@@ -1375,6 +1400,7 @@ const PLACES = [
   },
   {
     "name": "Nata Pura",
+    "searchName": "Nata Pura Sintra",
     "type": "dessert",
     "rating": 4.2,
     "price": "€",
@@ -1387,6 +1413,7 @@ const PLACES = [
   },
   {
     "name": "Tascantiga",
+    "searchName": "Tascantiga Sintra",
     "type": "restaurant",
     "rating": 4.4,
     "price": "€€",
@@ -1399,6 +1426,7 @@ const PLACES = [
   },
   {
     "name": "Incomum by Luis Santos",
+    "searchName": "Incomum by Luis Santos Sintra",
     "type": "restaurant",
     "rating": 4.5,
     "price": "€€€",
@@ -1411,6 +1439,7 @@ const PLACES = [
   },
   {
     "name": "Café Santa Cruz",
+    "searchName": "Café Santa Cruz Coimbra",
     "type": "cafe",
     "rating": 4.4,
     "price": "€",
@@ -1423,6 +1452,7 @@ const PLACES = [
   },
   {
     "name": "Zé Manel dos Ossos",
+    "searchName": "Zé Manel dos Ossos Coimbra",
     "type": "restaurant",
     "rating": 4.5,
     "price": "€",
@@ -1435,6 +1465,7 @@ const PLACES = [
   },
   {
     "name": "Majestic Café",
+    "searchName": "Majestic Café Porto",
     "type": "cafe",
     "rating": 4.3,
     "price": "€€€",
@@ -1450,6 +1481,7 @@ const PLACES = [
   },
   {
     "name": "Café Santiago",
+    "searchName": "Café Santiago Porto",
     "type": "restaurant",
     "rating": 4.4,
     "price": "€€",
@@ -1465,6 +1497,7 @@ const PLACES = [
   },
   {
     "name": "Manteigaria Porto",
+    "searchName": "Manteigaria Porto Bolhão",
     "type": "dessert",
     "rating": 4.5,
     "price": "€",
@@ -1480,6 +1513,7 @@ const PLACES = [
   },
   {
     "name": "Confeitaria do Bolhão",
+    "searchName": "Confeitaria do Bolhão Porto",
     "type": "dessert",
     "rating": 4.3,
     "price": "€",
@@ -1495,6 +1529,7 @@ const PLACES = [
   },
   {
     "name": "Brasão Aliados",
+    "searchName": "Brasão Aliados Porto",
     "type": "restaurant",
     "rating": 4.3,
     "price": "€€",
@@ -1510,6 +1545,7 @@ const PLACES = [
   },
   {
     "name": "Conga",
+    "searchName": "Conga Casa das Bifanas Porto",
     "type": "budget",
     "rating": 4.1,
     "price": "€",
@@ -1525,6 +1561,7 @@ const PLACES = [
   },
   {
     "name": "Jimão Tapas e Vinhos",
+    "searchName": "Jimão Tapas e Vinhos Porto",
     "type": "restaurant",
     "rating": 4.4,
     "price": "€€",
@@ -1539,6 +1576,7 @@ const PLACES = [
   },
   {
     "name": "Postigo do Carvão",
+    "searchName": "Restaurante Postigo do Carvão Porto",
     "type": "restaurant",
     "rating": 4.5,
     "price": "€€",
@@ -1553,6 +1591,7 @@ const PLACES = [
   },
   {
     "name": "Taberna dos Mercadores",
+    "searchName": "Taberna dos Mercadores Porto",
     "type": "seafood",
     "rating": 4.6,
     "price": "€€",
@@ -1567,6 +1606,7 @@ const PLACES = [
   },
   {
     "name": "Fish Fixe",
+    "searchName": "Fish Fixe Porto",
     "type": "seafood",
     "rating": 4.3,
     "price": "€€",
@@ -1581,6 +1621,7 @@ const PLACES = [
   },
   {
     "name": "Tapabento",
+    "searchName": "Tapabento S.Bento",
     "type": "restaurant",
     "rating": 4.4,
     "price": "€€",
@@ -1595,6 +1636,7 @@ const PLACES = [
   },
   {
     "name": "Vinologia",
+    "searchName": "Vinologia Porto",
     "type": "cafe",
     "rating": 4.5,
     "price": "€€",
@@ -1609,6 +1651,7 @@ const PLACES = [
   },
   {
     "name": "Escondidinho do Barredo",
+    "searchName": "Escondidinho do Barredo Porto",
     "type": "budget",
     "rating": 4.2,
     "price": "€",
@@ -1623,6 +1666,7 @@ const PLACES = [
   },
   {
     "name": "Graham's Port Lodge",
+    "searchName": "Graham's Port Lodge Gaia",
     "type": "cafe",
     "rating": 4.5,
     "price": "€€€",
@@ -1636,6 +1680,7 @@ const PLACES = [
   },
   {
     "name": "Cor de Tangerina",
+    "searchName": "Cor de Tangerina Guimarães",
     "type": "cafe",
     "rating": 4.4,
     "price": "€",
@@ -1648,6 +1693,7 @@ const PLACES = [
   },
   {
     "name": "Histórico by Papaboa",
+    "searchName": "Histórico by Papaboa Guimarães",
     "type": "restaurant",
     "rating": 4.3,
     "price": "€€",
@@ -1660,6 +1706,7 @@ const PLACES = [
   },
   {
     "name": "A Brasileira Braga",
+    "searchName": "Café A Brasileira Braga",
     "type": "cafe",
     "rating": 4.2,
     "price": "€",
@@ -1672,6 +1719,7 @@ const PLACES = [
   },
   {
     "name": "Frigideiras do Cantinho",
+    "searchName": "Frigideiras do Cantinho Braga",
     "type": "budget",
     "rating": 4.3,
     "price": "€",
@@ -1684,6 +1732,7 @@ const PLACES = [
   },
   {
     "name": "Can the Can",
+    "searchName": "Can the Can Lisboa",
     "type": "restaurant",
     "rating": 4.2,
     "price": "€€",
@@ -1697,6 +1746,7 @@ const PLACES = [
   },
   {
     "name": "Café Martinho da Arcada",
+    "searchName": "Café Martinho da Arcada Lisboa",
     "type": "cafe",
     "rating": 4.1,
     "price": "€€",
@@ -1710,6 +1760,7 @@ const PLACES = [
   },
   {
     "name": "Chapitô à Mesa",
+    "searchName": "Chapitô à Mesa Lisboa",
     "type": "restaurant",
     "rating": 4.3,
     "price": "€€",
@@ -1722,6 +1773,7 @@ const PLACES = [
   },
   {
     "name": "Darwin Café",
+    "searchName": "Darwin Café Lisboa",
     "type": "cafe",
     "rating": 4.2,
     "price": "€€",
@@ -1734,6 +1786,7 @@ const PLACES = [
   },
   {
     "name": "Enoteca de Belém",
+    "searchName": "Enoteca de Belém Lisboa",
     "type": "cafe",
     "rating": 4.4,
     "price": "€€",
@@ -1761,6 +1814,7 @@ const PLACES = [
   },
   {
     "name": "Wine Quay Bar",
+    "searchName": "Wine Quay Bar Porto",
     "type": "cafe",
     "rating": 4.3,
     "price": "€€",
@@ -1775,6 +1829,7 @@ const PLACES = [
   },
   {
     "name": "Mercado do Bolhão Food Court",
+    "searchName": "Mercado do Bolhão Porto",
     "type": "budget",
     "rating": 4.1,
     "price": "€",
@@ -1790,6 +1845,7 @@ const PLACES = [
   },
   {
     "name": "Bar do Parque",
+    "searchName": "Bar do Parque Pena Sintra",
     "type": "cafe",
     "rating": 4,
     "price": "€",
@@ -1802,6 +1858,7 @@ const PLACES = [
   },
   {
     "name": "Pena Palace Cafeteria",
+    "searchName": "Cafetaria do Palácio da Pena",
     "type": "cafe",
     "rating": 3.8,
     "price": "€",
@@ -1814,6 +1871,7 @@ const PLACES = [
   },
   {
     "name": "El Rei Dom Frango",
+    "searchName": "El Rei Dom Frango Guimarães",
     "type": "budget",
     "rating": 4.2,
     "price": "€",
@@ -1826,6 +1884,7 @@ const PLACES = [
   },
   {
     "name": "Bom Jesus Café",
+    "searchName": "Bom Jesus Café Braga",
     "type": "cafe",
     "rating": 4,
     "price": "€",
@@ -3328,6 +3387,53 @@ const PLACES = [
     "address": "R. de Saragoça 15, 3000-358 Coimbra",
     "description": "현지인들이 줄 서는 가성비 식당. 스테이크와 해산물밥 추천",
     "days": ["DAY 6"]
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 👑 2025-02-22 아주다 궁전 및 가성비 맛집 추가
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    "name": "Palácio Nacional da Ajuda",
+    "searchName": "Palácio Nacional da Ajuda Lisboa",
+    "rating": 4.6,
+    "price": "€5",
+    "hours": "10:00–18:00",
+    "type": "landmark",
+    "address": "Largo da Ajuda, 1349-021 Lisboa",
+    "description": "포르투갈 왕실의 마지막 거주지. 화려한 네오클래식 양식",
+    "days": ["DAY 3"]
+  },
+  {
+    "name": "Rota dos Petiscos",
+    "searchName": "Rota dos Petiscos Lisboa Ajuda",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "Calçada da Ajuda 204, 1300-016 Lisboa",
+    "description": "아주다 궁전 근처 가성비 타파스. 문어 샐러드 추천 ⭐",
+    "days": ["DAY 3"]
+  },
+  {
+    "name": "Tasquinha do Bé",
+    "searchName": "Tasquinha do Bé Belém Lisboa",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "R. de Belém 118, 1300-086 Lisboa",
+    "description": "벨렝 지구 숨은 로컬 식당. 오늘의 요리 가성비 최고",
+    "days": ["DAY 3"]
+  },
+  {
+    "name": "Cantinho do Aziz",
+    "searchName": "Cantinho do Aziz Lisboa",
+    "rating": 4.4,
+    "price": "€",
+    "hours": "11:00-23:00",
+    "type": "budget",
+    "address": "R. de São Lourenço 5, 1100-530 Lisboa",
+    "description": "모라리아 지구의 전설적인 모잠비크 퓨전 식당",
+    "days": ["DAY 2"]
   }
 ];
 
