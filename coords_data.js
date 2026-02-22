@@ -1084,6 +1084,6 @@ const PLACE_COORDS = {
   "Kardoso": { "lat": 41.1465, "lng": -8.6120 },
   "Cantinho Gourmet": { "lat": 38.7970, "lng": -9.3860 },
   "Pregaria da Sé": { "lat": 41.5500, "lng": -8.4275 },
-  "Caco, o Original": { "lat": 40.2080, "lng": -8.4290 },
-  "Solar da Madalena": { "lat": 40.2090, "lng": -8.4300 }
+  "Caco, o Original": { "lat": 40.2081, "lng": -8.4292 },
+  "O Mimo": { "lat": 40.2118, "lng": -8.4258 }
 };

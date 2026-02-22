@@ -3319,14 +3319,14 @@ const PLACES = [
     "days": ["DAY 6"]
   },
   {
-    "name": "Solar da Madalena",
-    "searchName": "Solar da Madalena Coimbra",
-    "rating": 4.4,
+    "name": "O Mimo",
+    "searchName": "Restaurante O Mimo Coimbra",
+    "rating": 4.5,
     "price": "€",
     "hours": "12:00-15:00, 19:00-22:00",
     "type": "budget",
-    "address": "R. da Madalena 5, 3000-243 Coimbra",
-    "description": "바이샤 지구. 현지인들이 찾는 백반집",
+    "address": "R. de Saragoça 15, 3000-358 Coimbra",
+    "description": "현지인들이 줄 서는 가성비 식당. 스테이크와 해산물밥 추천",
     "days": ["DAY 6"]
   }
 ];
