@@ -2755,6 +2755,228 @@ const PLACES = [
     "address": "Av. do Movimento das Forças Armadas 1, 2710-400 Sintra",
     "description": "페나궁 하산 후 시원한 맥주 스팟",
     "days": ["DAY 4", "DAY 5"]
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🍽️ 2025-02-22 구글 지도 기반 추가 데이터 (관광지 근처 맛집 확장)
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 리스본 (알파마/대성당/상조르즈성 근처)
+  {
+    "name": "Alpendre",
+    "searchName": "Restaurante Alpendre Lisboa",
+    "rating": 4.6,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "seafood",
+    "address": "R. Augusto Rosa 32, 1100-059 Lisboa",
+    "description": "대성당 근처. 신선한 해산물과 친절한 서비스 ⭐",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Pateo 13",
+    "searchName": "Pateo 13 Lisboa Alfama",
+    "rating": 4.3,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "budget",
+    "address": "Calçadinha de Santo Estêvão 13, 1100-502 Lisboa",
+    "description": "알파마 야외 그릴. 정어리 구이 냄새가 가득한 곳",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Miss Can",
+    "searchName": "Miss Can Lisboa Petiscos",
+    "rating": 4.7,
+    "price": "€",
+    "hours": "11:00-20:00",
+    "type": "landmark",
+    "address": "Largo do Conde de Henriques 17, 1100-159 Lisboa",
+    "description": "상 조르즈 성 근처. 통조림 타파스와 와인",
+    "days": ["DAY 2"]
+  },
+  // 리스본 (시아두/바이샤)
+  {
+    "name": "Sea Me - Peixaria Moderna",
+    "searchName": "Sea Me Peixaria Moderna Lisboa",
+    "rating": 4.5,
+    "price": "€€€",
+    "hours": "12:30-23:30",
+    "type": "seafood",
+    "address": "Rua do Loreto 21, 1200-241 Lisboa",
+    "description": "현대적인 해산물 시장 컨셉. 스시와 포르투갈 요리의 만남",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Bairro do Avillez",
+    "searchName": "Bairro do Avillez Lisboa",
+    "rating": 4.5,
+    "price": "€€€",
+    "hours": "12:00-00:00",
+    "type": "restaurant",
+    "address": "R. Nova da Trindade 18, 1200-303 Lisboa",
+    "description": "스타 셰프 호세 아빌레즈의 미식 타운. 타파스부터 파인다이닝까지 ⭐",
+    "days": ["DAY 2"]
+  },
+  // 리스본 (벨렝)
+  {
+    "name": "Nunes Real Marisqueira",
+    "searchName": "Nunes Real Marisqueira Belém",
+    "rating": 4.6,
+    "price": "€€€€",
+    "hours": "12:00-00:00",
+    "type": "seafood",
+    "address": "R. Bartolomeu Dias 120, 1400-031 Lisboa",
+    "description": "벨렝탑 근처 최고급 해산물. 랍스터와 거북손",
+    "days": ["DAY 3"]
+  },
+  {
+    "name": "Taberna dos Ferreiros",
+    "searchName": "Taberna dos Ferreiros Belém",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "restaurant",
+    "address": "Tv. dos Ferreiros a Belém 5, 1300-260 Lisboa",
+    "description": "제로니무스 수도원 근처. 골목 안 아늑한 포르투갈 식당",
+    "days": ["DAY 3"]
+  },
+  // 신트라
+  {
+    "name": "Bacalhau na Vila",
+    "searchName": "Bacalhau na Vila Sintra",
+    "rating": 4.6,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "type": "seafood",
+    "address": "Arco do Terreiro 3, 2710-623 Sintra",
+    "description": "신트라 왕궁 바로 앞. 다양한 대구 요리 타파스 ⭐",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "A Raposa",
+    "searchName": "Restaurante A Raposa Sintra",
+    "rating": 4.7,
+    "price": "€€€",
+    "hours": "12:30-15:00, 19:00-22:00",
+    "type": "restaurant",
+    "address": "R. Dr. Alfredo da Costa 3, 2710-523 Sintra",
+    "description": "신트라 역 근처. 훌륭한 서비스와 티룸 분위기",
+    "days": ["DAY 4"]
+  },
+  // 포르투
+  {
+    "name": "Cantina 32",
+    "searchName": "Cantina 32 Porto",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:30-23:00",
+    "type": "restaurant",
+    "address": "R. das Flores 32, 4050-262 Porto",
+    "description": "플로레스 거리 힙한 맛집. 문어 구이와 치즈케이크 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Adega São Nicolau",
+    "searchName": "Adega São Nicolau Porto",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "type": "seafood",
+    "address": "R. de São Nicolau 1, 4050-561 Porto",
+    "description": "리베이라 골목 숨은 맛집. 문어밥과 정어리",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Voltaria",
+    "searchName": "Voltaria Petisqueira Porto",
+    "rating": 4.8,
+    "price": "€",
+    "hours": "12:30-16:00, 19:00-22:00",
+    "type": "budget",
+    "address": "R. Afonso Martins Alho 109, 4050-018 Porto",
+    "description": "상벤투 역 근처. 작지만 강한 프란세지냐와 대구 요리 ⭐",
+    "days": ["DAY 7"]
+  },
+  // 코임브라
+  {
+    "name": "No Tacho",
+    "searchName": "No Tacho Coimbra",
+    "rating": 4.6,
+    "price": "€€",
+    "hours": "12:30-15:00, 19:30-22:00",
+    "type": "restaurant",
+    "address": "R. da Moeda 20, 3000-275 Coimbra",
+    "description": "코임브라 슬로우 푸드. 정성스러운 포르투갈 가정식",
+    "days": ["DAY 6"]
+  },
+  {
+    "name": "Dux Taberna Urbana",
+    "searchName": "Dux Taberna Urbana Coimbra",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-00:00",
+    "type": "restaurant",
+    "address": "R. Dr. Manuel Rodrigues 39, 3000-258 Coimbra",
+    "description": "세련된 타파스 바. 와인과 함께하는 저녁",
+    "days": ["DAY 6"]
+  },
+  // 브라가
+  {
+    "name": "Taberna Belga",
+    "searchName": "Taberna Belga Braga",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "12:00-00:00",
+    "type": "budget",
+    "address": "R. de Conego Luciano Afonso dos Santos 14, 4700-371 Braga",
+    "description": "브라가 최고의 프란세지냐. 현지인들의 성지 ⭐",
+    "days": ["DAY 9"]
+  },
+  {
+    "name": "Retrokitchen",
+    "searchName": "Retrokitchen Braga",
+    "rating": 4.7,
+    "price": "€",
+    "hours": "12:00-14:30, 19:30-22:30",
+    "type": "budget",
+    "address": "R. do Anjo 96, 4700-305 Braga",
+    "description": "가성비 최고의 런치 메뉴. 빈티지한 분위기",
+    "days": ["DAY 9"]
+  },
+  // 기마랑이스
+  {
+    "name": "Buxa",
+    "searchName": "Buxa Restaurante Guimarães",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "restaurant",
+    "address": "Largo da Oliveira 23, 4800-438 Guimarães",
+    "description": "올리베이라 광장 중심. 야외 테라스에서 즐기는 타파스",
+    "days": ["DAY 9"]
+  },
+  // 오비두스
+  {
+    "name": "Petrarum Domus",
+    "searchName": "Petrarum Domus Bar Restaurante Óbidos",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-22:00",
+    "type": "restaurant",
+    "address": "R. Direita, 2510-001 Óbidos",
+    "description": "오비두스 메인 거리. 중세 분위기 인테리어",
+    "days": ["DAY 5"]
+  },
+  // 파티마
+  {
+    "name": "Tia Alice",
+    "searchName": "Restaurante Tia Alice Fátima",
+    "rating": 4.7,
+    "price": "€€€",
+    "hours": "12:00-15:00, 19:30-22:00",
+    "type": "restaurant",
+    "address": "R. do Adro, 2495-401 Fátima",
+    "description": "파티마 최고의 미식 경험. 미슐랭 가이드 추천 ⭐",
+    "days": ["DAY 5"]
   }
 ];
 

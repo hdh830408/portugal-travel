@@ -1032,5 +1032,25 @@ const PLACE_COORDS = {
   "Restaurante Azenhas do Mar": { "lat": 38.8378, "lng": -9.4612 },
   "Lawrence's Restaurant": { "lat": 38.7973, "lng": -9.3923 },
   "COMO Restaurante": { "lat": 38.7976, "lng": -9.3915 },
-  "Dona Maria Café": { "lat": 38.7965, "lng": -9.3875 }
+  "Dona Maria Café": { "lat": 38.7965, "lng": -9.3875 },
+  // 2025-02-22 구글 지도 기반 추가 데이터 좌표
+  "Alpendre": { "lat": 38.7098, "lng": -9.1315 },
+  "Pateo 13": { "lat": 38.7123, "lng": -9.1296 },
+  "Miss Can": { "lat": 38.7135, "lng": -9.1330 },
+  "Sea Me - Peixaria Moderna": { "lat": 38.7108, "lng": -9.1438 },
+  "Bairro do Avillez": { "lat": 38.7122, "lng": -9.1425 },
+  "Nunes Real Marisqueira": { "lat": 38.6965, "lng": -9.2135 },
+  "Taberna dos Ferreiros": { "lat": 38.6972, "lng": -9.2048 },
+  "Bacalhau na Vila": { "lat": 38.7970, "lng": -9.3905 },
+  "A Raposa": { "lat": 38.7985, "lng": -9.3875 },
+  "Cantina 32": { "lat": 41.1435, "lng": -8.6145 },
+  "Adega São Nicolau": { "lat": 41.1405, "lng": -8.6138 },
+  "Voltaria": { "lat": 41.1455, "lng": -8.6115 },
+  "No Tacho": { "lat": 40.2095, "lng": -8.4295 },
+  "Dux Taberna Urbana": { "lat": 40.2115, "lng": -8.4285 },
+  "Taberna Belga": { "lat": 41.5585, "lng": -8.4235 },
+  "Retrokitchen": { "lat": 41.5515, "lng": -8.4265 },
+  "Buxa": { "lat": 41.4425, "lng": -8.2918 },
+  "Petrarum Domus": { "lat": 39.3615, "lng": -9.1572 },
+  "Tia Alice": { "lat": 39.6255, "lng": -8.6685 }
 };
