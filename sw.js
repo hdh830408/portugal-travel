@@ -1,4 +1,4 @@
-const CACHE_NAME = 'portugal-travel-v4';
+const CACHE_NAME = 'portugal-travel-v5';
 const ASSETS = [
   './',
   './index.html',

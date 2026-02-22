@@ -704,7 +704,7 @@
   <div class="header">
     <div>
       <h1 id="appTitle">🌍 Travel App</h1>
-      <div class="dates" id="appDates">여행 가이드</div>
+      <div class="dates" id="appDates">여행 가이드 v5</div>
     </div>
     <div class="header-right">
       <button class="ai-badge" onclick="toggleAI()">✨ AI Agent</button>
@@ -1175,7 +1175,7 @@
         const q = searchQuery.toLowerCase();
         places = places.filter(p => p.name.toLowerCase().includes(q) || p.address.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
       }
-      // 랜드마크 근처 필터 (하이브리드: GPS 200m 우선 + 기존 매핑 폴백)
+      // 랜드마크 근처 필터 (하이브리드: GPS 500m 우선 + 기존 매핑 폴백)
       if (selectedNearbyLandmark) {
         let nearbyNames = [];
         
