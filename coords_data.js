@@ -771,6 +771,10 @@ const PLACE_COORDS = {
     "lat": 38.6965,
     "lng": -9.204
   },
+  "A Margem": {
+    "lat": 38.6935,
+    "lng": -9.2075
+  },
   "Ponto Final": {
     "lat": 38.6875,
     "lng": -9.1455
