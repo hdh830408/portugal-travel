@@ -405,9 +405,11 @@
     .route-day-selector{
       display:flex;gap:10px;padding:12px 16px;background:var(--bg2);
       border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;
-      overflow-x:auto;
+      overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;
     }
-    .route-day-selector::-webkit-scrollbar{display:none}
+    .route-day-selector::-webkit-scrollbar{height:3px}
+    .route-day-selector::-webkit-scrollbar-thumb{background:var(--accent);border-radius:10px}
+    .route-day-selector::-webkit-scrollbar-track{background:transparent}
     .route-day-btn{
       flex-shrink:0;padding:12px 20px;border-radius:12px;border:1px solid var(--border);
       background:var(--card);color:var(--muted);font-size:14px;font-weight:600;
