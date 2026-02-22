@@ -1430,7 +1430,7 @@
             <div class="route-places">
               ${section.places.map((place, i) => {
                 const isHighlight = section.highlights?.includes(place);
-                return `<span class="route-place ${isHighlight ? 'highlight' : ''}" onclick="showPlaceFromRoute('${place.replace(/'/g, "\\'")}')">${place}</span>` +
+                return `<span class="route-place ${isHighlight ? 'highlight' : ''}" data-place="${place.replace(/"/g, '&quot;')}" onclick="showPlaceFromRoute(this.dataset.place)">${place}</span>` +
                   (i < section.places.length - 1 ? '<span class="route-arrow">→</span>' : '');
               }).join('')}
             </div>
@@ -1458,19 +1458,9 @@
     }
 
     function showPlaceFromRoute(placeName) {
-      // 해설 데이터 확인
-      if (typeof PLACE_GUIDES !== 'undefined' && PLACE_GUIDES[placeName]) {
-        openGuide(placeName);
-      } else {
-        // 해설 데이터 없으면 기존 맛집/관광지 데이터에서 찾기
-        const place = PLACES.find(p => p.name === placeName);
-        if (place) {
-          showModal(place);
-        } else {
-          // 둘 다 없으면 기본 해설 팝업 (정보 없음 상태)
-          openGuide(placeName);
-        }
-      }
+      // 모든 장소를 가이드 모달(상세 정보 팝업)로 통일하여 표시
+      // openGuide 함수 내부에서 PLACE_GUIDES 데이터가 없으면 PLACES 데이터를 찾아 기본 정보를 보여줌
+      openGuide(placeName);
     }
 
     // ═══════════════════════════════════════════
