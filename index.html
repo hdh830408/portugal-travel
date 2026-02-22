@@ -1022,8 +1022,8 @@
       return R * c;
     }
 
-    // GPS 기반 200m 반경 내 맛집 찾기
-    function getNearbyFoodsByGPS(landmarkName, radiusMeters = 200) {
+    // GPS 기반 500m 반경 내 맛집 찾기 (기존 200m -> 500m 확장)
+    function getNearbyFoodsByGPS(landmarkName, radiusMeters = 500) {
       const landmarkCoords = typeof PLACE_COORDS !== 'undefined' ? PLACE_COORDS[landmarkName] : null;
       if (!landmarkCoords) return [];
       
@@ -1043,14 +1043,14 @@
       return nearbyFoods.sort((a, b) => a.distance - b.distance);
     }
 
-    // 특정 랜드마크 근처 맛집이 있는지 확인 (하이브리드: GPS 200m + 기존 매핑)
+    // 특정 랜드마크 근처 맛집이 있는지 확인 (하이브리드: GPS 500m + 기존 매핑)
     function hasNearbyFoods(landmarkName) {
-      // 1. GPS 좌표가 있으면 200m 반경으로 확인
+      // 1. GPS 좌표가 있으면 500m 반경으로 확인
       if (typeof PLACE_COORDS !== 'undefined' && PLACE_COORDS[landmarkName]) {
-        const nearby = getNearbyFoodsByGPS(landmarkName, 200);
+        const nearby = getNearbyFoodsByGPS(landmarkName, 500);
         if (nearby.length > 0) return true;
       }
-      // 2. GPS에 없거나 200m 내 맛집 없으면 기존 매핑 사용
+      // 2. GPS에 없거나 500m 내 맛집 없으면 기존 매핑 사용
       const mapping = getLandmarkToFoods();
       return mapping[landmarkName] && mapping[landmarkName].length > 0;
     }
@@ -1179,13 +1179,13 @@
       if (selectedNearbyLandmark) {
         let nearbyNames = [];
         
-        // 1. GPS 좌표가 있으면 200m 반경으로 필터링 시도
+        // 1. GPS 좌표가 있으면 500m 반경으로 필터링 시도
         if (typeof PLACE_COORDS !== 'undefined' && PLACE_COORDS[selectedNearbyLandmark]) {
-          const nearbyFoods = getNearbyFoodsByGPS(selectedNearbyLandmark, 200);
+          const nearbyFoods = getNearbyFoodsByGPS(selectedNearbyLandmark, 500);
           nearbyNames = nearbyFoods.map(f => f.name);
         }
         
-        // 2. GPS에 없거나 200m 내 맛집 없으면 기존 매핑 사용
+        // 2. GPS에 없거나 500m 내 맛집 없으면 기존 매핑 사용
         if (nearbyNames.length === 0) {
           const mapping = getLandmarkToFoods();
           nearbyNames = mapping[selectedNearbyLandmark] || [];
@@ -1214,7 +1214,7 @@
       `;
     }
 
-    // 거리 배지 생성 (100m 필터 활성화 시)
+    // 거리 배지 생성
     function renderDistanceBadge(placeName) {
       if (!selectedNearbyLandmark) return '';
       if (typeof PLACE_COORDS === 'undefined' || !PLACE_COORDS[selectedNearbyLandmark] || !PLACE_COORDS[placeName]) return '';
@@ -1230,7 +1230,7 @@
       const places = getFilteredPlaces().filter(p => FOOD_TYPES.includes(p.type));
       if (places.length === 0) {
         const emptyMsg = selectedNearbyLandmark 
-          ? '<div class="empty-state"><div class="icon">🍽️</div>200m 이내에 맛집이 없어요<br><small style="color:var(--muted)">필터를 해제하고 다시 검색해보세요</small></div>'
+          ? '<div class="empty-state"><div class="icon">🍽️</div>500m 이내에 맛집이 없어요<br><small style="color:var(--muted)">필터를 해제하고 다시 검색해보세요</small></div>'
           : '<div class="empty-state"><div class="icon">🍽️</div>검색 결과가 없어요</div>';
         document.getElementById('placeList').innerHTML = emptyMsg;
         return;
@@ -1905,7 +1905,7 @@
         const coords = PLACE_COORDS[food.name];
         if (!coords) return;
         const dist = getDistance(lmCoords.lat, lmCoords.lng, coords.lat, coords.lng);
-        if (dist <= 300) {
+        if (dist <= 500) { // 모달 리스트도 300m -> 500m로 확장
           result.push({ ...food, distance: dist });
         }
       });
@@ -1989,13 +1989,13 @@
       closeModal();
       selectedNearbyLandmark = landmarkName;
       
-      // GPS 기반 200m 내 맛집 확인
+      // GPS 기반 500m 내 맛집 확인
       const hasGPS = typeof PLACE_COORDS !== 'undefined' && PLACE_COORDS[landmarkName];
-      const gpsNearby = hasGPS ? getNearbyFoodsByGPS(landmarkName, 200) : [];
+      const gpsNearby = hasGPS ? getNearbyFoodsByGPS(landmarkName, 500) : [];
       const useGPS = gpsNearby.length > 0;
       
       // 필터 텍스트 설정
-      const filterText = useGPS ? `${landmarkName} (200m 이내)` : `${landmarkName} 근처`;
+      const filterText = useGPS ? `${landmarkName} (500m 이내)` : `${landmarkName} 근처`;
       
       document.getElementById('landmarkFilterName').textContent = filterText;
       document.getElementById('landmarkFilterBar').classList.add('active');
@@ -2004,7 +2004,7 @@
       
       // 토스트 메시지
       if (useGPS) {
-        showToast(`🍽️ ${landmarkName} 200m 이내 ${gpsNearby.length}곳`);
+        showToast(`🍽️ ${landmarkName} 500m 이내 ${gpsNearby.length}곳`);
       } else {
         const mapping = getLandmarkToFoods();
         const fallbackCount = (mapping[landmarkName] || []).length;
