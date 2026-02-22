@@ -3524,9 +3524,9 @@ const NEARBY_LANDMARKS = {
   ],
   "Beira Gare": [
     "호시우 광장",
+    "피게이라 광장",
     "글로리아 푸니쿨라",
     "상 로케 성당",
-    "카르모 수녀원",
     "산타 후스타 엘리베이터"
   ],
   "Cruzes Credo": [
@@ -3580,6 +3580,13 @@ const NEARBY_LANDMARKS = {
     "제로니무스 수도원",
     "국립 해양 박물관",
     "발견기념비"
+  ],
+  "Figus": [
+    "피게이라 광장",
+    "호시우 광장",
+    "산타 후스타 엘리베이터",
+    "Confeitaria Nacional",
+    "아우구스타 거리"
   ],
   "Landeau Chocolate LX": [
     "LX Factory"
