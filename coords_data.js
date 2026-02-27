@@ -771,10 +771,6 @@ const PLACE_COORDS = {
     "lat": 38.6965,
     "lng": -9.204
   },
-  "A Margem": {
-    "lat": 38.6935,
-    "lng": -9.2075
-  },
   "Ponto Final": {
     "lat": 38.6875,
     "lng": -9.1455
@@ -1094,7 +1090,7 @@ const PLACE_COORDS = {
   "Palácio Nacional da Ajuda": { "lat": 38.7076, "lng": -9.1973 },
   "Rota dos Petiscos": { "lat": 38.7065, "lng": -9.1985 },
   "Tasquinha do Bé": { "lat": 38.6970, "lng": -9.2025 },
-  "Cantinho do Aziz": { "lat": 38.7145, "lng": -9.1340 }
+  "Cantinho do Aziz": { "lat": 38.7145, "lng": -9.1340 },
   "A Margarida da Belém": { "lat": 38.6973, "lng": -9.2035 },
   "Canto da Vila": { "lat": 38.7095, "lng": -9.1318 },
   "Casinha São João": { "lat": 41.1411, "lng": -8.6126 },
