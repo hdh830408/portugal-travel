@@ -5102,3 +5102,136 @@ Object.assign(LANDMARK_DETAILS, {
     nearbyNote: "코메르시우 광장 레스토랑"
   }
 });
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 🛠️ [1단계] ID 시스템 자동 생성 및 매핑 (Runtime Generator)
+// ═══════════════════════════════════════════════════════════════════════════
+// 리팩토링 1단계: 기존 name 기반 참조를 id 기반으로 전환하기 위한 준비 작업입니다.
+// 앱 로드 시 PLACES 배열의 각 객체에 고유 id를 부여하고 매핑 테이블을 생성합니다.
+
+const PLACE_ID_MAP = {}; // name -> id 매핑 테이블 (전역 접근 가능)
+
+(function initializeIdSystem() {
+  const CITY_CODES = {
+    'Lisboa': 'LIS', 'Sintra': 'SIN', 'Porto': 'OPO', 'Coimbra': 'COI',
+    'Óbidos': 'OBI', 'Fátima': 'FAT', 'Tomar': 'TOM', 'Guimarães': 'GUI',
+    'Braga': 'BRA', 'Almada': 'ALM', 'Gaia': 'OPO', 'Matosinhos': 'OPO'
+  };
+
+  // 제외할 불용어 (ID 생성 시 제거)
+  const STOP_WORDS = ['RESTAURANTE', 'CAFE', 'BAR', 'HOTEL', 'A', 'O', 'DA', 'DO', 'DE'];
+
+  PLACES.forEach(place => {
+    // 1. 도시 코드 결정 (주소 또는 검색명 기반)
+    let cityCode = 'PRT';
+    for (const [city, code] of Object.entries(CITY_CODES)) {
+      if ((place.address && place.address.includes(city)) || 
+          (place.searchName && place.searchName.includes(city))) {
+        cityCode = code;
+        break;
+      }
+    }
+
+    // 2. 슬러그 생성 (영문 이름 기반, 특수문자 제거)
+    let baseName = place.searchName || place.name;
+    let slug = baseName
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // 악센트 제거
+      .replace(/[^a-zA-Z0-9\s]/g, '') // 특수문자 제거
+      .toUpperCase()
+      .split(/\s+/)
+      .filter(word => !STOP_WORDS.includes(word) && word.length > 1) // 불용어 제거
+      .slice(0, 3) // 너무 길지 않게 앞 3단어만
+      .join('_');
+    
+    if (!slug) slug = 'UNKNOWN_' + Math.floor(Math.random() * 1000);
+
+    // 3. 고유 ID 생성 및 할당
+    let id = `${cityCode}_${slug}`;
+    let counter = 1;
+    let uniqueId = id;
+    
+    // 중복 ID 방지
+    while (PLACES.some(p => p.id === uniqueId)) {
+      uniqueId = `${id}_${counter++}`;
+    }
+
+    place.id = uniqueId;
+    PLACE_ID_MAP[place.name] = uniqueId;
+  });
+
+  console.log(`✅ [System] ID Generation Complete: ${PLACES.length} places processed.`);
+})();
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 🛠️ [2단계] 통합 마스터 데이터 구축 (Data Consolidation)
+// ═══════════════════════════════════════════════════════════════════════════
+// 리팩토링 2단계: 분산된 데이터(좌표, 가이드, 상세정보)를 MASTER_PLACES 객체로 통합합니다.
+// 모든 스크립트(guides, coords)가 로드된 후 실행되도록 이벤트 리스너를 사용합니다.
+
+let MASTER_PLACES = {}; // 전역 접근 가능
+
+window.addEventListener('DOMContentLoaded', function() {
+  // 1. 기본 구조 생성 (PLACES 기반)
+  PLACES.forEach(place => {
+    if (!place.id) return; // ID가 없으면 스킵
+
+    MASTER_PLACES[place.id] = {
+      id: place.id,
+      name: place.name,
+      searchName: place.searchName,
+      type: place.type,
+      metadata: {
+        rating: place.rating,
+        price: place.price,
+        hours: place.hours,
+        address: place.address,
+        description: place.description
+      },
+      coords: null,     // coords_data.js에서 병합
+      content: {},      // guides.js & data.js에서 병합
+      references: {     // ID 기반 참조로 변환하여 저장
+        nearbyFoodIds: [],
+        nearbyLandmarkIds: []
+      }
+    };
+  });
+
+  // 2. 외부 데이터 병합
+  Object.values(MASTER_PLACES).forEach(masterPlace => {
+    const name = masterPlace.name;
+
+    // (1) 좌표 병합 (PLACE_COORDS)
+    if (typeof PLACE_COORDS !== 'undefined' && PLACE_COORDS[name]) {
+      masterPlace.coords = PLACE_COORDS[name];
+    }
+
+    // (2) 상세 정보 병합 (LANDMARK_DETAILS)
+    if (typeof LANDMARK_DETAILS !== 'undefined' && LANDMARK_DETAILS[name]) {
+      Object.assign(masterPlace.content, LANDMARK_DETAILS[name]);
+    }
+
+    // (3) 가이드 병합 (PLACE_GUIDES) - 우선순위 높음
+    if (typeof PLACE_GUIDES !== 'undefined' && PLACE_GUIDES[name]) {
+      const guide = PLACE_GUIDES[name];
+      if (guide.subtitle) masterPlace.content.subtitle = guide.subtitle;
+      if (guide.history) masterPlace.content.history = guide.history;
+      if (guide.photoSpots) masterPlace.content.photoSpots = guide.photoSpots;
+      if (guide.visitTips) masterPlace.content.visitTips = guide.visitTips;
+      if (guide.emoji) masterPlace.content.icon = guide.emoji; // 아이콘 통일
+      
+      // 참조 ID 변환 (이름 -> ID)
+      if (guide.nearbyFood) {
+        masterPlace.references.nearbyFoodIds = guide.nearbyFood
+          .map(n => PLACE_ID_MAP[n]).filter(id => id);
+      }
+    }
+
+    // (4) 역참조 병합 (NEARBY_LANDMARKS)
+    if (typeof NEARBY_LANDMARKS !== 'undefined' && NEARBY_LANDMARKS[name]) {
+      masterPlace.references.nearbyLandmarkIds = NEARBY_LANDMARKS[name]
+        .map(n => PLACE_ID_MAP[n]).filter(id => id);
+    }
+  });
+
+  console.log(`✅ [System] Master Data Built: ${Object.keys(MASTER_PLACES).length} places consolidated.`);
+});
