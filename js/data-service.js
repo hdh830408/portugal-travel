@@ -139,7 +139,7 @@ const DataService = {
     this.appData = {
       foodByDay: Object.values(dayMap).map(d => ({ ...d, categories: Object.entries(d.categories).map(([cat, places]) => ({ category: cat, places })) })),
       allPlaces: PLACES.flatMap((place, idx) => place.days.map(dayKey => ({ ...place, day: dayKey, category: TYPE_LABELS[place.type], rank: idx + 1, meta: `★ ${place.rating}${place.price}${place.hours}` }))),
-      itinerary: ITINERARY.map((d, i) => ({ id: i + 1, dayLabel: d.day + d.date.split(' ')[0], title: d.title, schedule: d.schedule, tips: d.tips, transport: d.transport }))
+      itinerary: ITINERARY.map((d, i) => ({ id: i + 1, day: d.day, dayLabel: d.day + d.date.split(' ')[0], title: d.title, schedule: d.schedule, tips: d.tips, transport: d.transport }))
     };
   },
 
@@ -194,5 +194,16 @@ const DataService = {
       }
     });
     return results.sort((a, b) => a.distance - b.distance);
+  },
+
+  // 헬퍼: 주변 맛집 상세 정보 반환 (UI 컴포넌트용)
+  getNearbyFoodsDetails: function(landmarkName) {
+    const names = this.getFoodsByLandmark(landmarkName);
+    return names.map(name => PLACES.find(p => p.name === name)).filter(p => p);
+  },
+
+  // 헬퍼: 주변 맛집 존재 여부 확인
+  hasNearbyFoods: function(landmarkName) {
+    return this.getFoodsByLandmark(landmarkName).length > 0;
   }
 };

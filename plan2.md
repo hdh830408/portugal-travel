@@ -73,14 +73,15 @@
 ### [Phase 4] UI 컴포넌트 구조화
 `ui-components.js`를 더 작고 재사용 가능한 단위로 쪼갭니다.
 
-*   **UI 로직 중앙화 (Refactoring)**:
+*   **UI 로직 중앙화 (Refactoring) (✅ 완료)**:
     *   [x] `AIController`의 채팅 메시지 생성 로직(`addMsg`)을 `ui-components.js`(`UI.addAIMessage`)로 이관하여 UI 의존성 일원화.
+    *   [x] 공통 유틸리티(`esc`)와 데이터 헬퍼(`getNearbyFoodsDetails`)를 각각 `utils.js`와 `data-service.js`로 이동.
 
-*   **`components/` 디렉토리 생성**:
-    *   `PlaceCard.js`: 장소 카드 HTML 생성.
-    *   `Modal.js`: 상세 정보 모달 제어.
-    *   `Toast.js`: 알림 메시지 제어.
-    *   `Skeleton.js`: 로딩 UI 생성.
+*   **`components/` 디렉토리 생성 (✅ 완료)**:
+    *   [x] `PlaceCard.js`: 장소 카드 HTML 생성 및 Lazy Loading 로직 분리.
+    *   [x] `Modal.js`: 상세 정보 모달, 가이드 팝업, 태그 팝업 제어 로직 분리.
+    *   [x] `Toast.js`: 알림 메시지 제어 분리.
+    *   [x] `Skeleton.js`: 로딩 UI 생성 로직 분리.
 *   **이벤트 위임 최적화**: 각 컴포넌트는 HTML 문자열만 반환하고, 이벤트 바인딩은 상위 컨테이너에서 일괄 처리.
 
 ---

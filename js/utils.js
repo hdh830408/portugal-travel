@@ -20,3 +20,10 @@ function getDistance(lat1, lon1, lat2, lon2) {
 
 // 전역 노출
 window.getDistance = getDistance;
+
+// HTML 이스케이프 유틸리티
+function esc(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+window.esc = esc;
