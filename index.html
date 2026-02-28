@@ -1428,10 +1428,15 @@
               </div>
             </div>
             <div class="route-places">
-              ${section.places.map((place, i) => {
-                const isHighlight = section.highlights?.includes(place);
-                return `<span class="route-place ${isHighlight ? 'highlight' : ''}" data-place="${place.replace(/"/g, '&quot;')}" onclick="showPlaceFromRoute(this.dataset.place)">${place}</span>` +
-                  (i < section.places.length - 1 ? '<span class="route-arrow">→</span>' : '');
+              ${(section.placeIds || section.places).map((item, i) => {
+                // 3단계 적용: ID가 있으면 ID 사용, 없으면 기존 이름 사용
+                const isId = section.placeIds ? true : false;
+                const id = isId ? item : null;
+                const name = isId ? (MASTER_PLACES[id]?.name || id) : item;
+                const isHighlight = isId ? section.highlightIds?.includes(id) : section.highlights?.includes(name);
+                
+                return `<span class="route-place ${isHighlight ? 'highlight' : ''}" onclick="showPlaceFromRoute('${isId ? id : name}')">${name}</span>` +
+                  (i < (section.placeIds || section.places).length - 1 ? '<span class="route-arrow">→</span>' : '');
               }).join('')}
             </div>
           </div>
@@ -1457,10 +1462,25 @@
       document.getElementById('routeContent').innerHTML = html;
     }
 
-    function showPlaceFromRoute(placeName) {
-      // 모든 장소를 가이드 모달(상세 정보 팝업)로 통일하여 표시
-      // openGuide 함수 내부에서 PLACE_GUIDES 데이터가 없으면 PLACES 데이터를 찾아 기본 정보를 보여줌
-      openGuide(placeName);
+    function showPlaceFromRoute(idOrName) {
+      // ID인 경우 이름으로 변환하여 처리 (기존 로직 호환성 유지)
+      let placeName = idOrName;
+      if (MASTER_PLACES[idOrName]) {
+        placeName = MASTER_PLACES[idOrName].name;
+      }
+
+      // 해설 데이터 확인
+      if (typeof PLACE_GUIDES !== 'undefined' && PLACE_GUIDES[placeName]) {
+        openGuide(placeName);
+      } else {
+        // 해설 데이터 없으면 기존 맛집/관광지 데이터에서 찾기
+        const place = PLACES.find(p => p.name === placeName);
+        if (place) {
+          showModal(place);
+        } else {
+          openGuide(placeName);
+        }
+      }
     }
 
     // ═══════════════════════════════════════════

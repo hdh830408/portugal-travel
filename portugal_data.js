@@ -5241,3 +5241,25 @@ window.addEventListener('DOMContentLoaded', function() {
 
   console.log(`✅ [System] Master Data Built: ${Object.keys(MASTER_PLACES).length} places consolidated.`);
 });
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 🛠️ [3단계] 참조 구조 업데이트 (Reference Update)
+// ═══════════════════════════════════════════════════════════════════════════
+// ROUTES의 장소 이름들을 ID로 변환합니다.
+
+window.addEventListener('load', function() {
+  // ROUTES 데이터 변환 (Name -> ID)
+  Object.keys(ROUTES).forEach(dayKey => {
+    const route = ROUTES[dayKey];
+    route.sections.forEach(section => {
+      // places 배열을 ID로 변환
+      section.placeIds = section.places.map(name => PLACE_ID_MAP[name]).filter(id => id);
+      
+      // highlights 배열을 ID로 변환
+      if (section.highlights) {
+        section.highlightIds = section.highlights.map(name => PLACE_ID_MAP[name]).filter(id => id);
+      }
+    });
+  });
+  console.log(`✅ [System] Routes Updated: Converted place names to IDs.`);
+});

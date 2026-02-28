@@ -43,10 +43,11 @@
 *   **원인**: `coords_data.js` 파일 내 `Cantinho do Aziz` 좌표 데이터 뒤에 콤마(`,`)가 누락되어 문법 오류 발생.
 *   **조치**: 콤마를 추가하고 `sw.js` 캐시 버전을 `v14`로 업데이트하여 수정 사항이 즉시 반영되도록 함.
 
-### [3단계] 참조 구조 업데이트
-*   `ITINERARY`의 `schedule` 내 활동 장소를 ID 참조 방식으로 변경합니다.
-*   `ROUTES`의 `sections` 내 `places` 배열을 ID 리스트로 전환합니다.
-*   `NEARBY_LANDMARKS`를 ID 기반 매핑으로 전환합니다.
+### [3단계] 참조 구조 업데이트 (✅ 완료)
+*   **작업 내용**: `portugal_data.js`에 `ROUTES` 데이터를 ID 기반으로 변환하는 로직을 추가했습니다.
+    *   `ROUTES`의 `places` 배열을 `placeIds`로, `highlights`를 `highlightIds`로 런타임에 변환합니다.
+    *   `index.html`의 `renderRoute` 함수를 수정하여 ID를 통해 `MASTER_PLACES`에서 이름을 조회하도록 개선했습니다.
+*   **404 오류 대응**: GitHub Pages 배포 지연 또는 설정 문제로 인한 404 오류를 방지하기 위해 `404.html` 리다이렉트 파일을 추가했습니다.
 
 ### [4단계] 로직 및 유틸리티 함수 수정
 *   `getPlaceGuide(id)`, `getNearbyFoodDetails(ids)` 등 기존 헬퍼 함수가 ID를 인자로 받아 `MASTER_PLACES`에서 데이터를 추출하도록 수정합니다.
