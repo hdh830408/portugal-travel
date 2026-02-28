@@ -2128,6 +2128,19 @@ const PLACES = [
     ]
   },
   {
+    "name": "페고잉스 수도교",
+    "searchName": "Aqueduto dos Pegões Tomar",
+    "rating": 4.7,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "Aqueduto dos Pegões, Tomar",
+    "description": "30m 높이의 아찔한 수도교. 토마르의 숨은 보석 💎",
+    "days": [
+      "DAY 5"
+    ]
+  },
+  {
     "name": "성 주앙 바티스타 성당",
     "searchName": "Igreja de São João Baptista Tomar",
     "rating": 4.5,
@@ -3861,32 +3874,34 @@ const ITINERARY = [
   },
   {
     day: "DAY 5", date: "5/5 (화)",
-    title: "🚗 중부 드라이브 — 오비두스 ➡️ 바탈랴 ➡️ 파티마 ➡️ 토마르 (구글맵 최적화 완료)",
+    title: "🚗 중부 드라이브 — 오비두스 ➡️ 바탈랴 ➡️ 파티마 ➡️ 토마르 (히든 스팟 완결판)",
     schedule: [
       { time: "09:30", activity: "🚗 렌트카 픽업 수속 — 리스본 공항 (서류 확인 및 대기)" },
       { time: "10:15", activity: "🚗 리스본 출발 → 오비두스 이동 (80km, 약 1시간)" },
-      { time: "11:15", activity: "🅿️ 주차: [Obidos parking] 검색 후 주차 (가장 넓고 쾌적한 메인 공영 주차장)" },
-      { time: "11:20", activity: "📸 [Aqueduto de Usseira] (우세이라 수도교) — 주차장 바로 옆 거대 로마식 수도교 감상" },
+      { time: "11:15", activity: "🅿️ 주차: [Obidos parking] 검색 후 주차 (가장 넓은 메인 공영 주차장)" },
+      { time: "11:20", activity: "📸 [Aqueduto de Usseira] (우세이라 수도교) — 주차장 앞 로마식 수도교 감상" },
       { time: "11:30", activity: "🏰 [Porta da Vila] (오비두스 성문) 진입 → 성벽 위 산책 ⭐" },
       { time: "12:00", activity: "🍒 진자(Ginjinha) 시음 — 초콜릿 잔에 담긴 체리술 마시기 (운전자 주의!)" },
       { time: "12:15", activity: "📍 [Igreja de Santa Maria] (산타 마리아 성당) — 구시가 골목 및 아줄레주 감상" },
       { time: "12:45", activity: "🍽️ 오비두스 점심 — 성벽 내 식당 (또는 이동 중 바탈랴 근처 식사)" },
       { time: "14:00", activity: "🚗 바탈랴 이동 (드라이브 치트키! / 50km, 약 40분)" },
-      { time: "14:45", activity: "⛪ [Mosteiro da Batalha] (바탈랴 수도원) ⭐⭐⭐ — 유네스코 세계문화유산, 미완성 예배당의 압도적 뷰 📸" },
-      { time: "15:30", activity: "🚗 파티마 이동 (20km, 약 20분)" },
-      { time: "15:50", activity: "🅿️ 주차: [Parque 1] 검색 (파티마 구 성당 바로 뒤편 명당 주차장)" },
-      { time: "16:00", activity: "⛪ [Santuário de Fátima] (파티마 성모 발현지) ⭐⭐ — Parque 1에서 걸어 나와 구 성당 감상" },
-      { time: "16:30", activity: "⛪ [Capelinha das Aparições] (성모 발현 예배당) — 1917년 성모 발현 떡갈나무 위치 참배 및 광장 산책" },
-      { time: "17:00", activity: "🚗 토마르 이동 (35km, 약 30분)" },
-      { time: "17:40", activity: "🏨 토마르 숙소 도착 및 렌트카 주차/체크인" },
-      { time: "18:30", activity: "🌅 [Parque do Mouchão] (무샤웅 공원) & 나바옹 강변 산책 — 토마르 명물 거대 물레방아 구경" },
-      { time: "19:00", activity: "📍 [Praça da República] (헤푸블리카 광장) — 토마르 구시가 중심 (세례 요한 성당 외관 구경)" },
+      { time: "14:40", activity: "⛪ [Mosteiro da Batalha] (바탈랴 수도원) ⭐⭐⭐ — 미완성 예배당의 압도적 뷰 📸" },
+      { time: "15:25", activity: "🚗 파티마 이동 (20km, 약 20분)" },
+      { time: "15:45", activity: "🅿️ 주차: [Parque 1] 검색 (파티마 구 성당 바로 뒤편 명당 주차장)" },
+      { time: "16:00", activity: "⛪ [Santuário de Fátima] (파티마 성모 발현지) ⭐⭐ — 거대한 순례자 광장 감상" },
+      { time: "16:30", activity: "⛪ [Capelinha das Aparições] (성모 발현 예배당) — 1917년 성모 발현 떡갈나무 위치 참배" },
+      { time: "17:00", activity: "🚗 토마르 방향으로 출발 (35km, 약 35분)" },
+      { time: "17:35", activity: "💎 히든 스팟: [Aqueduto dos Pegões] 도착 — 30m 높이의 아찔한 수도교 위 걷기 📸" },
+      { time: "18:00", activity: "🏨 토마르 시내 진입 (5분 소요) → 숙소 주차 및 체크인" },
+      { time: "18:40", activity: "🌅 [Parque do Mouchão] (무샤웅 공원) & 나바옹 강변 산책 — 거대 물레방아 구경" },
+      { time: "19:10", activity: "📍 [Praça da República] (헤푸블리카 광장) — 토마르 구시가 중심 (세례 요한 성당 외관)" },
       { time: "19:30", activity: "🍽️ 저녁 — [Taverna Antiqua] (중세 테마 식당, ⚠️사전예약 필수) 또는 Paço D'Alma" }
     ],
     tips: [
       "💡 구글맵 검색 팁: 대괄호 [ ] 안의 단어를 구글 지도에 그대로 검색하시면 100% 정확합니다.",
-      "🚗 주차 꿀팁: 오비두스는 'Obidos parking', 파티마는 'Parque 1'을 찍고 가시면 동선이 완벽합니다.",
-      "⚠️ Taverna Antiqua는 토마르 최고의 인기 식당이므로 방문 전 구글맵을 통해 꼭 예약해 두세요."
+      "🚗 주차 꿀팁: 오비두스는 'Obidos parking', 파티마는 'Parque 1'을 찍고 가세요.",
+      "📸 페고잉스 수도교(Aqueduto dos Pegões)는 렌트카 여행객만 누릴 수 있는 특권입니다. 꼭 들러보세요!",
+      "⚠️ Taverna Antiqua는 토마르 최고의 인기 식당이므로 방문 전 구글맵을 통해 예약해 두세요."
     ],
     transport: "🏨 토마르 에어비앤비 🚗 렌트카 (총 이동거리 약 200km)"
   },
@@ -4173,12 +4188,17 @@ const ROUTES = {
         highlights: ["파티마 대성당"]
       },
       {
-        icon: "🏨", title: "토마르 (35km, 30분)", time: "17:00~19:30",
+        icon: "💎", title: "토마르 히든 스팟 (35km, 35분)", time: "17:35~18:00",
+        places: ["페고잉스 수도교"],
+        highlights: ["페고잉스 수도교"]
+      },
+      {
+        icon: "🏨", title: "토마르 시내 (5분)", time: "18:00~19:30",
         places: ["나바옹 강변", "레푸블리카 광장 (토마르)", "성 주앙 바티스타 성당", "Taverna Antiqua"],
         highlights: ["나바옹 강변", "성 주앙 바티스타 성당"]
       }
     ],
-    tips: ["오비두스 주차: Obidos parking", "파티마 주차: Parque 1", "바탈랴 수도원: 미완성 예배당 필수"]
+    tips: ["오비두스 주차: Obidos parking", "파티마 주차: Parque 1", "페고잉스 수도교: 렌트카 필수 코스"]
   },
   "DAY 6": {
     title: "🏰 토마르 → 코임브라 → 포르투",
