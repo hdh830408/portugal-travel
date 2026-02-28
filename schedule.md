@@ -120,3 +120,86 @@
 ---
 **System Architect's Note**:
 이번 고도화 작업은 로직 변경 없는 **Data-Driven Update**입니다. 하지만 데이터 간의 **의존성(Dependency)**이 강하게 결합되어 있으므로, 단일 진실 공급원(SSOT) 원칙을 염두에 두고 데이터를 수정해야 합니다.
+
+## 4. 시스템 유지보수 및 일정 변경 가이드 (System Maintenance Guide)
+
+본 시스템은 정적 파일 기반의 데이터베이스 구조를 가지고 있으므로, 일정 변경 시 여러 파일 간의 **참조 무결성(Referential Integrity)**을 유지하는 것이 핵심입니다. 일정이 변경되거나 새로운 장소가 추가될 경우, 아래의 **4단계 프로세스**를 반드시 따라야 합니다.
+
+### 📂 파일별 역할 및 수정 포인트 요약
+
+| 단계 | 파일명 | 역할 | 수정 대상 변수 | 필수 여부 |
+| :-- | :-- | :-- | :-- | :-- |
+| **1** | `portugal_data.js` | 일정, 동선, 장소 기본 정보 | `ITINERARY`, `ROUTES`, `PLACES` | ⭐ 필수 |
+| **2** | `coords_data.js` | 지도 좌표 (위도/경도) | `PLACE_COORDS` | ⭐ 필수 |
+| **3** | `portugal_guides.js` | 상세 설명, 팁, 역사 | `PLACE_GUIDES` | ⭐ 필수 |
+| **4** | `portugal_data.js` | 주변 맛집 매핑 (선택) | `NEARBY_LANDMARKS` | 🔺 선택 |
+
+---
+
+### 🛠️ 상세 수정 프로세스 (Step-by-Step)
+
+#### Step 1. 기본 스케줄 및 동선 정의 (`portugal_data.js`)
+
+가장 먼저 앱의 뼈대가 되는 시간표와 지도 동선을 수정합니다.
+
+1.  **`ITINERARY` (시간표) 수정**
+    *   **위치**: `const ITINERARY` 배열 내 해당 `day` 객체.
+    *   **내용**: `schedule` 배열의 `time`과 `activity`를 수정합니다.
+    *   **주의**: 이곳의 텍스트는 단순 표시용이며, 로직에 영향을 주지 않습니다.
+
+2.  **`ROUTES` (지도 경로) 수정** ⚠️ **중요**
+    *   **위치**: `const ROUTES` 객체 내 해당 `DAY X` 키.
+    *   **내용**: `sections` 배열 내 `places` 리스트를 수정합니다.
+    *   **규칙**: 여기에 입력되는 **장소명(String)**은 시스템의 **기본키(Primary Key)** 역할을 합니다. 오타가 발생하면 지도에 경로가 그려지지 않거나 마커가 뜨지 않습니다.
+    *   *예시*: `places: ["오비두스 성벽", "바탈랴 수도원"]`
+
+3.  **`PLACES` (장소 메타데이터) 등록**
+    *   **위치**: `const PLACES` 배열.
+    *   **내용**: 신규 장소라면 반드시 객체를 추가해야 합니다. 기존 장소라면 `days` 배열에 해당 요일을 추가합니다.
+    *   **필수 속성**:
+        *   `name`: `ROUTES`에서 사용한 이름과 **정확히 일치**해야 함.
+        *   `type`: 아이콘 결정 (`landmark`, `restaurant` 등).
+        *   `searchName`: 구글맵 검색어 (정확도 향상용).
+
+#### Step 2. 지리 정보 등록 (`coords_data.js`)
+
+지도상에 마커를 표시하고 거리를 계산하기 위해 좌표를 등록합니다.
+
+*   **위치**: `const PLACE_COORDS` 객체.
+*   **형식**: `"장소명": { lat: 위도, lng: 경도 }`
+*   **검증**: 구글맵에서 장소를 우클릭하여 얻은 좌표를 소수점 4~6자리까지 입력합니다.
+*   **주의**: 키(Key) 값인 장소명은 `portugal_data.js`의 `PLACES.name`과 일치해야 합니다.
+
+#### Step 3. 상세 콘텐츠 작성 (`portugal_guides.js`)
+
+사용자가 장소를 클릭했을 때 모달 팝업에 표시될 상세 정보를 입력합니다.
+
+*   **위치**: `const PLACE_GUIDES` 객체.
+*   **형식**:
+    ```javascript
+    "장소명": {
+      emoji: "대표 이모지",
+      subtitle: "한 줄 요약",
+      history: "역사적 배경 및 설명",
+      photoSpots: ["포토스팟1", "포토스팟2"],
+      visitTips: { hours, fee, duration, tips },
+      nearbyFood: ["맛집1", "맛집2"] // 주변 맛집 이름 리스트
+    }
+    ```
+*   **연동**: `nearbyFood`에 입력된 맛집 이름은 `PLACES` 배열에 존재해야 클릭 시 해당 맛집 정보로 이동할 수 있습니다.
+
+#### Step 4. 데이터 정합성 최종 검증 (Checklist)
+
+수정이 완료되면 다음 항목을 체크하여 오류를 방지하세요.
+
+1.  [ ] **Name Consistency**: `ROUTES`의 장소명이 `PLACES`, `PLACE_COORDS`, `PLACE_GUIDES`의 키와 띄어쓰기까지 정확히 일치하는가?
+2.  [ ] **Orphaned Data**: `ITINERARY`에는 있는데 `ROUTES`나 `PLACES`에 누락된 장소는 없는가?
+3.  [ ] **Coordinate Check**: 신규 추가된 장소의 좌표가 `coords_data.js`에 등록되었는가? (누락 시 지도 기능 오작동)
+4.  [ ] **Guide Content**: 상세 가이드(`portugal_guides.js`)가 누락되면 모달이 비어 보일 수 있음.
+
+---
+
+### 💡 팁: 효율적인 데이터 관리 노하우
+
+*   **맛집 추가 시**: `PLACES`에 먼저 등록하고, `coords_data.js`에 좌표를 넣은 뒤, `portugal_guides.js`의 인근 관광지 `nearbyFood` 배열에 이름을 추가하면 자동으로 연결됩니다.
+*   **일정 순서 변경**: `ITINERARY`의 순서만 바꾸면 텍스트는 바뀌지만, 지도의 선 연결 순서를 바꾸려면 `ROUTES`의 `places` 배열 순서도 함께 바꿔야 합니다.

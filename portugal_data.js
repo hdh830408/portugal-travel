@@ -2089,6 +2089,71 @@ const PLACES = [
     ]
   },
   {
+    "name": "바탈랴 수도원",
+    "searchName": "Mosteiro da Batalha Portugal",
+    "rating": 4.8,
+    "price": "€10",
+    "hours": "09:00–18:00",
+    "type": "landmark",
+    "address": "Largo Infante Dom Henrique, 2440-109 Batalha",
+    "description": "유네스코 세계유산. 포르투갈 고딕과 마누엘 양식의 걸작 ⭐⭐⭐",
+    "days": [
+      "DAY 5"
+    ]
+  },
+  {
+    "name": "오비두스 성문",
+    "searchName": "Porta da Vila Óbidos",
+    "rating": 4.6,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "R. Direita, 2510-001 Óbidos",
+    "description": "아줄레주로 장식된 오비두스의 메인 게이트",
+    "days": [
+      "DAY 5"
+    ]
+  },
+  {
+    "name": "우세이라 수도교",
+    "searchName": "Aqueduto de Usseira Óbidos",
+    "rating": 4.5,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "Estr. do Aqueduto, 2510-135 Usseira",
+    "description": "오비두스 주차장 옆 거대 로마식 수도교",
+    "days": [
+      "DAY 5"
+    ]
+  },
+  {
+    "name": "성 주앙 바티스타 성당",
+    "searchName": "Igreja de São João Baptista Tomar",
+    "rating": 4.5,
+    "price": "무료",
+    "hours": "09:00–19:00",
+    "type": "church",
+    "address": "Praça da República, 2300-550 Tomar",
+    "description": "토마르 헤푸블리카 광장의 중심 성당. 마누엘 양식 종탑",
+    "days": [
+      "DAY 5"
+    ]
+  },
+  {
+    "name": "Café Rynok",
+    "searchName": "Café Rynok Coimbra",
+    "rating": 5.0,
+    "price": "€",
+    "hours": "09:00–19:00",
+    "type": "cafe",
+    "address": "R. da Louça 16, 3000-244 Coimbra",
+    "description": "코임브라 평점 5.0 카페. 최고의 커피와 분위기 ⭐",
+    "days": [
+      "DAY 6"
+    ]
+  },
+  {
     "name": "Restaurante Sete",
     "searchName": "Restaurante Sete Coimbra",
     "type": "restaurant",
@@ -3796,27 +3861,34 @@ const ITINERARY = [
   },
   {
     day: "DAY 5", date: "5/5 (화)",
-    title: "🚗 리스본 → 오비두스 → 파티마 → 토마르",
+    title: "🚗 중부 드라이브 — 오비두스 ➡️ 바탈랴 ➡️ 파티마 ➡️ 토마르 (구글맵 최적화 완료)",
     schedule: [
-      { time: "09:30", activity: "🚗 렌트카 픽업 — 리스본 공항" },
-      { time: "10:30", activity: "🏰 오비두스 도착 (80km, 1시간)" },
-      { time: "10:45", activity: "🏰 오비두스 성벽 ⭐ — 성벽 위 산책, 마을 조망" },
-      { time: "11:15", activity: "📍 오비두스 구시가 — 하얀 집, 노란 테두리" },
-      { time: "11:45", activity: "🍒 진자 시음 — 체리술, 초콜릿 컵에 마시기" },
-      { time: "12:15", activity: "⛪ 산타 마리아 성당 (오비두스) — 17세기 아줄레주" },
-      { time: "12:45", activity: "🍽️ 오비두스 점심 — 마을 내 레스토랑" },
-      { time: "14:00", activity: "🚗 파티마 이동 (60km, 50분)" },
-      { time: "15:00", activity: "⛪ 파티마 대성당 ⭐⭐ — 세계 3대 성모 발현지" },
-      { time: "15:30", activity: "⛪ 파티마 삼목상 예배당 — 1917년 성모 발현 장소" },
-      { time: "16:00", activity: "📍 파티마 광장 — 거대한 순례자 광장" },
-      { time: "16:30", activity: "🚗 토마르 이동 (35km, 30분)" },
-      { time: "17:00", activity: "🏨 토마르 숙소 체크인" },
-      { time: "17:30", activity: "🌅 나바옹 강변 산책 — 물레방아, 공원" },
-      { time: "18:30", activity: "📍 레푸블리카 광장 (토마르) — 토마르 중심" },
-      { time: "19:30", activity: "🍽️ 저녁 — Taverna Antiqua 또는 Restaurante Paço D'Alma" }
+      { time: "09:30", activity: "🚗 렌트카 픽업 수속 — 리스본 공항 (서류 확인 및 대기)" },
+      { time: "10:15", activity: "🚗 리스본 출발 → 오비두스 이동 (80km, 약 1시간)" },
+      { time: "11:15", activity: "🅿️ 주차: [Obidos parking] 검색 후 주차 (가장 넓고 쾌적한 메인 공영 주차장)" },
+      { time: "11:20", activity: "📸 [Aqueduto de Usseira] (우세이라 수도교) — 주차장 바로 옆 거대 로마식 수도교 감상" },
+      { time: "11:30", activity: "🏰 [Porta da Vila] (오비두스 성문) 진입 → 성벽 위 산책 ⭐" },
+      { time: "12:00", activity: "🍒 진자(Ginjinha) 시음 — 초콜릿 잔에 담긴 체리술 마시기 (운전자 주의!)" },
+      { time: "12:15", activity: "📍 [Igreja de Santa Maria] (산타 마리아 성당) — 구시가 골목 및 아줄레주 감상" },
+      { time: "12:45", activity: "🍽️ 오비두스 점심 — 성벽 내 식당 (또는 이동 중 바탈랴 근처 식사)" },
+      { time: "14:00", activity: "🚗 바탈랴 이동 (드라이브 치트키! / 50km, 약 40분)" },
+      { time: "14:45", activity: "⛪ [Mosteiro da Batalha] (바탈랴 수도원) ⭐⭐⭐ — 유네스코 세계문화유산, 미완성 예배당의 압도적 뷰 📸" },
+      { time: "15:30", activity: "🚗 파티마 이동 (20km, 약 20분)" },
+      { time: "15:50", activity: "🅿️ 주차: [Parque 1] 검색 (파티마 구 성당 바로 뒤편 명당 주차장)" },
+      { time: "16:00", activity: "⛪ [Santuário de Fátima] (파티마 성모 발현지) ⭐⭐ — Parque 1에서 걸어 나와 구 성당 감상" },
+      { time: "16:30", activity: "⛪ [Capelinha das Aparições] (성모 발현 예배당) — 1917년 성모 발현 떡갈나무 위치 참배 및 광장 산책" },
+      { time: "17:00", activity: "🚗 토마르 이동 (35km, 약 30분)" },
+      { time: "17:40", activity: "🏨 토마르 숙소 도착 및 렌트카 주차/체크인" },
+      { time: "18:30", activity: "🌅 [Parque do Mouchão] (무샤웅 공원) & 나바옹 강변 산책 — 토마르 명물 거대 물레방아 구경" },
+      { time: "19:00", activity: "📍 [Praça da República] (헤푸블리카 광장) — 토마르 구시가 중심 (세례 요한 성당 외관 구경)" },
+      { time: "19:30", activity: "🍽️ 저녁 — [Taverna Antiqua] (중세 테마 식당, ⚠️사전예약 필수) 또는 Paço D'Alma" }
     ],
-    tips: ["🍒 오비두스 진자: 초콜릿 컵째 먹기!", "⛪ 파티마: 순례자 무릎 기도 볼 수 있음", "🚗 총 이동거리 약 200km"],
-    transport: "🏨 토마르 에어비앤비 🚗 렌트카"
+    tips: [
+      "💡 구글맵 검색 팁: 대괄호 [ ] 안의 단어를 구글 지도에 그대로 검색하시면 100% 정확합니다.",
+      "🚗 주차 꿀팁: 오비두스는 'Obidos parking', 파티마는 'Parque 1'을 찍고 가시면 동선이 완벽합니다.",
+      "⚠️ Taverna Antiqua는 토마르 최고의 인기 식당이므로 방문 전 구글맵을 통해 꼭 예약해 두세요."
+    ],
+    transport: "🏨 토마르 에어비앤비 🚗 렌트카 (총 이동거리 약 200km)"
   },
   {
     day: "DAY 6", date: "5/6 (수)",
@@ -4082,13 +4154,18 @@ const ROUTES = {
     tips: ["페나궁전 예약 시간 엄수!", "헤갈레이라→까보다로카 우버 추천", "카스카이스에서 젤라또 먹고 기차로 귀환"]
   },
   "DAY 5": {
-    title: "🚗 리스본 → 오비두스 → 파티마 → 토마르",
-    subtitle: "시계방향 호 (북서→북동→동) 직선 이동, 총 200km",
+    title: "🚗 중부 드라이브 (오비두스/바탈랴/파티마/토마르)",
+    subtitle: "리스본→오비두스→바탈랴→파티마→토마르 (북쪽으로 이동)",
     sections: [
       {
         icon: "🏰", title: "오비두스 (80km, 1시간)", time: "10:30~13:00",
-        places: ["오비두스 성벽", "오비두스 구시가", "산타 마리아 성당 (오비두스)"],
-        highlights: ["오비두스 성벽", "오비두스 구시가"]
+        places: ["우세이라 수도교", "오비두스 성문", "오비두스 성벽", "오비두스 구시가", "산타 마리아 성당 (오비두스)"],
+        highlights: ["우세이라 수도교", "오비두스 성문"]
+      },
+      {
+        icon: "⛪", title: "바탈랴 (50km, 40분)", time: "14:45~15:30",
+        places: ["바탈랴 수도원"],
+        highlights: ["바탈랴 수도원"]
       },
       {
         icon: "⛪", title: "파티마 (60km, 50분)", time: "15:00~16:30",
@@ -4097,11 +4174,11 @@ const ROUTES = {
       },
       {
         icon: "🏨", title: "토마르 (35km, 30분)", time: "17:00~19:30",
-        places: ["나바옹 강변", "레푸블리카 광장 (토마르)", "Taverna Antiqua"],
-        highlights: ["나바옹 강변"]
+        places: ["나바옹 강변", "레푸블리카 광장 (토마르)", "성 주앙 바티스타 성당", "Taverna Antiqua"],
+        highlights: ["나바옹 강변", "성 주앙 바티스타 성당"]
       }
     ],
-    tips: ["오비두스 진자: 초콜릿 컵째 먹기!", "파티마: 순례자 무릎 기도 볼 수 있음", "총 이동거리 약 200km"]
+    tips: ["오비두스 주차: Obidos parking", "파티마 주차: Parque 1", "바탈랴 수도원: 미완성 예배당 필수"]
   },
   "DAY 6": {
     title: "🏰 토마르 → 코임브라 → 포르투",
@@ -5298,5 +5375,14 @@ Object.assign(LANDMARK_DETAILS, {
     duration: "10분 (외부)",
     tips: "내부 투어는 제한적",
     nearbyNote: "코메르시우 광장 레스토랑"
+  },
+  "바탈랴 수도원": {
+    icon: "⛪",
+    subtitle: "포르투갈 독립의 상징, 미완성 예배당의 미학",
+    history: "1385년 알주바호타 전투 승리를 기념하여 주앙 1세가 건설했습니다. 포르투갈 고딕 양식과 마누엘 양식이 결합된 걸작으로, 특히 지붕이 없는 '미완성 예배당'은 압도적인 아름다움을 자랑합니다. 유네스코 세계문화유산입니다.",
+    photoSpots: ["미완성 예배당 하늘 뷰", "왕의 회랑", "수도원 정면 파사드"],
+    duration: "1시간",
+    tips: "미완성 예배당은 별도 입구가 있음. 파티마 가는 길에 들르기 좋음",
+    nearbyNote: "수도원 앞 광장 카페"
   }
 });
