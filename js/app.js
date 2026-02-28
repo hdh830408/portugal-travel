@@ -5,7 +5,7 @@
 
 const FOOD_TYPES = ['cafe', 'dessert', 'seafood', 'restaurant', 'budget'];
 const LANDMARK_TYPES = ['landmark', 'church', 'viewpoint', 'square', 'transport'];
-const FIXED_OPENROUTER_KEY = 'Sk-or-v1-2e54a0d08dcc052e5dbbde27e1df4c3d0e905ac9caee8c7d15069b3db426626b';
+const FIXED_OPENROUTER_KEY = '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';
 
 // [3단계] 상태 객체 도입 (State Object)
 const AppState = {
@@ -20,8 +20,8 @@ const AppState = {
   ai: {
     open: false,
     loading: false,
-    provider: localStorage.getItem('pt_provider') || 'openrouter',
-    model: localStorage.getItem('pt_model') || 'openrouter/free'
+    provider: 'openrouter',
+    model: localStorage.getItem('pt_model') || 'google/gemini-2.0-flash-lite-preview-02-05:free'
   }
 };
 
@@ -106,9 +106,9 @@ function init() {
     if (typeof buildLandmarkDayFilter === 'function') buildLandmarkDayFilter();
     if (typeof buildLandmarkCatFilter === 'function') buildLandmarkCatFilter();
     if (typeof renderSchedule === 'function') renderSchedule();
-  }, 50);
+  }, 10);
 
-  const hasKey = localStorage.getItem('pt_api_key') || localStorage.getItem('pt_api_key_google') || localStorage.getItem('pt_api_key_anthropic') || FIXED_OPENROUTER_KEY;
+  const hasKey = FIXED_OPENROUTER_KEY;
   if (hasKey) {
     const btn = document.getElementById('settingsBtn');
     if (btn) { btn.style.borderColor = 'var(--green)'; btn.style.color = 'var(--green)'; }
@@ -415,10 +415,7 @@ function toggleSettings() {
   const isOpen = panel.classList.contains('open');
   if (!isOpen) {
     refreshApiStatus();
-    switchProvider(AppState.ai.provider, false);
-    document.getElementById('apiKeyInput').value = localStorage.getItem('pt_api_key') ? '••••••••••••' : '';
-    document.getElementById('apiKeyInputGoogle').value = localStorage.getItem('pt_api_key_google') ? '••••••••••••' : '';
-    document.getElementById('apiKeyInputAnthropic').value = localStorage.getItem('pt_api_key_anthropic') ? '••••••••••••' : '';
+    switchProvider('openrouter', false);
     refreshModelSelection();
   }
   panel.classList.toggle('open', !isOpen);
@@ -426,14 +423,21 @@ function toggleSettings() {
 }
 
 function switchProvider(provider, save=true) {
-  AppState.ai.provider = provider;
-  if(save) localStorage.setItem('pt_provider', provider);
-  document.getElementById('section-openrouter').style.display = provider === 'openrouter' ? 'block' : 'none';
-  document.getElementById('section-google').style.display = provider === 'google' ? 'block' : 'none';
-  document.getElementById('section-anthropic').style.display = provider === 'anthropic' ? 'block' : 'none';
-  document.getElementById('tab-openrouter').classList.toggle('active', provider === 'openrouter');
-  document.getElementById('tab-google').classList.toggle('active', provider === 'google');
-  document.getElementById('tab-anthropic').classList.toggle('active', provider === 'anthropic');
+  AppState.ai.provider = 'openrouter';
+  
+  const secOpen = document.getElementById('section-openrouter');
+  if(secOpen) secOpen.style.display = 'block';
+  
+  ['google', 'anthropic'].forEach(p => {
+    const sec = document.getElementById('section-' + p);
+    if(sec) sec.style.display = 'none';
+    const tab = document.getElementById('tab-' + p);
+    if(tab) tab.style.display = 'none';
+  });
+
+  const tabOpen = document.getElementById('tab-openrouter');
+  if(tabOpen) tabOpen.classList.add('active');
+  
   refreshApiStatus();
 }
 
@@ -454,28 +458,13 @@ function refreshModelSelection() {
 }
 
 function refreshApiStatus() {
-  let key = '';
-  if (AppState.ai.provider === 'google') key = localStorage.getItem('pt_api_key_google') || '';
-  else if (AppState.ai.provider === 'anthropic') key = localStorage.getItem('pt_api_key_anthropic') || '';
-  else key = localStorage.getItem('pt_api_key') || FIXED_OPENROUTER_KEY;
   const el = document.getElementById('apiStatus');
-  if (key) {
-    const label = AppState.ai.provider === 'google' ? '🆓 Google AI (완전무료)' : AppState.ai.provider === 'openrouter' ? '🔀 OpenRouter' : '🤖 Claude';
-    el.innerHTML = '<div class="settings-status status-ok">✅ 연결됨 · ' + label + ' · AI 사용 가능</div>';
-  } else {
-    el.innerHTML = '<div class="settings-status status-none">⚠️ API 키 없음 · 아래에서 설정해주세요</div>';
-  }
+  el.innerHTML = '<div class="settings-status status-ok">✅ 연결됨 · 🔀 OpenRouter · AI 사용 가능</div>';
 }
 
 function saveApiKey() {
-  const inputMap = { openrouter: 'apiKeyInput', google: 'apiKeyInputGoogle', anthropic: 'apiKeyInputAnthropic' };
-  const storageMap = { openrouter: 'pt_api_key', google: 'pt_api_key_google', anthropic: 'pt_api_key_anthropic' };
-  const val = document.getElementById(inputMap[AppState.ai.provider]).value.trim();
-  if (val && val !== '••••••••••••') localStorage.setItem(storageMap[AppState.ai.provider], val);
-  localStorage.setItem('pt_provider', AppState.ai.provider);
   localStorage.setItem('pt_model', AppState.ai.model);
-  const isGoogle = AppState.ai.provider === 'google';
-  showToast(isGoogle ? '✅ 저장됨! Google AI 무료로 사용해요 🎉' : '✅ API 키 저장 완료!');
+  showToast('✅ 설정 저장 완료!');
   refreshApiStatus();
   const btn = document.getElementById('settingsBtn');
   btn.style.borderColor = 'var(--green)';
@@ -499,34 +488,25 @@ async function sendAI() {
   const input = document.getElementById('aiInput');
   const msg = input.value.trim();
   if (!msg || AppState.ai.loading) return;
-  const provider = localStorage.getItem('pt_provider') || 'openrouter';
-  const storageMap = { openrouter: 'pt_api_key', google: 'pt_api_key_google', anthropic: 'pt_api_key_anthropic' };
-  let apiKey = (localStorage.getItem(storageMap[provider]) || '').trim();
   
-  // OpenRouter일 경우: 키가 없거나 형식이 안 맞으면 고정 키 사용
-  if (provider === 'openrouter') {
-    if (!apiKey || !apiKey.toLowerCase().startsWith('sk-or-') || apiKey.length < 50) {
-      apiKey = FIXED_OPENROUTER_KEY;
-    }
-  }
+  const provider = 'openrouter';
+  const apiKey = FIXED_OPENROUTER_KEY;
+  console.log('[AI] Using Fixed OpenRouter Key');
   
   const SAFE_MODELS = [
-    'gemini-2.0-flash',
-    'gemini-2.0-flash-lite',
-    'openrouter/free',
     'google/gemini-2.0-flash-lite-preview-02-05:free',
     'meta-llama/llama-3.3-70b-instruct:free',
     'qwen/qwen-2.5-72b-instruct:free',
-    'microsoft/phi-3-mini-128k-instruct:free'
+    'microsoft/phi-3-mini-128k-instruct:free',
+    'openrouter/free'
   ];
-  const rawModel = localStorage.getItem('pt_model') || '';
-  let model = rawModel;
+  
+  let model = localStorage.getItem('pt_model') || 'google/gemini-2.0-flash-lite-preview-02-05:free';
   if (!SAFE_MODELS.includes(model)) {
-    model = provider === 'google' ? 'gemini-2.0-flash' : 'google/gemini-2.0-flash-lite-preview-02-05:free';
+    model = 'google/gemini-2.0-flash-lite-preview-02-05:free';
     localStorage.setItem('pt_model', model);
   }
   
-  if (!apiKey) { toggleSettings(); return; }
   input.value = '';
   AppState.ai.loading = true;
   document.getElementById('aiSend').disabled = true;
@@ -537,39 +517,30 @@ async function sendAI() {
   const itinContext = APP_DATA.itinerary.slice(0,5).map(d => d.dayLabel + ' ' + d.title + ': ' + d.schedule.slice(0,4).map(s => s.activity).join(', ')).join('\n');
   const systemPrompt = '당신은 포르투갈 여행 전문 AI 어시스턴트입니다. 2026년 5월 1-10일 포르투갈 여행을 도와줍니다.\n\n[맛집 DB]\n' + dayContext + '\n\n[일정]\n' + itinContext + '\n\n규칙: 한국어, 이모지 사용, 구체적 식당명·평점 언급. 장소 추천 시 구글 지도 검색 링크([장소명](https://www.google.com/maps/search/?api=1&query=장소명))를 포함하세요. 3-5문장 간결하게';
   try {
-    let response, reply;
-    if (provider === 'google') {
-      const geminiUrl = 'https://generativelanguage.googleapis.com/v1/models/' + model + ':generateContent?key=' + apiKey;
-      response = await fetch(geminiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [ { role: 'user', parts: [{ text: systemPrompt + '\n\n사용자 질문: ' + msg }] } ], generationConfig: { maxOutputTokens: 1000, temperature: 0.7 } }) });
-      if (!response.ok) {
-         const errData = await response.json().catch(()=>({}));
-         throw new Error(errData?.error?.message || 'HTTP ' + response.status);
-      }
-      const data = await response.json();
-      if (data.candidates && data.candidates[0]) {
-          const candidate = data.candidates[0];
-          if (candidate.content && candidate.content.parts && candidate.content.parts[0]) {
-              reply = candidate.content.parts[0].text;
-          } else {
-              reply = `응답을 생성할 수 없습니다. (사유: ${candidate.finishReason || '알 수 없음'})`;
-          }
-      } else {
-          reply = '응답을 받지 못했어요.';
-      }
-    } else if (provider === 'openrouter') {
-      response = await fetch('https://openrouter.ai/api/v1/chat/completions', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey, 'HTTP-Referer': 'https://portugal-travel-app', 'X-Title': 'Portugal Travel 2026' }, body: JSON.stringify({ model: model, max_tokens: 1000, messages: [ {role: 'system', content: systemPrompt}, {role: 'user', content: msg} ] }) });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data?.error?.message || 'OpenRouter API Error ' + response.status);
-      reply = data.choices?.[0]?.message?.content || 'AI로부터 응답을 받지 못했어요. (빈 응답)';
-    } else {
-      response = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' }, body: JSON.stringify({ model: model, max_tokens: 1000, system: systemPrompt, messages: [{role: 'user', content: msg}] }) });
-      if (!response.ok) {
-         const errData = await response.json().catch(()=>({}));
-         throw new Error(errData?.error?.message || 'HTTP ' + response.status);
-      }
-      const data = await response.json();
-      reply = data.content?.[0]?.text || '응답을 받지 못했어요.';
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', { 
+      method: 'POST', 
+      headers: { 
+        'Content-Type': 'application/json', 
+        'Authorization': 'Bearer ' + apiKey, 
+        'HTTP-Referer': 'https://portugal-travel-app', 
+        'X-Title': 'Portugal Travel 2026' 
+      }, 
+      body: JSON.stringify({ 
+        model: model, 
+        max_tokens: 1000, 
+        messages: [ {role: 'system', content: systemPrompt}, {role: 'user', content: msg} ] 
+      }) 
+    });
+    
+    if (!response.ok) {
+      const data = await response.json().catch(() => ({}));
+      console.error('OpenRouter API Error Details:', data);
+      throw new Error(data?.error?.message || 'OpenRouter API Error ' + response.status);
     }
+    
+    const data = await response.json();
+    const reply = data.choices?.[0]?.message?.content || 'AI로부터 응답을 받지 못했어요. (빈 응답)';
+    
     loadingEl.className = 'msg msg-ai';
     loadingEl.innerHTML = reply.replace(/\n/g, '<br>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color:var(--blue);text-decoration:underline">$1</a>');
   } catch(e) {
@@ -596,7 +567,7 @@ function scrollAI() {
 
 async function resetApp() {
   if (confirm('앱을 초기화하고 최신 데이터를 받아오시겠습니까?\n(저장된 설정과 캐시가 모두 삭제됩니다)')) {
-    ['pt_api_key','pt_api_key_google','pt_api_key_anthropic','pt_model','pt_provider'].forEach(k => localStorage.removeItem(k));
+    ['pt_model'].forEach(k => localStorage.removeItem(k));
     try {
       if ('serviceWorker' in navigator) {
         const registrations = await navigator.serviceWorker.getRegistrations();
