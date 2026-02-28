@@ -40,6 +40,7 @@ function init() {
 
   // [Store] 상태 구독 설정
   setupSubscriptions();
+  setupEventListeners();
 }
 
 // ── 상태 변경 및 이벤트 핸들러 ──
@@ -249,6 +250,77 @@ function setupSubscriptions() {
     document.querySelectorAll('.route-day-btn').forEach(btn => btn.classList.toggle('active', btn.textContent === day));
     UI.renderRoute(ROUTES);
   });
+}
+
+// ── EVENT LISTENERS (정적 요소) ──
+function setupEventListeners() {
+  // Header
+  document.getElementById('btnToggleAI')?.addEventListener('click', () => AIController.toggleAI());
+  document.getElementById('settingsBtn')?.addEventListener('click', () => AIController.toggleSettings());
+
+  // Tabs
+  document.querySelectorAll('.tab').forEach(el => {
+    el.addEventListener('click', () => switchTab(el.dataset.tab));
+  });
+
+  // Food Page
+  document.getElementById('searchInput')?.addEventListener('input', (e) => onSearch(e.target.value));
+  document.getElementById('btnFindLocationFood')?.addEventListener('click', findMyLocation);
+  document.getElementById('btnClearLandmarkFilter')?.addEventListener('click', clearLandmarkFilter);
+
+  // Landmark Page
+  document.getElementById('landmarkSearchInput')?.addEventListener('input', (e) => onLandmarkSearch(e.target.value));
+  document.getElementById('btnFindLocationLandmark')?.addEventListener('click', findMyLocation);
+
+  // Route Page
+  document.querySelectorAll('.route-day-btn').forEach(el => {
+    el.addEventListener('click', () => selectRouteDay(el.dataset.day));
+  });
+
+  // Settings Panel
+  document.getElementById('settingsPanel')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) AIController.toggleSettings();
+  });
+  document.getElementById('btnSettingsClose')?.addEventListener('click', () => AIController.toggleSettings());
+  document.getElementById('btnResetApp')?.addEventListener('click', resetApp);
+  document.getElementById('btnSaveApiKey')?.addEventListener('click', () => AIController.saveApiKey());
+
+  document.querySelectorAll('.provider-tab').forEach(el => {
+    el.addEventListener('click', () => AIController.switchProvider(el.dataset.provider));
+  });
+
+  document.querySelectorAll('.model-option').forEach(el => {
+    el.addEventListener('click', () => AIController.selectModel(el.dataset.model, el));
+  });
+
+  // AI Panel
+  document.getElementById('btnAIClose')?.addEventListener('click', () => AIController.toggleAI());
+  document.getElementById('aiSend')?.addEventListener('click', () => AIController.sendAI());
+  document.getElementById('aiInput')?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') AIController.sendAI();
+  });
+  document.querySelectorAll('.ai-sug').forEach(el => {
+    el.addEventListener('click', () => AIController.askSuggestion(el.dataset.sug));
+  });
+
+  // Modals
+  document.getElementById('placeModal')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+  document.getElementById('btnModalClose')?.addEventListener('click', closeModal);
+
+  document.getElementById('guideModal')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeGuide();
+  });
+  document.getElementById('btnGuideClose')?.addEventListener('click', closeGuide);
+
+  // Tag Popup
+  document.getElementById('tagPopupOverlay')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeTagPopup();
+  });
+  document.getElementById('btnFilterByLandmark')?.addEventListener('click', filterByLandmark);
+  document.getElementById('btnOpenLandmarkMap')?.addEventListener('click', openLandmarkMap);
+  document.getElementById('btnOpenLandmarkGuide')?.addEventListener('click', openLandmarkGuide);
 }
 
 async function resetApp() {

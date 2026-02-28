@@ -302,7 +302,7 @@ function openGuide(placeName) {
     }
   }
   document.getElementById('guideContent').innerHTML = html;
-  if (hasNearbyFoods(placeName)) {
+  if (DataService.hasNearbyFoods(placeName)) {
     document.getElementById('guideContent').innerHTML += `<div style="margin-top:16px;padding:0 16px;"><button class="guide-btn" style="width:100%;background:rgba(46,196,160,.15);border:1px solid rgba(46,196,160,.3);color:var(--teal);padding:12px;font-size:13px;" onclick="goToNearbyFood('${placeName.replace(/'/g, "\\'")}')">🍽️ 근처 맛집 보기</button></div>`;
   }
   const placeData = PLACES.find(p => p.name === placeName);

@@ -22,26 +22,26 @@
       <div class="dates" id="appDates">May 1–10 · 9박10일 여행 가이드 (v9)</div>
     </div>
     <div class="header-right">
-      <button class="ai-badge" onclick="toggleAI()">✨ AI Agent</button>
-      <button class="settings-btn" onclick="toggleSettings()" id="settingsBtn">⚙️</button>
+      <button class="ai-badge" id="btnToggleAI">✨ AI Agent</button>
+      <button class="settings-btn" id="settingsBtn">⚙️</button>
     </div>
   </div>
 
   <!-- TABS -->
   <div class="tabs">
-    <div class="tab active" onclick="switchTab('food')">
+    <div class="tab active" data-tab="food">
       <span class="tab-icon">🍽️</span>맛집
     </div>
-    <div class="tab" onclick="switchTab('landmark')">
+    <div class="tab" data-tab="landmark">
       <span class="tab-icon">🏛️</span>관광지
     </div>
-    <div class="tab" onclick="switchTab('schedule')">
+    <div class="tab" data-tab="schedule">
       <span class="tab-icon">📅</span>일정
     </div>
-    <div class="tab" onclick="switchTab('route')">
+    <div class="tab" data-tab="route">
       <span class="tab-icon">🗺️</span>동선
     </div>
-    <div class="tab" onclick="switchTab('saved')">
+    <div class="tab" data-tab="saved">
       <span class="tab-icon">⭐</span>저장됨
     </div>
   </div>
@@ -51,13 +51,12 @@
     <!-- FOOD PAGE -->
     <div id="page-food" class="page active">
       <div class="search-bar">
-        <input class="search-input" placeholder="🔍 식당 이름, 주소 검색..." 
-               oninput="onSearch(this.value)" id="searchInput">
-        <button class="place-btn btn-map" style="width:auto;padding:0 12px;margin-left:8px;height:42px;flex-shrink:0" onclick="findMyLocation()">📍 내 주변</button>
+        <input class="search-input" placeholder="🔍 식당 이름, 주소 검색..." id="searchInput">
+        <button class="place-btn btn-map" style="width:auto;padding:0 12px;margin-left:8px;height:42px;flex-shrink:0" id="btnFindLocationFood">📍 내 주변</button>
       </div>
       <div class="landmark-filter-bar" id="landmarkFilterBar">
         <span class="landmark-filter-text">📍 <span id="landmarkFilterName"></span> 근처 맛집</span>
-        <button class="landmark-filter-close" onclick="clearLandmarkFilter()">✕</button>
+        <button class="landmark-filter-close" id="btnClearLandmarkFilter">✕</button>
       </div>
       <div class="day-pills" id="dayPills"></div>
       <div class="cat-filter" id="catFilter"></div>
@@ -67,9 +66,8 @@
     <!-- LANDMARK PAGE -->
     <div id="page-landmark" class="page">
       <div class="search-bar">
-        <input class="search-input" placeholder="🔍 관광지 이름, 주소 검색..." 
-               oninput="onLandmarkSearch(this.value)" id="landmarkSearchInput">
-        <button class="place-btn btn-map" style="width:auto;padding:0 12px;margin-left:8px;height:42px;flex-shrink:0" onclick="findMyLocation()">📍 내 주변</button>
+        <input class="search-input" placeholder="🔍 관광지 이름, 주소 검색..." id="landmarkSearchInput">
+        <button class="place-btn btn-map" style="width:auto;padding:0 12px;margin-left:8px;height:42px;flex-shrink:0" id="btnFindLocationLandmark">📍 내 주변</button>
       </div>
       <div class="day-pills" id="landmarkDayPills"></div>
       <div class="cat-filter" id="landmarkCatFilter"></div>
@@ -84,14 +82,14 @@
     <!-- ROUTE PAGE -->
     <div id="page-route" class="page">
       <div class="route-day-selector">
-        <button class="route-day-btn" onclick="selectRouteDay('DAY 2')">DAY 2</button>
-        <button class="route-day-btn" onclick="selectRouteDay('DAY 3')">DAY 3</button>
-        <button class="route-day-btn" onclick="selectRouteDay('DAY 4')">DAY 4</button>
-        <button class="route-day-btn" onclick="selectRouteDay('DAY 5')">DAY 5</button>
-        <button class="route-day-btn" onclick="selectRouteDay('DAY 6')">DAY 6</button>
-        <button class="route-day-btn active" onclick="selectRouteDay('DAY 7')">DAY 7</button>
-        <button class="route-day-btn" onclick="selectRouteDay('DAY 8')">DAY 8</button>
-        <button class="route-day-btn" onclick="selectRouteDay('DAY 9')">DAY 9</button>
+        <button class="route-day-btn" data-day="DAY 2">DAY 2</button>
+        <button class="route-day-btn" data-day="DAY 3">DAY 3</button>
+        <button class="route-day-btn" data-day="DAY 4">DAY 4</button>
+        <button class="route-day-btn" data-day="DAY 5">DAY 5</button>
+        <button class="route-day-btn" data-day="DAY 6">DAY 6</button>
+        <button class="route-day-btn active" data-day="DAY 7">DAY 7</button>
+        <button class="route-day-btn" data-day="DAY 8">DAY 8</button>
+        <button class="route-day-btn" data-day="DAY 9">DAY 9</button>
       </div>
       <div id="routeContent"></div>
     </div>
@@ -104,7 +102,7 @@
 </div>
 
 <!-- SETTINGS PANEL -->
-<div class="settings-panel" id="settingsPanel" onclick="if(event.target===this)toggleSettings()">
+<div class="settings-panel" id="settingsPanel">
   <div class="settings-card" style="max-height:85vh;overflow-y:auto">
     <div class="settings-title">⚙️ AI 설정</div>
     
@@ -113,13 +111,13 @@
     <!-- Provider 탭 -->
     <div class="api-section-title">AI 제공자 선택</div>
     <div class="provider-tabs">
-      <button class="provider-tab" id="tab-openrouter" onclick="switchProvider('openrouter')">
+      <button class="provider-tab" id="tab-openrouter" data-provider="openrouter">
         🔀 OpenRouter<br><span style="font-size:9px;font-weight:400">크레딧필요</span>
       </button>
-      <button class="provider-tab active" id="tab-google" onclick="switchProvider('google')">
+      <button class="provider-tab active" id="tab-google" data-provider="google">
         🆓 Google<br><span style="font-size:9px;font-weight:400">완전무료</span>
       </button>
-      <button class="provider-tab" id="tab-anthropic" onclick="switchProvider('anthropic')">
+      <button class="provider-tab" id="tab-anthropic" data-provider="anthropic">
         🤖 Claude<br><span style="font-size:9px;font-weight:400">유료</span>
       </button>
     </div>
@@ -128,22 +126,22 @@
     <div id="section-openrouter" style="display:none">
       <div class="api-section-title">무료 모델 선택</div>
       <div class="model-list" id="modelList">
-        <div class="model-option selected" onclick="selectModel('google/gemini-2.0-flash-lite-preview-02-05:free',this)">
+        <div class="model-option selected" data-model="google/gemini-2.0-flash-lite-preview-02-05:free">
           <span class="model-option-badge badge-free">🆓 무료</span>
           <div class="model-option-name">Gemini 2.0 Flash Lite ⭐ 추천</div>
           <div class="model-option-desc">Google 최신 모델 · 빠르고 똑똑함</div>
         </div>
-        <div class="model-option" onclick="selectModel('meta-llama/llama-3.3-70b-instruct:free',this)">
+        <div class="model-option" data-model="meta-llama/llama-3.3-70b-instruct:free">
           <span class="model-option-badge badge-free">🆓 무료</span>
           <div class="model-option-name">Llama 3.3 70B</div>
           <div class="model-option-desc">Meta 최신 고성능 모델</div>
         </div>
-        <div class="model-option" onclick="selectModel('qwen/qwen-2.5-72b-instruct:free',this)">
+        <div class="model-option" data-model="qwen/qwen-2.5-72b-instruct:free">
           <span class="model-option-badge badge-free">🆓 무료</span>
           <div class="model-option-name">Qwen 2.5 72B</div>
           <div class="model-option-desc">알리바바 최신 · 한국어 잘함</div>
         </div>
-        <div class="model-option" onclick="selectModel('openrouter/free',this)">
+        <div class="model-option" data-model="openrouter/free">
           <span class="model-option-badge badge-free" style="background:rgba(167,139,250,.15);color:#a78bfa">🔀 자동</span>
           <div class="model-option-name">Free Router (자동)</div>
           <div class="model-option-desc">가용한 무료 모델 자동 선택</div>
@@ -162,12 +160,12 @@
     <!-- Google AI Studio 섹션 -->
     <div id="section-google">
       <div class="model-list">
-        <div class="model-option selected" onclick="selectModel('gemini-2.0-flash',this)">
+        <div class="model-option selected" data-model="gemini-2.0-flash">
           <span class="model-option-badge badge-free">🆓 완전무료</span>
           <div class="model-option-name">Gemini 2.0 Flash ⭐ 추천</div>
           <div class="model-option-desc">Google 최신 · v1 API 완전 지원 · 가장 안정적</div>
         </div>
-        <div class="model-option" onclick="selectModel('gemini-2.0-flash-lite',this)">
+        <div class="model-option" data-model="gemini-2.0-flash-lite">
           <span class="model-option-badge badge-free">🆓 완전무료</span>
           <div class="model-option-name">Gemini 2.0 Flash Lite</div>
           <div class="model-option-desc">더 가볍고 빠름 · 쿼터 여유로움</div>
@@ -185,12 +183,12 @@
     <!-- Anthropic 섹션 -->
     <div id="section-anthropic" style="display:none">
       <div class="model-list">
-        <div class="model-option selected" onclick="selectModel('claude-sonnet-4-20250514',this)">
+        <div class="model-option selected" data-model="claude-sonnet-4-20250514">
           <span class="model-option-badge badge-paid">💳 유료</span>
           <div class="model-option-name">Claude Sonnet 4</div>
           <div class="model-option-desc">가장 균형잡힌 성능 · 한국어 최고 품질</div>
         </div>
-        <div class="model-option" onclick="selectModel('claude-haiku-4-5-20251001',this)">
+        <div class="model-option" data-model="claude-haiku-4-5-20251001">
           <span class="model-option-badge badge-paid">💳 유료 (저렴)</span>
           <div class="model-option-name">Claude Haiku 4.5</div>
           <div class="model-option-desc">빠르고 저렴 · 간단한 추천에 적합</div>
@@ -206,9 +204,9 @@
     </div>
 
     <div class="settings-actions">
-      <button class="btn-cancel" onclick="toggleSettings()">닫기</button>
-      <button class="btn-clear" onclick="resetApp()">전체 초기화</button>
-      <button class="btn-save" id="btnSave" onclick="saveApiKey()">저장</button>
+      <button class="btn-cancel" id="btnSettingsClose">닫기</button>
+      <button class="btn-clear" id="btnResetApp">전체 초기화</button>
+      <button class="btn-save" id="btnSaveApiKey">저장</button>
     </div>
   </div>
 </div>
@@ -217,39 +215,38 @@
 <div class="ai-panel" id="aiPanel">
   <div class="ai-panel-header">
     <span class="ai-panel-title">✨ 포르투갈 여행 AI</span>
-    <button class="ai-close" onclick="toggleAI()">×</button>
+    <button class="ai-close" id="btnAIClose">×</button>
   </div>
   <div class="ai-suggestions">
-    <div class="ai-sug" onclick="askSuggestion('오늘 저녁 해산물 추천해줘')">🦐 해산물 추천</div>
-    <div class="ai-sug" onclick="askSuggestion('가성비 좋은 맛집 알려줘')">💰 가성비 맛집</div>
-    <div class="ai-sug" onclick="askSuggestion('리스본 브런치 어디가 좋아?')">☕ 브런치 추천</div>
+    <div class="ai-sug" data-sug="오늘 저녁 해산물 추천해줘">🦐 해산물 추천</div>
+    <div class="ai-sug" data-sug="가성비 좋은 맛집 알려줘">💰 가성비 맛집</div>
+    <div class="ai-sug" data-sug="리스본 브런치 어디가 좋아?">☕ 브런치 추천</div>
   </div>
   <div class="ai-messages" id="aiMessages">
     <div class="msg msg-ai">안녕하세요! 포르투갈 여행 도우미예요 🇵🇹<br>맛집, 일정, 꿀팁 뭐든 물어보세요!</div>
   </div>
   <div class="ai-input-row">
-    <input class="ai-input" id="aiInput" placeholder="여행에 대해 뭐든 물어보세요..." 
-           onkeydown="if(event.key==='Enter')sendAI()">
-    <button class="ai-send" id="aiSend" onclick="sendAI()">전송</button>
+    <input class="ai-input" id="aiInput" placeholder="여행에 대해 뭐든 물어보세요...">
+    <button class="ai-send" id="aiSend">전송</button>
   </div>
 </div>
 
 <!-- MODAL -->
-<div class="modal" id="placeModal" onclick="if(event.target===this)closeModal()">
+<div class="modal" id="placeModal">
   <div class="modal-card" id="modalCard">
-    <button class="modal-close" onclick="closeModal()">×</button>
+    <button class="modal-close" id="btnModalClose">×</button>
     <div id="modalContent"></div>
   </div>
 </div>
 
 <!-- GUIDE MODAL (장소 해설 팝업) -->
-<div class="guide-modal" id="guideModal" onclick="if(event.target===this)closeGuide()">
+<div class="guide-modal" id="guideModal">
   <div class="guide-card">
     <div class="guide-header">
       <div class="guide-header-top">
         <span class="guide-emoji" id="guideEmoji">📍</span>
         <div class="guide-title" id="guideTitle">장소명</div>
-        <button class="guide-close" onclick="closeGuide()">✕</button>
+        <button class="guide-close" id="btnGuideClose">✕</button>
       </div>
       <div class="guide-subtitle" id="guideSubtitle">장소 설명</div>
     </div>
@@ -263,16 +260,16 @@
 <div class="toast" id="toast"></div>
 
 <!-- LANDMARK TAG POPUP -->
-<div class="tag-popup-overlay" id="tagPopupOverlay" onclick="if(event.target===this)closeTagPopup()">
+<div class="tag-popup-overlay" id="tagPopupOverlay">
   <div class="tag-popup">
     <div class="tag-popup-title">📍 <span id="tagPopupName"></span></div>
-    <button class="tag-popup-btn" onclick="filterByLandmark()">
+    <button class="tag-popup-btn" id="btnFilterByLandmark">
       <span class="tag-popup-btn-icon">🔍</span> 근처 맛집 보기
     </button>
-    <button class="tag-popup-btn" onclick="openLandmarkMap()">
+    <button class="tag-popup-btn" id="btnOpenLandmarkMap">
       <span class="tag-popup-btn-icon">🗺️</span> 지도에서 보기
     </button>
-    <button class="tag-popup-btn" onclick="openLandmarkGuide()">
+    <button class="tag-popup-btn" id="btnOpenLandmarkGuide">
       <span class="tag-popup-btn-icon">ℹ️</span> 장소 정보
     </button>
   </div>
