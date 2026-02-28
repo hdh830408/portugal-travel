@@ -1106,3 +1106,22 @@ const PLACE_COORDS = {
   "산타 루지아 전망대": { "lat": 38.7115, "lng": -9.1305 },
   "Amorino": { "lat": 38.7105, "lng": -9.1375 }
 };
+
+// 2025-02-22 DAY 3 일정 고도화 추가 장소
+Object.assign(PLACE_COORDS, {
+  "MAAT": { "lat": 38.6958, "lng": -9.1945 },
+  "핑크 스트리트": { "lat": 38.7073, "lng": -9.1438 },
+  "임페리우 광장": { "lat": 38.6973, "lng": -9.2058 }
+});
+
+// 2025-02-22 DAY 4 신트라 가이드 일정 추가 장소
+Object.assign(PLACE_COORDS, {
+  "산타 마리아 트레일": { "lat": 38.7945, "lng": -9.3895 },
+  "Lawrence's Hotel": { "lat": 38.7963, "lng": -9.3923 },
+  "카스카이스 해변": { "lat": 38.6975, "lng": -9.4215 },
+  "Santini Cascais": { "lat": 38.6962, "lng": -9.4222 },
+  "카스카이스 역": { "lat": 38.7005, "lng": -9.4185 },
+  "Mar do Inferno": { "lat": 38.6915, "lng": -9.4235 },
+  "Hifen": { "lat": 38.6960, "lng": -9.4210 },
+  "House of Wonders": { "lat": 38.6965, "lng": -9.4205 }
+});

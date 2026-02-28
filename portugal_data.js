@@ -3583,6 +3583,118 @@ const PLACES = [
     "address": "R. Augusta 209, 1100-051 Lisboa",
     "description": "장미 모양 젤라또. 아우구스타 거리의 명물",
     "days": ["DAY 2"]
+  },
+  // 2025-02-22 DAY 3 일정 고도화 추가 장소
+  {
+    "name": "MAAT",
+    "searchName": "MAAT Museum of Art Architecture and Technology",
+    "rating": 4.5,
+    "price": "무료(루프탑)",
+    "hours": "10:00–19:00",
+    "type": "landmark",
+    "address": "Av. Brasília, 1300-598 Lisboa",
+    "description": "테주강변 현대 미술관. 루프탑 전망 최고 ⭐",
+    "days": ["DAY 3"]
+  },
+  {
+    "name": "핑크 스트리트",
+    "searchName": "Pink Street Lisboa",
+    "rating": 4.4,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "square",
+    "address": "R. Nova do Carvalho, 1200-370 Lisboa",
+    "description": "리스본 핫플레이스. 핑크색 바닥 포토존 📸",
+    "days": ["DAY 3"]
+  },
+  {
+    "name": "임페리우 광장",
+    "searchName": "Praça do Império Belém",
+    "rating": 4.6,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "square",
+    "address": "Praça do Império, 1400-206 Lisboa",
+    "description": "수도원 앞 대형 정원 광장. 지하도 연결",
+    "days": ["DAY 3"]
+  },
+  // 2025-02-22 DAY 4 신트라 가이드 일정 추가 장소
+  {
+    "name": "산타 마리아 트레일",
+    "searchName": "Caminho de Santa Maria Sintra",
+    "rating": 4.8,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "viewpoint",
+    "address": "Caminho de Santa Maria, Sintra",
+    "description": "무어성에서 시내로 내려가는 숲속 비밀길 🌲",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Lawrence's Hotel",
+    "searchName": "Lawrence's Hotel Sintra",
+    "rating": 4.6,
+    "price": "무료(외관)",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "R. Consiglieri Pedroso 38, 2710-550 Sintra",
+    "description": "바이런 경이 머문 이베리아 최고령 호텔 🏨",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "카스카이스 해변",
+    "searchName": "Praia da Ribeira de Cascais",
+    "rating": 4.7,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "viewpoint",
+    "address": "Praça 5 de Outubro, 2750-340 Cascais",
+    "description": "신트라 여행의 완벽한 마무리. 평화로운 해변 🌊",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Santini Cascais",
+    "searchName": "Santini Cascais",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "11:00–00:00",
+    "type": "dessert",
+    "address": "Av. Valbom 28F, 2750-508 Cascais",
+    "description": "포르투갈 젤라또의 전설, 산티니 본점 🍦",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Mar do Inferno",
+    "searchName": "Mar do Inferno Cascais",
+    "rating": 4.5,
+    "price": "€€€",
+    "hours": "12:00–22:00",
+    "type": "seafood",
+    "address": "Av. Rei Humberto II de Itália, 2750-642 Cascais",
+    "description": "지옥의 입(Boca do Inferno) 근처 해산물 맛집. 거북손, 게 요리 ⭐",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "Hifen",
+    "searchName": "Hifen Cascais",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00–02:00",
+    "type": "restaurant",
+    "address": "Av. Dom Carlos I 48, 2750-310 Cascais",
+    "description": "카스카이스 만이 보이는 2층 바 & 레스토랑. 일몰 명소",
+    "days": ["DAY 4"]
+  },
+  {
+    "name": "House of Wonders",
+    "searchName": "House of Wonders Cascais",
+    "rating": 4.6,
+    "price": "€€",
+    "hours": "10:00–22:00",
+    "type": "cafe",
+    "address": "R. da Misericórdia 53, 2750-642 Cascais",
+    "description": "루프탑이 예쁜 채식 카페. 건강한 메제 플레이트",
+    "days": ["DAY 4"]
   }
 ];
 
@@ -3591,7 +3703,7 @@ const PLACES = [
 // ─────────────────────────────────────────────
 const ITINERARY = [
   {
-    day: "DAY 1", date: "5/1 (목)",
+    day: "DAY 1", date: "5/1 (금)",
     title: "✈️ 인천 → 리스본 도착",
     schedule: [
       { time: "20:40", activity: "✈️ KE921 인천 출발 (직항)" },
@@ -3603,7 +3715,7 @@ const ITINERARY = [
     transport: "🏨 My Story Hotel Tejo (1/4박)"
   },
   {
-    day: "DAY 2", date: "5/2 (금)",
+    day: "DAY 2", date: "5/2 (토)",
     title: "🏛️ 리스본 ① — 바이샤·시아두·알파마 (가이드 실전 동선 검증 완료)",
     schedule: [
       { time: "09:00", activity: "🥪 Beira Gare — 비파나 아침 (호시우 역 근처)" },
@@ -3626,51 +3738,64 @@ const ITINERARY = [
     transport: "🏨 My Story Hotel Tejo (2/4박) 🚶 도보 + 트램 + 푸니쿨라"
   },
   {
-    day: "DAY 3", date: "5/3 (토)",
-    title: "🏰 리스본 ② — 벨렝 ➡️ 시내 복귀 (핵심 정복)",
+    day: "DAY 3", date: "5/3 (일)",
+    title: "🏰 리스본 ② — 벨렝 ➡️ 시내 복귀 (구글맵 정밀 튜닝 완결판)",
     schedule: [
-      { time: "09:00", activity: "🚋 피게이라 광장에서 트램 15E → 벨렝 이동" },
-      { time: "09:30", activity: "🥧 Pastéis de Belém ⭐⭐ — 원조 에그타르트 모닝 커피" },
+      { time: "09:00", activity: "🚋 피게이라 광장(숙소 앞)에서 트램 15E 탑승 → 벨렝 이동" },
+      { time: "09:30", activity: "수도원 오픈런 대기 & 🥧 Pastéis de Belém (포장 후 대기 줄에서 취식) ⭐⭐" },
       { time: "10:00", activity: "제로니무스 수도원 ⭐⭐ & 산타 마리아 성당" },
-      { time: "11:30", activity: "국립 해양 박물관 — 대항해시대 역사" },
-      { time: "13:00", activity: "🍽️ 점심 (벨렝) — O Frade (퓨전) or A Margem (강변 뷰)" },
-      { time: "15:00", activity: "발견기념비 ⭐ — 강변 산책" },
-      { time: "16:00", activity: "벨렝탑 ⭐⭐ — 테주강 요새 감상" },
-      { time: "17:30", activity: "🚋 트램 15E → LX Factory (Calvário 하차)" },
-      { time: "17:45", activity: "LX Factory ⭐ — 힙한 상점과 Ler Devagar 서점" },
-      { time: "19:30", activity: "🚋 시내 복귀 → 🍽️ 저녁: Frade dos Mares (문어 요리)" },
-      { time: "21:00", activity: "🍻 Time Out Market — 야시장 분위기 즐기기" },
-      { time: "22:00", activity: "🛏️ 숙소 복귀 (도보 15분 or 우버)" }
+      { time: "11:30", activity: "국립 해양 박물관 (또는 마차 박물관) 관람" },
+      { time: "12:45", activity: "임페리우 광장 📸 → ⚠️ 광장 앞 '지하도'를 이용해 기찻길 건너 강변 이동" },
+      { time: "13:00", activity: "발견기념비 ⭐ — 관람 후 서쪽(벨렝탑 방향)으로 강변 산책" },
+      { time: "13:45", activity: "🍽️ 늦은 점심 (강변 일직선 동선) — A Margem (테주강 뷰 식사)" },
+      { time: "15:15", activity: "벨렝탑 ⭐⭐ — 계속 서쪽으로 이동하여 관람 (외부 감상 위주 추천)" },
+      { time: "16:15", activity: "벨렝탑 근처 🚕 우버 탑승 → 동쪽 MAAT(미술관) 이동" },
+      { time: "16:30", activity: "MAAT 루프탑 산책 ⭐⭐⭐ — 테주강 & 4월 25일 다리 배경 인생샷" },
+      { time: "17:15", activity: "MAAT 앞에서 🚕 우버 재호출 → LX Factory 이동" },
+      { time: "17:30", activity: "LX Factory ⭐ — 힙한 상점, Ler Devagar 서점, 골목 그래피티 감상" },
+      { time: "19:30", activity: "🚕 우버 시내 복귀 → 🍽️ 저녁: Frade dos Mares (문어 요리 / ⚠️ 일요일 예약 필수)" },
+      { time: "21:00", activity: "🍻 Time Out Market — 일요일 밤 야시장 분위기 즐기기 (도보 5분)" },
+      { time: "21:45", activity: "🎵 핑크 스트리트 (Pink Street) — 타임아웃 마켓 바로 옆! 주말 밤거리 구경 📸" },
+      { time: "22:15", activity: "🛏️ 숙소 복귀 (도보 15분 or 우버 5분)" }
     ],
-    tips: ["💡 동선: 벨렝(서쪽) → LX Factory → 시내(동쪽) 순서로 이동", "💡 제로니무스 수도원: €10 (리스보아 카드 무료)", "⚠️ 벨렝 명소들은 월요일 휴무!"],
-    transport: "🏨 My Story Hotel Tejo (3/4박) 🚋 트램 15E + 버스"
+    tips: [
+      "💡 물리지형 주의: 수도원에서 강변으로 넘어갈 때는 반드시 '임페리우 광장 앞 지하도' 이용",
+      "💡 도보 동선: 발견기념비(동) ➡️ A Margem(중앙) ➡️ 벨렝탑(서) 순서로 걸어야 다리가 안 아픔",
+      "⚠️ 일요일 팁: 제로니무스 오픈런 필수 / 저녁 식당 사전예약 필수"
+    ],
+    transport: "🏨 My Story Hotel Tejo (3/4박) 🚋 트램 15E + 🚕 우버(볼트) 적극 활용"
   },
   {
-    day: "DAY 4", date: "5/4 (일)",
-    title: "🚂 신트라 당일치기 — 동화 속 궁전과 유라시아 최서단",
+    day: "DAY 4", date: "5/4 (월)",
+    title: "🚂 신트라 당일치기 — 동화 속 궁전과 유라시아 최서단 (가이드 숨은 명소 추가판)",
     schedule: [
-      { time: "08:30", activity: "🚂 로시우역 → 신트라역 (40분, €2.3)" },
-      { time: "09:15", activity: "☕ Café Saudade — 역 근처 커피" },
-      { time: "09:30", activity: "🚌 434버스 → 페나궁전 (산 정상)" },
-      { time: "10:00", activity: "🌳 페나궁전 정원 — 세계 각국 식물과 호수" },
-      { time: "10:30", activity: "🏰 페나궁전 ⭐⭐ — 알록달록 동화 같은 궁전" },
-      { time: "11:30", activity: "🏯 무어성 ⭐ — 8세기 이슬람 요새, 성벽 위 뷰" },
-      { time: "12:30", activity: "🚶 도보 하산 → 신트라 마을" },
-      { time: "12:45", activity: "🥧 Nata Pura ⭐ — 신트라 최고 에그타르트" },
-      { time: "13:00", activity: "📍 후아 다스 파다리아스 — 신트라 구시가 쇼핑거리" },
-      { time: "13:15", activity: "🍽️ Tasco do Strauss ⭐ — 신트라 최고 맛집 (예약 필수)" },
-      { time: "14:15", activity: "🥐 Casa d'Ana — 트라베세이루 & 케이자다 (신트라 전통 과자)" },
-      { time: "14:30", activity: "🚶 도보 10분 → 헤갈레이라 별장" },
-      { time: "14:45", activity: "🏛️ 헤갈레이라 별장 ⭐⭐ — 9층 지하탑, 비밀 동굴" },
-      { time: "16:15", activity: "🚌 403버스 → 까보다로카 (40분)" },
-      { time: "17:00", activity: "🌅 까보다로카 ⭐⭐ — 유라시아 최서단! 절벽+대서양" },
-      { time: "18:00", activity: "🚌 403버스 → 신트라역 → 🚂 리스본 귀환" }
+      { time: "08:30", activity: "🚂 호시우역 → 신트라역 (40분, €2.4 / 진행 방향 오른쪽 창가 추천)" },
+      { time: "09:15", activity: "☕ Café Saudade — 커피 한 잔 후 역 앞에서 툭툭/우버 탑승 (버스 대기열 회피)" },
+      { time: "09:30", activity: "🚕 툭툭/우버 → 페나 궁전 매표소 직행 (산길 드라이브)" },
+      { time: "10:00", activity: "🌳 페나 궁전 정문 통과 (궁전 입구까지 도보 15분 언덕길)" },
+      { time: "10:30", activity: "🏰 페나 궁전 내부 입장 ⭐⭐ — 알록달록 동화 궁전 (사전예약 시간 칼같이 엄수!)" },
+      { time: "11:45", activity: "🏯 무어성 ⭐ — 페나 궁전에서 내리막 도보 10분, 8세기 이슬람 요새 뷰" },
+      { time: "12:45", activity: "🚶 산타 마리아 트레일 숲길 하산 (숨은 보석💎) → 구시가지 (약 35분, 버스보다 빠름)" },
+      { time: "13:30", activity: "🍽️ 점심 — Tasco do Strauss (예약 필수) 등 구시가지 골목 맛집" },
+      { time: "14:30", activity: "🥐 Casa Piriquita ⭐ — 150년 원조! 트라베세이루 & 케이자다 당 충전" },
+      { time: "15:00", activity: "🚶 헤갈레이라로 걷는 길 → Lawrence's Hotel 외관 감상📸 (바이런이 머문 이베리아 최고령 호텔)" },
+      { time: "15:15", activity: "🏛️ 헤갈레이라 별장 ⭐⭐ — 9층 지하 나선형 우물(가장 먼저 줄 서기!), 비밀 동굴" },
+      { time: "16:45", activity: "🚕 치트키: 별장 앞 우버/볼트 호출 → 까보다로카 직행 (버스 타러 역으로 돌아가지 마세요!)" },
+      { time: "17:15", activity: "🌅 까보다로카 ⭐⭐ — 십자가 기념비 인증샷 & 해안 절벽 산책 (강풍 주의)" },
+      { time: "18:15", activity: "🚌 1624번 버스(구 403번) 탑승 → 카스카이스(Cascais) 역으로 이동 (우측 창가 대서양 뷰)" },
+      { time: "19:00", activity: "🌊 카스카이스 해변 산책 & Santini 본점 젤라또🍦 (숨은 보석💎)" },
+      { time: "20:00", activity: "🚂 카스카이스역 → 리스본(Cais do Sodré) 귀환 (환상의 루프 코스 완성)" }
     ],
-    tips: ["⚠️ 페나궁전 사전 온라인 예매 필수! (€14~20)", "👟 편한 운동화 필수 (돌길, 언덕)", "🧥 까보다로카 바람 강함 — 겉옷 필수", "🎫 434버스 1일권 €13.5"],
-    transport: "🏨 My Story Hotel Tejo (4/4박) 🚂 기차 + 🚌 버스 434/403"
+    tips: [
+      "💡 이동 꿀팁 1: 역에서 페나 궁전 올라갈 때는 툭툭 흥정(약 10~15유로)이 정신건강에 좋습니다.",
+      "💡 이동 꿀팁 2: 무어성에서 구시가지 하산 시 '도보(Caminho de Santa Maria)'가 풍경도 좋고 대기 시간도 없습니다.",
+      "💡 동선 치트키: 헤갈레이라 ➡️ 까보다로카 구간은 무조건 우버(볼트), 까보다로카 ➡️ 카스카이스 구간은 버스(1624번)가 진리!",
+      "🧥 신트라 산꼭대기와 까보다로카 절벽은 리스본 시내보다 5도 이상 춥고 바람이 셉니다. 바람막이 필수!"
+    ],
+    transport: "🏨 My Story Hotel Tejo (4/4박) 🚂 기차(리스본 왕복 다른 노선) + 🚕 우버 + 🚌 버스"
   },
   {
-    day: "DAY 5", date: "5/5 (월)",
+    day: "DAY 5", date: "5/5 (화)",
     title: "🚗 리스본 → 오비두스 → 파티마 → 토마르",
     schedule: [
       { time: "09:30", activity: "🚗 렌트카 픽업 — 리스본 공항" },
@@ -3694,7 +3819,7 @@ const ITINERARY = [
     transport: "🏨 토마르 에어비앤비 🚗 렌트카"
   },
   {
-    day: "DAY 6", date: "5/6 (화)",
+    day: "DAY 6", date: "5/6 (수)",
     title: "🏰 토마르 → 코임브라 → 포르투 — 대학도시 탐방",
     schedule: [
       { time: "09:00", activity: "🏰 그리스도 수도원 (토마르) ⭐⭐ — 템플기사단 본거지" },
@@ -3721,7 +3846,7 @@ const ITINERARY = [
     transport: "🏨 포르투 에어비앤비 (1/4박) 🚗 렌트카"
   },
   {
-    day: "DAY 7", date: "5/7 (수)",
+    day: "DAY 7", date: "5/7 (목)",
     title: "🏛️ 포르투 시내 완전 정복",
     schedule: [
       { time: "09:00", activity: "조식 — Balta Brunch ⭐" },
@@ -3745,7 +3870,7 @@ const ITINERARY = [
     transport: "🏨 포르투 에어비앤비 (2/4박) 🚶 도보"
   },
   {
-    day: "DAY 8", date: "5/8 (목)",
+    day: "DAY 8", date: "5/8 (금)",
     title: "🚠 가이아 + 유람선 + 서쪽 공원",
     schedule: [
       { time: "09:00", activity: "조식 — CA Downtown" },
@@ -3765,7 +3890,7 @@ const ITINERARY = [
     transport: "🏨 포르투 에어비앤비 (3/4박) 🚶 도보 + 🚠"
   },
   {
-    day: "DAY 9", date: "5/9 (금)",
+    day: "DAY 9", date: "5/9 (토)",
     title: "🚗 기마랑이스 + 브라가 — 포르투갈 탄생지와 바로크 계단",
     schedule: [
       { time: "09:00", activity: "🚗 포르투 출발 → 기마랑이스 (55km, 50분)" },
@@ -3792,7 +3917,7 @@ const ITINERARY = [
     transport: "🏨 포르투 에어비앤비 (4/4박) 🚗 렌트카"
   },
   {
-    day: "DAY 10", date: "5/10 (토)",
+    day: "DAY 10", date: "5/10 (일)",
     title: "🚗 포르투 → 리스본 공항 → ✈️ 출발",
     schedule: [
       { time: "오전", activity: "포르투 마지막 아침 — 카페에서 여유롭게" },
@@ -3844,8 +3969,8 @@ const ROUTES = {
     ]
   },
   "DAY 3": {
-    title: "🏰 리스본 핵심 정복: 벨렝 ➡️ 시내 복귀",
-    subtitle: "서쪽 끝(벨렝) → LX Factory → 시내(숙소) 완벽 동선",
+    title: "🏰 리스본 ② — 벨렝 ➡️ 시내 복귀 (구글맵 정밀 튜닝)",
+    subtitle: "벨렝(서쪽) → MAAT → LX Factory → 시내(동쪽) 완벽 동선",
     sections: [
       {
         icon: "🥧", title: "벨렝 아침 (서쪽 이동)", time: "09:00~13:00",
@@ -3853,26 +3978,26 @@ const ROUTES = {
         highlights: ["Pastéis de Belém", "제로니무스 수도원"]
       },
       {
-        icon: "🌊", title: "점심 & 강변 산책", time: "13:00~17:00",
-        places: ["O Frade", "A Margem", "발견기념비", "벨렝탑"],
+        icon: "🌊", title: "점심 & 강변 산책", time: "12:45~16:15",
+        places: ["임페리우 광장", "발견기념비", "A Margem", "벨렝탑"],
         highlights: ["발견기념비", "벨렝탑"]
       },
       {
-        icon: "🎨", title: "LX Factory (복귀 길)", time: "17:30~19:00",
-        places: ["LX Factory"],
-        highlights: ["LX Factory"]
+        icon: "🎨", title: "오후: 문화 & 힙스터", time: "16:30~19:00",
+        places: ["MAAT", "LX Factory"],
+        highlights: ["MAAT", "LX Factory"]
       },
       {
-        icon: "🍷", title: "저녁 & 야경 (시내)", time: "19:30~22:00",
-        places: ["Frade dos Mares", "Time Out Market"],
-        highlights: ["Frade dos Mares", "Time Out Market"]
+        icon: "🍷", title: "저녁 & 밤거리", time: "19:30~22:15",
+        places: ["Frade dos Mares", "Time Out Market", "핑크 스트리트"],
+        highlights: ["Frade dos Mares", "핑크 스트리트"]
       }
     ],
     tips: [
-      "🚋 이동: 피게이라 광장 → 벨렝 → LX Factory → 시내 (트램 15E)",
-      "🍽️ 점심: 벨렝 지구 내에서 해결하여 이동 시간 절약",
-      "🐙 저녁: Frade dos Mares 예약 권장 (문어 요리)",
-      "🍻 마무리: Time Out Market에서 가볍게 한잔 후 숙소 도보 이동"
+      "🚋 이동: 갈 땐 트램 15E, 올 땐 우버 추천 (시간 절약)",
+      "🚶 도보: 발견기념비 → 벨렝탑 방향으로 걸어야 효율적",
+      "🐙 저녁: Frade dos Mares 예약 필수 (토요일 만석 주의)",
+      "📸 MAAT 루프탑: 인생샷 명소 (무료 입장)"
     ]
   },
   "DAY 7": {
@@ -3930,36 +4055,31 @@ const ROUTES = {
     tips: ["유람선: €15~20, 50분", "케이블카: 편도 €6", "수정궁 정원에서 공작새 + 석양"]
   },
   "DAY 4": {
-    title: "🏰 신트라 당일치기 — 동화 속 궁전과 유라시아 최서단",
-    subtitle: "언덕 위(정상) → 마을(하부) → 서쪽(해안) 한 방향 하산",
+    title: "🏰 신트라 & 카스카이스 루프 코스",
+    subtitle: "신트라 정상 → 숲길 하산 → 까보다로카 → 카스카이스(해변) 완벽 루프",
     sections: [
       {
-        icon: "🚂", title: "리스본→신트라", time: "08:30~09:30",
+        icon: "🚂", title: "신트라 도착 & 정상 이동", time: "08:30~10:00",
         places: ["Café Saudade"],
         highlights: ["Café Saudade"]
       },
       {
-        icon: "🏰", title: "언덕 정상 (434버스)", time: "09:30~12:30",
-        places: ["페나궁전 정원", "페나궁전", "무어성"],
+        icon: "🏰", title: "동화 속 궁전 & 숲길 하산", time: "10:00~13:30",
+        places: ["페나궁전", "무어성", "산타 마리아 트레일"],
         highlights: ["페나궁전", "무어성"]
       },
       {
-        icon: "🍽️", title: "신트라 마을 (도보 하산)", time: "12:30~14:15",
-        places: ["Nata Pura", "후아 다스 파다리아스", "Tasco do Strauss", "Casa d'Ana"],
-        highlights: ["Nata Pura", "Tasco do Strauss"]
+        icon: "🍽️", title: "구시가지 & 헤갈레이라", time: "13:30~16:45",
+        places: ["Tasco do Strauss", "Casa Piriquita", "Lawrence's Hotel", "헤갈레이라 별장"],
+        highlights: ["Casa Piriquita", "헤갈레이라 별장"]
       },
       {
-        icon: "🏛️", title: "헤갈레이라 (도보 10분)", time: "14:15~16:00",
-        places: ["헤갈레이라 별장"],
-        highlights: ["헤갈레이라 별장"]
-      },
-      {
-        icon: "🌅", title: "까보다로카 (403버스)", time: "16:00~18:00",
-        places: ["까보다로카"],
-        highlights: ["까보다로카"]
+        icon: "🌊", title: "대서양 & 카스카이스", time: "17:15~20:00",
+        places: ["까보다로카", "카스카이스 해변", "Santini Cascais"],
+        highlights: ["까보다로카", "카스카이스 해변"]
       }
     ],
-    tips: ["페나궁전 사전 온라인 예매 필수! (€14~20)", "434버스 1일권 €13.5", "편한 운동화 필수 (돌길, 언덕)", "까보다로카 바람 강함 — 겉옷 필수"]
+    tips: ["페나궁전 예약 시간 엄수!", "헤갈레이라→까보다로카 우버 추천", "카스카이스에서 젤라또 먹고 기차로 귀환"]
   },
   "DAY 5": {
     title: "🚗 리스본 → 오비두스 → 파티마 → 토마르",
