@@ -505,7 +505,7 @@ async function sendAI() {
   
   // OpenRouter일 경우: 키가 없거나 형식이 안 맞으면 고정 키 사용
   if (provider === 'openrouter') {
-    if (!apiKey || !apiKey.toLowerCase().startsWith('sk-or-')) {
+    if (!apiKey || !apiKey.toLowerCase().startsWith('sk-or-') || apiKey.length < 50) {
       apiKey = FIXED_OPENROUTER_KEY;
     }
   }
@@ -559,7 +559,7 @@ async function sendAI() {
     } else if (provider === 'openrouter') {
       response = await fetch('https://openrouter.ai/api/v1/chat/completions', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey, 'HTTP-Referer': 'https://portugal-travel-app', 'X-Title': 'Portugal Travel 2026' }, body: JSON.stringify({ model: model, max_tokens: 1000, messages: [ {role: 'system', content: systemPrompt}, {role: 'user', content: msg} ] }) });
       const data = await response.json();
-      if (!response.ok) throw new Error(data?.error?.message || 'HTTP ' + response.status);
+      if (!response.ok) throw new Error(data?.error?.message || 'OpenRouter API Error ' + response.status);
       reply = data.choices?.[0]?.message?.content || 'AI로부터 응답을 받지 못했어요. (빈 응답)';
     } else {
       response = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' }, body: JSON.stringify({ model: model, max_tokens: 1000, system: systemPrompt, messages: [{role: 'user', content: msg}] }) });
