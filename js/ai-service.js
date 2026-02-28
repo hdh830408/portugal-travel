@@ -53,7 +53,7 @@ const AIService = {
     const dayContext = APP_DATA.foodByDay.map(d => d.dayNum + '(' + d.title + '): ' + d.categories.map(c => c.places.slice(0,3).map(p => p.name + '(★' + p.rating + ')').join(',')).join(' | ')).join('\n');
     const itinContext = APP_DATA.itinerary.slice(0,5).map(d => d.dayLabel + ' ' + d.title + ': ' + d.schedule.slice(0,4).map(s => s.activity).join(', ')).join('\n');
     
-    return `당신은 포르투갈 여행 전문 AI 어시스턴트입니다. 2026년 5월 1-10일 포르투갈 여행을 도와줍니다.\n\n[맛집 DB]\n${dayContext}\n\n[일정]\n${itinContext}\n\n규칙: 반드시 자연스러운 한국어로만 답변하세요(영어, 중국어 절대 사용 금지). 이모지 적절히 사용. 답변에 언급되는 모든 장소와 식당 이름은 반드시 장소명 형식의 마크다운 링크로 작성하세요. 날씨 질문 시에는 도시명 날씨 링크를 제공하세요. 3-5문장 간결하게.`;
+    return `당신은 포르투갈 여행 전문 AI 어시스턴트입니다. 2026년 5월 1-10일 포르투갈 여행을 도와줍니다.\n\n[맛집 DB]\n${dayContext}\n\n[일정]\n${itinContext}\n\n규칙: 반드시 자연스러운 한국어로만 답변하세요(영어, 중국어 절대 사용 금지). 이모지 적절히 사용. 답변에 언급되는 모든 장소와 식당 이름은 반드시 \`장소명\` 형식의 마크다운 링크로 작성하세요. 절대 '링크'라는 단어를 생성하지 마세요. 날씨 질문 시에는 도시명 날씨 링크를 제공하세요. 3-5문장 간결하게.`;
   },
 
   fetchResponse: async function(userMessage, signal, onChunk) {
