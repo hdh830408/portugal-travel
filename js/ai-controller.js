@@ -155,28 +155,29 @@ const AIController = {
       clearTimeout(timeoutId);
 
       loadingEl.className = 'msg msg-ai';
+      
+      // 링크 생성 헬퍼 함수
+      const createLink = (match, text, url) => {
+        const name = text.trim();
+        const place = typeof PLACES !== 'undefined' ? PLACES.find(p => p.name === name || p.searchName === name) : null;
+        
+        if (place) {
+          return `<span onclick="showPlaceFromRoute('${place.name.replace(/'/g, "\\'")}')" style="color:var(--teal);text-decoration:underline;cursor:pointer;font-weight:500">📍 ${name}</span>`;
+        }
+        
+        let href = (url && url.trim() && url.startsWith('http')) ? url.trim() : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}`;
+        if (href.includes('maps.app.goo.gl') || href.includes('goo.gl/maps')) {
+          href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}`;
+        }
+        return `<a href="${href}" target="_blank" style="color:var(--blue);text-decoration:underline">${name}</a>`;
+      };
+
       loadingEl.innerHTML = fullReply
         .replace(/\n/g, '<br>')
         .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // 굵은 글씨(**) 지원 추가
-        .replace(/\[([^\]]+)\]\s*\(([^)]*)\)/g, (match, text, url) => {
-          const name = text.trim();
-          // 1. 앱 내 장소 데이터 확인 (이름 또는 검색어 매칭)
-          const place = typeof PLACES !== 'undefined' ? PLACES.find(p => p.name === name || p.searchName === name) : null;
-          
-          if (place) {
-            // 2. 장소면 앱 내 모달 호출 (showPlaceFromRoute 사용)
-            return `<span onclick="showPlaceFromRoute('${place.name.replace(/'/g, "\\'")}')" style="color:var(--teal);text-decoration:underline;cursor:pointer;font-weight:500">📍 ${name}</span>`;
-          }
-          
-          // 3. 아니면 외부 링크 (URL이 없거나 깨진 경우 구글 검색으로 대체)
-          let href = (url && url.trim() && url.startsWith('http')) ? url.trim() : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}`;
-          
-          // AI가 생성한 단축 URL(maps.app.goo.gl)은 깨진 링크일 확률이 높으므로 검색 URL로 강제 변환
-          if (href.includes('maps.app.goo.gl') || href.includes('goo.gl/maps')) {
-            href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}`;
-          }
-          return `<a href="${href}" target="_blank" style="color:var(--blue);text-decoration:underline">${name}</a>`;
-        });
+        .replace(/\[([^\]]+)\]\s*\(([^)]*)\)/g, createLink) // text 형식
+        .replace(/\[([^\]]+)\]/g, (m, t) => createLink(m, t, null)) // [text] 형식
+        .replace(/`([^`]+)`/g, (m, t) => createLink(m, t, null)); // `text` 형식
     } catch(e) {
       loadingEl.className = 'msg msg-ai';
       let userMsg = '⚠️ 오류: ' + e.message;
