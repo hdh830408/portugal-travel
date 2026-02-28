@@ -232,6 +232,7 @@
       border:none;cursor:pointer;font-family:inherit;transition:all .2s;white-space:nowrap;
     }
     .btn-map{background:rgba(74,158,255,.15);color:var(--blue)}
+    .btn-dir{background:rgba(78,203,122,.15);color:var(--green)}
     .btn-search{background:rgba(130,130,130,.15);color:var(--muted)}
     .btn-review{background:rgba(255,180,50,.15);color:#ffb432}
     .btn-kr{background:rgba(255,100,100,.15);color:#ff6b6b}
@@ -585,6 +586,9 @@
     }
     .guide-btn-map{
       background:rgba(74,158,255,.15);border:1px solid rgba(74,158,255,.3);color:var(--blue);
+    }
+    .guide-btn-dir{
+      background:rgba(78,203,122,.15);border:1px solid rgba(78,203,122,.3);color:var(--green);
     }
     .guide-btn-search{
       background:rgba(130,130,130,.15);border:1px solid rgba(130,130,130,.3);color:var(--muted);
@@ -1257,6 +1261,7 @@
           </div>
           <div class="place-actions">
             <button class="place-btn btn-map" onclick="event.stopPropagation();openMap('${esc(p.searchName || p.name)}')">📍 지도</button>
+            <button class="place-btn btn-dir" onclick="event.stopPropagation();openDirections('${esc(p.name)}')">🏃 가는길</button>
             <button class="place-btn btn-search" onclick="event.stopPropagation();openSearch('${esc(p.searchName || p.name)}')">🔍 검색</button>
             <button class="place-btn btn-review" onclick="event.stopPropagation();openReview('${esc(p.searchName || p.name)}')">⭐ 리뷰</button>
             <button class="place-btn btn-kr" onclick="event.stopPropagation();openKrReview('${esc(p.searchName || p.name)}')">🇰🇷</button>
@@ -1316,6 +1321,7 @@
           </div>
           <div class="place-actions">
             <button class="place-btn btn-map" onclick="event.stopPropagation();openMap('${esc(p.searchName || p.name)}')">📍 지도</button>
+            <button class="place-btn btn-dir" onclick="event.stopPropagation();openDirections('${esc(p.name)}')">🏃 가는길</button>
             <button class="place-btn btn-search" onclick="event.stopPropagation();openSearch('${esc(p.searchName || p.name)}')">🔍 검색</button>
             <button class="place-btn btn-review" onclick="event.stopPropagation();openReview('${esc(p.searchName || p.name)}')">⭐ 리뷰</button>
             <button class="place-btn btn-kr" onclick="event.stopPropagation();openKrReview('${esc(p.searchName || p.name)}')">🇰🇷</button>
@@ -1674,6 +1680,9 @@
             <button class="guide-btn guide-btn-map" onclick="openMap('${esc(placeData.searchName || placeData.name)}')">
               📍 지도
             </button>
+            <button class="guide-btn guide-btn-dir" onclick="openDirections('${esc(placeData.name)}')">
+              🏃 가는길
+            </button>
             <button class="guide-btn guide-btn-search" onclick="openSearch('${esc(placeData.searchName || placeData.name)}')">
               🔍 검색
             </button>
@@ -1734,6 +1743,7 @@
           </div>
           <div class="place-actions">
             <button class="place-btn btn-map" onclick="openMap('${esc(p.searchName || p.name)}')">📍 지도</button>
+            <button class="place-btn btn-dir" onclick="event.stopPropagation();openDirections('${esc(p.name)}')">🏃 가는길</button>
             <button class="place-btn btn-search" onclick="openSearch('${esc(p.searchName || p.name)}')">🔍 검색</button>
             <button class="place-btn btn-review" onclick="openReview('${esc(p.searchName || p.name)}')">⭐ 리뷰</button>
             <button class="place-btn btn-kr" onclick="openKrReview('${esc(p.searchName || p.name)}')">🇰🇷</button>
@@ -1761,6 +1771,20 @@
     function openMapForPlace(place) {
       const query = place.searchName || place.name || place.address;
       window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`, '_blank');
+    }
+
+    // 구글 지도 경로 찾기 (내 위치 -> 목적지)
+    function openDirections(placeName) {
+      let query = placeName;
+      // 1. 좌표가 있으면 좌표 사용 (가장 정확)
+      if (typeof PLACE_COORDS !== 'undefined' && PLACE_COORDS[placeName]) {
+        query = `${PLACE_COORDS[placeName].lat},${PLACE_COORDS[placeName].lng}`;
+      } else {
+        // 2. 좌표 없으면 searchName 또는 이름 사용
+        const place = PLACES.find(p => p.name === placeName);
+        if (place) query = place.searchName || place.name;
+      }
+      window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}`, '_blank');
     }
 
     // 구글 검색 열기
@@ -1861,6 +1885,7 @@
           
           <div class="place-actions modal-actions">
             <button class="place-btn btn-map" onclick="openMap('${esc(p.searchName || p.name)}')">📍 지도</button>
+            <button class="place-btn btn-dir" onclick="openDirections('${esc(p.name)}')">🏃 가는길</button>
             <button class="place-btn btn-search" onclick="openSearch('${esc(p.searchName || p.name)}')">🔍 검색</button>
             <button class="place-btn btn-review" onclick="openReview('${esc(p.searchName || p.name)}')">⭐ 리뷰</button>
             <button class="place-btn btn-kr" onclick="openKrReview('${esc(p.searchName || p.name)}')">🇰🇷</button>
@@ -1890,6 +1915,7 @@
           ` : ''}
           <div class="place-actions">
             <button class="place-btn btn-map" onclick="openMap('${esc(p.searchName || p.name)}')">📍 지도</button>
+            <button class="place-btn btn-dir" onclick="openDirections('${esc(p.name)}')">🏃 가는길</button>
             <button class="place-btn btn-search" onclick="openSearch('${esc(p.searchName || p.name)}')">🔍 검색</button>
             <button class="place-btn btn-review" onclick="openReview('${esc(p.searchName || p.name)}')">⭐ 리뷰</button>
             <button class="place-btn btn-kr" onclick="openKrReview('${esc(p.searchName || p.name)}')">🇰🇷</button>
@@ -2127,6 +2153,7 @@
           </div>
           <div class="place-actions">
             <button class="place-btn btn-map" onclick="event.stopPropagation();openMap('${esc(p.searchName || p.name)}')">📍 지도</button>
+            <button class="place-btn btn-dir" onclick="event.stopPropagation();openDirections('${esc(p.name)}')">🏃 가는길</button>
             <button class="place-btn btn-save ${savedPlaces.has(p.name)?'saved':''}" onclick="event.stopPropagation();toggleSave('${esc(p.name)}')">
               ${savedPlaces.has(p.name)?'★':'☆'}
             </button>
