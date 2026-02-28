@@ -5,7 +5,7 @@
 
 const FOOD_TYPES = ['cafe', 'dessert', 'seafood', 'restaurant', 'budget'];
 const LANDMARK_TYPES = ['landmark', 'church', 'viewpoint', 'square', 'transport'];
-const FIXED_OPENROUTER_KEY = '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';
+const FIXED_OPENROUTER_KEY = 'Sk-or-v1-2e54a0d08dcc052e5dbbde27e1df4c3d0e905ac9caee8c7d15069b3db426626b';
 
 // [3단계] 상태 객체 도입 (State Object)
 const AppState = {
@@ -505,7 +505,7 @@ async function sendAI() {
   
   // OpenRouter일 경우: 키가 없거나 형식이 안 맞으면 고정 키 사용
   if (provider === 'openrouter') {
-    if (!apiKey || !apiKey.startsWith('sk-or-')) {
+    if (!apiKey || !apiKey.toLowerCase().startsWith('sk-or-')) {
       apiKey = FIXED_OPENROUTER_KEY;
     }
   }
