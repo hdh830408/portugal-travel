@@ -919,15 +919,47 @@ const DEFAULT_GUIDE = {
   nearbyFood: []
 };
 
-// 가이드 조회 함수
-function getPlaceGuide(placeName) {
-  return PLACE_GUIDES[placeName] || { ...DEFAULT_GUIDE, subtitle: placeName };
+// ═══════════════════════════════════════════════════════════════════════════
+// 🛠️ [4단계] 로직 함수 업데이트 (Logic Update)
+// ═══════════════════════════════════════════════════════════════════════════
+// ID와 이름 모두를 지원하도록 함수를 개선합니다.
+
+// 가이드 조회 함수 (ID 지원 추가)
+function getPlaceGuide(idOrName) {
+  // 1. ID로 조회 시도 (MASTER_PLACES 활용)
+  if (typeof MASTER_PLACES !== 'undefined' && MASTER_PLACES[idOrName]) {
+    const master = MASTER_PLACES[idOrName];
+    // MASTER_PLACES에 통합된 가이드 정보가 있다면 우선 반환
+    if (master.content && (master.content.history || master.content.visitTips)) {
+      return {
+        emoji: master.content.icon || '📍',
+        subtitle: master.content.subtitle || master.name,
+        history: master.content.history,
+        photoSpots: master.content.photoSpots || [],
+        visitTips: master.content.visitTips,
+        nearbyFood: master.references.nearbyFoodIds || [] // ID 리스트 반환
+      };
+    }
+    // 통합 데이터가 없으면 이름으로 기존 PLACE_GUIDES 조회
+    return PLACE_GUIDES[master.name] || { ...DEFAULT_GUIDE, subtitle: master.name };
+  }
+
+  // 2. 이름으로 조회 (기존 방식 호환)
+  return PLACE_GUIDES[idOrName] || { ...DEFAULT_GUIDE, subtitle: idOrName };
 }
 
-// 주변 맛집 정보 연결 함수
-function getNearbyFoodDetails(foodNames) {
-  return foodNames.map(name => {
-    const place = PLACES.find(p => p.name === name);
-    return place ? { name, rating: place.rating, price: place.price, type: place.type } : { name };
+// 주변 맛집 정보 연결 함수 (ID 지원 추가)
+function getNearbyFoodDetails(idsOrNames) {
+  if (!Array.isArray(idsOrNames)) return [];
+  
+  return idsOrNames.map(item => {
+    // ID로 조회
+    if (typeof MASTER_PLACES !== 'undefined' && MASTER_PLACES[item]) {
+      const p = MASTER_PLACES[item];
+      return { name: p.name, rating: p.metadata.rating, price: p.metadata.price, type: p.type, id: p.id };
+    }
+    // 이름으로 조회 (기존 호환)
+    const place = PLACES.find(p => p.name === item);
+    return place ? { name: item, rating: place.rating, price: place.price, type: place.type } : { name: item };
   });
 }
