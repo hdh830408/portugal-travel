@@ -70,3 +70,38 @@
 ---
 **본 계획서에 대해 검토를 부탁드립니다. 승인 시 1단계인 ID 매핑 및 통합 객체 생성 작업을 시작하겠습니다.**
 *(작성자: Gemini Code Assist - 2025-02-22)*
+
+## 5. 프론트엔드 구조 개선 및 UI/UX 최적화 계획 (index.html 분석)
+
+### 🔍 현황 상세 분석
+*   **Monolithic File Structure**: `index.html` 파일 하나에 HTML 구조, CSS 스타일(약 460라인), JavaScript 로직(약 1000라인)이 혼재되어 있어 가독성이 떨어지고 관리가 어렵습니다.
+*   **DRY(Don't Repeat Yourself) 원칙 위배**:
+    *   장소 카드(`place-card`)를 생성하는 HTML 문자열 조립 로직이 `renderFood`, `renderLandmark`, `renderSaved`, `renderNearbyList` 함수에 각각 중복 구현되어 있습니다.
+    *   디자인 수정 시 4곳 이상의 코드를 동시에 수정해야 하는 위험이 있습니다.
+*   **전역 스코프 의존성**: `currentTab`, `selectedDay`, `searchQuery` 등 상태 변수들이 전역 변수로 선언되어 있어, 로직이 복잡해질수록 상태 추적이 어려워질 수 있습니다.
+*   **인라인 이벤트 핸들러**: HTML 태그 내에 `onclick="..."` 속성을 과도하게 사용하여 뷰와 로직의 결합도가 높습니다.
+
+### 🛠️ 리팩토링 제안
+
+#### [1단계] 파일 분리 (Separation of Concerns) (✅ 완료)
+*   **CSS 분리**: `index.html`의 스타일 코드를 `css/styles.css`로 이동했습니다.
+*   **JS 분리**: `index.html`의 스크립트 코드를 `js/app.js` (로직 및 상태 관리)와 `js/ui-components.js` (UI 렌더링)로 분리했습니다.
+*   **연결**: `index.html`에서 분리된 파일들을 로드하도록 수정하고, `sw.js` 캐시 목록에 새 파일들을 추가했습니다.
+*   **보안 및 안정성 강화**: UI 렌더링 시 `document.createElement`를 사용하여 XSS 보안을 강화하고, 앱 초기화 중복 실행 방지 로직을 추가했습니다.
+*   **효과**: `index.html` 파일 크기가 대폭 줄어들고(약 1500라인 -> 약 230라인), 코드 관리가 용이해졌습니다.
+
+#### [2단계] UI 컴포넌트화 (Componentization) (✅ 완료)
+*   **카드 렌더링 함수 통일**: `createPlaceCard(place, index, options)` 함수를 제작하여 맛집, 관광지, 저장됨, 내 주변 탭에서 공통으로 사용하도록 리팩토링했습니다.
+*   **배지/태그 생성 함수화**: `createBadges(place)`, `createLandmarkTags(place)` 함수로 분리하여 재사용성을 높였습니다.
+*   **보안 강화**: 모든 카드 렌더링 로직을 `document.createElement` 방식으로 전환하여 XSS 취약점을 제거했습니다.
+
+#### [3단계] 상태 관리 개선 (State Management) (✅ 완료)
+*   **상태 객체 도입**: 흩어진 전역 변수들을 `AppState` 단일 객체로 통합하여 상태 추적과 관리를 용이하게 만들었습니다.
+*   **이벤트 위임(Delegation)** (✅ 완료): `createPlaceCard`의 개별 `onclick`을 제거하고, 상위 컨테이너(`placeList` 등)에서 이벤트를 일괄 처리하도록 최적화했습니다.
+
+#### [4단계] UX/성능 최적화
+*   **Lazy Loading** (✅ 완료): `IntersectionObserver`를 도입하여 이미지 지연 로딩 기반을 마련했습니다.
+*   **스켈레톤 UI** (✅ 완료): 데이터 로딩 중 빈 화면 대신 스켈레톤 스크린을 보여주어 체감 속도를 높였습니다.
+
+---
+**추가 분석 완료 (2025-02-22)**: 위 구조 개선을 통해 코드 라인 수를 줄이고 유지보수성을 획기적으로 높일 수 있습니다.

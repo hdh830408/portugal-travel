@@ -1,10 +1,13 @@
-const CACHE_NAME = 'portugal-travel-v18';
+const CACHE_NAME = 'portugal-travel-v19';
 const ASSETS = [
   './',
   './index.html',
   './portugal_data.js',
   './portugal_guides.js',
   './coords_data.js',
+  './css/styles.css',
+  './js/app.js',
+  './js/ui-components.js',
   './manifest.json',
   './icons/icon-192x192.png'
 ];
