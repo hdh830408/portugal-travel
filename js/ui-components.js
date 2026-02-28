@@ -1,5 +1,3 @@
-// c:\github\portugal-travel\js\ui-components.js
-
 // ═══════════════════════════════════════════════════════════════════════════
 // UI COMPONENTS & RENDERING HELPERS
 // ═══════════════════════════════════════════════════════════════════════════
@@ -228,7 +226,7 @@ function createBadges(place, showDistance) {
   addBadge('badge-hours', place.hours);
   addBadge('badge-type', TYPE_LABELS[place.type] || place.type);
 
-  if (showDistance && AppState.filters.food.nearbyLandmark && typeof PLACE_COORDS !== 'undefined' && PLACE_COORDS[AppState.filters.food.nearbyLandmark] && PLACE_COORDS[place.name]) {
+  if (showDistance && AppState.filters.food.nearbyLandmark && PLACE_COORDS[AppState.filters.food.nearbyLandmark] && PLACE_COORDS[place.name]) {
     const landmarkCoords = PLACE_COORDS[AppState.filters.food.nearbyLandmark];
     const foodCoords = PLACE_COORDS[place.name];
     const distance = Math.round(getDistance(landmarkCoords.lat, landmarkCoords.lng, foodCoords.lat, foodCoords.lng));
@@ -241,7 +239,16 @@ function createBadges(place, showDistance) {
 }
 
 function renderFood() {
-  const places = getFilteredPlaces().filter(p => FOOD_TYPES.includes(p.type));
+  // 중복 제거 로직 추가
+  const rawPlaces = DataService.getFilteredPlaces(AppState.filters.food).filter(p => FOOD_TYPES.includes(p.type));
+  const seen = new Set();
+  const places = rawPlaces.filter(p => {
+    const key = AppState.filters.food.nearbyLandmark ? p.name : (p.name + p.day);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
   const container = document.getElementById('placeList');
   if (!container) return;
   container.innerHTML = '';
@@ -278,8 +285,19 @@ function renderFood() {
   });
 }
 
+function getFilteredLandmarksUI() {
+  let places = PLACES.filter(p => LANDMARK_TYPES.includes(p.type));
+  if (AppState.filters.landmark.day !== 'all') places = places.filter(p => p.days && p.days.includes(AppState.filters.landmark.day));
+  if (AppState.filters.landmark.cat !== 'all') places = places.filter(p => p.type === AppState.filters.landmark.cat);
+  if (AppState.filters.landmark.search) {
+    const q = AppState.filters.landmark.search.toLowerCase();
+    places = places.filter(p => p.name.toLowerCase().includes(q) || p.address.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
+  }
+  return places;
+}
+
 function renderLandmark() {
-  const places = getFilteredLandmarks();
+  const places = getFilteredLandmarksUI();
   const container = document.getElementById('landmarkList');
   if (!container) return;
   container.innerHTML = '';
@@ -323,11 +341,11 @@ function renderSchedule() {
   `).join('');
 }
 
-function renderRoute() {
+function renderRoute(routesData) {
   const container = document.getElementById('routeContent');
   if (!container) return;
 
-  const data = ROUTES[AppState.route.day];
+  const data = routesData[AppState.route.day];
   if (!data) return;
   
   let html = `<div class="route-container">`;
@@ -687,3 +705,27 @@ function renderSkeleton(containerId, count = 5) {
     container.appendChild(card);
   }
 }
+
+// UI 객체로 묶어서 전역에 노출 (app.js에서 사용)
+const UI = {
+  esc,
+  showToast,
+  buildDayPills,
+  buildCatFilter,
+  buildLandmarkDayFilter,
+  buildLandmarkCatFilter,
+  renderFood,
+  renderLandmark,
+  renderSchedule,
+  renderRoute,
+  renderSaved,
+  renderNearbyList,
+  openModal,
+  showModal,
+  closeModal,
+  openGuide,
+  closeGuide,
+  closeTagPopup,
+  setupEventDelegation,
+  renderSkeleton
+};

@@ -1,96 +1,15 @@
-
 // ═══════════════════════════════════════════════════════════════════════════
 // APP LOGIC & STATE MANAGEMENT
 // ═══════════════════════════════════════════════════════════════════════════
-
-const FOOD_TYPES = ['cafe', 'dessert', 'seafood', 'restaurant', 'budget'];
-const LANDMARK_TYPES = ['landmark', 'church', 'viewpoint', 'square', 'transport'];
-const FIXED_OPENROUTER_KEY = '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';
-const SAFE_MODELS = [
-  'google/gemini-2.0-flash-exp:free',
-  'google/gemini-2.0-pro-exp-02-05:free',
-  'google/gemini-2.0-flash-lite-preview-02-05:free',
-  'meta-llama/llama-3.3-70b-instruct:free',
-  'qwen/qwen-2.5-72b-instruct:free',
-  'microsoft/phi-3-mini-128k-instruct:free',
-  'openrouter/free'
-];
-const DEFAULT_MODEL = 'google/gemini-2.0-flash-lite-preview-02-05:free';
-
-// [3단계] 상태 객체 도입 (State Object)
-const AppState = {
-  tab: 'food',
-  filters: {
-    food: { day: 'all', cat: 'all', search: '', nearbyLandmark: null },
-    landmark: { day: 'all', cat: 'all', search: '' }
-  },
-  route: { day: 'DAY 7' },
-  ui: { tagPopupLandmark: null },
-  saved: new Set(JSON.parse(localStorage.getItem('pt_saved') || '[]')),
-  ai: {
-    open: false,
-    loading: false,
-    provider: 'openrouter',
-    model: localStorage.getItem('pt_model') || DEFAULT_MODEL
-  }
-};
-
-// 데이터 변환: PLACES → 날짜별 구조
-function buildAppData() {
-  const dayMap = {};
-  ITINERARY.forEach(d => {
-    dayMap[d.day] = { dayNum: d.day, title: `${d.date} — ${d.title.split('—')[1]?.trim() || d.title}`, categories: {} };
-  });
-  
-  PLACES.forEach((place, idx) => {
-    place.days.forEach(dayKey => {
-      if (!dayMap[dayKey]) return;
-      const cat = TYPE_LABELS[place.type] || '🍴 기타';
-      if (!dayMap[dayKey].categories[cat]) dayMap[dayKey].categories[cat] = [];
-      dayMap[dayKey].categories[cat].push({
-        ...place,
-        rank: dayMap[dayKey].categories[cat].length + 1,
-        day: dayKey,
-        category: cat,
-        meta: `★ ${place.rating}${place.price}${place.hours}`
-      });
-    });
-  });
-  
-  const foodByDay = Object.values(dayMap).map(d => ({
-    ...d,
-    categories: Object.entries(d.categories).map(([cat, places]) => ({ category: cat, places }))
-  }));
-  
-  const allPlaces = PLACES.flatMap((place, idx) => 
-    place.days.map(dayKey => ({
-      ...place,
-      day: dayKey,
-      category: TYPE_LABELS[place.type],
-      rank: idx + 1,
-      meta: `★ ${place.rating}${place.price}${place.hours}`
-    }))
-  );
-  
-  const itinerary = ITINERARY.map((d, i) => ({
-    id: i + 1,
-    dayLabel: d.day + d.date.split(' ')[0],
-    title: d.title,
-    schedule: d.schedule,
-    tips: d.tips,
-    transport: d.transport
-  }));
-  
-  return { foodByDay, allPlaces, itinerary };
-}
-
-const APP_DATA = buildAppData();
 
 let isAppInitialized = false;
 
 function init() {
   if (isAppInitialized) return;
   isAppInitialized = true;
+
+  // 데이터 초기화 로직 실행
+  DataService.init();
 
   if (typeof APP_CONFIG !== 'undefined') {
     document.title = `${APP_CONFIG.flag} ${APP_CONFIG.title}`;
@@ -99,174 +18,61 @@ function init() {
   }
   
   // UI 초기화 함수 호출 (ui-components.js에 정의됨)
-  if (typeof setupEventDelegation === 'function') setupEventDelegation();
+  UI.setupEventDelegation();
   
   // 스켈레톤 UI 표시 (초기 로딩 체감 속도 향상)
-  if (typeof renderSkeleton === 'function') {
-    renderSkeleton('placeList');
-    renderSkeleton('landmarkList');
-    renderSkeleton('scheduleList');
-  }
+  UI.renderSkeleton('placeList');
+  UI.renderSkeleton('landmarkList');
+  UI.renderSkeleton('scheduleList');
 
   // 실제 데이터 렌더링 (UI 스레드 양보를 위해 지연 실행)
   setTimeout(() => {
-    if (typeof buildDayPills === 'function') buildDayPills();
-    if (typeof buildCatFilter === 'function') buildCatFilter();
-    if (typeof renderFood === 'function') renderFood();
-    if (typeof buildLandmarkDayFilter === 'function') buildLandmarkDayFilter();
-    if (typeof buildLandmarkCatFilter === 'function') buildLandmarkCatFilter();
-    if (typeof renderSchedule === 'function') renderSchedule();
+    UI.buildDayPills();
+    UI.buildCatFilter();
+    UI.renderFood();
+    UI.buildLandmarkDayFilter();
+    UI.buildLandmarkCatFilter();
+    UI.renderSchedule();
   }, 10);
 
-  // [AI] API 키 초기화 (없으면 고정 키로 설정)
-  if (!localStorage.getItem('pt_api_key')) {
-    localStorage.setItem('pt_api_key', FIXED_OPENROUTER_KEY);
-  }
+  // [AI] 서비스 초기화
+  AIService.init();
 
-  const hasKey = FIXED_OPENROUTER_KEY;
+  const hasKey = AIService.getKey();
   if (hasKey) {
     const btn = document.getElementById('settingsBtn');
     if (btn) { btn.style.borderColor = 'var(--green)'; btn.style.color = 'var(--green)'; }
   }
 }
 
-// ── 유틸리티 함수 ──
-function getLandmarkToFoods() {
-  const mapping = {};
-  if (typeof NEARBY_LANDMARKS !== 'undefined') {
-    Object.entries(NEARBY_LANDMARKS).forEach(([food, landmarks]) => {
-      landmarks.forEach(lm => {
-        if (!mapping[lm]) mapping[lm] = [];
-        if (!mapping[lm].includes(food)) mapping[lm].push(food);
-      });
-    });
-  }
-  return mapping;
-}
-
-function getDistance(lat1, lng1, lat2, lng2) {
-  const R = 6371000;
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLng = (lng2 - lng1) * Math.PI / 180;
-  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-            Math.sin(dLng/2) * Math.sin(dLng/2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  return R * c;
-}
-
-function getNearbyFoodsByGPS(landmarkName, radiusMeters = 500) {
-  const landmarkCoords = typeof PLACE_COORDS !== 'undefined' ? PLACE_COORDS[landmarkName] : null;
-  if (!landmarkCoords) return [];
-  
-  const nearbyFoods = [];
-  PLACES.forEach(p => {
-    if (!FOOD_TYPES.includes(p.type)) return;
-    const foodCoords = PLACE_COORDS[p.name];
-    if (!foodCoords) return;
-    
-    const distance = getDistance(landmarkCoords.lat, landmarkCoords.lng, foodCoords.lat, foodCoords.lng);
-    if (distance <= radiusMeters) {
-      nearbyFoods.push({ name: p.name, distance: Math.round(distance) });
-    }
-  });
-  return nearbyFoods.sort((a, b) => a.distance - b.distance);
-}
-
-function hasNearbyFoods(landmarkName) {
-  if (typeof PLACE_COORDS !== 'undefined' && PLACE_COORDS[landmarkName]) {
-    const nearby = getNearbyFoodsByGPS(landmarkName, 500);
-    if (nearby.length > 0) return true;
-  }
-  const mapping = getLandmarkToFoods();
-  return mapping[landmarkName] && mapping[landmarkName].length > 0;
-}
-
-function getNearbyFoodsList(landmarkName) {
-  const result = [];
-  const lmCoords = typeof PLACE_COORDS !== 'undefined' ? PLACE_COORDS[landmarkName] : null;
-  if (!lmCoords) return result;
-  const foods = PLACES.filter(p => FOOD_TYPES.includes(p.type));
-  foods.forEach(food => {
-    const coords = PLACE_COORDS[food.name];
-    if (!coords) return;
-    const dist = getDistance(lmCoords.lat, lmCoords.lng, coords.lat, coords.lng);
-    if (dist <= 500) result.push({ ...food, distance: dist });
-  });
-  result.sort((a, b) => a.distance - b.distance);
-  return result;
-}
-
 // ── 상태 변경 및 이벤트 핸들러 ──
 function selectDay(day) {
   AppState.filters.food.day = day;
   document.querySelectorAll('#dayPills .day-pill').forEach(el => el.classList.toggle('active', el.textContent.includes(day === 'all' ? '전체' : day.replace('DAY ', 'Day'))));
-  renderFood();
+  UI.renderFood();
 }
 
 function selectCat(cat) {
   AppState.filters.food.cat = cat;
   document.querySelectorAll('#catFilter .cat-btn').forEach((el, i) => el.classList.toggle('active', i === ['all', ...FOOD_TYPES].indexOf(cat)));
-  renderFood();
+  UI.renderFood();
 }
 
 function onSearch(val) {
   AppState.filters.food.search = val.trim();
-  renderFood();
-}
-
-function getFilteredPlaces() {
-  let places = APP_DATA.allPlaces;
-  if (!AppState.filters.food.nearbyLandmark) {
-    if (AppState.filters.food.day !== 'all') places = places.filter(p => p.day === AppState.filters.food.day);
-    if (AppState.filters.food.cat !== 'all') places = places.filter(p => p.type === AppState.filters.food.cat);
-  }
-  if (AppState.filters.food.search) {
-    const q = AppState.filters.food.search.toLowerCase();
-    places = places.filter(p => p.name.toLowerCase().includes(q) || p.address.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
-  }
-  if (AppState.filters.food.nearbyLandmark) {
-    let nearbyNames = [];
-    if (typeof PLACE_COORDS !== 'undefined' && PLACE_COORDS[AppState.filters.food.nearbyLandmark]) {
-      const nearbyFoods = getNearbyFoodsByGPS(AppState.filters.food.nearbyLandmark, 500);
-      nearbyNames = nearbyFoods.map(f => f.name);
-    }
-    if (nearbyNames.length === 0) {
-      const mapping = getLandmarkToFoods();
-      nearbyNames = mapping[AppState.filters.food.nearbyLandmark] || [];
-    }
-    places = places.filter(p => nearbyNames.includes(p.name));
-  }
-  const seen = new Set();
-  return places.filter(p => {
-    const key = AppState.filters.food.nearbyLandmark ? p.name : (p.name + p.day);
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
-
-function getFilteredLandmarks() {
-  let places = PLACES.filter(p => LANDMARK_TYPES.includes(p.type));
-  if (AppState.filters.landmark.day !== 'all') places = places.filter(p => p.days && p.days.includes(AppState.filters.landmark.day));
-  if (AppState.filters.landmark.cat !== 'all') places = places.filter(p => p.type === AppState.filters.landmark.cat);
-  if (AppState.filters.landmark.search) {
-    const q = AppState.filters.landmark.search.toLowerCase();
-    places = places.filter(p => p.name.toLowerCase().includes(q) || p.address.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
-  }
-  return places;
+  UI.renderFood();
 }
 
 function selectLandmarkDay(day) {
   AppState.filters.landmark.day = day;
   document.querySelectorAll('#landmarkDayPills .day-pill').forEach(el => el.classList.toggle('active', el.textContent.includes(day === 'all' ? '전체' : day.replace('DAY ', 'Day'))));
-  renderLandmark();
+  UI.renderLandmark();
 }
 
 function selectLandmarkCat(cat) {
   AppState.filters.landmark.cat = cat;
   document.querySelectorAll('#landmarkCatFilter .cat-btn').forEach((el, i) => el.classList.toggle('active', i === ['all', ...LANDMARK_TYPES].indexOf(cat)));
-  renderLandmark();
+  UI.renderLandmark();
 }
 
 function switchTab(tab) {
@@ -274,31 +80,31 @@ function switchTab(tab) {
   document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', ['food','landmark','schedule','route','saved'][i] === tab));
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + tab).classList.add('active');
-  if (tab === 'landmark') renderLandmark();
-  if (tab === 'saved') renderSaved();
-  if (tab === 'route') renderRoute();
-  if (tab === 'schedule') renderSchedule();
+  if (tab === 'landmark') UI.renderLandmark();
+  if (tab === 'saved') UI.renderSaved();
+  if (tab === 'route') UI.renderRoute(ROUTES);
+  if (tab === 'schedule') UI.renderSchedule();
 }
 
 function onLandmarkSearch(val) {
   AppState.filters.landmark.search = val.trim();
-  renderLandmark();
+  UI.renderLandmark();
 }
 
 function selectRouteDay(day) {
   AppState.route.day = day;
   document.querySelectorAll('.route-day-btn').forEach(btn => btn.classList.toggle('active', btn.textContent === day));
-  renderRoute();
+  UI.renderRoute(ROUTES);
 }
 
 function showPlaceFromRoute(idOrName) {
   let placeName = idOrName;
-  if (typeof MASTER_PLACES !== 'undefined' && MASTER_PLACES[idOrName]) placeName = MASTER_PLACES[idOrName].name;
-  if (typeof PLACE_GUIDES !== 'undefined' && PLACE_GUIDES[placeName]) openGuide(placeName);
+  if (MASTER_PLACES[idOrName]) placeName = MASTER_PLACES[idOrName].name;
+  if (PLACE_GUIDES[placeName]) UI.openGuide(placeName);
   else {
     const place = PLACES.find(p => p.name === placeName);
-    if (place) showModal(place);
-    else openGuide(placeName);
+    if (place) UI.showModal(place);
+    else UI.openGuide(placeName);
   }
 }
 
@@ -306,8 +112,8 @@ function toggleSave(name) {
   if (AppState.saved.has(name)) AppState.saved.delete(name);
   else AppState.saved.add(name);
   localStorage.setItem('pt_saved', JSON.stringify([...AppState.saved]));
-  renderFood();
-  if (typeof showToast === 'function') showToast(AppState.saved.has(name) ? '⭐ 저장됨!' : '저장 해제');
+  UI.renderFood();
+  UI.showToast(AppState.saved.has(name) ? '⭐ 저장됨!' : '저장 해제');
 }
 
 function openMap(searchNameOrAddr, placeName) {
@@ -317,7 +123,7 @@ function openMap(searchNameOrAddr, placeName) {
 
 function openDirections(placeName) {
   let query = placeName;
-  if (typeof PLACE_COORDS !== 'undefined' && PLACE_COORDS[placeName]) query = `${PLACE_COORDS[placeName].lat},${PLACE_COORDS[placeName].lng}`;
+  if (PLACE_COORDS[placeName]) query = `${PLACE_COORDS[placeName].lat},${PLACE_COORDS[placeName].lng}`;
   else {
     const place = PLACES.find(p => p.name === placeName);
     if (place) query = place.searchName || place.name;
@@ -337,7 +143,7 @@ function goToFood(foodName) {
   AppState.filters.food.search = foodName;
   document.getElementById('searchInput').value = foodName;
   switchTab('food');
-  renderFood();
+  UI.renderFood();
 }
 
 function filterByLandmark() {
@@ -345,43 +151,42 @@ function filterByLandmark() {
   AppState.filters.food.nearbyLandmark = name;
   document.getElementById('landmarkFilterName').textContent = name;
   document.getElementById('landmarkFilterBar').classList.add('active');
-  closeTagPopup();
-  renderFood();
-  showToast(`📍 ${name} 근처 맛집`);
+  UI.closeTagPopup();
+  UI.renderFood();
+  UI.showToast(`📍 ${name} 근처 맛집`);
 }
 
 function clearLandmarkFilter() {
   AppState.filters.food.nearbyLandmark = null;
   document.getElementById('landmarkFilterBar').classList.remove('active');
-  renderFood();
+  UI.renderFood();
 }
 
 function goToNearbyFood(landmarkName) {
-  closeGuide();
-  closeModal();
+  UI.closeGuide();
+  UI.closeModal();
   AppState.filters.food.nearbyLandmark = landmarkName;
-  const hasGPS = typeof PLACE_COORDS !== 'undefined' && PLACE_COORDS[landmarkName];
-  const gpsNearby = hasGPS ? getNearbyFoodsByGPS(landmarkName, 500) : [];
+  const hasGPS = !!PLACE_COORDS[landmarkName];
+  const gpsNearby = hasGPS ? DataService.getNearbyFoodsByGPS(landmarkName, 500) : [];
   const useGPS = gpsNearby.length > 0;
   const filterText = useGPS ? `${landmarkName} (500m 이내)` : `${landmarkName} 근처`;
   document.getElementById('landmarkFilterName').textContent = filterText;
   document.getElementById('landmarkFilterBar').classList.add('active');
   switchTab('food');
-  renderFood();
-  if (useGPS) showToast(`🍽️ ${landmarkName} 500m 이내 ${gpsNearby.length}곳`);
+  UI.renderFood();
+  if (useGPS) UI.showToast(`🍽️ ${landmarkName} 500m 이내 ${gpsNearby.length}곳`);
   else {
-    const mapping = getLandmarkToFoods();
-    const fallbackCount = (mapping[landmarkName] || []).length;
-    showToast(`🍽️ ${landmarkName} 근처 ${fallbackCount}곳`);
+    const fallbackCount = DataService.getFoodsByLandmark(landmarkName).length;
+    UI.showToast(`🍽️ ${landmarkName} 근처 ${fallbackCount}곳`);
   }
 }
 
 function findMyLocation() {
-  if (!navigator.geolocation) { showToast('❌ 위치 정보를 지원하지 않는 브라우저입니다.'); return; }
-  showToast('📍 위치를 찾는 중...');
+  if (!navigator.geolocation) { UI.showToast('❌ 위치 정보를 지원하지 않는 브라우저입니다.'); return; }
+  UI.showToast('📍 위치를 찾는 중...');
   navigator.geolocation.getCurrentPosition(
     (pos) => showNearbyPlacesFromUser(pos.coords.latitude, pos.coords.longitude),
-    (err) => { console.error(err); showToast('❌ 위치 정보를 가져올 수 없습니다.'); },
+    (err) => { console.error(err); UI.showToast('❌ 위치 정보를 가져올 수 없습니다.'); },
     { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
   );
 }
@@ -395,15 +200,15 @@ function showNearbyPlacesFromUser(lat, lng) {
     AppState.filters.food.search = '';
     AppState.filters.food.day = 'all';
     AppState.filters.food.cat = 'all';
-    buildDayPills(); 
-    buildCatFilter();
+    UI.buildDayPills(); 
+    UI.buildCatFilter();
   } else {
     document.getElementById('landmarkSearchInput').value = '';
     AppState.filters.landmark.search = '';
     AppState.filters.landmark.day = 'all';
     AppState.filters.landmark.cat = 'all';
-    buildLandmarkDayFilter();
-    buildLandmarkCatFilter();
+    UI.buildLandmarkDayFilter();
+    UI.buildLandmarkCatFilter();
   }
   const nearby = [];
   PLACES.forEach(p => {
@@ -416,11 +221,11 @@ function showNearbyPlacesFromUser(lat, lng) {
   nearby.sort((a, b) => a.distance - b.distance);
   if (nearby.length === 0) {
     document.getElementById(containerId).innerHTML = '<div class="empty-state"><div class="icon">🔭</div>5km 이내에 장소가 없어요<br><small>포르투갈에 계신가요?</small></div>';
-    showToast('❌ 주변 5km 이내 장소 없음');
+    UI.showToast('❌ 주변 5km 이내 장소 없음');
     return;
   }
-  renderNearbyList(nearby, containerId);
-  showToast(`📍 내 주변 ${nearby.length}곳 발견!`);
+  UI.renderNearbyList(nearby, containerId);
+  UI.showToast(`📍 내 주변 ${nearby.length}곳 발견!`);
 }
 
 // ── SETTINGS & AI (간략화) ──
@@ -460,8 +265,7 @@ function switchProvider(provider, save=true) {
 }
 
 function selectModel(modelId, el) {
-  AppState.ai.model = modelId;
-  localStorage.setItem('pt_model', modelId);
+  AIService.setModel(modelId);
   el.closest('.model-list').querySelectorAll('.model-option').forEach(e => e.classList.remove('selected'));
   el.classList.add('selected');
 }
@@ -484,10 +288,9 @@ function saveApiKey() {
   // [AI] 입력된 키 저장 로직 복구
   const keyInput = document.getElementById('apiKeyInput');
   if (keyInput && keyInput.value.trim()) {
-    localStorage.setItem('pt_api_key', keyInput.value.trim());
+    AIService.setKey(keyInput.value.trim());
   }
-  localStorage.setItem('pt_model', AppState.ai.model);
-  showToast('✅ 설정 저장 완료!');
+  UI.showToast('✅ 설정 저장 완료!');
   refreshApiStatus();
   const btn = document.getElementById('settingsBtn');
   btn.style.borderColor = 'var(--green)';
@@ -512,63 +315,35 @@ async function sendAI() {
   const msg = input.value.trim();
   if (!msg || AppState.ai.loading) return;
   
-  const provider = 'openrouter';
-  // [AI] 저장된 키 사용 (없으면 고정 키)
-  const apiKey = localStorage.getItem('pt_api_key') || FIXED_OPENROUTER_KEY;
-  console.log('[AI] Using Key:', apiKey.substring(0, 10) + '...');
-  
-  let model = localStorage.getItem('pt_model') || DEFAULT_MODEL;
-  if (!SAFE_MODELS.includes(model)) {
-    model = DEFAULT_MODEL;
-    localStorage.setItem('pt_model', model);
-  }
-  
   input.value = '';
   AppState.ai.loading = true;
   document.getElementById('aiSend').disabled = true;
   addMsg(msg, 'user');
   const loadingEl = addMsg('⏳ 분석 중...', 'ai loading');
   scrollAI();
-  const dayContext = APP_DATA.foodByDay.map(d => d.dayNum + '(' + d.title + '): ' + d.categories.map(c => c.places.slice(0,3).map(p => p.name + '(★' + p.rating + ')').join(',')).join(' | ')).join('\n');
-  const itinContext = APP_DATA.itinerary.slice(0,5).map(d => d.dayLabel + ' ' + d.title + ': ' + d.schedule.slice(0,4).map(s => s.activity).join(', ')).join('\n');
-  const systemPrompt = '당신은 포르투갈 여행 전문 AI 어시스턴트입니다. 2026년 5월 1-10일 포르투갈 여행을 도와줍니다.\n\n[맛집 DB]\n' + dayContext + '\n\n[일정]\n' + itinContext + '\n\n규칙: 반드시 자연스러운 한국어로만 답변하세요(영어, 중국어 절대 사용 금지). 이모지 적절히 사용. 답변에 언급되는 모든 장소와 식당 이름에는 반드시 구글 지도 검색 링크를 적용하세요. 형식: [장소명](https://www.google.com/maps/search/?api=1&query=장소명). 날씨 질문 시에는 [도시명 날씨](https://www.google.com/search?q=도시명+날씨) 링크를 제공하세요. 3-5문장 간결하게.';
+  
+  let fullReply = '';
+  let isFirstChunk = true;
+
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 20000); // 20초 타임아웃
 
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', { 
-      method: 'POST', 
-      mode: 'cors',
-      headers: { 
-        'Content-Type': 'application/json', 
-        'Authorization': 'Bearer ' + apiKey.trim(), 
-        'HTTP-Referer': 'https://portugal-travel.app', 
-        'X-Title': 'Portugal Travel 2026' 
-      }, 
-      body: JSON.stringify({ 
-        model: model, 
-        max_tokens: 1000, 
-        messages: [ {role: 'system', content: systemPrompt}, {role: 'user', content: msg} ] 
-      }),
-      signal: controller.signal
+    await AIService.fetchResponse(msg, controller.signal, (chunk) => {
+      if (isFirstChunk) {
+        loadingEl.innerHTML = ''; // "분석 중..." 메시지 지우기
+        loadingEl.classList.remove('loading');
+        isFirstChunk = false;
+      }
+      fullReply += chunk;
+      loadingEl.innerHTML = fullReply.replace(/\n/g, '<br>');
+      scrollAI();
     });
-    
     clearTimeout(timeoutId);
 
-    if (!response.ok) {
-      const data = await response.json().catch(() => ({}));
-      console.error('OpenRouter API Error Details:', data);
-      let errorMsg = data?.error?.message || 'API Error ' + response.status;
-      if (response.status === 401) errorMsg = 'API 키 오류 (User not found). 설정에서 새 키를 입력해주세요.';
-      if (response.status === 429) errorMsg = '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.';
-      throw new Error(errorMsg);
-    }
-    
-    const data = await response.json();
-    const reply = data.choices?.[0]?.message?.content || 'AI로부터 응답을 받지 못했어요. (빈 응답)';
-    
     loadingEl.className = 'msg msg-ai';
-    loadingEl.innerHTML = reply.replace(/\n/g, '<br>').replace(/\[([^\]]+)\]\s*\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color:var(--blue);text-decoration:underline">$1</a>');
+    // 최종 완료 후 링크 변환 적용
+    loadingEl.innerHTML = fullReply.replace(/\n/g, '<br>').replace(/\[([^\]]+)\]\s*\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color:var(--blue);text-decoration:underline">$1</a>');
   } catch(e) {
     loadingEl.className = 'msg msg-ai';
     let userMsg = '⚠️ 오류: ' + e.message;
@@ -610,5 +385,45 @@ async function resetApp() {
     window.location.reload();
   }
 }
+
+// 전역 객체에 함수 노출 (HTML onclick 핸들러 지원용)
+window.toggleSettings = toggleSettings;
+window.switchProvider = switchProvider;
+window.selectModel = selectModel;
+window.saveApiKey = saveApiKey;
+window.resetApp = resetApp;
+window.toggleAI = toggleAI;
+window.askSuggestion = askSuggestion;
+window.sendAI = sendAI;
+window.switchTab = switchTab;
+window.onSearch = onSearch;
+window.findMyLocation = findMyLocation;
+window.clearLandmarkFilter = clearLandmarkFilter;
+window.selectDay = selectDay;
+window.selectCat = selectCat;
+window.onLandmarkSearch = onLandmarkSearch;
+window.selectLandmarkDay = selectLandmarkDay;
+window.selectLandmarkCat = selectLandmarkCat;
+window.selectRouteDay = selectRouteDay;
+window.showPlaceFromRoute = showPlaceFromRoute;
+window.toggleSave = toggleSave;
+window.openMap = openMap;
+window.openDirections = openDirections;
+window.openSearch = openSearch;
+window.openReview = openReview;
+window.openKrReview = openKrReview;
+window.filterByLandmark = filterByLandmark;
+window.goToFood = goToFood;
+window.goToNearbyFood = goToNearbyFood;
+
+// UI 컴포넌트에서 필요한 함수들도 전역 노출
+window.closeModal = closeModal;
+window.closeGuide = closeGuide;
+window.closeTagPopup = closeTagPopup;
+window.openLandmarkMap = openLandmarkMap;
+window.openLandmarkGuide = openLandmarkGuide;
+window.toggleDay = toggleDay;
+window.updateModalSaveBtn = updateModalSaveBtn;
+window.toggleSaveFromGuide = toggleSaveFromGuide;
 
 document.addEventListener('DOMContentLoaded', init);
