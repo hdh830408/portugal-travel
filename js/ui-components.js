@@ -17,6 +17,23 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2000);
 }
 
+// 헬퍼 함수: 주변 맛집 리스트 가져오기 (DataService 연동)
+function getNearbyFoodsList(landmarkName) {
+  if (typeof DataService !== 'undefined' && DataService.getFoodsByLandmark) {
+    const foodNames = DataService.getFoodsByLandmark(landmarkName);
+    return foodNames.map(name => PLACES.find(p => p.name === name)).filter(p => p);
+  }
+  return [];
+}
+
+// 헬퍼 함수: 주변 맛집 존재 여부 확인
+function hasNearbyFoods(landmarkName) {
+  if (typeof DataService !== 'undefined' && DataService.getFoodsByLandmark) {
+    return DataService.getFoodsByLandmark(landmarkName).length > 0;
+  }
+  return false;
+}
+
 // ── 필터 UI 생성 ──
 function buildDayPills() {
   const days = ['all', ...ITINERARY.map(d => d.day)];
@@ -566,7 +583,7 @@ function openGuide(placeName) {
     if (guide.nearbyFood && guide.nearbyFood.length > 0) {
       html += `<div class="guide-section"><div class="guide-section-title"><span class="guide-section-icon">🍽️</span>주변 맛집</div><div class="guide-food-list">${guide.nearbyFood.map(foodName => {
         const foodPlace = PLACES.find(p => p.name === foodName);
-        return foodPlace ? `<div class="guide-food-item" onclick="closeGuide();setTimeout(()=>showModal(PLACES.find(p=>p.name==='${foodName.replace(/'/g, "\\'")}'));,300)"><span class="guide-food-name">${foodName}</span><div class="guide-food-meta"><span class="guide-food-rating">★ ${foodPlace.rating}</span><span class="guide-food-price">${foodPlace.price}</span><span class="guide-food-arrow">→</span></div></div>` : `<div class="guide-food-item"><span class="guide-food-name">${foodName}</span><div class="guide-food-meta"><span class="guide-food-arrow">→</span></div></div>`;
+        return foodPlace ? `<div class="guide-food-item" onclick="closeGuide();setTimeout(()=>showModal(PLACES.find(p=>p.name==='${foodName.replace(/'/g, "\\'")}')),300)"><span class="guide-food-name">${foodName}</span><div class="guide-food-meta"><span class="guide-food-rating">★ ${foodPlace.rating}</span><span class="guide-food-price">${foodPlace.price}</span><span class="guide-food-arrow">→</span></div></div>` : `<div class="guide-food-item"><span class="guide-food-name">${foodName}</span><div class="guide-food-meta"><span class="guide-food-arrow">→</span></div></div>`;
       }).join('')}</div></div>`;
     }
   }
@@ -706,6 +723,17 @@ function renderSkeleton(containerId, count = 5) {
   }
 }
 
+// AI 채팅 메시지 추가
+function addAIMessage(text, type) {
+  const container = document.getElementById('aiMessages');
+  if (!container) return null;
+  const el = document.createElement('div');
+  el.className = `msg msg-${type.includes('ai') ? 'ai' : 'user'}${type.includes('loading')?' loading':''}`;
+  el.textContent = text;
+  container.appendChild(el);
+  return el;
+}
+
 // UI 객체로 묶어서 전역에 노출 (app.js에서 사용)
 const UI = {
   esc,
@@ -727,5 +755,6 @@ const UI = {
   closeGuide,
   closeTagPopup,
   setupEventDelegation,
-  renderSkeleton
+  renderSkeleton,
+  addAIMessage
 };

@@ -180,15 +180,8 @@ const DataService = {
     const center = PLACE_COORDS[centerPlaceName];
     const results = [];
     
-    // 전역 getDistance 함수가 없으면 간단한 거리 계산 로직 사용
-    const calcDist = (lat1, lon1, lat2, lon2) => {
-      if (typeof window.getDistance === 'function') return window.getDistance(lat1, lon1, lat2, lon2);
-      // Fallback: Haversine formula approximation
-      const R = 6371e3; const φ1 = lat1 * Math.PI/180; const φ2 = lat2 * Math.PI/180;
-      const Δφ = (lat2-lat1) * Math.PI/180; const Δλ = (lon2-lon1) * Math.PI/180;
-      const a = Math.sin(Δφ/2)*Math.sin(Δφ/2) + Math.cos(φ1)*Math.cos(φ2)*Math.sin(Δλ/2)*Math.sin(Δλ/2);
-      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    };
+    // utils.js의 getDistance 사용 (없을 경우를 대비한 안전장치 포함)
+    const calcDist = (typeof window.getDistance === 'function') ? window.getDistance : () => 999999;
 
     PLACES.forEach(p => {
       if (!FOOD_TYPES.includes(p.type)) return;

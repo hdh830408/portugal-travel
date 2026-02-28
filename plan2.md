@@ -40,9 +40,9 @@
     *   [x] `js/ui-components.js` (UI 렌더링 및 컴포넌트)
     *   [x] `js/app.js` (앱 초기화 및 이벤트 핸들링)
 *   **스크립트 로딩 최적화**:
-    *   [x] `index.html`에서 의존성 순서에 맞춰 스크립트 로드 (`coords` -> `guides` -> `data` -> `state` -> `utils` -> `ui` -> `app`)
+    *   [x] `index.html`에서 의존성 순서에 맞춰 스크립트 로드 (`coords` -> `guides` -> `data` -> `state` -> `store` -> `utils` -> `ui` -> `app`)
 
-### [Phase 2] 서비스 레이어 추출 (Service Layer)
+### [Phase 2] 서비스 레이어 추출 (Service Layer) (✅ 완료)
 `app.js`에 뭉쳐있는 로직을 기능별 클래스/모듈로 분리합니다.
 
 1.  **`AIService.js`**:
@@ -52,22 +52,29 @@
 2.  **`DataService.js`**:
     *   [x] `MASTER_PLACES` 구축 로직(`initializeIdSystem` 등) 이동.
     *   [x] 데이터 필터링, 검색, 정렬 로직 담당.
+    *   [x] 역방향 매핑(`landmarkToFoodsMap`) 및 GPS 기반 검색 로직 구현.
 3.  **`LocationService.js`**:
-    *   Geolocation API 래핑.
-    *   거리 계산(`Haversine formula`) 및 근처 장소 필터링 로직.
-4.  **`StorageService.js`**:
-    *   `localStorage` 접근 로직 캡슐화 (저장된 장소, 설정, API 키).
+    *   [x] `js/utils.js`에 거리 계산 로직(`getDistance`) 분리 및 중앙화.
+4.  **`AIController.js`**:
+    *   [x] AI 관련 UI 로직(설정, 채팅)을 `app.js`에서 분리하여 독립 모듈화.
 
-### [Phase 3] 상태 관리 시스템 구축 (State Management)
+### [Phase 3] 상태 관리 시스템 구축 (State Management) (✅ 완료)
 수동 DOM 업데이트를 제거하고, 상태 기반의 UI 갱신 구조를 만듭니다.
 
 *   **`Store.js` 구현**:
-    *   Pub/Sub 패턴을 적용한 경량 스토어.
-    *   `state` 변경 시 구독된 리스너(UI 렌더러)들에게 자동 알림.
-    *   예: `store.subscribe('filter', renderFoodList)`
+    *   [x] Pub/Sub 패턴을 적용한 `Store` 객체 생성.
+    *   [x] `subscribe`, `publish` 메서드 구현.
+    *   [x] `setFoodFilter`, `setTab`, `toggleSave` 등 상태 변경 액션 정의.
+*   **`app.js` 리팩토링**:
+    *   [x] 직접적인 `AppState` 변경 로직을 `Store` 액션 호출로 대체.
+    *   [x] `setupSubscriptions()` 함수에서 상태 변경 이벤트를 구독하여 UI 업데이트(`UI.render...`) 자동화.
+    *   [x] 필터 버튼 UI(`active` 클래스) 업데이트 로직을 구독 콜백으로 이관.
 
 ### [Phase 4] UI 컴포넌트 구조화
 `ui-components.js`를 더 작고 재사용 가능한 단위로 쪼갭니다.
+
+*   **UI 로직 중앙화 (Refactoring)**:
+    *   [x] `AIController`의 채팅 메시지 생성 로직(`addMsg`)을 `ui-components.js`(`UI.addAIMessage`)로 이관하여 UI 의존성 일원화.
 
 *   **`components/` 디렉토리 생성**:
     *   `PlaceCard.js`: 장소 카드 HTML 생성.
@@ -92,6 +99,7 @@ root/
 │   ├── services/            (비즈니스 로직)
 │   │   ├── ai-service.js
 │   │   ├── data-service.js
+│   │   ├── ai-controller.js     (AI UI 컨트롤러)
 │   │   ├── location-service.js
 │   │   └── storage-service.js
 │   ├── components/          (UI 렌더링)
