@@ -531,7 +531,7 @@ async function sendAI() {
   scrollAI();
   const dayContext = APP_DATA.foodByDay.map(d => d.dayNum + '(' + d.title + '): ' + d.categories.map(c => c.places.slice(0,3).map(p => p.name + '(★' + p.rating + ')').join(',')).join(' | ')).join('\n');
   const itinContext = APP_DATA.itinerary.slice(0,5).map(d => d.dayLabel + ' ' + d.title + ': ' + d.schedule.slice(0,4).map(s => s.activity).join(', ')).join('\n');
-  const systemPrompt = '당신은 포르투갈 여행 전문 AI 어시스턴트입니다. 2026년 5월 1-10일 포르투갈 여행을 도와줍니다.\n\n[맛집 DB]\n' + dayContext + '\n\n[일정]\n' + itinContext + '\n\n규칙: 한국어, 이모지 사용. 답변에 언급되는 모든 장소와 식당 이름에는 반드시 구글 지도 검색 링크를 적용하세요. 형식: [장소명](https://www.google.com/maps/search/?api=1&query=장소명). 날씨 질문 시에는 [도시명 날씨](https://www.google.com/search?q=도시명+날씨) 링크를 제공하세요. 3-5문장 간결하게.';
+  const systemPrompt = '당신은 포르투갈 여행 전문 AI 어시스턴트입니다. 2026년 5월 1-10일 포르투갈 여행을 도와줍니다.\n\n[맛집 DB]\n' + dayContext + '\n\n[일정]\n' + itinContext + '\n\n규칙: 반드시 자연스러운 한국어로만 답변하세요(영어, 중국어 절대 사용 금지). 이모지 적절히 사용. 답변에 언급되는 모든 장소와 식당 이름에는 반드시 구글 지도 검색 링크를 적용하세요. 형식: [장소명](https://www.google.com/maps/search/?api=1&query=장소명). 날씨 질문 시에는 [도시명 날씨](https://www.google.com/search?q=도시명+날씨) 링크를 제공하세요. 3-5문장 간결하게.';
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 20000); // 20초 타임아웃
