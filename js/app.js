@@ -531,7 +531,7 @@ async function sendAI() {
   scrollAI();
   const dayContext = APP_DATA.foodByDay.map(d => d.dayNum + '(' + d.title + '): ' + d.categories.map(c => c.places.slice(0,3).map(p => p.name + '(★' + p.rating + ')').join(',')).join(' | ')).join('\n');
   const itinContext = APP_DATA.itinerary.slice(0,5).map(d => d.dayLabel + ' ' + d.title + ': ' + d.schedule.slice(0,4).map(s => s.activity).join(', ')).join('\n');
-  const systemPrompt = '당신은 포르투갈 여행 전문 AI 어시스턴트입니다. 2026년 5월 1-10일 포르투갈 여행을 도와줍니다.\n\n[맛집 DB]\n' + dayContext + '\n\n[일정]\n' + itinContext + '\n\n규칙: 한국어, 이모지 사용, 구체적 식당명·평점 언급. 장소 추천 시 구글 지도 검색 링크([장소명](https://www.google.com/maps/search/?api=1&query=장소명))를 포함하세요. 3-5문장 간결하게';
+  const systemPrompt = '당신은 포르투갈 여행 전문 AI 어시스턴트입니다. 2026년 5월 1-10일 포르투갈 여행을 도와줍니다.\n\n[맛집 DB]\n' + dayContext + '\n\n[일정]\n' + itinContext + '\n\n규칙: 한국어, 이모지 사용. 답변에 언급되는 모든 장소와 식당 이름에는 반드시 구글 지도 검색 링크를 적용하세요. 형식: [장소명](https://www.google.com/maps/search/?api=1&query=장소명). 3-5문장 간결하게.';
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 20000); // 20초 타임아웃
@@ -568,7 +568,7 @@ async function sendAI() {
     const reply = data.choices?.[0]?.message?.content || 'AI로부터 응답을 받지 못했어요. (빈 응답)';
     
     loadingEl.className = 'msg msg-ai';
-    loadingEl.innerHTML = reply.replace(/\n/g, '<br>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color:var(--blue);text-decoration:underline">$1</a>');
+    loadingEl.innerHTML = reply.replace(/\n/g, '<br>').replace(/\[([^\]]+)\]\s*\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color:var(--blue);text-decoration:underline">$1</a>');
   } catch(e) {
     loadingEl.className = 'msg msg-ai';
     let userMsg = '⚠️ 오류: ' + e.message;
