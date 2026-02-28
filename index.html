@@ -135,30 +135,25 @@
     <div id="section-openrouter" style="display:none">
       <div class="api-section-title">무료 모델 선택</div>
       <div class="model-list" id="modelList">
-        <div class="model-option selected" onclick="selectModel('openrouter/free',this)">
+        <div class="model-option selected" onclick="selectModel('google/gemini-2.0-flash-lite-preview-02-05:free',this)">
+          <span class="model-option-badge badge-free">🆓 무료</span>
+          <div class="model-option-name">Gemini 2.0 Flash Lite ⭐ 추천</div>
+          <div class="model-option-desc">Google 최신 모델 · 빠르고 똑똑함</div>
+        </div>
+        <div class="model-option" onclick="selectModel('meta-llama/llama-3.3-70b-instruct:free',this)">
+          <span class="model-option-badge badge-free">🆓 무료</span>
+          <div class="model-option-name">Llama 3.3 70B</div>
+          <div class="model-option-desc">Meta 최신 고성능 모델</div>
+        </div>
+        <div class="model-option" onclick="selectModel('qwen/qwen-2.5-72b-instruct:free',this)">
+          <span class="model-option-badge badge-free">🆓 무료</span>
+          <div class="model-option-name">Qwen 2.5 72B</div>
+          <div class="model-option-desc">알리바바 최신 · 한국어 잘함</div>
+        </div>
+        <div class="model-option" onclick="selectModel('openrouter/free',this)">
           <span class="model-option-badge badge-free" style="background:rgba(167,139,250,.15);color:#a78bfa">🔀 자동</span>
-          <div class="model-option-name">Free Router ⭐ 추천</div>
-          <div class="model-option-desc">가용한 무료 모델 자동 선택 · 가장 안정적</div>
-        </div>
-        <div class="model-option" onclick="selectModel('meta-llama/llama-4-scout:free',this)">
-          <span class="model-option-badge badge-free">🆓 무료</span>
-          <div class="model-option-name">Llama 4 Scout</div>
-          <div class="model-option-desc">Meta 최신 · 빠르고 안정적</div>
-        </div>
-        <div class="model-option" onclick="selectModel('qwen/qwen3-235b-a22b:free',this)">
-          <span class="model-option-badge badge-free">🆓 무료</span>
-          <div class="model-option-name">Qwen3 235B</div>
-          <div class="model-option-desc">알리바바 최신 · 고성능 MoE</div>
-        </div>
-        <div class="model-option" onclick="selectModel('moonshotai/kimi-vl-a3b-thinking:free',this)">
-          <span class="model-option-badge badge-free">🆓 무료</span>
-          <div class="model-option-name">Kimi VL Thinking</div>
-          <div class="model-option-desc">추론 강화 모델 · 복잡한 질문에 좋음</div>
-        </div>
-        <div class="model-option" onclick="selectModel('nousresearch/deephermes-3-llama-3-8b-preview:free',this)">
-          <span class="model-option-badge badge-free">🆓 무료</span>
-          <div class="model-option-name">DeepHermes 3</div>
-          <div class="model-option-desc">가벼운 8B 모델 · 빠른 응답</div>
+          <div class="model-option-name">Free Router (자동)</div>
+          <div class="model-option-desc">가용한 무료 모델 자동 선택</div>
         </div>
       </div>
 

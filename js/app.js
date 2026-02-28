@@ -1,4 +1,3 @@
-// c:\github\portugal-travel\js\app.js
 
 // ═══════════════════════════════════════════════════════════════════════════
 // APP LOGIC & STATE MANAGEMENT
@@ -6,6 +5,7 @@
 
 const FOOD_TYPES = ['cafe', 'dessert', 'seafood', 'restaurant', 'budget'];
 const LANDMARK_TYPES = ['landmark', 'church', 'viewpoint', 'square', 'transport'];
+const FIXED_OPENROUTER_KEY = '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';
 
 // [3단계] 상태 객체 도입 (State Object)
 const AppState = {
@@ -20,8 +20,8 @@ const AppState = {
   ai: {
     open: false,
     loading: false,
-    provider: localStorage.getItem('pt_provider') || 'google',
-    model: localStorage.getItem('pt_model') || 'gemini-2.0-flash'
+    provider: localStorage.getItem('pt_provider') || 'openrouter',
+    model: localStorage.getItem('pt_model') || 'openrouter/free'
   }
 };
 
@@ -90,14 +90,25 @@ function init() {
   
   // UI 초기화 함수 호출 (ui-components.js에 정의됨)
   if (typeof setupEventDelegation === 'function') setupEventDelegation();
-  if (typeof buildDayPills === 'function') buildDayPills();
-  if (typeof buildCatFilter === 'function') buildCatFilter();
-  if (typeof renderFood === 'function') renderFood();
-  if (typeof buildLandmarkDayFilter === 'function') buildLandmarkDayFilter();
-  if (typeof buildLandmarkCatFilter === 'function') buildLandmarkCatFilter();
-  if (typeof renderSchedule === 'function') renderSchedule();
+  
+  // 스켈레톤 UI 표시 (초기 로딩 체감 속도 향상)
+  if (typeof renderSkeleton === 'function') {
+    renderSkeleton('placeList');
+    renderSkeleton('landmarkList');
+    renderSkeleton('scheduleList');
+  }
 
-  const hasKey = localStorage.getItem('pt_api_key') || localStorage.getItem('pt_api_key_google') || localStorage.getItem('pt_api_key_anthropic');
+  // 실제 데이터 렌더링 (UI 스레드 양보를 위해 지연 실행)
+  setTimeout(() => {
+    if (typeof buildDayPills === 'function') buildDayPills();
+    if (typeof buildCatFilter === 'function') buildCatFilter();
+    if (typeof renderFood === 'function') renderFood();
+    if (typeof buildLandmarkDayFilter === 'function') buildLandmarkDayFilter();
+    if (typeof buildLandmarkCatFilter === 'function') buildLandmarkCatFilter();
+    if (typeof renderSchedule === 'function') renderSchedule();
+  }, 50);
+
+  const hasKey = localStorage.getItem('pt_api_key') || localStorage.getItem('pt_api_key_google') || localStorage.getItem('pt_api_key_anthropic') || FIXED_OPENROUTER_KEY;
   if (hasKey) {
     const btn = document.getElementById('settingsBtn');
     if (btn) { btn.style.borderColor = 'var(--green)'; btn.style.color = 'var(--green)'; }
@@ -446,7 +457,7 @@ function refreshApiStatus() {
   let key = '';
   if (AppState.ai.provider === 'google') key = localStorage.getItem('pt_api_key_google') || '';
   else if (AppState.ai.provider === 'anthropic') key = localStorage.getItem('pt_api_key_anthropic') || '';
-  else key = localStorage.getItem('pt_api_key') || '';
+  else key = localStorage.getItem('pt_api_key') || FIXED_OPENROUTER_KEY;
   const el = document.getElementById('apiStatus');
   if (key) {
     const label = AppState.ai.provider === 'google' ? '🆓 Google AI (완전무료)' : AppState.ai.provider === 'openrouter' ? '🔀 OpenRouter' : '🤖 Claude';
@@ -488,13 +499,33 @@ async function sendAI() {
   const input = document.getElementById('aiInput');
   const msg = input.value.trim();
   if (!msg || AppState.ai.loading) return;
-  const provider = localStorage.getItem('pt_provider') || 'google';
+  const provider = localStorage.getItem('pt_provider') || 'openrouter';
   const storageMap = { openrouter: 'pt_api_key', google: 'pt_api_key_google', anthropic: 'pt_api_key_anthropic' };
-  const apiKey = localStorage.getItem(storageMap[provider] || 'pt_api_key_google') || '';
-  const SAFE_MODELS = ['gemini-2.0-flash','gemini-2.0-flash-lite','openrouter/free','meta-llama/llama-4-scout:free','qwen/qwen3-235b-a22b:free','moonshotai/kimi-vl-a3b-thinking:free','nousresearch/deephermes-3-llama-3-8b-preview:free','claude-sonnet-4-20250514','claude-haiku-4-5-20251001'];
+  let apiKey = (localStorage.getItem(storageMap[provider]) || '').trim();
+  
+  // OpenRouter일 경우: 키가 없거나 형식이 안 맞으면 고정 키 사용
+  if (provider === 'openrouter') {
+    if (!apiKey || !apiKey.startsWith('sk-or-')) {
+      apiKey = FIXED_OPENROUTER_KEY;
+    }
+  }
+  
+  const SAFE_MODELS = [
+    'gemini-2.0-flash',
+    'gemini-2.0-flash-lite',
+    'openrouter/free',
+    'google/gemini-2.0-flash-lite-preview-02-05:free',
+    'meta-llama/llama-3.3-70b-instruct:free',
+    'qwen/qwen-2.5-72b-instruct:free',
+    'microsoft/phi-3-mini-128k-instruct:free'
+  ];
   const rawModel = localStorage.getItem('pt_model') || '';
-  const model = SAFE_MODELS.includes(rawModel) ? rawModel : 'gemini-2.0-flash';
-  if (!SAFE_MODELS.includes(rawModel)) localStorage.setItem('pt_model', 'gemini-2.0-flash');
+  let model = rawModel;
+  if (!SAFE_MODELS.includes(model)) {
+    model = provider === 'google' ? 'gemini-2.0-flash' : 'google/gemini-2.0-flash-lite-preview-02-05:free';
+    localStorage.setItem('pt_model', model);
+  }
+  
   if (!apiKey) { toggleSettings(); return; }
   input.value = '';
   AppState.ai.loading = true;
@@ -504,27 +535,43 @@ async function sendAI() {
   scrollAI();
   const dayContext = APP_DATA.foodByDay.map(d => d.dayNum + '(' + d.title + '): ' + d.categories.map(c => c.places.slice(0,3).map(p => p.name + '(★' + p.rating + ')').join(',')).join(' | ')).join('\n');
   const itinContext = APP_DATA.itinerary.slice(0,5).map(d => d.dayLabel + ' ' + d.title + ': ' + d.schedule.slice(0,4).map(s => s.activity).join(', ')).join('\n');
-  const systemPrompt = '당신은 포르투갈 여행 전문 AI 어시스턴트입니다. 2026년 5월 1-10일 포르투갈 여행을 도와줍니다.\n\n[맛집 DB]\n' + dayContext + '\n\n[일정]\n' + itinContext + '\n\n규칙: 한국어, 이모지 사용, 구체적 식당명·평점 언급, 3-5문장 간결하게';
+  const systemPrompt = '당신은 포르투갈 여행 전문 AI 어시스턴트입니다. 2026년 5월 1-10일 포르투갈 여행을 도와줍니다.\n\n[맛집 DB]\n' + dayContext + '\n\n[일정]\n' + itinContext + '\n\n규칙: 한국어, 이모지 사용, 구체적 식당명·평점 언급. 장소 추천 시 구글 지도 검색 링크([장소명](https://www.google.com/maps/search/?api=1&query=장소명))를 포함하세요. 3-5문장 간결하게';
   try {
     let response, reply;
     if (provider === 'google') {
       const geminiUrl = 'https://generativelanguage.googleapis.com/v1/models/' + model + ':generateContent?key=' + apiKey;
       response = await fetch(geminiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [ { role: 'user', parts: [{ text: systemPrompt + '\n\n사용자 질문: ' + msg }] } ], generationConfig: { maxOutputTokens: 1000, temperature: 0.7 } }) });
-      if (!response.ok) throw new Error((await response.json().catch(()=>({})))?.error?.message || 'HTTP ' + response.status);
+      if (!response.ok) {
+         const errData = await response.json().catch(()=>({}));
+         throw new Error(errData?.error?.message || 'HTTP ' + response.status);
+      }
       const data = await response.json();
-      reply = data.candidates?.[0]?.content?.parts?.[0]?.text || '응답을 받지 못했어요.';
+      if (data.candidates && data.candidates[0]) {
+          const candidate = data.candidates[0];
+          if (candidate.content && candidate.content.parts && candidate.content.parts[0]) {
+              reply = candidate.content.parts[0].text;
+          } else {
+              reply = `응답을 생성할 수 없습니다. (사유: ${candidate.finishReason || '알 수 없음'})`;
+          }
+      } else {
+          reply = '응답을 받지 못했어요.';
+      }
     } else if (provider === 'openrouter') {
       response = await fetch('https://openrouter.ai/api/v1/chat/completions', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey, 'HTTP-Referer': 'https://portugal-travel-app', 'X-Title': 'Portugal Travel 2026' }, body: JSON.stringify({ model: model, max_tokens: 1000, messages: [ {role: 'system', content: systemPrompt}, {role: 'user', content: msg} ] }) });
       const data = await response.json();
       if (!response.ok) throw new Error(data?.error?.message || 'HTTP ' + response.status);
-      reply = data.choices?.[0]?.message?.content || '빈 응답';
+      reply = data.choices?.[0]?.message?.content || 'AI로부터 응답을 받지 못했어요. (빈 응답)';
     } else {
       response = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' }, body: JSON.stringify({ model: model, max_tokens: 1000, system: systemPrompt, messages: [{role: 'user', content: msg}] }) });
-      if (!response.ok) throw new Error((await response.json().catch(()=>({})))?.error?.message || 'HTTP ' + response.status);
-      reply = (await response.json()).content?.[0]?.text || '응답을 받지 못했어요.';
+      if (!response.ok) {
+         const errData = await response.json().catch(()=>({}));
+         throw new Error(errData?.error?.message || 'HTTP ' + response.status);
+      }
+      const data = await response.json();
+      reply = data.content?.[0]?.text || '응답을 받지 못했어요.';
     }
     loadingEl.className = 'msg msg-ai';
-    loadingEl.innerHTML = reply.replace(/\n/g, '<br>');
+    loadingEl.innerHTML = reply.replace(/\n/g, '<br>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color:var(--blue);text-decoration:underline">$1</a>');
   } catch(e) {
     loadingEl.className = 'msg msg-ai';
     loadingEl.innerHTML = '⚠️ 오류: ' + e.message;
