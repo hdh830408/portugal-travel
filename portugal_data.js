@@ -2154,48 +2154,81 @@ const PLACES = [
     ]
   },
   {
-    "name": "Balta Brunch",
-    "searchName": "Balta Porto",
-    "rating": 4.8,
+    "name": "CA Downtown",
+    "searchName": "CA Downtown Porto",
+    "rating": 4.6,
     "price": "€€",
-    "hours": "09:00–17:00",
+    "hours": "09:00–18:00",
     "type": "cafe",
-    "address": "R. do Bolhão 106, 4000-112 Porto",
-    "description": "포르투 브런치 신흥 강자. 현지인 인기 ⭐",
-    "days": ["DAY 7"]
+    "address": "R. de Mouzinho da Silveira 230, 4050-417 Porto",
+    "description": "포르투 중심가 브런치 맛집. 에그 베네딕트 추천",
+    "days": ["DAY 8"]
   },
   {
-    "name": "산투 일데폰수 성당",
-    "searchName": "Igreja de Santo Ildefonso Porto",
+    "name": "세뉴르 다 페드라 성당",
+    "searchName": "Capela do Senhor da Pedra",
+    "rating": 4.8,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "Alameda do Sr. da Pedra, 4405-712 Gulpilhares",
+    "description": "대서양 파도 속 바위 위에 세워진 신비로운 육각형 예배당 ⭐⭐⭐",
+    "days": ["DAY 8"]
+  },
+  {
+    "name": "아푸라다 마을",
+    "searchName": "São Pedro da Afurada",
+    "rating": 4.5,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "square",
+    "address": "São Pedro da Afurada, Vila Nova de Gaia",
+    "description": "골목마다 생선 굽는 연기가 피어오르는 전통 어촌 마을",
+    "days": ["DAY 8"]
+  },
+  {
+    "name": "Taberna de São Pedro",
+    "searchName": "Taberna de São Pedro Afurada",
+    "rating": 4.6,
+    "price": "€€",
+    "hours": "12:00–15:00, 19:00–22:00",
+    "type": "seafood",
+    "address": "R. Agostinho Albano 40, 4400-352 Vila Nova de Gaia",
+    "description": "아푸라다 마을 최고의 숯불 생선구이 맛집 ⭐",
+    "days": ["DAY 8"]
+  },
+  {
+    "name": "펠게이라스 등대",
+    "searchName": "Farolim de Felgueiras",
+    "rating": 4.7,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "viewpoint",
+    "address": "Jardim do Passeio Alegre, 4150-555 Porto",
+    "description": "거친 대서양 파도가 부서지는 붉은 등대. 인생샷 명소 📸",
+    "days": ["DAY 8"]
+  },
+  {
+    "name": "포스 페르골라",
+    "searchName": "Pérgola da Foz",
     "rating": 4.6,
     "price": "무료",
-    "hours": "09:00–17:30",
-    "type": "church",
-    "address": "R. de Santo Ildefonso 11, 4000-542 Porto",
-    "description": "1.1만 개 아줄레주로 장식된 바로크 성당",
-    "days": ["DAY 7"]
+    "hours": "24시간",
+    "type": "viewpoint",
+    "address": "Av. do Brasil, 4150-151 Porto",
+    "description": "니스(Nice)를 닮은 노란색 해안 산책로",
+    "days": ["DAY 8"]
   },
   {
-    "name": "McDonald's Imperial",
-    "searchName": "McDonald's Imperial Porto",
-    "rating": 4.4,
-    "price": "€",
-    "hours": "08:00–02:00",
-    "type": "landmark",
-    "address": "Praça da Liberdade 126, 4000-325 Porto",
-    "description": "세계에서 가장 아름다운 맥도날드. 샹들리에 ⭐",
-    "days": ["DAY 7"]
-  },
-  {
-    "name": "세하 두 필라르 수도원",
-    "searchName": "Mosteiro da Serra do Pilar",
+    "name": "하프 래빗",
+    "searchName": "Half Rabbit Bordalo II",
     "rating": 4.7,
-    "price": "€2",
-    "hours": "10:00–18:30",
+    "price": "무료",
+    "hours": "24시간",
     "type": "landmark",
-    "address": "Largo de Aviz, 4430-329 Vila Nova de Gaia",
-    "description": "원형 회랑이 독특한 수도원. 유네스코 세계유산",
-    "days": ["DAY 7"]
+    "address": "R. de Guilherme Gomes Fernandes 42, 4400-266 Vila Nova de Gaia",
+    "description": "쓰레기로 만든 토끼 반쪽 벽화. 보르달로 2세 작품 💎",
+    "days": ["DAY 8"]
   },
   {
     "name": "샤롤라",
@@ -4015,57 +4048,59 @@ const ITINERARY = [
   },
   {
     day: "DAY 7", date: "5/7 (목)",
-    title: "🏛️ 포르투 시내 완전 정복 (가이드 & QA 검증 디버깅 완료)",
+    title: "🏛️ 포르투 시내 완전 정복",
     schedule: [
-      { time: "09:00", activity: "🍳 조식 — [Balta Brunch] ⭐" },
-      { time: "10:00", activity: "⛪ [Capela das Almas] (알마스 성당) — 외벽 전체가 푸른 아줄레주인 포토스팟" },
-      { time: "10:15", activity: "📍 [Rua de Santa Catarina] 산책 → ☕ [Majestic Café] 외관 구경" },
-      { time: "10:45", activity: "⛪ [Igreja de Santo Ildefonso] (산투 일데폰수 성당) 외관 인생샷 📸" },
-      { time: "11:00", activity: "🛒 [Mercado do Bolhão] (볼량 시장) — 새단장한 포르투 전통 시장 구경" },
-      { time: "11:45", activity: "🏃‍♂️ 점심 병목 방어: [Café Santiago] ⭐ (12시 전 입장하여 '프란세지냐' 흡입)" },
-      { time: "13:00", activity: "🏛️ [Estação de São Bento] (상벤투 역) ⭐ — 세계에서 가장 아름다운 기차역" },
-      { time: "13:30", activity: "⛪ 크리티컬 버그 패치💎: [Sé do Porto] (포르투 대성당) — 낮에 방문하여 화려한 아줄레주 '회랑(Claustros)' 필수 관람!" },
-      { time: "14:15", activity: "📍 [Avenida dos Aliados] 산책 및 [McDonald's Imperial] 내부 구경" },
-      { time: "14:45", activity: "📚 [Livraria Lello] (렐루 서점) ⭐ — 해리포터 모티브 (⚠️사전 예약 시간 엄수)" },
-      { time: "15:30", activity: "⛪ [Igreja do Carmo] (카르무 성당) — 거대 아줄레주 외벽 & 1m '숨겨진 집' 찾기" },
-      { time: "16:00", activity: "🏛️ [Torre dos Clérigos] (클레리구스 탑) ⭐ — 225계단 등반 (포르투 360도 전경)" },
-      { time: "16:45", activity: "🌅 [Miradouro da Vitória] (비토리아 전망대) — 포르투 최고의 무료 파노라마 뷰" },
-      { time: "17:00", activity: "🚶‍♂️ 하산: [Rua das Flores] (플로레스 거리) — 낭만적인 카페와 버스킹 감상" },
-      { time: "17:15", activity: "🏛️ [Palácio da Bolsa] (볼사 궁전) — 화려한 아랍의 방 (⚠️가이드 투어 사전 예약)" },
-      { time: "18:15", activity: "⛪ [Igreja Monumento de São Francisco] (상 프란시스쿠 교회) — 황금 400kg 내부" },
-      { time: "18:45", activity: "📍 [Praça da Ribeira] (리베이라 광장) ⭐ — 강변 노천카페에서 샹그리아/맥주 한 잔" },
-      { time: "19:30", activity: "🌉 [Ponte Luís I] (동 루이스 1세 다리) — 다리 1층(하층부)을 도보로 건너기" },
-      { time: "19:45", activity: "🚠 체력 세이브 치트키: [Teleférico de Gaia] (가이아 케이블카) 탑승 → 공중 뷰 감상하며 상층부 이동" },
-      { time: "20:00", activity: "🌅 [Jardim do Morro] (모루 정원) ⭐⭐⭐ — 잔디밭에 앉아 황금빛 일몰과 버스킹 감상" },
-      { time: "21:00", activity: "🌃 [Mosteiro da Serra do Pilar] (세하 두 필라르 수도원) ⭐ — 완벽한 야경 감상" },
-      { time: "21:30", activity: "🌉 다리 2층 도보 횡단 → 상벤투 역 방향으로 야경 산책하며 숙소 복귀" }
+      { time: "09:00", activity: "조식 — Balta Brunch ⭐" },
+      { time: "10:00", activity: "📍 볼량시장 → 산타 카타리나 거리 → 알마스 성당 ⭐" },
+      { time: "11:15", activity: "☕ Majestic Café" },
+      { time: "12:00", activity: "🍽️ 점심 — Café Santiago (프란세지냐)" },
+      { time: "13:30", activity: "🏛️ 클레리구스 성당/탑 ⭐ (225계단)" },
+      { time: "14:30", activity: "📚 렐루서점 ⭐ (예약 필수!)" },
+      { time: "15:15", activity: "⛪ 카르무 성당 — 거대한 아줄레주 벽화" },
+      { time: "16:00", activity: "🏛️ 상벤투 역 ⭐ (2만 개 아줄레주)" },
+      { time: "16:30", activity: "📍 플로레스 거리 — 낭만적인 카페 거리" },
+      { time: "17:00", activity: "⛪ 포르투 대성당" },
+      { time: "17:30", activity: "🏛️ 볼사궁전 — 화려한 아랍의 방" },
+      { time: "18:15", activity: "⛪ 상 프란시스쿠 교회 — 황금 400kg 내부" },
+      { time: "18:45", activity: "📍 리베이라 광장 ⭐ + 강변 산책" },
+      { time: "19:15", activity: "🌉 동 루이스 다리 ⭐ 2층 도보 횡단" },
+      { time: "19:45", activity: "🌅 모루 공원 — 일몰 감상" },
+      { time: "21:00", activity: "🌃 세하 두 필라르 전망대 ⭐ — 야경" }
     ],
-    tips: [
-      "⚠️ 렐루 서점과 볼사 궁전은 시간 지정 예약 필수입니다. 동선에 맞춰 14:45 / 17:15 슬롯을 노려보세요.",
-      "💡 대성당 회랑(Claustros do Sé) 입장료는 약 3유로이며, 절대 돈이 아깝지 않은 포르투 최고의 포토스팟입니다.",
-      "🚠 가이아 케이블카는 보통 일몰 시간 전후로 줄이 생길 수 있으니 편도 티켓을 미리 사두시는 것도 좋습니다."
-    ],
-    transport: "🏨 포르투 에어비앤비 (2/4박) 🚶 도보 + 🚠 가이아 케이블카"
+    tips: ["⚠️ 렐루서점 사전 예약 필수! (€5)", "🏛️ 클레리구스 탑 225계단 — 편한 신발", "🌅 모루 공원에서 일몰 감상"],
+    transport: "🏨 포르투 에어비앤비 (2/4박) 🚶 도보"
   },
   {
     day: "DAY 8", date: "5/8 (금)",
-    title: "🚠 가이아 + 유람선 + 서쪽 공원",
+    title: "🌊 대서양 해안 드라이브 & 포스(Foz) 낭만 투어 (무결점 최종판)",
     schedule: [
-      { time: "09:00", activity: "조식 — CA Downtown" },
-      { time: "10:00", activity: "🌉 동 루이스 다리 → 가이아" },
-      { time: "10:40", activity: "🏛️ WOW Porto" },
-      { time: "11:30", activity: "🚠 가이아 케이블카 탑승" },
-      { time: "12:30", activity: "🍽️ 점심 — Taberna Dos Mercadores" },
-      { time: "14:00", activity: "🚢 도루강 유람선 (50분)" },
-      { time: "15:30", activity: "🚠 긴다이스 푸니쿨라" },
-      { time: "16:00", activity: "🌅 비토리아 전망대" },
-      { time: "17:00", activity: "🌅 수정궁 정원 ⭐ (공작새, 석양)" },
-      { time: "18:30", activity: "📍 리베이라 광장 — 저녁 전 강변 산책" },
-      { time: "19:00", activity: "🍽️ 저녁 — Brasão Aliados" },
-      { time: "21:00", activity: "🌃 모루 공원 — 마지막 야경" }
+      { time: "09:00", activity: "🍳 조식 — [CA Downtown] (든든하게 먹고 렌트카 탑승)" },
+      { time: "10:00", activity: "🚗 포르투 도심 탈출! 해안 도로를 따라 남쪽 대서양 드라이브 (약 15km, 20분)" },
+      { time: "10:30", activity: "🌊 [Capela do Senhor da Pedra] (세뉴르 다 페드라 성당) ⭐⭐⭐ — 대서양 바다 위 바위 예배당 감상" },
+      { time: "11:30", activity: "🚗 북쪽으로 다시 이동하여 현지인 어촌 마을 진입 (약 15분 소요)" },
+      { time: "11:45", activity: "🐟 [São Pedro da Afurada] (아푸라다 마을) — 골목마다 숯불 연기가 피어오르는 어촌 마을 구경" },
+      { time: "12:15", activity: "🍽️ 로컬 점심 — [Taberna de São Pedro] 등 길거리 숯불 해산물 전문점 (농어/정어리 숯불구이)" },
+      { time: "13:30", activity: "🚗 해안 드라이브: 아라비다 다리를 건너 포르투 서쪽 바닷가 '포스(Foz)' 지역으로 이동" },
+      { time: "14:00", activity: "🌊 [Farolim de Felgueiras] (펠게이라스 등대) — 강과 바다가 만나는 방파제, 거친 파도 배경 인생샷 📸" },
+      { time: "14:45", activity: "📍 [Pérgola da Foz] (포스 페르골라) — 노란색 낭만 산책로 구경 (해안 도로변 평행주차 이용)" },
+      { time: "15:30", activity: "🚗 주차 치트키: 강변 도로(아라비다 다리)를 타고 다시 건너와 [Parque de Estacionamento WOW] 에 안전하게 실내 주차" },
+      { time: "15:45", activity: "🏛️ [WOW Porto] — 복합문화공간 중앙 광장에서 포르투 시내 파노라마 뷰 감상" },
+      { time: "16:15", activity: "🚠 중력 순응 하강: [Teleférico de Gaia] (가이아 케이블카) 탑승 → 공중 뷰 감상하며 강변으로 쾌적하게 수직 하강" },
+      { time: "16:25", activity: "📸 1분 컷 보석💎: 케이블카 하차 후 골목 모퉁이의 유명 정크아트 [Half Rabbit] (하프 래빗) 벽화 감상" },
+      { time: "16:40", activity: "🚶‍♂️ 강변 횡단: 가이아 강변 구경 후, [Ponte Luís I] (동 루이스 1세 다리) '1층(하층부)'을 도보로 건너 포르투 시내 진입" },
+      { time: "17:00", activity: "🚕 동선 치트키: 다리 건너자마자 우버/볼트 호출 → 언덕 위의 [Jardins do Palácio de Cristal] 직행 (등산 완벽 차단)" },
+      { time: "17:15", activity: "🌅 [Jardins do Palácio de Cristal] (수정궁 정원) ⭐ — 공작새들과 함께 도루강의 환상적인 늦은 오후 감상" },
+      { time: "18:30", activity: "🍽️ 저녁 — [Brasão Aliados] ⭐ (포르투 최고의 프란세지냐 & 스테이크 / ⚠️구글맵 사전예약 필수!)" },
+      { time: "20:00", activity: "🌉 식사 후 낭만 도보: 상벤투 역을 지나 동 루이스 1세 다리 2층 상층부 도보 횡단" },
+      { time: "20:30", activity: "🌃 [Jardim do Morro] (모루 공원) ⭐⭐⭐ — 일몰 매직 아워 적중! 잔디밭에 앉아 버스킹과 함께 포르투 야경 감상" },
+      { time: "21:30", activity: "🚶‍♂️ 야경 감상 후 도보 5분 만에 WOW 주차장으로 복귀하여 렌트카 픽업 후 숙소 귀가" }
     ],
-    tips: ["💡 유람선: €15~20, 50분", "🚠 케이블카: 편도 €6", "🌅 수정궁 정원에서 공작새 + 석양"],
-    transport: "🏨 포르투 에어비앤비 (3/4박) 🚶 도보 + 🚠"
+    tips: [
+      "🌊 날씨 팁: 대서양을 마주하는 펠게이라스 등대와 포스 지역은 바람이 강할 수 있으니 가벼운 겉옷을 챙기세요.",
+      "📸 하프 래빗: 쓰레기로 만들어진 토끼 반쪽 벽화입니다. 가이아 케이블카 하차장 바로 뒤 골목에 숨어 있습니다.",
+      "🚗 동선 요약: 차로 포르투 외곽 링(Ring)을 크게 한 바퀴 돌고, 시내는 우버와 도보로 정복하는 가장 스마트한 하루입니다."
+    ],
+    transport: "🏨 포르투 에어비앤비 (3/4박) 🚗 렌트카 + 🚠 케이블카 + 🚕 우버"
   },
   {
     day: "DAY 9", date: "5/9 (토)",
@@ -4206,31 +4241,31 @@ const ROUTES = {
     tips: ["렐루서점 사전 예약 필수! (€5)", "클레리구스 탑 225계단 — 편한 신발", "모루 공원에서 일몰 감상"]
   },
   "DAY 8": {
-    title: "🚠 가이아 + 유람선 + 서쪽 공원",
-    subtitle: "가이아→유람선→푸니쿨라→서쪽 (원형 흐름)",
+    title: "🌊 대서양 해안 & 포스 낭만 투어",
+    subtitle: "대서양(남) → 어촌마을 → 포스(서) → 가이아(동) → 시내(야경)",
     sections: [
       {
-        icon: "🚠", title: "가이아 탐방", time: "10:00~12:15",
-        places: ["동 루이스 다리", "WOW Porto", "가이아 케이블카"],
-        highlights: ["WOW Porto"]
+        icon: "🌊", title: "대서양 드라이브 (10:00~13:30)", time: "10:00~13:30",
+        places: ["CA Downtown", "세뉴르 다 페드라 성당", "아푸라다 마을", "Taberna de São Pedro"],
+        highlights: ["세뉴르 다 페드라 성당", "아푸라다 마을"]
       },
       {
-        icon: "🚢", title: "유람선 크루즈", time: "14:00~15:15",
-        places: ["도루강 유람선"],
-        highlights: ["도루강 유람선"]
+        icon: "📸", title: "포스 & 가이아 (14:00~16:40)", time: "14:00~16:40",
+        places: ["펠게이라스 등대", "포스 페르골라", "WOW Porto", "가이아 케이블카", "하프 래빗"],
+        highlights: ["펠게이라스 등대", "하프 래빗"]
       },
       {
-        icon: "🌳", title: "서쪽 공원 지역", time: "15:30~18:00",
-        places: ["긴다이스 푸니쿨라", "비토리아 전망대", "수정궁 정원"],
-        highlights: ["수정궁 정원"]
+        icon: "🌅", title: "시내 & 일몰 (17:00~21:30)", time: "17:00~21:30",
+        places: ["동 루이스 다리", "수정궁 정원", "Brasão Aliados", "모루 공원"],
+        highlights: ["수정궁 정원", "모루 공원"]
       },
       {
-        icon: "🌃", title: "마무리", time: "18:30~22:00",
-        places: ["리베이라 광장", "모루 공원"],
-        highlights: ["모루 공원"]
+        icon: "🚗", title: "복귀", time: "21:30~",
+        places: ["WOW Porto"],
+        highlights: []
       }
     ],
-    tips: ["유람선: €15~20, 50분", "케이블카: 편도 €6", "수정궁 정원에서 공작새 + 석양"]
+    tips: ["렌트카 주차: WOW 주차장 추천", "하프 래빗: 케이블카 하차장 뒤", "수정궁 정원: 우버로 이동"]
   },
   "DAY 4": {
     title: "🏰 신트라 & 카스카이스 루프 코스",
