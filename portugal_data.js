@@ -2154,6 +2154,50 @@ const PLACES = [
     ]
   },
   {
+    "name": "상 괄테르 성당",
+    "searchName": "Igreja de São Gualter Guimarães",
+    "rating": 4.7,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "church",
+    "address": "Largo República do Brasil, 4810-446 Guimarães",
+    "description": "기마랑이스의 엽서 배경. 뾰족한 첨탑이 아름다운 성당 📸",
+    "days": ["DAY 9"]
+  },
+  {
+    "name": "포르타 노바 아치",
+    "searchName": "Arco da Porta Nova Braga",
+    "rating": 4.6,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "R. Dom Diogo de Sousa 127, 4700-424 Braga",
+    "description": "브라가 구시가지의 서쪽 관문. 바로크 양식 개선문",
+    "days": ["DAY 9"]
+  },
+  {
+    "name": "산타 바바라 정원",
+    "searchName": "Jardim de Santa Bárbara Braga",
+    "rating": 4.8,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "R. Dr. Justino Cruz, 4700-314 Braga",
+    "description": "중세 주교궁 벽을 배경으로 한 화려한 꽃 정원 🌺",
+    "days": ["DAY 9"]
+  },
+  {
+    "name": "봉 제수스 계단",
+    "searchName": "Escadórios do Bom Jesus Braga",
+    "rating": 4.9,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "Estrada do Bom Jesus, 4715-056 Braga",
+    "description": "지그재그로 이어지는 바로크 양식의 580개 계단",
+    "days": ["DAY 9"]
+  },
+  {
     "name": "CA Downtown",
     "searchName": "CA Downtown Porto",
     "rating": 4.6,
@@ -4114,29 +4158,37 @@ const ITINERARY = [
   },
   {
     day: "DAY 9", date: "5/9 (토)",
-    title: "🚗 기마랑이스 + 브라가 — 포르투갈 탄생지와 바로크 계단",
+    title: "🚗 포르투갈의 기원과 바로크의 절정 — 기마랑이스 & 브라가 (QA 무결점 패치)",
     schedule: [
-      { time: "09:00", activity: "🚗 포르투 출발 → 기마랑이스 (55km, 50분)" },
-      { time: "10:00", activity: "🏰 기마랑이스 성 ⭐ — 10세기 요새, 아폰수 엔히게스 탄생지" },
-      { time: "10:30", activity: "🏛️ 브라간사 공작 궁전 ⭐ — 15세기 궁전, 39개 굴뚝" },
-      { time: "11:15", activity: "📍 올리베이라 광장 ⭐ — 'Aqui Nasceu Portugal' 문구" },
-      { time: "11:30", activity: "⛪ 올리베이라 성당 — 14세기 고딕 양식" },
-      { time: "11:45", activity: "☕ Green Bistrot (Guimarães) ⭐ — 비건 비스트로 (4.9)" },
-      { time: "12:00", activity: "📍 산티아고 광장 — 중세 분위기, 노천 카페" },
-      { time: "12:15", activity: "🚗 브라가 이동 (25km, 25분)" },
-      { time: "12:45", activity: "🍽️ Ó Brunch Café (Braga) ⭐ — 브라가 최고 브런치 (4.9)" },
-      { time: "14:00", activity: "⛪ 브라가 대성당 ⭐ — 포르투갈 최고(最古) 대성당 (11세기)" },
-      { time: "14:30", activity: "📍 레푸블리카 광장 (브라가) — 아케이드와 분수대" },
-      { time: "15:00", activity: "🚗 봉 제수스 이동 (5km)" },
-      { time: "15:15", activity: "⛪ 봉 제수스 두 몬치 ⭐⭐ — 바로크 계단 116m, 지그재그" },
-      { time: "15:30", activity: "🚠 봉 제수스 푸니쿨라 ⭐ — 1882년, 세계 최초 수력 푸니쿨라" },
-      { time: "15:45", activity: "🌅 봉 제수스 전망대 — 브라가 시내 파노라마" },
-      { time: "16:15", activity: "🚗 포르투 귀환 (55km, 1시간)" },
-      { time: "17:30", activity: "🌅 모루 공원 — 가이아 강변 일몰 (포르투 마지막 밤!)" },
-      { time: "19:00", activity: "🍽️ 마지막 저녁 — 리베이라 or 가이아" },
-      { time: "21:00", activity: "🌃 도루강변 야경 산책" }
+      { time: "09:00", activity: "🚗 포르투 출발 → 기마랑이스 이동 (55km, 50분 / 고속도로 A3, A7 이용)" },
+      { time: "09:50", activity: "🅿️ 주차: [Parque de Estacionamento do Castelo] — 기마랑이스 성 바로 옆 대형 주차장 진입" },
+      { time: "10:00", activity: "🏰 [Castelo de Guimarães] (기마랑이스 성) ⭐ — 포르투갈 초대 국왕 아폰수 엔히게스의 탄생지" },
+      { time: "10:30", activity: "🏛️ [Paço dos Duques de Bragança] (브라간사 공작 궁전) ⭐ — 39개의 특이한 굴뚝과 15세기 건축물" },
+      { time: "11:15", activity: "🚶‍♂️ 내리막 도보: 성에서 구시가지 중심 광장으로 낭만적인 중세 골목 산책" },
+      { time: "11:30", activity: "📍 [Largo da Oliveira] & [Praça de S. Tiago] — 고딕 양식의 살라도 기념비(Padrão do Salado)와 중세 광장 구경" },
+      { time: "11:50", activity: "📸 지도 스캔 보석💎: [Largo República do Brasil] 꽃길 정원 산책 및 [Igreja de São Gualter] (상 괄테르 성당) 배경으로 엽서 사진 남기기" },
+      { time: "12:15", activity: "🚗 렌트카 탑승 → 브라가로 이동 (25km, 25분)" },
+      { time: "12:40", activity: "🅿️ 주차: [Parque de Estacionamento Campo da Vinha] — 브라가 시내 중심 대형 지하 주차장" },
+      { time: "12:45", activity: "🍽️ 점심 — [Ó Brunch Café] ⭐ (브라가 최고 평점 브런치 4.9) 또는 인근 로컬 식당" },
+      { time: "13:50", activity: "🏛️ 지도 스캔 보석💎: [Arco da Porta Nova] (포르타 노바 아치) — 브라가의 옛 출입구인 아름다운 개선문 통과" },
+      { time: "14:00", activity: "⛪ [Sé de Braga] (브라가 대성당) ⭐ — 11세기에 지어진 포르투갈 최고(最古)의 대성당" },
+      { time: "14:30", activity: "🌺 지도 스캔 보석💎: [Jardim de Santa Bárbara] (산타 바바라 정원) — 옛 주교궁 벽면을 배경으로 한 브라가 최고의 꽃 정원 산책" },
+      { time: "14:45", activity: "📍 [Praça da República] (레푸블리카 광장) — 브라가의 중심 아케이드와 탁 트인 분수대 산책" },
+      { time: "15:20", activity: "🚗 브라가 외곽 이동 → [Estacionamento Elevador Bom Jesus] (푸니쿨라 하부 주차장) 도착" },
+      { time: "15:30", activity: "🚠 궁극의 치트키: [Elevador do Bom Jesus] ⭐ — 세계 최초 수력 푸니쿨라 타고 산 정상 '편하게' 올라가기" },
+      { time: "15:45", activity: "🌅 [Santuário do Bom Jesus do Monte] (봉 제수스 두 몬치) ⭐⭐ — 브라가 시내 파노라마 뷰 감상" },
+      { time: "16:15", activity: "🚶‍♂️ 하산 산책: [Escadórios do Bom Jesus] — 화려한 바로크 양식의 지그재그 계단을 '걸어 내려오며' 인생샷 📸" },
+      { time: "16:45", activity: "🚗 주차장 복귀 후 포르투 귀환 (55km, 1시간 / 고속도로 A3)" },
+      { time: "18:00", activity: "🏨 포르투 도착 — 숙소 휴식 또는 렌트카 사전 반납 (일정에 맞춰 유동적 진행)" },
+      { time: "18:45", activity: "🍽️ 포르투 마지막 저녁 — 리베이라 광장 인근 또는 가이아 강변 레스토랑" },
+      { time: "20:15", activity: "🌅 일몰 타임 적중: [Jardim do Morro] (모루 정원) — 20:40 일몰 시간에 맞춰 포르투의 붉은 노을 감상" },
+      { time: "21:15", activity: "🌃 도루 강변을 따라 야경을 눈에 담으며 아쉬운 마지막 밤 산책 마무리" }
     ],
-    tips: ["🏰 기마랑이스 = 포르투갈 건국의 도시!", "⛪ 봉 제수스 계단 힘들면 푸니쿨라 이용 (€2)", "🌅 포르투 귀환 후 모루 공원 일몰 놓치지 말 것!", "🚗 삼각형 루트: 같은 길 반복 안 함 (총 135km)"],
+    tips: [
+      "📸 기마랑이스 사진 팁: 성과 궁전은 웅장하지만, 진짜 예쁜 인생샷은 '상 괄테르 성당(Igreja de São Gualter)' 앞 정원 벤치에서 나옵니다.",
+      "💡 봉 제수스 동선: 무조건 밑에 차를 대고 푸니쿨라로 '올라가서' 계단으로 '내려오는' 것이 체력과 뷰를 모두 잡는 정답입니다.",
+      "🚗 톨게이트 팁: 북부 고속도로는 하이패스 격인 전자 톨게이트(Via Verde)가 많으니 렌트카 단말기 장착을 꼭 확인하세요."
+    ],
     transport: "🏨 포르투 에어비앤비 (4/4박) 🚗 렌트카"
   },
   {
@@ -4364,23 +4416,23 @@ const ROUTES = {
     tips: ["조아니나 도서관 예약 시간 엄수!", "마샤두 박물관 지하 회랑 필수", "동 루이스 다리 상층부 뷰 추천"]
   },
   "DAY 9": {
-    title: "🚗 기마랑이스 + 브라가 — 포르투갈 탄생지와 바로크 계단",
+    title: "🚗 포르투갈의 기원과 바로크의 절정 — 기마랑이스 & 브라가",
     subtitle: "삼각형 루트: 포르투→기마랑이스→브라가→포르투 (같은 길 반복 ❌)",
     sections: [
       {
         icon: "🏰", title: "기마랑이스 (55km, 50분)", time: "10:00~12:15",
-        places: ["기마랑이스 성", "브라간사 공작 궁전", "올리베이라 광장", "올리베이라 성당", "Green Bistrot (Guimarães)", "산티아고 광장"],
-        highlights: ["기마랑이스 성", "브라간사 공작 궁전", "올리베이라 광장"]
+        places: ["기마랑이스 성", "브라간사 공작 궁전", "올리베이라 광장", "산티아고 광장", "상 괄테르 성당"],
+        highlights: ["기마랑이스 성", "상 괄테르 성당"]
       },
       {
-        icon: "🍽️", title: "브라가 점심 (25km, 25분)", time: "12:45~14:00",
-        places: ["Ó Brunch Café (Braga)"],
-        highlights: ["Ó Brunch Café (Braga)"]
+        icon: "🍽️", title: "브라가 시내 (25km, 25분)", time: "12:45~15:00",
+        places: ["Ó Brunch Café (Braga)", "포르타 노바 아치", "브라가 대성당", "산타 바바라 정원", "레푸블리카 광장 (브라가)"],
+        highlights: ["브라가 대성당", "산타 바바라 정원"]
       },
       {
-        icon: "⛪", title: "브라가 오후", time: "14:00~16:00",
-        places: ["브라가 대성당", "레푸블리카 광장 (브라가)", "봉 제수스 두 몬치", "봉 제수스 푸니쿨라", "봉 제수스 전망대"],
-        highlights: ["브라가 대성당", "봉 제수스 두 몬치", "봉 제수스 푸니쿨라"]
+        icon: "⛪", title: "봉 제수스 성지 (15:30~16:45)", time: "15:30~16:45",
+        places: ["봉 제수스 푸니쿨라", "봉 제수스 두 몬치", "봉 제수스 계단"],
+        highlights: ["봉 제수스 두 몬치", "봉 제수스 계단"]
       },
       {
         icon: "🌅", title: "포르투 귀환 (55km, 1시간)", time: "17:30~",
@@ -4388,7 +4440,7 @@ const ROUTES = {
         highlights: ["모루 공원"]
       }
     ],
-    tips: ["기마랑이스 = 포르투갈 건국의 도시!", "봉 제수스 계단 힘들면 푸니쿨라 이용 (€2)", "포르투 귀환 후 모루 공원 일몰 놓치지 말 것!", "삼각형 루트: 같은 길 반복 안 함 (총 135km)"]
+    tips: ["기마랑이스 인생샷: 상 괄테르 성당 앞", "봉 제수스: 푸니쿨라 상행 + 계단 하행", "포르투 귀환 후 모루 공원 일몰 필수"]
   }
 };
 const NEARBY_LANDMARKS = {
