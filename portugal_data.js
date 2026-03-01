@@ -2154,6 +2154,39 @@ const PLACES = [
     ]
   },
   {
+    "name": "샤롤라",
+    "searchName": "Charola do Convento de Cristo Tomar",
+    "rating": 4.9,
+    "price": "수도원 포함",
+    "hours": "09:00–17:30",
+    "type": "landmark",
+    "address": "Convento de Cristo, 2300-000 Tomar",
+    "description": "템플 기사단의 8각 황금 예배당. 압도적인 장식",
+    "days": ["DAY 6"]
+  },
+  {
+    "name": "구대학 광장",
+    "searchName": "Paço das Escolas Coimbra",
+    "rating": 4.8,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "square",
+    "address": "Paço das Escolas, 3004-531 Coimbra",
+    "description": "코임브라 대학의 심장. 3면이 유네스코 유산",
+    "days": ["DAY 6"]
+  },
+  {
+    "name": "마샤두 드 카스트루 박물관",
+    "searchName": "Museu Nacional de Machado de Castro",
+    "rating": 4.7,
+    "price": "€6",
+    "hours": "10:00–18:00",
+    "type": "landmark",
+    "address": "Largo Dr. José Rodrigues, 3000-236 Coimbra",
+    "description": "로마 시대 지하 회랑(Cryptoporticus)이 압권",
+    "days": ["DAY 6"]
+  },
+  {
     "name": "Café Rynok",
     "searchName": "Café Rynok Coimbra",
     "rating": 5.0,
@@ -3907,29 +3940,33 @@ const ITINERARY = [
   },
   {
     day: "DAY 6", date: "5/6 (수)",
-    title: "🏰 토마르 → 코임브라 → 포르투 — 대학도시 탐방",
+    title: "🏰 토마르 → 코임브라 → 포르투 — 대학도시와 중세의 비밀",
     schedule: [
-      { time: "09:00", activity: "🏰 그리스도 수도원 (토마르) ⭐⭐ — 템플기사단 본거지" },
-      { time: "10:00", activity: "🏰 마누엘 양식 창문 — 대항해시대 상징 조각" },
-      { time: "10:30", activity: "📍 레푸블리카 광장 (토마르) — 성 주앙 바티스타 교회" },
-      { time: "11:00", activity: "☕ Insensato Café-Livraria — 서점+카페, 출발 전 커피" },
-      { time: "11:30", activity: "🚗 코임브라 이동 (80km, 1시간)" },
-      { time: "12:30", activity: "⛪ 산타크루스 수도원 ⭐ — 1131년 건립, 아폰수 1세 묘소" },
-      { time: "13:00", activity: "☕ Café Santa Cruz ⭐ — 수도원 내부 카페! 고딕 아치 천장" },
-      { time: "13:30", activity: "🍽️ Zé Manel dos Ossos ⭐ — 뼈 있는 고기, 벽에 쪽지 가득" },
-      { time: "14:15", activity: "🚶 퀘브라 코스타스 계단 — '등 브레이커' 언덕 오르기" },
-      { time: "14:30", activity: "⛪ 코임브라 구 대성당 ⭐ — 12세기 로마네스크" },
-      { time: "15:00", activity: "🏛️ 철의 문 (포르타 페레아) — 구대학 정문" },
-      { time: "15:15", activity: "📚 조아니나 도서관 ⭐⭐ — 세계 10대 아름다운 도서관" },
-      { time: "15:45", activity: "⛪ 상 미겔 예배당 — 마누엘 양식 타일" },
-      { time: "16:00", activity: "🌅 시계탑 (염소탑) — 코임브라 전경 파노라마" },
-      { time: "16:15", activity: "☕ Café Rynok ⭐ — 만점 5.0! 코임브라 최고 커피" },
-      { time: "16:45", activity: "🚗 포르투 이동 (120km, 1시간 15분)" },
-      { time: "18:00", activity: "🏨 포르투 숙소 체크인" },
-      { time: "18:30", activity: "📍 리베이라 광장 — 도루강변 산책" },
-      { time: "19:30", activity: "🍽️ 저녁 — 리베이라 or 가이아" }
+      { time: "09:00", activity: "🏰 [Convento de Cristo] (그리스도 수도원) ⭐⭐ — 마누엘 양식 창문 📸" },
+      { time: "09:45", activity: "💎 [Charola do Convento de Cristo] — 템플 기사단의 8각 황금 예배당 필수 관람!" },
+      { time: "10:30", activity: "🚗 토마르 관람 종료 → 코임브라로 바로 출발 (80km, 약 1시간 10분)" },
+      { time: "11:45", activity: "🅿️ 코임브라 주차: [Parque de Estacionamento do Mercado Municipal D. Pedro V]" },
+      { time: "12:00", activity: "🏃‍♂️ 점심 오픈런 대기: [Zé Manel dos Ossos] ⭐ — (12:30 오픈 전 1빠로 줄 서기!)" },
+      { time: "12:30", activity: "🍽️ 점심 식사 — 코임브라 최고의 뼈 있는 돼지고기 구이 만끽" },
+      { time: "13:30", activity: "🚕 치트키 발동: 식당 앞에서 우버/볼트 호출 → [Porta Férrea] 직행 (언덕 회피)" },
+      { time: "13:45", activity: "🏛️ [Paço das Escolas] (구대학 광장) 진입 및 파노라마 뷰 감상" },
+      { time: "14:00", activity: "📚 [Biblioteca Joanina] (조아니나 도서관) ⭐⭐ — ⚠️예약 시간 엄수 입장 (내부 촬영 금지)" },
+      { time: "14:30", activity: "⛪ [Capela de São Miguel] (상 미겔 예배당) & [Torre da Universidade de Coimbra] (염소탑) 구경" },
+      { time: "15:00", activity: "🚶‍♂️ 내리막 하산 시작 → 💎 [Museu Nacional de Machado de Castro] 로마 지하 통로(Cryptoporticus) 관람" },
+      { time: "15:45", activity: "⛪ [Sé Velha de Coimbra] (코임브라 구 대성당) ⭐ — 로마네스크 양식 감상 후 계속 하산" },
+      { time: "16:15", activity: "⛪ [Mosteiro de Santa Cruz] (산타크루스 수도원) & ☕ [Café Santa Cruz] 고딕 아치 아래서 커피 휴식" },
+      { time: "16:45", activity: "🚗 주차장 복귀 후 포르투로 이동 (120km, 약 1시간 15분. 고속도로 A1 이용)" },
+      { time: "18:00", activity: "🏨 포르투 숙소 도착 및 체크인" },
+      { time: "18:30", activity: "📍 [Ponte Luís I] (동루이스 1세 다리) — 다리 상층부를 걸어서 도루강 건너기" },
+      { time: "18:45", activity: "🌅 💎 [Jardim do Morro] (모루 정원) ⭐⭐⭐ — 잔디밭에 앉아 포르투 최고의 구시가지 일몰 감상" },
+      { time: "19:30", activity: "🍽️ 저녁 — 가이아 지구 강변(Cais de Gaia) 또는 다리 아래로 내려와 리베이라 광장에서 식사" }
     ],
-    tips: ["🎫 조아니나 도서관 사전 예약 권장 (입장 인원 제한)", "📸 도서관 내부 촬영 금지", "👟 코임브라 언덕 도시 — 편한 신발", "🎓 검은 망토 학생들 = 해리포터 영감 원조!", "🚗 총 이동거리 약 200km"],
+    tips: [
+      "🎫 조아니나 도서관: 정해진 슬롯 시간에 지각하면 입장이 불가하니 10분 전 광장 대기 필수!",
+      "🏛️ 마샤두 드 카스트루 박물관: 시간이 촉박하다면 1층과 2층 전시는 패스하고 '로마 지하 통로'만 보셔도 훌륭합니다.",
+      "📸 동루이스 다리를 건널 때는 윗길(상층부)로 가야 뷰가 폭발합니다. 고소공포증이 있다면 주의하세요!",
+      "🍽️ 맛집 팁: 'Zé Manel dos Ossos'는 대기가 매우 깁니다. 실패 시 근처 'Solar do Bacalhau'나 'Restaurante Sete'를 추천합니다."
+    ],
     transport: "🏨 포르투 에어비앤비 (1/4박) 🚗 렌트카"
   },
   {
@@ -4202,30 +4239,35 @@ const ROUTES = {
   },
   "DAY 6": {
     title: "🏰 토마르 → 코임브라 → 포르투",
-    subtitle: "남→북 직선 이동. 코임브라는 하부(구시가)→상부(대학) 한 방향",
+    subtitle: "토마르(오전) → 코임브라(점심/대학/하산) → 포르투(일몰)",
     sections: [
       {
-        icon: "🏰", title: "토마르 오전", time: "09:00~11:30",
-        places: ["그리스도 수도원 (토마르)", "레푸블리카 광장 (토마르)", "Insensato Café-Livraria"],
-        highlights: ["그리스도 수도원 (토마르)"]
+        icon: "🏰", title: "토마르 (09:00~10:30)", time: "09:00~10:30",
+        places: ["그리스도 수도원 (토마르)", "샤롤라"],
+        highlights: ["그리스도 수도원 (토마르)", "샤롤라"]
       },
       {
-        icon: "⛪", title: "코임브라 하부 (소피아 지구)", time: "12:30~14:15",
-        places: ["산타크루스 수도원", "Café Santa Cruz", "Zé Manel dos Ossos", "퀘브라 코스타스 계단"],
-        highlights: ["산타크루스 수도원", "Café Santa Cruz", "Zé Manel dos Ossos"]
+        icon: "🍽️", title: "코임브라 점심 (12:00~13:30)", time: "12:00~13:30",
+        places: ["Zé Manel dos Ossos"],
+        highlights: ["Zé Manel dos Ossos"]
       },
       {
-        icon: "🏛️", title: "코임브라 상부 (알타 지구/대학)", time: "14:30~16:30",
-        places: ["코임브라 구 대성당", "철의 문 (포르타 페레아)", "조아니나 도서관", "상 미겔 예배당", "시계탑 (염소탑)", "Café Rynok"],
-        highlights: ["조아니나 도서관", "시계탑 (염소탑)", "Café Rynok"]
+        icon: "🏛️", title: "코임브라 대학 (13:30~15:00)", time: "13:30~15:00",
+        places: ["철의 문 (포르타 페레아)", "구대학 광장", "조아니나 도서관", "상 미겔 예배당", "시계탑 (염소탑)"],
+        highlights: ["조아니나 도서관", "구대학 광장"]
       },
       {
-        icon: "🌃", title: "포르투 저녁 (120km, 1시간 15분)", time: "18:00~",
-        places: ["리베이라 광장"],
-        highlights: ["리베이라 광장"]
+        icon: "🚶", title: "코임브라 하산 (15:00~16:45)", time: "15:00~16:45",
+        places: ["마샤두 드 카스트루 박물관", "코임브라 구 대성당", "산타크루스 수도원", "Café Santa Cruz"],
+        highlights: ["마샤두 드 카스트루 박물관", "코임브라 구 대성당"]
+      },
+      {
+        icon: "🌅", title: "포르투 저녁 (18:30~)", time: "18:30~",
+        places: ["동 루이스 다리", "모루 공원"],
+        highlights: ["동 루이스 다리", "모루 공원"]
       }
     ],
-    tips: ["조아니나 도서관 사전 예약 권장 (입장 인원 제한)", "도서관 내부 촬영 금지", "코임브라 언덕 도시 — 편한 신발", "검은 망토 학생들 = 해리포터 영감 원조!", "총 이동거리 약 200km"]
+    tips: ["조아니나 도서관 예약 시간 엄수!", "마샤두 박물관 지하 회랑 필수", "동 루이스 다리 상층부 뷰 추천"]
   },
   "DAY 9": {
     title: "🚗 기마랑이스 + 브라가 — 포르투갈 탄생지와 바로크 계단",

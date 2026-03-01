@@ -599,6 +599,15 @@ const PLACE_GUIDES = {
     nearbyFood: ["Taverna Antiqua", "레푸블리카 광장 레스토랑"]
   },
 
+  "샤롤라": {
+    emoji: "💎",
+    subtitle: "템플 기사단의 신비로운 8각 황금 예배당",
+    history: "12세기 템플 기사단이 예루살렘의 성묘 교회를 본따 만든 8각형 구조의 예배당입니다. 기사들이 말을 탄 채로 미사에 참석할 수 있도록 설계되었습니다. 내부는 16세기 마누엘 1세 때 화려한 회화와 금박 목각으로 장식되어 숨 막히는 아름다움을 자랑합니다.",
+    photoSpots: ["중앙 제단과 돔 천장", "화려한 벽화 디테일", "8각형 회랑 구조"],
+    visitTips: { hours: "09:00~17:30", fee: "수도원 입장권 포함", duration: "30분", tips: "그리스도 수도원의 하이라이트입니다. 천천히 한 바퀴 돌며 디테일을 감상하세요." },
+    nearbyFood: ["Taverna Antiqua"]
+  },
+
   "페고잉스 수도교": {
     emoji: "🧱",
     subtitle: "30m 높이의 아찔한 수도교 위를 걷는 히든 스팟",
@@ -672,6 +681,15 @@ const PLACE_GUIDES = {
     nearbyFood: ["Café Santa Cruz", "Zé Manel dos Ossos"]
   },
 
+  "Zé Manel dos Ossos": {
+    emoji: "🍖",
+    subtitle: "벽면 가득한 낙서와 뼈다귀 요리의 전설",
+    history: "코임브라 골목길에 숨겨진 아주 작은 타스카(Tasca)입니다. 벽면과 천장을 가득 채운 손님들의 낙서와 그림들이 이곳의 오랜 역사를 증명합니다. 투박하지만 정겨운 분위기 속에서 저렴하고 푸짐한 포르투갈 가정식을 맛볼 수 있습니다.",
+    photoSpots: ["낙서로 뒤덮인 벽면", "산더미 같은 뼈다귀 요리(Ossos)", "좁고 북적이는 내부 풍경"],
+    visitTips: { hours: "12:30~15:00, 19:30~22:00", fee: "€10~15", duration: "1시간", tips: "예약 불가! 오픈 30분 전부터 줄을 서야 합니다. 현금 결제만 가능할 수 있으니 준비하세요." },
+    nearbyFood: ["Solar do Bacalhau", "Café Santa Cruz"]
+  },
+
   "Café Rynok": {
     emoji: "☕",
     subtitle: "코임브라에서 가장 사랑받는 평점 5.0 카페",
@@ -721,6 +739,23 @@ const PLACE_GUIDES = {
       tips: "옆 Café Santa Cruz는 옛 수도원 부속 건물을 개조한 곳"
     },
     nearbyFood: ["Café Santa Cruz", "Zé Manel dos Ossos"]
+  },
+
+  "구대학 광장": {
+    emoji: "🏛️",
+    subtitle: "코임브라 대학의 심장, 3면이 유네스코 유산",
+    history: "정식 명칭은 '파수 다스 에스콜라스(Paço das Escolas)'입니다. 포르투갈 왕궁이 있던 자리로, 1537년 대학이 들어서면서 학문의 중심지가 되었습니다. 광장을 둘러싼 조아니나 도서관, 시계탑, 상 미겔 예배당 등 주요 건물들이 모두 유네스코 세계문화유산입니다.",
+    photoSpots: ["광장 중앙 주앙 3세 동상", "시계탑과 도서관 파노라마", "광장 난간에서 본 몬데구 강 뷰"],
+    visitTips: { hours: "24시간", fee: "무료", duration: "20분", tips: "철의 문을 통과하면 바로 나옵니다. 탁 트인 전망이 일품입니다." },
+    nearbyFood: ["Café Rynok"]
+  },
+  "마샤두 드 카스트루 박물관": {
+    emoji: "🏛️",
+    subtitle: "로마 시대 지하 미로를 탐험하다",
+    history: "과거 주교의 궁전이었던 건물을 박물관으로 개조했습니다. 가장 큰 볼거리는 건물 지하에 보존된 1세기 로마 시대의 거대한 지하 회랑(Cryptoporticus)입니다. 이는 로마 도시 '아이미니움'의 포럼을 지탱하던 구조물로, 신비로운 분위기를 자아냅니다.",
+    photoSpots: ["지하 회랑(Cryptoporticus)의 아치", "박물관 테라스에서 본 구 대성당", "중세 조각 컬렉션"],
+    visitTips: { hours: "10:00~18:00 (월요일 휴관)", fee: "€6", duration: "1시간", tips: "시간이 없다면 지하 회랑만이라도 꼭 보세요. 여름에는 지하가 시원해서 좋습니다." },
+    nearbyFood: ["Zé Manel dos Ossos", "Solar do Bacalhau"]
   },
 
   "코임브라 구 대성당": {
