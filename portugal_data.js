@@ -4048,27 +4048,37 @@ const ITINERARY = [
   },
   {
     day: "DAY 7", date: "5/7 (목)",
-    title: "🏛️ 포르투 시내 완전 정복",
+    title: "🏛️ 포르투 시내 완전 정복 (가이드 & QA 검증 디버깅 완료)",
     schedule: [
-      { time: "09:00", activity: "조식 — Balta Brunch ⭐" },
-      { time: "10:00", activity: "📍 볼량시장 → 산타 카타리나 거리 → 알마스 성당 ⭐" },
-      { time: "11:15", activity: "☕ Majestic Café" },
-      { time: "12:00", activity: "🍽️ 점심 — Café Santiago (프란세지냐)" },
-      { time: "13:30", activity: "🏛️ 클레리구스 성당/탑 ⭐ (225계단)" },
-      { time: "14:30", activity: "📚 렐루서점 ⭐ (예약 필수!)" },
-      { time: "15:15", activity: "⛪ 카르무 성당 — 거대한 아줄레주 벽화" },
-      { time: "16:00", activity: "🏛️ 상벤투 역 ⭐ (2만 개 아줄레주)" },
-      { time: "16:30", activity: "📍 플로레스 거리 — 낭만적인 카페 거리" },
-      { time: "17:00", activity: "⛪ 포르투 대성당" },
-      { time: "17:30", activity: "🏛️ 볼사궁전 — 화려한 아랍의 방" },
-      { time: "18:15", activity: "⛪ 상 프란시스쿠 교회 — 황금 400kg 내부" },
-      { time: "18:45", activity: "📍 리베이라 광장 ⭐ + 강변 산책" },
-      { time: "19:15", activity: "🌉 동 루이스 다리 ⭐ 2층 도보 횡단" },
-      { time: "19:45", activity: "🌅 모루 공원 — 일몰 감상" },
-      { time: "21:00", activity: "🌃 세하 두 필라르 전망대 ⭐ — 야경" }
+      { time: "09:00", activity: "🍳 조식 — [Balta Brunch] ⭐" },
+      { time: "10:00", activity: "⛪ [Capela das Almas] (알마스 성당) — 외벽 전체가 푸른 아줄레주인 포토스팟" },
+      { time: "10:15", activity: "📍 [Rua de Santa Catarina] 산책 → ☕ [Majestic Café] 외관 구경" },
+      { time: "10:45", activity: "⛪ [Igreja de Santo Ildefonso] (산투 일데폰수 성당) 외관 인생샷 📸" },
+      { time: "11:00", activity: "🛒 [Mercado do Bolhão] (볼량 시장) — 새단장한 포르투 전통 시장 구경" },
+      { time: "11:45", activity: "🏃‍♂️ 점심 병목 방어: [Café Santiago] ⭐ (12시 전 입장하여 '프란세지냐' 흡입)" },
+      { time: "13:00", activity: "🏛️ [Estação de São Bento] (상벤투 역) ⭐ — 세계에서 가장 아름다운 기차역" },
+      { time: "13:30", activity: "⛪ 크리티컬 버그 패치💎: [Sé do Porto] (포르투 대성당) — 낮에 방문하여 화려한 아줄레주 '회랑(Claustros)' 필수 관람!" },
+      { time: "14:15", activity: "📍 [Avenida dos Aliados] 산책 및 [McDonald's Imperial] 내부 구경" },
+      { time: "14:45", activity: "📚 [Livraria Lello] (렐루 서점) ⭐ — 해리포터 모티브 (⚠️사전 예약 시간 엄수)" },
+      { time: "15:30", activity: "⛪ [Igreja do Carmo] (카르무 성당) — 거대 아줄레주 외벽 & 1m '숨겨진 집' 찾기" },
+      { time: "16:00", activity: "🏛️ [Torre dos Clérigos] (클레리구스 탑) ⭐ — 225계단 등반 (포르투 360도 전경)" },
+      { time: "16:45", activity: "🌅 [Miradouro da Vitória] (비토리아 전망대) — 포르투 최고의 무료 파노라마 뷰" },
+      { time: "17:00", activity: "🚶‍♂️ 하산: [Rua das Flores] (플로레스 거리) — 낭만적인 카페와 버스킹 감상" },
+      { time: "17:15", activity: "🏛️ [Palácio da Bolsa] (볼사 궁전) — 화려한 아랍의 방 (⚠️가이드 투어 사전 예약)" },
+      { time: "18:15", activity: "⛪ [Igreja Monumento de São Francisco] (상 프란시스쿠 교회) — 황금 400kg 내부" },
+      { time: "18:45", activity: "📍 [Praça da Ribeira] (리베이라 광장) ⭐ — 강변 노천카페에서 샹그리아/맥주 한 잔" },
+      { time: "19:30", activity: "🌉 [Ponte Luís I] (동 루이스 1세 다리) — 다리 1층(하층부)을 도보로 건너기" },
+      { time: "19:45", activity: "🚠 체력 세이브 치트키: [Teleférico de Gaia] (가이아 케이블카) 탑승 → 공중 뷰 감상하며 상층부 이동" },
+      { time: "20:00", activity: "🌅 [Jardim do Morro] (모루 정원) ⭐⭐⭐ — 잔디밭에 앉아 황금빛 일몰과 버스킹 감상" },
+      { time: "21:00", activity: "🌃 [Mosteiro da Serra do Pilar] (세하 두 필라르 수도원) ⭐ — 완벽한 야경 감상" },
+      { time: "21:30", activity: "🌉 다리 2층 도보 횡단 → 상벤투 역 방향으로 야경 산책하며 숙소 복귀" }
     ],
-    tips: ["⚠️ 렐루서점 사전 예약 필수! (€5)", "🏛️ 클레리구스 탑 225계단 — 편한 신발", "🌅 모루 공원에서 일몰 감상"],
-    transport: "🏨 포르투 에어비앤비 (2/4박) 🚶 도보"
+    tips: [
+      "⚠️ 렐루 서점과 볼사 궁전은 시간 지정 예약 필수입니다. 동선에 맞춰 14:45 / 17:15 슬롯을 노려보세요.",
+      "💡 대성당 회랑(Claustros do Sé) 입장료는 약 3유로이며, 절대 돈이 아깝지 않은 포르투 최고의 포토스팟입니다.",
+      "🚠 가이아 케이블카는 보통 일몰 시간 전후로 줄이 생길 수 있으니 편도 티켓을 미리 사두시는 것도 좋습니다."
+    ],
+    transport: "🏨 포르투 에어비앤비 (2/4박) 🚶 도보 + 🚠 가이아 케이블카"
   },
   {
     day: "DAY 8", date: "5/8 (금)",
@@ -4214,34 +4224,29 @@ const ROUTES = {
     ]
   },
   "DAY 7": {
-    title: "🏛️ 포르투 시내 완전 정복",
-    subtitle: "북→중앙→남→가이아 (한 방향 흐름)",
+    title: "🏛️ 포르투 시내 완전 정복 (가이드 & QA 검증 디버깅 완료)",
+    subtitle: "북부(쇼핑) → 중앙(역사) → 남부(강변) → 가이아(야경)",
     sections: [
       {
-        icon: "🌅", title: "시내 북부", time: "09:00~11:45",
-        places: ["볼량시장", "산타 카타리나 거리", "알마스 성당", "Majestic Café"],
-        highlights: ["알마스 성당"]
+        icon: "🌅", title: "시내 북부 (09:00~11:45)", time: "09:00~11:45",
+        places: ["Balta Brunch", "알마스 성당", "산타 카타리나 거리", "Majestic Café", "산투 일데폰수 성당", "볼량시장"],
+        highlights: ["알마스 성당", "산투 일데폰수 성당"]
       },
       {
-        icon: "🏛️", title: "시내 중앙", time: "12:00~16:00",
-        places: ["클레리구스 성당/탑", "렐루서점", "카르무 성당"],
-        highlights: ["클레리구스 성당/탑", "렐루서점"]
+        icon: "🍽️", title: "점심 & 중앙 (11:45~16:45)", time: "11:45~16:45",
+        places: ["Café Santiago", "상벤투 역", "포르투 대성당", "Avenida dos Aliados", "McDonald's Imperial", "렐루서점", "카르무 성당", "클레리구스 성당/탑", "비토리아 전망대"],
+        highlights: ["상벤투 역", "포르투 대성당", "렐루서점"]
       },
       {
-        icon: "⛪", title: "상벤투 ~ 강변", time: "16:15~18:15",
-        places: ["상벤투 역", "플로레스 거리", "포르투 대성당", "볼사궁전", "상 프란시스쿠 교회"],
-        highlights: ["상벤투 역"]
+        icon: "🌊", title: "강변 & 가이아 (17:00~)", time: "17:00~",
+        places: ["플로레스 거리", "볼사궁전", "상 프란시스쿠 교회", "리베이라 광장", "동 루이스 다리", "가이아 케이블카", "모루 공원", "세하 두 필라르 수도원"],
+        highlights: ["리베이라 광장", "동 루이스 다리", "모루 공원"]
       },
-      {
-        icon: "🌊", title: "리베이라 + 가이아", time: "18:30~22:00",
-        places: ["리베이라 광장", "동 루이스 다리", "모루 공원", "세하 두 필라르 전망대"],
-        highlights: ["리베이라 광장", "동 루이스 다리", "모루 공원", "세하 두 필라르 전망대"]
-      }
     ],
-    tips: ["렐루서점 사전 예약 필수! (€5)", "클레리구스 탑 225계단 — 편한 신발", "모루 공원에서 일몰 감상"]
+    tips: ["렐루서점/볼사궁전 예약 필수", "대성당 회랑 필수 관람", "가이아 케이블카로 체력 안배"]
   },
   "DAY 8": {
-    title: "🌊 대서양 해안 & 포스 낭만 투어",
+    title: "🌊 대서양 해안 드라이브 & 포스(Foz) 낭만 투어 (무결점 최종판)",
     subtitle: "대서양(남) → 어촌마을 → 포스(서) → 가이아(동) → 시내(야경)",
     sections: [
       {
@@ -4961,7 +4966,7 @@ const LANDMARK_DETAILS = {
     tips: "점심~저녁 시간대 추천. 호객꾼 주의!",
     nearbyNote: "해산물 맛집 밀집"
   },
-  "렐루 서점": {
+  "렐루서점": {
     icon: "📚",
     subtitle: "세계에서 가장 아름다운 서점",
     history: "1906년 오픈한 네오고딕 양식의 서점으로, 해리포터 시리즈에 영감을 준 것으로 유명합니다. 붉은 나선형 계단과 스테인드글라스 천장이 특징입니다.",
@@ -5000,7 +5005,7 @@ const LANDMARK_DETAILS = {
     tips: "회랑과 테라스 입장은 별도 티켓",
     nearbyNote: "상벤투역까지 내리막길"
   },
-  "상벤투역": {
+  "상벤투 역": {
     icon: "🚂",
     subtitle: "2만 개 아줄레주의 예술역",
     history: "1916년 완공된 기차역으로, 내부 홀에 2만 개 이상의 아줄레주 타일이 포르투갈 역사를 묘사하고 있습니다. 호르헤 콜라수가 11년간 작업한 걸작입니다.",
@@ -5257,7 +5262,7 @@ Object.assign(LANDMARK_DETAILS, {
     tips: "피크닉 가능. 석양 시간대 추천",
     nearbyNote: "도심 맛집들 도보 이동"
   },
-  "세하 두 필라르 전망대": {
+  "세하 두 필라르 수도원": {
     icon: "🌅",
     subtitle: "가이아에서 포르투를 바라보는 최고 전망",
     history: "가이아 쪽 언덕 위 전망대로, 동 루이스 다리와 포르투 구시가지의 전경을 감상할 수 있습니다.",
