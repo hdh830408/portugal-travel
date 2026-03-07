@@ -2,7 +2,7 @@
   "name": "포르투갈 여행",
   "short_name": "Portugal",
   "start_url": "./index.html",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#1a0a00",
   "theme_color": "#1a0a00",
   "orientation": "portrait",
