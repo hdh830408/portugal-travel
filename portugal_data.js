@@ -4000,28 +4000,27 @@ const ITINERARY = [
   },
   {
     day: "DAY 3", date: "5/3 (일)",
-    title: "🏰 리스본 ② — 벨렝 ➡️ 시내 복귀 (구글맵 정밀 튜닝 완결판)",
+    title: "🏰 리스본 ② — 벨렝 & 아주다 궁전 (꽉 찬 일정)",
     schedule: [
-      { time: "09:00", activity: "🚋 피게이라 광장(숙소 앞)에서 트램 15E 탑승 → 벨렝 이동" },
-      { time: "09:30", activity: "수도원 오픈런 대기 & 🥧 Pastéis de Belém (포장 후 대기 줄에서 취식) ⭐⭐" },
-      { time: "10:00", activity: "제로니무스 수도원 ⭐⭐ & 산타 마리아 성당" },
-      { time: "11:30", activity: "국립 해양 박물관 (또는 마차 박물관) 관람" },
-      { time: "12:45", activity: "임페리우 광장 📸 → ⚠️ 광장 앞 '지하도'를 이용해 기찻길 건너 강변 이동" },
-      { time: "13:00", activity: "발견기념비 ⭐ — 관람 후 서쪽(벨렝탑 방향)으로 강변 산책" },
-      { time: "13:45", activity: "🍽️ 늦은 점심 (강변 일직선 동선) — A Margem (테주강 뷰 식사)" },
-      { time: "15:15", activity: "벨렝탑 ⭐⭐ — 계속 서쪽으로 이동하여 관람 (외부 감상 위주 추천)" },
-      { time: "16:15", activity: "벨렝탑 근처 🚕 우버 탑승 → 동쪽 MAAT(미술관) 이동" },
-      { time: "16:30", activity: "MAAT 루프탑 산책 ⭐⭐⭐ — 테주강 & 4월 25일 다리 배경 인생샷" },
-      { time: "17:15", activity: "MAAT 앞에서 🚕 우버 재호출 → LX Factory 이동" },
-      { time: "17:30", activity: "LX Factory ⭐ — 힙한 상점, Ler Devagar 서점, 골목 그래피티 감상" },
+      { time: "08:30", activity: "🚋 피게이라 광장(숙소 앞)에서 트램 15E 탑승 → 벨렝 이동 (30분 일찍 출발)" },
+      { time: "09:00", activity: "🥧 Pastéis de Belém (포장) & 수도원 오픈런 대기 ⭐⭐" },
+      { time: "09:30", activity: "제로니무스 수도원 ⭐⭐ & 산타 마리아 성당 (입장 시작)" },
+      { time: "11:00", activity: "국립 해양 박물관 (또는 마차 박물관) 관람" },
+      { time: "12:00", activity: "임페리우 광장 → 지하도로 강변 이동 → 발견기념비 ⭐" },
+      { time: "12:30", activity: "벨렝탑 ⭐⭐ (외부 관람 위주로 빠르게) → 🍽️ 점심 식사" },
+      { time: "14:00", activity: "🚕 식당/벨렝탑에서 우버 탑승 → 아주다 국립 궁전 이동 (언덕 필수)" },
+      { time: "14:15", activity: "👑 아주다 국립 궁전 — 포르투갈 왕실의 마지막 거주지 관람" },
+      { time: "15:45", activity: "🚕 궁전 앞에서 우버 탑승 → MAAT 이동" },
+      { time: "16:00", activity: "MAAT 루프탑 산책 ⭐⭐⭐ — 테주강 뷰 인생샷" },
+      { time: "17:00", activity: "LX Factory ⭐ — 힙한 상점, 서점 구경" },
       { time: "19:30", activity: "🚕 우버 시내 복귀 → 🍽️ 저녁: Frade dos Mares (문어 요리 / ⚠️ 일요일 예약 필수)" },
       { time: "21:00", activity: "🍻 Time Out Market — 일요일 밤 야시장 분위기 즐기기 (도보 5분)" },
-      { time: "21:45", activity: "🎵 핑크 스트리트 (Pink Street) — 타임아웃 마켓 바로 옆! 주말 밤거리 구경 📸" },
-      { time: "22:15", activity: "🛏️ 숙소 복귀 (도보 15분 or 우버 5분)" }
+      { time: "21:45", activity: "🎵 핑크 스트리트 산책" },
+      { time: "22:15", activity: "🛏️ 숙소 복귀" }
     ],
     tips: [
-      "💡 물리지형 주의: 수도원에서 강변으로 넘어갈 때는 반드시 '임페리우 광장 앞 지하도' 이용",
-      "💡 도보 동선: 발견기념비(동) ➡️ A Margem(중앙) ➡️ 벨렝탑(서) 순서로 걸어야 다리가 안 아픔",
+      "💡 이동 꿀팁: 벨렝탑(강변)에서 아주다 궁전(언덕)은 경사가 심하니 반드시 우버/볼트를 이용하세요.",
+      "💡 아주다 궁전: 관광객이 적어 여유롭게 화려한 왕실 문화를 즐길 수 있습니다.",
       "⚠️ 일요일 팁: 제로니무스 오픈런 필수 / 저녁 식당 사전예약 필수"
     ],
     transport: "🏨 My Story Hotel Tejo (3/4박) 🚋 트램 15E + 🚕 우버(볼트) 적극 활용"
@@ -4273,21 +4272,26 @@ const ROUTES = {
     ]
   },
   "DAY 3": {
-    title: "🏰 리스본 ② — 벨렝 ➡️ 시내 복귀 (구글맵 정밀 튜닝)",
-    subtitle: "벨렝(서쪽) → MAAT → LX Factory → 시내(동쪽) 완벽 동선",
+    title: "🏰 리스본 ② — 벨렝 & 아주다 궁전",
+    subtitle: "벨렝(강변) → 아주다(언덕) → MAAT → 시내 복귀",
     sections: [
       {
-        icon: "🥧", title: "벨렝 아침 (서쪽 이동)", time: "09:00~13:00",
+        icon: "🥧", title: "오전: 벨렝 지구", time: "08:30~12:00",
         places: ["Pastéis de Belém", "제로니무스 수도원", "벨렝 산타 마리아 성당", "국립 해양 박물관"],
         highlights: ["Pastéis de Belém", "제로니무스 수도원"]
       },
       {
-        icon: "🌊", title: "점심 & 강변 산책", time: "12:45~16:15",
-        places: ["임페리우 광장", "발견기념비", "A Margem", "벨렝탑"],
+        icon: "🌊", title: "점심 & 강변 산책", time: "12:00~14:00",
+        places: ["임페리우 광장", "발견기념비", "벨렝탑", "A Margem"],
         highlights: ["발견기념비", "벨렝탑"]
       },
       {
-        icon: "🎨", title: "오후: 문화 & 힙스터", time: "16:30~19:00",
+        icon: "👑", title: "오후 1: 왕실의 언덕", time: "14:00~15:45",
+        places: ["Palácio Nacional da Ajuda"],
+        highlights: ["Palácio Nacional da Ajuda"]
+      },
+      {
+        icon: "🎨", title: "오후 2: 예술 & 힙스터", time: "16:00~19:00",
         places: ["MAAT", "LX Factory"],
         highlights: ["MAAT", "LX Factory"]
       },
@@ -4298,7 +4302,7 @@ const ROUTES = {
       }
     ],
     tips: [
-      "🚋 이동: 갈 땐 트램 15E, 올 땐 우버 추천 (시간 절약)",
+      "🚕 필수 이동: 벨렝탑 → 아주다 궁전 → MAAT 구간은 우버 추천",
       "🚶 도보: 발견기념비 → 벨렝탑 방향으로 걸어야 효율적",
       "🐙 저녁: Frade dos Mares 예약 필수 (토요일 만석 주의)",
       "📸 MAAT 루프탑: 인생샷 명소 (무료 입장)"

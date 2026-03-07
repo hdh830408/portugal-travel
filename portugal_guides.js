@@ -406,6 +406,24 @@ const PLACE_GUIDES = {
     nearbyFood: ["강변 키오스크", "LX Factory"]
   },
 
+  "Palácio Nacional da Ajuda": {
+    emoji: "👑",
+    subtitle: "포르투갈 왕실의 마지막 공식 거주지",
+    history: "1755년 대지진으로 리베이라 궁전이 파괴된 후, 왕실이 거주하기 위해 지은 궁전입니다. 19세기 신고전주의 양식으로 지어졌으며, 1910년 공화국 선포로 왕정이 폐지될 때까지 포르투갈 왕실의 공식 거주지로 사용되었습니다. 내부는 당시의 화려한 가구, 태피스트리, 장식품들이 그대로 보존되어 있어 왕실의 생활상을 엿볼 수 있습니다.",
+    photoSpots: [
+      "화려한 연회장(Sala dos Banquetes)",
+      "왕좌의 방(Sala do Trono)",
+      "궁전 정면 파사드"
+    ],
+    visitTips: {
+      hours: "10:00~18:00 (목요일 휴관)",
+      fee: "€5",
+      duration: "1~1.5시간",
+      tips: "관광객이 적어 여유롭게 관람 가능합니다. 벨렝 지구에서 언덕 위에 있으니 우버나 버스로 이동하세요."
+    },
+    nearbyFood: ["Rota dos Petiscos"]
+  },
+
   "LX Factory": {
     emoji: "🎨",
     subtitle: "폐공장이 힙스터 성지로, 리스본의 브루클린",
