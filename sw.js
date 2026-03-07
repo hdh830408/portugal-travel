@@ -32,11 +32,19 @@ self.addEventListener('activate', (e) => {
   );
 });
 
-// 요청 (오프라인 지원)
+// 요청 (Network First 전략: 네트워크 우선, 실패 시 캐시)
 self.addEventListener('fetch', (e) => {
   e.respondWith(
-    caches.match(e.request).then((res) => {
-      return res || fetch(e.request);
-    })
+    fetch(e.request)
+      .then((res) => {
+        // 네트워크 요청 성공 시 캐시 업데이트 (최신 내용 유지)
+        const resClone = res.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(e.request, resClone));
+        return res;
+      })
+      .catch(() => {
+        // 네트워크 요청 실패(오프라인) 시 캐시 사용
+        return caches.match(e.request);
+      })
   );
 });
