@@ -3660,7 +3660,7 @@ const PLACES = [
     "days": ["DAY 2"]
   },
   {
-    "name": "Uma",
+    "name": "레스토랑 우마",
     "searchName": "Restaurante Uma Lisboa",
     "type": "seafood",
     "rating": 4.4,
@@ -3816,6 +3816,39 @@ const PLACES = [
     "description": "장미 모양 젤라또. 아우구스타 거리의 명물",
     "days": ["DAY 2"]
   },
+  {
+    "name": "Nata Portuguesa",
+    "searchName": "Nata Portuguesa Lisboa",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "08:00-22:00",
+    "type": "dessert",
+    "address": "Lisboa",
+    "description": "2일차 아침 장소. 에그타르트",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "Indomável",
+    "searchName": "Indomável Restaurante Tapas Bar Lisboa",
+    "rating": 4.7,
+    "price": "€€",
+    "hours": "12:00-00:00",
+    "type": "restaurant",
+    "address": "R. da Rosa 237, 1200-385 Lisboa",
+    "description": "타파스 & 바. 점심 식사 장소",
+    "days": ["DAY 2"]
+  },
+  {
+    "name": "O Castiço",
+    "searchName": "Restaurante O Castiço Lisboa",
+    "rating": 4.5,
+    "price": "€",
+    "hours": "12:00-15:00, 19:00-22:00",
+    "type": "restaurant",
+    "address": "R. de Santo António da Sé 4, 1100-499 Lisboa",
+    "description": "대성당 근처 현지인 맛집. 포르투갈 가정식",
+    "days": ["DAY 2"]
+  },
   // 2025-02-22 DAY 3 일정 고도화 추가 장소
   {
     "name": "MAAT",
@@ -3948,23 +3981,19 @@ const ITINERARY = [
   },
   {
     day: "DAY 2", date: "5/2 (토)",
-    title: "🏛️ 리스본 ① — 바이샤·시아두·알파마 (가이드 실전 동선 검증 완료)",
+    title: "🏛️ 리스본 ① — 바이샤·시아두·알파마 (최종 확정 동선)",
     schedule: [
-      { time: "09:00", activity: "🥪 Beira Gare — 비파나 아침 (호시우 역 근처)" },
-      { time: "09:30", activity: "호시우 광장 ⭐ → ⛪ 상 도밍구스 성당 ⭐ → 글로리아 푸니쿨라 🚋 탑승" },
-      { time: "09:45", activity: "상 페드로 전망대 ⭐ (하차) → 상 로케 성당" },
-      { time: "10:30", activity: "카몽이스 광장 → 카페 아 브라질레이라 ☕ → 🥧 Manteigaria → 📚 베르트랑 서점" },
-      { time: "11:15", activity: "카르모 수녀원 ⭐ → 산타 후스타 엘리베이터(상부 뷰 감상 후 수녀원 뒤 샛길로 도보 하산) 📸" },
-      { time: "12:00", activity: "피게이라 광장 → 통조림 가게 (Fantastic World) 🐟" },
-      { time: "12:30", activity: "🍽️ 점심 — Figus (레스토랑) or Confeitaria Nacional (가벼운 베이커리)" },
-      { time: "14:00", activity: "아우구스타 거리 산책 → 🍦 Amorino (장미 젤라또)" },
-      { time: "14:30", activity: "골목 우회전 ➡️ 시청 광장(먼저) → 아우구스타 개선문 ⭐ → 코메르시우 광장 ⭐" },
-      { time: "15:30", activity: "리스본 대성당 ⭐ → 산투 안토니우 성당" },
-      { time: "16:30", activity: "대성당 인근에서 툭툭/우버 탑승 🚕 (언덕 패스) → ☕ Café da Garagem (성벽 뷰)" },
-      { time: "17:30", activity: "상 조르즈 성 ⭐⭐ — 리스본 최고 일몰! (명당 선점 후 내리막길로 하산)" },
-      { time: "19:00", activity: "포르타스 두 솔 전망대 → 산타 루지아 전망대 ⭐ (인생샷) → 🍻 Portas Do Sol Terrace" },
-      { time: "20:00", activity: "🎵 파두 공연 관람 (간단한 와인/타파스 - 알파마 골목)" },
-      { time: "21:30", activity: "🦐 늦은 저녁 (우버/택시 이동): Ramiro(해산물) or Solar dos Presuntos or Pinóquio" }
+      { time: "09:00", activity: "피게이라 광장 → 호시우 광장 → 상 도밍구스 성당" },
+      { time: "09:45", activity: "Nata Portuguesa → 글로리아 푸니쿨라 → 상 페드로 전망대" },
+      { time: "10:30", activity: "상 로케 성당 → 카몽이스 광장 → Indomável" },
+      { time: "11:30", activity: "A Brasileira → Manteigaria → 베르트랑 서점" },
+      { time: "12:15", activity: "카르모 수녀원 → 산타 후스타 엘리베이터" },
+      { time: "13:00", activity: "🍽️ 점심: 레스토랑 우마 (해물밥)" },
+      { time: "14:30", activity: "통조림 가게 → 아우구스타 거리 → Amorino" },
+      { time: "15:30", activity: "리스본 시청 → 개선문 → 코메르시우 광장" },
+      { time: "16:30", activity: "리스본 대성당 → 산투 안토니우 성당" },
+      { time: "17:15", activity: "🚕 Café da Garagem (이동/휴식) → 상 조르즈 성 (일몰)" },
+      { time: "19:30", activity: "포르타스 두 솔 전망대 → 🍽️ 저녁: O Castiço 또는 우마" }
     ],
     tips: ["💡 글로리아 푸니쿨라: 리스보아 카드 무료", "💡 산타 후스타 엘리베이터: €5.3 (카드 무료)", "🦐 Ramiro: 택시 10분, 예약 추천"],
     transport: "🏨 My Story Hotel Tejo (2/4박) 🚶 도보 + 트램 + 푸니쿨라"
@@ -4214,24 +4243,24 @@ const ROUTES = {
     subtitle: "바이샤(시작) → 바이루알투(상승) → 시아두 → 바이샤(하강) → 알파마(상승)",
     sections: [
       {
-        icon: "🚋", title: "오전: 바이루알투 & 시아두", time: "09:00~11:30",
-        places: ["Beira Gare", "호시우 광장", "상 도밍구스 성당", "글로리아 푸니쿨라", "상 페드로 전망대", "상 로케 성당", "카몽이스 광장", "Café A Brasileira", "Manteigaria", "베르트랑 서점", "카르모 수녀원", "산타 후스타 엘리베이터"],
-        highlights: ["호시우 광장", "상 페드로 전망대", "베르트랑 서점", "산타 후스타 엘리베이터"]
+        icon: "🚋", title: "오전: 바이샤 & 바이루알투", time: "09:00~11:30",
+        places: ["피게이라 광장", "호시우 광장", "상 도밍구스 성당", "Nata Portuguesa", "글로리아 푸니쿨라", "상 페드로 전망대", "상 로케 성당", "카몽이스 광장", "Indomável"],
+        highlights: ["호시우 광장", "상 페드로 전망대"]
       },
       {
-        icon: "🛍️", title: "점심 & 바이샤 평지", time: "12:00~15:00",
-        places: ["피게이라 광장", "통조림 가게 (Fantastic World)", "Figus", "Confeitaria Nacional", "아우구스타 거리", "Amorino", "리스본 시청", "아우구스타 개선문", "코메르시우 광장"],
-        highlights: ["피게이라 광장", "아우구스타 개선문", "코메르시우 광장"]
+        icon: "🛍️", title: "점심: 시아두 & 쇼핑", time: "11:30~14:30",
+        places: ["Café A Brasileira", "Manteigaria", "베르트랑 서점", "카르모 수녀원", "산타 후스타 엘리베이터", "레스토랑 우마"],
+        highlights: ["산타 후스타 엘리베이터", "레스토랑 우마"]
       },
       {
-        icon: "⛪", title: "오후: 알파마 (동쪽 언덕)", time: "15:30~18:30",
-        places: ["리스본 대성당", "산투 안토니우 성당", "Café da Garagem", "상 조르즈 성"],
-        highlights: ["리스본 대성당", "상 조르즈 성"]
+        icon: "🌊", title: "오후: 바이샤 강변", time: "14:30~16:30",
+        places: ["통조림 가게 (Fantastic World)", "아우구스타 거리", "Amorino", "리스본 시청", "아우구스타 개선문", "코메르시우 광장"],
+        highlights: ["아우구스타 거리", "코메르시우 광장"]
       },
       {
-        icon: "🌅", title: "저녁: 전망대 & 파두", time: "19:00~",
-        places: ["포르타스 두 솔 전망대", "산타 루지아 전망대", "Portas Do Sol Terrace", "Clube de Fado", "Ramiro"],
-        highlights: ["산타 루지아 전망대", "Ramiro"]
+        icon: "🌅", title: "저녁: 알파마 & 일몰", time: "16:30~",
+        places: ["리스본 대성당", "산투 안토니우 성당", "Café da Garagem", "상 조르즈 성", "포르타스 두 솔 전망대", "O Castiço"],
+        highlights: ["상 조르즈 성", "포르타스 두 솔 전망대", "O Castiço"]
       }
     ],
     tips: [
@@ -4836,7 +4865,7 @@ const NEARBY_LANDMARKS = {
     "봉 제수스 전망대",
     "봉 제수스 푸니쿨라"
   ],
-  "Uma": [
+  "레스토랑 우마": [
     "호시우 광장",
     "산타 후스타 엘리베이터",
     "피게이라 광장"
