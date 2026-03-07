@@ -3984,9 +3984,9 @@ const ITINERARY = [
     title: "🏛️ 리스본 ① — 바이샤·시아두·알파마 (최종 확정 동선)",
     schedule: [
       { time: "09:00", activity: "피게이라 광장 → 호시우 광장 → 상 도밍구스 성당" },
-      { time: "09:45", activity: "Nata Portuguesa → 글로리아 푸니쿨라 → 상 페드로 전망대" },
-      { time: "10:30", activity: "상 로케 성당 → 카몽이스 광장 → Indomável" },
-      { time: "11:30", activity: "A Brasileira → Manteigaria → 베르트랑 서점" },
+      { time: "09:45", activity: "Nata Portuguesa → As Bifanas do Afonso → 글로리아 푸니쿨라" },
+      { time: "10:30", activity: "상 페드로 전망대 → 상 로케 성당 → 카몽이스 광장" },
+      { time: "11:30", activity: "Indomável → A Brasileira → Manteigaria → 베르트랑 서점" },
       { time: "12:15", activity: "카르모 수녀원 → 산타 후스타 엘리베이터" },
       { time: "13:00", activity: "🍽️ 점심: 레스토랑 우마 (해물밥)" },
       { time: "14:30", activity: "통조림 가게 → 아우구스타 거리 → Amorino" },
@@ -4244,7 +4244,7 @@ const ROUTES = {
     sections: [
       {
         icon: "🚋", title: "오전: 바이샤 & 바이루알투", time: "09:00~11:30",
-        places: ["피게이라 광장", "호시우 광장", "상 도밍구스 성당", "Nata Portuguesa", "글로리아 푸니쿨라", "상 페드로 전망대", "상 로케 성당", "카몽이스 광장", "Indomável"],
+        places: ["피게이라 광장", "호시우 광장", "상 도밍구스 성당", "Nata Portuguesa", "As Bifanas do Afonso", "글로리아 푸니쿨라", "상 페드로 전망대", "상 로케 성당", "카몽이스 광장", "Indomável"],
         highlights: ["호시우 광장", "상 페드로 전망대"]
       },
       {
