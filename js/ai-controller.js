@@ -13,12 +13,19 @@ const AIController = {
   },
 
   updateSettingsButton: function() {
-    const hasKey = AIService.getKey();
-    if (hasKey) {
-      const btn = document.getElementById('settingsBtn');
-      if (btn) { 
+    const provider = AppState.ai.provider || 'openrouter';
+    let hasKey = false;
+    if (provider === 'google') hasKey = !!localStorage.getItem('pt_gemini_key');
+    else hasKey = !!AIService.getKey();
+    
+    const btn = document.getElementById('settingsBtn');
+    if (btn) { 
+      if (hasKey) {
         btn.style.borderColor = 'var(--green)'; 
         btn.style.color = 'var(--green)'; 
+      } else {
+        btn.style.borderColor = 'var(--muted)'; 
+        btn.style.color = 'var(--muted)'; 
       }
     }
   },
@@ -42,11 +49,17 @@ const AIController = {
     const isOpen = panel.classList.contains('open');
     
     if (!isOpen) {
-      this.refreshApiStatus();
-      this.switchProvider('openrouter', false);
+      const provider = localStorage.getItem('pt_ai_provider') || 'openrouter';
+      this.switchProvider(provider, false);
+      
       const keyInput = document.getElementById('apiKeyInput');
       if (keyInput) keyInput.value = localStorage.getItem('pt_api_key') || '';
+      
+      const googleKeyInput = document.getElementById('apiKeyInputGoogle');
+      if (googleKeyInput) googleKeyInput.value = localStorage.getItem('pt_gemini_key') || '';
+      
       this.refreshModelSelection();
+      this.refreshApiStatus();
     }
     
     panel.classList.toggle('open', !isOpen);
@@ -54,21 +67,19 @@ const AIController = {
   },
 
   switchProvider: function(provider, save=true) {
-    AppState.ai.provider = 'openrouter';
+    AppState.ai.provider = provider;
+    if (save) localStorage.setItem('pt_ai_provider', provider);
     
-    const secOpen = document.getElementById('section-openrouter');
-    if(secOpen) secOpen.style.display = 'block';
-    
-    ['google', 'anthropic'].forEach(p => {
+    ['openrouter', 'google', 'anthropic'].forEach(p => {
       const sec = document.getElementById('section-' + p);
-      if(sec) sec.style.display = 'none';
+      if(sec) sec.style.display = (p === provider) ? 'block' : 'none';
       const tab = document.getElementById('tab-' + p);
-      if(tab) tab.style.display = 'none';
+      if(tab) {
+        if (p === provider) tab.classList.add('active');
+        else tab.classList.remove('active');
+      }
     });
 
-    const tabOpen = document.getElementById('tab-openrouter');
-    if(tabOpen) tabOpen.classList.add('active');
-    
     this.refreshApiStatus();
   },
 
@@ -92,14 +103,39 @@ const AIController = {
 
   refreshApiStatus: function() {
     const el = document.getElementById('apiStatus');
-    if (el) el.innerHTML = '<div class="settings-status status-ok">✅ 연결됨 · 🔀 OpenRouter · AI 사용 가능</div>';
+    const provider = AppState.ai.provider || 'openrouter';
+    const providerName = provider === 'google' ? 'Google Gemini' : (provider === 'anthropic' ? 'Anthropic' : 'OpenRouter');
+    
+    let hasKey = false;
+    if (provider === 'google') hasKey = !!localStorage.getItem('pt_gemini_key');
+    else if (provider === 'openrouter') hasKey = !!AIService.getKey();
+    
+    if (el) {
+      if (hasKey) {
+        el.innerHTML = `<div class="settings-status status-ok">✅ 연결됨 · 🔀 ${providerName} · AI 사용 가능</div>`;
+      } else {
+        el.innerHTML = `<div class="settings-status" style="background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.3)">❌ 키 필요 · 🔀 ${providerName} 선택됨</div>`;
+      }
+    }
   },
 
   saveApiKey: function() {
+    // OpenRouter Key
     const keyInput = document.getElementById('apiKeyInput');
     if (keyInput && keyInput.value.trim()) {
       AIService.setKey(keyInput.value.trim());
     }
+    // Google Key
+    const googleKeyInput = document.getElementById('apiKeyInputGoogle');
+    if (googleKeyInput && googleKeyInput.value.trim()) {
+      localStorage.setItem('pt_gemini_key', googleKeyInput.value.trim());
+    } else if (googleKeyInput && googleKeyInput.value === '') {
+      localStorage.removeItem('pt_gemini_key');
+    }
+    
+    // Save provider
+    localStorage.setItem('pt_ai_provider', AppState.ai.provider);
+
     UI.showToast('✅ 설정 저장 완료!');
     this.refreshApiStatus();
     this.updateSettingsButton();

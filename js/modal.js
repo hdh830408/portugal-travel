@@ -8,12 +8,26 @@ const Modal = {
     if (!p) return;
     
     const isLandmark = LANDMARK_TYPES.includes(p.type);
-    const detail = typeof LANDMARK_DETAILS !== 'undefined' ? LANDMARK_DETAILS[p.name] : null;
-    const nearbyFoods = DataService.getNearbyFoodsDetails(p.name);
     
+    // MASTER_PLACES 통합 데이터를 사용하여 랜드마크와 맛집 모두의 상세 정보(content)를 가져옵니다.
+    const masterPlace = typeof DataService !== 'undefined' && DataService.placeIdMap ? 
+                        DataService.masterPlaces[DataService.placeIdMap[p.name]] : null;
+    
+    // 구버전 및 신버전 호환
+    let detail = masterPlace ? masterPlace.content : (typeof LANDMARK_DETAILS !== 'undefined' ? LANDMARK_DETAILS[p.name] : null);
+    if (detail && Object.keys(detail).length === 0) detail = null;
+
+    const nearbyFoods = typeof DataService !== 'undefined' ? DataService.getNearbyFoodsDetails(p.name) : [];
+    
+    // 상세 정보(역사, 서브타이틀 등)가 존재하면 랜드마크/맛집 상관없이 리치 모달을 띄웁니다.
+    const hasRichDetail = detail && (detail.history || detail.subtitle);
+    
+    const getDuration = () => detail?.duration || detail?.visitTips?.duration || '';
+    const getTips = () => detail?.tips || detail?.visitTips?.tips || '';
+
     let modalHtml = '';
     
-    if (isLandmark && detail) {
+    if (hasRichDetail) {
       modalHtml = `
         <div class="modal-header-rich">
           <div class="modal-icon">${detail.icon || '📍'}</div>
@@ -29,7 +43,7 @@ const Modal = {
         <div class="modal-section">
           <div class="section-title">📸 포토스팟 / 촬영 팁</div>
           <div class="section-list">
-            ${detail.photoSpots.map(spot => `<div class="spot-item">📷 ${esc(spot)}</div>`).join('')}
+            ${(detail.photoSpots || []).map(spot => `<div class="spot-item">📷 ${esc(spot)}</div>`).join('')}
           </div>
         </div>
         <div class="modal-section">
@@ -37,9 +51,9 @@ const Modal = {
           <div class="visit-info-grid">
             <div class="visit-info-item"><div class="visit-label">운영시간</div><div class="visit-value">${esc(p.hours)}</div></div>
             <div class="visit-info-item"><div class="visit-label">입장료</div><div class="visit-value">${esc(p.price)}</div></div>
-            <div class="visit-info-item"><div class="visit-label">소요시간</div><div class="visit-value">${esc(detail.duration)}</div></div>
+            <div class="visit-info-item"><div class="visit-label">소요시간</div><div class="visit-value">${esc(getDuration())}</div></div>
           </div>
-          <div class="tip-box">💡 ${esc(detail.tips)}</div>
+          <div class="tip-box">💡 ${esc(getTips())}</div>
         </div>
         ${nearbyFoods.length > 0 ? `
         <div class="modal-section">

@@ -19,7 +19,10 @@ const AIService = {
     
     // 모델 유효성 검사 및 초기화
     let model = localStorage.getItem('pt_model') || this.DEFAULT_MODEL;
-    if (!this.SAFE_MODELS.includes(model)) {
+    // provider 초기화
+    let provider = localStorage.getItem('pt_ai_provider') || 'openrouter';
+    
+    if (provider === 'openrouter' && !this.SAFE_MODELS.includes(model)) {
       model = this.DEFAULT_MODEL;
       localStorage.setItem('pt_model', model);
     }
@@ -27,6 +30,7 @@ const AIService = {
     // AppState 동기화
     if (typeof AppState !== 'undefined') {
       AppState.ai.model = model;
+      AppState.ai.provider = provider;
     }
   },
 
@@ -57,11 +61,18 @@ const AIService = {
   },
 
   fetchResponse: async function(userMessage, signal, onChunk) {
+    const provider = AppState.ai.provider || 'openrouter';
+    
+    if (provider === 'google') {
+      return this.fetchGeminiResponse(userMessage, signal, onChunk);
+    }
+
+    // --- 기존 OpenRouter 로직 ---
     const apiKey = this.getKey();
     const model = AppState.ai.model || this.DEFAULT_MODEL;
     const systemPrompt = this.generateSystemPrompt();
 
-    console.log('[AI] Using Key:', apiKey.substring(0, 10) + '...');
+    console.log('[AI] Using OpenRouter Key:', apiKey.substring(0, 10) + '...');
 
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', { 
       method: 'POST', 
@@ -119,5 +130,70 @@ const AIService = {
       }
     }
     return fullText || 'AI로부터 응답을 받지 못했어요. (빈 응답)';
+  },
+
+  // 구글 Gemini 직접 통신 메서드 (SSE 스트리밍)
+  fetchGeminiResponse: async function(userMessage, signal, onChunk) {
+    const apiKey = localStorage.getItem('pt_gemini_key');
+    if (!apiKey) throw new Error("Google Gemini API 키가 입력되지 않았습니다. ⚙️ 설정에서 키를 등록해주세요.");
+    
+    let model = AppState.ai.model || 'gemini-1.5-flash';
+    if (model.includes('/')) model = 'gemini-1.5-flash'; // OpenRouter 모델에서 넘어온 경우 Fallback
+    
+    const systemPrompt = this.generateSystemPrompt();
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?key=${apiKey}&alt=sse`;
+    
+    console.log('[AI] Using Google Gemini Direct API:', model);
+
+    const body = {
+      contents: [{ role: "user", parts: [{ text: systemPrompt + "\n\n사용자 질문: " + userMessage }] }]
+    };
+    
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      signal: signal
+    });
+    
+    if (!response.ok) {
+      const data = await response.json().catch(() => ({}));
+      let errorMsg = data?.error?.message || 'API Error ' + response.status;
+      
+      if (response.status === 429 || errorMsg.includes('Quota exceeded') || errorMsg.includes('limit: 0')) {
+        errorMsg = '이 AI 모델의 무료 제공량이 초과되었거나 지원하지 않는 계정입니다. ⚙️ 설정에서 [Gemini 1.5 Flash] 등 다른 무료 모델로 변경해주세요!';
+      }
+      throw new Error('Gemini API 오류: ' + errorMsg);
+    }
+    
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder('utf-8');
+    let fullText = '';
+    let buffer = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop(); // Keep incomplete line
+
+      for (const line of lines) {
+        if (line.startsWith('data: ')) {
+          const dataStr = line.slice(6).trim();
+          if (!dataStr || dataStr === '[DONE]') continue;
+          try {
+            const data = JSON.parse(dataStr);
+            const content = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+            if (content) {
+              fullText += content;
+              if (onChunk) onChunk(content);
+            }
+          } catch (e) { console.warn('Stream parse error', e); }
+        }
+      }
+    }
+    return fullText || 'AI로부터 응답을 받지 못했어요.';
   }
 };

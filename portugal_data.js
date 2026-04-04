@@ -746,9 +746,7 @@ const PLACES = [
     "type": "church",
     "address": "Santuário de Fátima, 2495-402 Fátima",
     "description": "세계 3대 성모 발현지. 대형 광장과 바실리카",
-    "days": [
-      "DAY 5"
-    ]
+    "days": []
   },
   {
     "name": "파티마 삼목상 예배당",
@@ -759,9 +757,7 @@ const PLACES = [
     "type": "church",
     "address": "Cova da Iria, 2495-402 Fátima",
     "description": "1917년 성모 발현 장소. 순례자 필수 코스",
-    "days": [
-      "DAY 5"
-    ]
+    "days": []
   },
   {
     "name": "그리스도 수도원 (토마르)",
@@ -3960,6 +3956,260 @@ const PLACES = [
     "address": "R. da Misericórdia 53, 2750-642 Cascais",
     "description": "루프탑이 예쁜 채식 카페. 건강한 메제 플레이트",
     "days": ["DAY 4"]
+  },
+  // ─── 🍷 2026-03-29 포르투 맛집/카페/와이너리 추가 (사용자 요청) ───
+  {
+    "name": "Brasão Coliseu",
+    "searchName": "Cervejaria Brasão Coliseu Porto",
+    "rating": 4.6,
+    "price": "€€",
+    "hours": "12:00-15:30, 19:00-23:30",
+    "type": "restaurant",
+    "address": "R. de Passos Manuel 205, 4000-385 Porto",
+    "description": "콜리제우 극장 옆 인기 프란세지냐 및 수제 맥주 맛집 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Cantinho do Avillez",
+    "searchName": "Cantinho do Avillez Porto",
+    "rating": 4.5,
+    "price": "€€€",
+    "hours": "12:30-15:00, 19:00-23:00",
+    "type": "restaurant",
+    "address": "R. de Mouzinho da Silveira 166, 4050-416 Porto",
+    "description": "스타 셰프 호세 아빌레스의 포르투갈 퓨전 비스트로 🍽️",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "DeGema",
+    "searchName": "DeGema Hamburgueria Artesanal Porto",
+    "rating": 4.6,
+    "price": "€€",
+    "hours": "12:00-23:00",
+    "type": "restaurant",
+    "address": "R. de Passos Manuel 245, 4000-385 Porto",
+    "description": "포르투갈식 수제 버거. 고품질 패티와 톡톡 튀는 이름 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "A Tasquinha",
+    "searchName": "Restaurante A Tasquinha Porto",
+    "rating": 4.4,
+    "price": "€€",
+    "hours": "12:00-15:00, 19:00-22:30",
+    "type": "restaurant",
+    "address": "R. do Carmo 23, 4050-164 Porto",
+    "description": "클레리고스 탑 근처, 가성비 좋은 전통 포르투갈 백반 🍲",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Papavinhos",
+    "searchName": "Restaurante Papavinhos Porto",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "19:00-23:00",
+    "type": "restaurant",
+    "address": "R. de Monchique 118, 4050-394 Porto",
+    "description": "강변 숨은 현지인 맛집. 아늑한 분위기의 해산물/스테이크",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Abadia do Porto",
+    "searchName": "Restaurante Abadia do Porto",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "12:00-15:30, 18:30-23:00",
+    "type": "restaurant",
+    "address": "R. do Ateneu Comercial do Porto 22, 4000-080 Porto",
+    "description": "오랜 전통을 자랑하는 대규모 레스토랑. 고기 오븐 구이 추천",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Muu Steakhouse",
+    "searchName": "Muu Steakhouse Porto",
+    "rating": 4.9,
+    "price": "€€€€",
+    "hours": "18:30-23:00",
+    "type": "restaurant",
+    "address": "Rua do Almada 149A, 4050-037 Porto",
+    "description": "포르투 최고 평점의 프리미엄 스테이크 하우스. 예약 필수 ⭐⭐⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "A Sandeira do Porto",
+    "searchName": "A Sandeira do Porto",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "12:00-22:30",
+    "type": "budget",
+    "address": "Rua dos Caldeireiros 85, 4050-139 Porto",
+    "description": "골목 안 아주 작은 샌드위치 가게. 가성비 & 맛 훌륭 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Bota&Bira",
+    "searchName": "Bota & Bira Porto",
+    "rating": 4.7,
+    "price": "€€",
+    "hours": "12:30-15:00, 19:00-23:00",
+    "type": "restaurant",
+    "address": "R. do Comércio do Porto 191, 4050-253 Porto",
+    "description": "스테이크와 타파스 전문. 작고 분위기 좋은 현지 맛집 🍷",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Nata Lisboa",
+    "searchName": "Nata Lisboa Porto Flores",
+    "rating": 4.4,
+    "price": "€",
+    "hours": "08:30-20:00",
+    "type": "dessert",
+    "address": "R. das Flores 291, 4050-267 Porto",
+    "description": "'나타 리스보아' 포르투 지점 (플로레스 거리). 인생 에그타르트",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Fábrica da Nata",
+    "searchName": "Fábrica da Nata Praça Almeida Garrett Porto",
+    "rating": 4.7,
+    "price": "€",
+    "hours": "08:00-23:00",
+    "type": "dessert",
+    "address": "Praça de Almeida Garrett 7D, 4000-069 Porto",
+    "description": "상 벤투 역 앞. 방금 구운 따뜻한 에그타르트와 미니 포트와인 🍷",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Castro",
+    "searchName": "Castro - Atelier de Pastéis de Nata Porto",
+    "rating": 4.8,
+    "price": "€",
+    "hours": "10:00-22:00",
+    "type": "dessert",
+    "address": "R. de Mouzinho da Silveira 61, 4050-410 Porto",
+    "description": "우아한 금빛 인테리어, 바삭하고 진한 프리미엄 수제 에그타르트 ⭐",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Combi Coffee Roasters",
+    "searchName": "Combi Coffee Roasters Porto",
+    "rating": 4.7,
+    "price": "€€",
+    "hours": "09:00-17:30",
+    "type": "cafe",
+    "address": "R. de Morgado de Mateus 29, 4000-334 Porto",
+    "description": "포르투 스페셜티 커피의 선두주자. 힙한 로스터리 카페 ☕",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Delta The Coffee House Experience",
+    "searchName": "Delta The Coffee House Experience Porto",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "08:00-20:00",
+    "type": "cafe",
+    "address": "R. de Alexandre Braga 2, 4000-049 Porto",
+    "description": "볼량 시장 근처 포르투갈 국민 커피 브랜드 델타의 프리미엄 매장",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Garden Porto",
+    "searchName": "Garden Porto Cafe",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "09:00-19:00",
+    "type": "cafe",
+    "address": "R. de Fernandes Tomás 985, 4000-220 Porto",
+    "description": "초록빛 정원 콘셉트의 브런치 카페. 아사이볼, 팬케이크 인기 🥑",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Esquires Coffee",
+    "searchName": "Esquires Coffee Porto",
+    "rating": 4.6,
+    "price": "€€",
+    "hours": "08:30-19:00",
+    "type": "cafe",
+    "address": "R. de 31 de Janeiro 215, 4000-543 Porto",
+    "description": "깔끔하고 세련된 인테리어, 맛있는 브런치와 유기농 커피",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "C'alma Coffee Room",
+    "searchName": "C'alma Coffee Room Porto",
+    "rating": 4.8,
+    "price": "€€",
+    "hours": "10:00-18:00",
+    "type": "cafe",
+    "address": "R. de Passos Manuel 44 R/C, 4000-381 Porto",
+    "description": "아테네우 입구에 숨어있는 조용하고 아름다운 스페셜티 커피룸 ☕",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Molete Bread & Breakfast",
+    "searchName": "Molete Bread & Breakfast Saint Lazarus Porto",
+    "rating": 4.4,
+    "price": "€",
+    "hours": "07:00-20:00",
+    "type": "cafe",
+    "address": "Av. de Rodrigues de Freitas 256, 4000-418 Porto",
+    "description": "다양한 빵과 아침 식사(Pequeno Almoço)를 즐길 수 있는 로컬 베이커리",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Gelataria Portuense",
+    "searchName": "Gelataria Portuense Porto",
+    "rating": 4.7,
+    "price": "€",
+    "hours": "13:00-23:00",
+    "type": "dessert",
+    "address": "R. do Nunes da Ponte 42, 4000-432 Porto",
+    "description": "현지 특산물(포트와인 등)로 만든 독특하고 진한 젤라또 🍦",
+    "days": ["DAY 7", "DAY 8"]
+  },
+  {
+    "name": "Amorino Gelato",
+    "searchName": "Amorino Gelato Porto Santa Catarina",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "11:00-23:00",
+    "type": "dessert",
+    "address": "Rua de Santa Catarina 222, 4000-442 Porto",
+    "description": "장미꽃 모양으로 담아주는 마카롱+젤라또 조합의 프랑스계 젤라또",
+    "days": ["DAY 7"]
+  },
+  {
+    "name": "Caves Cálem",
+    "searchName": "Caves Cálem Vila Nova de Gaia",
+    "rating": 4.5,
+    "price": "€€",
+    "hours": "10:00-19:00",
+    "type": "landmark",
+    "address": "Av. de Diogo Leite 344, 4400-111 Vila Nova de Gaia",
+    "description": "접근성이 가장 좋은 포트와인 와이너리 투어. 파두 공연 패키지 유명 🍷",
+    "days": ["DAY 8", "DAY 9"]
+  },
+  {
+    "name": "Taylor's Port",
+    "searchName": "Taylor's Port Vila Nova de Gaia",
+    "rating": 4.7,
+    "price": "€€",
+    "hours": "10:00-18:00",
+    "type": "landmark",
+    "address": "Rua do Choupelo 250, 4400-088 Vila Nova de Gaia",
+    "description": "최고급 포트와인 명가. 언덕 위 아름다운 정원과 공작새, 와인 테이스팅 🍷⭐⭐",
+    "days": ["DAY 8", "DAY 9"]
+  },
+  {
+    "name": "Sandeman",
+    "searchName": "Sandeman Vila Nova de Gaia",
+    "rating": 4.6,
+    "price": "€€",
+    "hours": "10:00-18:00",
+    "type": "landmark",
+    "address": "Largo Miguel Bombarda 3, 4400-222 Vila Nova de Gaia",
+    "description": "검은 망토 입은 돈(Don) 로고로 유명한 체계적인 와이너리 투어 🍷",
+    "days": ["DAY 8", "DAY 9"]
   }
 ];
 
@@ -4056,7 +4306,7 @@ const ITINERARY = [
   },
   {
     day: "DAY 5", date: "5/5 (화)",
-    title: "🚗 중부 드라이브 — 오비두스 ➡️ 바탈랴 ➡️ 파티마 ➡️ 토마르 (히든 스팟 완결판)",
+    title: "🚗 중부 드라이브 — 오비두스 ➡️ 바탈랴 ➡️ 토마르 ➡️ 코임브라",
     schedule: [
       { time: "09:30", activity: "🚗 렌트카 픽업 수속 — 리스본 공항 (서류 확인 및 대기)" },
       { time: "10:15", activity: "🚗 리스본 출발 → 오비두스 이동 (80km, 약 1시간)" },
@@ -4065,50 +4315,45 @@ const ITINERARY = [
       { time: "11:30", activity: "🏰 [Porta da Vila] (오비두스 성문) 진입 → 성벽 위 산책 ⭐" },
       { time: "12:00", activity: "🍒 진자(Ginjinha) 시음 — 초콜릿 잔에 담긴 체리술 마시기 (운전자 주의!)" },
       { time: "12:15", activity: "📍 [Igreja de Santa Maria] (산타 마리아 성당) — 구시가 골목 및 아줄레주 감상" },
-      { time: "12:45", activity: "🍽️ 오비두스 점심 — 성벽 내 식당 (또는 이동 중 바탈랴 근처 식사)" },
+      { time: "12:45", activity: "🍽️ 오비두스 점심 — 성벽 내 식당 (또는 이동 중 식사)" },
       { time: "14:00", activity: "🚗 바탈랴 이동 (드라이브 치트키! / 50km, 약 40분)" },
       { time: "14:40", activity: "⛪ [Mosteiro da Batalha] (바탈랴 수도원) ⭐⭐⭐ — 미완성 예배당의 압도적 뷰 📸" },
-      { time: "15:25", activity: "🚗 파티마 이동 (20km, 약 20분)" },
-      { time: "15:45", activity: "🅿️ 주차: [Parque 1] 검색 (파티마 구 성당 바로 뒤편 명당 주차장)" },
-      { time: "16:00", activity: "⛪ [Santuário de Fátima] (파티마 성모 발현지) ⭐⭐ — 거대한 순례자 광장 감상" },
-      { time: "16:30", activity: "⛪ [Capelinha das Aparições] (성모 발현 예배당) — 1917년 성모 발현 떡갈나무 위치 참배" },
-      { time: "17:00", activity: "🚗 토마르 방향으로 출발 (35km, 약 35분)" },
+      { time: "15:25", activity: "🚗 토마르 이동 (35km, 약 35분)" },
+      { time: "16:00", activity: "🏰 [Convento de Cristo] (그리스도 수도원) ⭐⭐ — 마누엘 양식 창문 📸" },
+      { time: "16:45", activity: "💎 [Charola do Convento de Cristo] — 템플 기사단의 8각 황금 예배당 관람" },
       { time: "17:35", activity: "💎 히든 스팟: [Aqueduto dos Pegões] 도착 — 30m 높이의 아찔한 수도교 위 걷기 📸" },
-      { time: "18:00", activity: "🏨 토마르 시내 진입 (5분 소요) → 숙소 주차 및 체크인" },
-      { time: "18:40", activity: "🌅 [Parque do Mouchão] (무샤웅 공원) & 나바옹 강변 산책 — 거대 물레방아 구경" },
-      { time: "19:10", activity: "📍 [Praça da República] (헤푸블리카 광장) — 토마르 구시가 중심 (세례 요한 성당 외관)" },
-      { time: "19:30", activity: "🍽️ 저녁 — [Taverna Antiqua] (중세 테마 식당, ⚠️사전예약 필수) 또는 Paço D'Alma" }
+      { time: "18:00", activity: "🏨 토마르 시내 진입 (5분 소요) → 나바옹 강변 산책" },
+      { time: "18:30", activity: "📍 [Praça da República] (헤푸블리카 광장) — 토마르 구시가 중심 (세례 요한 성당 외관)" },
+      { time: "19:00", activity: "🚗 코임브라 코임브라(으)로 이동 (75km, 약 55분)" },
+      { time: "20:00", activity: "🏨 Hotel D. Luís 주차 및 체크인 (Santa Clara)" },
+      { time: "20:30", activity: "🍽️ 저녁 식사 — 코임브라 맛집에서 식사" }
     ],
     tips: [
       "💡 구글맵 검색 팁: 대괄호 [ ] 안의 단어를 구글 지도에 그대로 검색하시면 100% 정확합니다.",
-      "🚗 주차 꿀팁: 오비두스는 'Obidos parking', 파티마는 'Parque 1'을 찍고 가세요.",
+      "🚗 주차 꿀팁: 오비두스는 'Obidos parking'을 찍고 가세요.",
       "📸 페고잉스 수도교(Aqueduto dos Pegões)는 렌트카 여행객만 누릴 수 있는 특권입니다. 꼭 들러보세요!",
-      "⚠️ Taverna Antiqua는 토마르 최고의 인기 식당이므로 방문 전 구글맵을 통해 예약해 두세요."
+      "⚠️ 토마르 그리스도 수도원은 17:30까지 입장해야 하므로 바탈랴에서 일찍 출발하세요."
     ],
-    transport: "🏨 토마르 에어비앤비 🚗 렌트카 (총 이동거리 약 200km)"
+    transport: "🏨 Hotel D. Luís (코임브라) 🚗 렌트카 (총 이동거리 약 240km)"
   },
   {
     day: "DAY 6", date: "5/6 (수)",
-    title: "🏰 토마르 → 코임브라 → 포르투 — 대학도시와 중세의 비밀",
+    title: "🏰 코임브라 → 포르투 — 대학도시와 중세의 비밀",
     schedule: [
-      { time: "09:00", activity: "🏰 [Convento de Cristo] (그리스도 수도원) ⭐⭐ — 마누엘 양식 창문 📸" },
-      { time: "09:45", activity: "💎 [Charola do Convento de Cristo] — 템플 기사단의 8각 황금 예배당 필수 관람!" },
-      { time: "10:30", activity: "🚗 토마르 관람 종료 → 코임브라로 바로 출발 (80km, 약 1시간 10분)" },
-      { time: "11:45", activity: "🅿️ 코임브라 주차: [Parque de Estacionamento do Mercado Municipal D. Pedro V]" },
-      { time: "12:00", activity: "🏃‍♂️ 점심 오픈런 대기: [Zé Manel dos Ossos] ⭐ — (12:30 오픈 전 1빠로 줄 서기!)" },
-      { time: "12:30", activity: "🍽️ 점심 식사 — 코임브라 최고의 뼈 있는 돼지고기 구이 만끽" },
-      { time: "13:30", activity: "🚕 치트키 발동: 식당 앞에서 우버/볼트 호출 → [Porta Férrea] 직행 (언덕 회피)" },
-      { time: "13:45", activity: "🏛️ [Paço das Escolas] (구대학 광장) 진입 및 파노라마 뷰 감상" },
-      { time: "14:00", activity: "📚 [Biblioteca Joanina] (조아니나 도서관) ⭐⭐ — ⚠️예약 시간 엄수 입장 (내부 촬영 금지)" },
-      { time: "14:30", activity: "⛪ [Capela de São Miguel] (상 미겔 예배당) & [Torre da Universidade de Coimbra] (염소탑) 구경" },
-      { time: "15:00", activity: "🚶‍♂️ 내리막 하산 시작 → 💎 [Museu Nacional de Machado de Castro] 로마 지하 통로(Cryptoporticus) 관람" },
-      { time: "15:45", activity: "⛪ [Sé Velha de Coimbra] (코임브라 구 대성당) ⭐ — 로마네스크 양식 감상 후 계속 하산" },
-      { time: "16:15", activity: "⛪ [Mosteiro de Santa Cruz] (산타크루스 수도원) & ☕ [Café Santa Cruz] 고딕 아치 아래서 커피 휴식" },
-      { time: "16:45", activity: "🚗 주차장 복귀 후 포르투로 이동 (120km, 약 1시간 15분. 고속도로 A1 이용)" },
-      { time: "18:00", activity: "🏨 포르투 숙소 도착 및 체크인" },
-      { time: "18:30", activity: "📍 [Ponte Luís I] (동루이스 1세 다리) — 다리 상층부를 걸어서 도루강 건너기" },
-      { time: "18:45", activity: "🌅 💎 [Jardim do Morro] (모루 정원) ⭐⭐⭐ — 잔디밭에 앉아 포르투 최고의 구시가지 일몰 감상" },
-      { time: "19:30", activity: "🍽️ 저녁 — 가이아 지구 강변(Cais de Gaia) 또는 다리 아래로 내려와 리베이라 광장에서 식사" }
+      { time: "09:00", activity: "🚕 언덕 회피: 강 건너편 호텔(Hotel D. Luís)에서 우버/볼트 호출 → [Porta Férrea] 직행" },
+      { time: "09:15", activity: "🏛️ [Paço das Escolas] (구대학 광장) 진입 및 파노라마 뷰 감상" },
+      { time: "09:30", activity: "📚 [Biblioteca Joanina] (조아니나 도서관) ⭐⭐ — ⚠️예약 시간 엄수 입장 (내부 촬영 금지)" },
+      { time: "10:00", activity: "⛪ [Capela de São Miguel] (상 미겔 예배당) & [Torre da Universidade de Coimbra] (염소탑) 구경" },
+      { time: "10:30", activity: "🚶‍♂️ 내리막 하산 시작 → 💎 [Museu Nacional de Machado de Castro] 로마 지하 통로(Cryptoporticus) 관람" },
+      { time: "11:15", activity: "⛪ [Sé Velha de Coimbra] (코임브라 구 대성당) ⭐ — 로마네스크 양식 감상 후 계속 하산" },
+      { time: "12:00", activity: "⛪ [Mosteiro de Santa Cruz] (산타크루스 수도원) & ☕ [Café Santa Cruz] 고딕 아치 아래서 커피 휴식" },
+      { time: "12:30", activity: "🏃‍♂️ 점심 대기: [Zé Manel dos Ossos] ⭐ — 오픈런 필수" },
+      { time: "13:00", activity: "🍽️ 점심 식사 — 코임브라 최고의 뼈 있는 돼지고기 구이 만끽" },
+      { time: "14:30", activity: "🚗 주차장 복귀 후 포르투로 이동 (120km, 약 1시간 15분. 고속도로 A1 이용)" },
+      { time: "16:00", activity: "🏨 포르투 숙소 도착 및 주차 및 체크인" },
+      { time: "17:00", activity: "📍 [Ponte Luís I] (동루이스 1세 다리) — 다리 상층부를 걸어서 도루강 건너기" },
+      { time: "17:30", activity: "🌅 💎 [Jardim do Morro] (모루 정원) ⭐⭐⭐ — 잔디밭에 앉아 포르투 최고의 구시가지 일몰 감상" },
+      { time: "19:00", activity: "🍽️ 저녁 — 가이아 지구 강변(Cais de Gaia) 또는 다리 아래로 내려와 리베이라 광장에서 식사" }
     ],
     tips: [
       "🎫 조아니나 도서관: 정해진 슬롯 시간에 지각하면 입장이 불가하니 10분 전 광장 대기 필수!",
@@ -4385,8 +4630,8 @@ const ROUTES = {
     tips: ["페나궁전 예약 시간 엄수!", "헤갈레이라→까보다로카 우버 추천", "카스카이스에서 젤라또 먹고 기차로 귀환"]
   },
   "DAY 5": {
-    title: "🚗 중부 드라이브 (오비두스/바탈랴/파티마/토마르)",
-    subtitle: "리스본→오비두스→바탈랴→파티마→토마르 (북쪽으로 이동)",
+    title: "🚗 중부 드라이브 (오비두스/바탈랴/토마르/코임브라)",
+    subtitle: "리스본→오비두스→바탈랴→토마르→코임브라 (북쪽으로 이동)",
     sections: [
       {
         icon: "🏰", title: "오비두스 (80km, 1시간)", time: "10:30~13:00",
@@ -4394,59 +4639,49 @@ const ROUTES = {
         highlights: ["우세이라 수도교", "오비두스 성문"]
       },
       {
-        icon: "⛪", title: "바탈랴 (50km, 40분)", time: "14:45~15:30",
+        icon: "⛪", title: "바탈랴 (50km, 40분)", time: "14:00~14:45",
         places: ["바탈랴 수도원"],
         highlights: ["바탈랴 수도원"]
       },
       {
-        icon: "⛪", title: "파티마 (60km, 50분)", time: "15:00~16:30",
-        places: ["파티마 대성당", "파티마 삼목상 예배당"],
-        highlights: ["파티마 대성당"]
+        icon: "🏰", title: "토마르 시내 및 수도원 (35km, 35분)", time: "15:30~18:00",
+        places: ["페고잉스 수도교", "그리스도 수도원 (토마르)", "샤롤라", "레푸블리카 광장 (토마르)", "성 주앙 바티스타 성당"],
+        highlights: ["페고잉스 수도교", "그리스도 수도원 (토마르)"]
       },
       {
-        icon: "💎", title: "토마르 히든 스팟 (35km, 35분)", time: "17:35~18:00",
-        places: ["페고잉스 수도교"],
-        highlights: ["페고잉스 수도교"]
-      },
-      {
-        icon: "🏨", title: "토마르 시내 (5분)", time: "18:00~19:30",
-        places: ["나바옹 강변", "레푸블리카 광장 (토마르)", "성 주앙 바티스타 성당", "Taverna Antiqua"],
-        highlights: ["나바옹 강변", "성 주앙 바티스타 성당"]
+        icon: "🏨", title: "코임브라 이동 및 저녁 (75km, 55분)", time: "19:00~",
+        places: ["Restaurante Sete", "Solar do Bacalhau"],
+        highlights: ["Restaurante Sete"]
       }
     ],
-    tips: ["오비두스 주차: Obidos parking", "파티마 주차: Parque 1", "페고잉스 수도교: 렌트카 필수 코스"]
+    tips: ["오비두스 주차: Obidos parking", "토마르 수도원: 문 닫기 전 17:30까지 입장", "포르투갈 중부 고속도로 톨게이트 유의"]
   },
   "DAY 6": {
-    title: "🏰 토마르 → 코임브라 → 포르투",
-    subtitle: "토마르(오전) → 코임브라(점심/대학/하산) → 포르투(일몰)",
+    title: "🏰 코임브라 → 포르투",
+    subtitle: "코임브라(오전, 점심) → 포르투(일몰 및 저녁)",
     sections: [
       {
-        icon: "🏰", title: "토마르 (09:00~10:30)", time: "09:00~10:30",
-        places: ["그리스도 수도원 (토마르)", "샤롤라"],
-        highlights: ["그리스도 수도원 (토마르)", "샤롤라"]
-      },
-      {
-        icon: "🍽️", title: "코임브라 점심 (12:00~13:30)", time: "12:00~13:30",
-        places: ["Zé Manel dos Ossos"],
-        highlights: ["Zé Manel dos Ossos"]
-      },
-      {
-        icon: "🏛️", title: "코임브라 대학 (13:30~15:00)", time: "13:30~15:00",
+        icon: "🏛️", title: "코임브라 대학 (09:00~11:30)", time: "09:00~11:30",
         places: ["철의 문 (포르타 페레아)", "구대학 광장", "조아니나 도서관", "상 미겔 예배당", "시계탑 (염소탑)"],
         highlights: ["조아니나 도서관", "구대학 광장"]
       },
       {
-        icon: "🚶", title: "코임브라 하산 (15:00~16:45)", time: "15:00~16:45",
+        icon: "🚶", title: "코임브라 하산 및 구시가 (11:30~13:00)", time: "11:30~13:00",
         places: ["마샤두 드 카스트루 박물관", "코임브라 구 대성당", "산타크루스 수도원", "Café Santa Cruz"],
         highlights: ["마샤두 드 카스트루 박물관", "코임브라 구 대성당"]
       },
       {
-        icon: "🌅", title: "포르투 저녁 (18:30~)", time: "18:30~",
+        icon: "🍽️", title: "코임브라 점심 (13:00~14:30)", time: "13:00~14:30",
+        places: ["Zé Manel dos Ossos"],
+        highlights: ["Zé Manel dos Ossos"]
+      },
+      {
+        icon: "🌅", title: "포르투 도착 및 일몰 (16:30~)", time: "16:30~",
         places: ["동 루이스 다리", "모루 공원"],
         highlights: ["동 루이스 다리", "모루 공원"]
       }
     ],
-    tips: ["조아니나 도서관 예약 시간 엄수!", "마샤두 박물관 지하 회랑 필수", "동 루이스 다리 상층부 뷰 추천"]
+    tips: ["조아니나 도서관 예약 시간 엄수!", "Zé Manel dos Ossos는 대기 줄이 길 수 있음", "포르투 숙소 주차장 위치 사전 확인"]
   },
   "DAY 9": {
     title: "🚗 포르투갈의 기원과 바로크의 절정 — 기마랑이스 & 브라가",
