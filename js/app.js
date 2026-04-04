@@ -184,7 +184,7 @@ function showNearbyPlacesFromUser(lat, lng) {
 function setupSubscriptions() {
   // 1. 탭 변경
   Store.subscribe('tabChange', (tab) => {
-    document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', ['food','landmark','schedule','route','saved'][i] === tab));
+    document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', ['food','landmark','schedule','route','saved','carhotel'][i] === tab));
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + tab).classList.add('active');
     

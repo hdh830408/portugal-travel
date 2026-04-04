@@ -4210,6 +4210,72 @@ const PLACES = [
     "address": "Largo Miguel Bombarda 3, 4400-222 Vila Nova de Gaia",
     "description": "검은 망토 입은 돈(Don) 로고로 유명한 체계적인 와이너리 투어 🍷",
     "days": ["DAY 8", "DAY 9"]
+  },
+  {
+    "name": "Hotel D. Luís",
+    "searchName": "Hotel D. Luís Coimbra",
+    "rating": 4.0,
+    "price": "€€",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "Santa Clara, 3040-091 - Coimbra",
+    "description": "렌트카 접근성이 좋은 몬데구 강 건너편의 호텔. 조식 포함 🏨",
+    "days": ["DAY 5", "DAY 6"]
+  },
+  {
+    "name": "아마란치 구시가",
+    "searchName": "Amarante Portugal",
+    "rating": 4.6,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "Amarante",
+    "description": "아름다운 상 곤살루 다리와 운치 있는 강변 상점들",
+    "days": ["DAY 9"]
+  },
+  {
+    "name": "피냐오 기차역",
+    "searchName": "Pinhão Railway Station",
+    "rating": 4.5,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "landmark",
+    "address": "Pinhão",
+    "description": "24칸의 아름다운 아줄레주 벽화가 있는 포트 와인 마을 기차역",
+    "days": ["DAY 9"]
+  },
+  {
+    "name": "상 레오나르두 갈라푸라",
+    "searchName": "Miradouro de São Leonardo de Galafura",
+    "rating": 4.8,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "viewpoint",
+    "address": "Peso da Régua",
+    "description": "해발 640m 정상에서 내려다보는 도우루 밸리의 장엄한 파노라마",
+    "days": ["DAY 9"]
+  },
+  {
+    "name": "카자우 드 로이부스 전망대",
+    "searchName": "Miradouro de Casal de Loivos",
+    "rating": 4.8,
+    "price": "무료",
+    "hours": "24시간",
+    "type": "viewpoint",
+    "address": "Casal de Loivos",
+    "description": "영국 BBC 선정 세계에서 가장 아름다운 풍경. 도우루 강줄기 절경",
+    "days": ["DAY 9"]
+  },
+  {
+    "name": "알코바사 수도원",
+    "searchName": "Mosteiro de Alcobaça Portugal",
+    "rating": 4.7,
+    "price": "€10",
+    "hours": "09:00–18:00",
+    "type": "landmark",
+    "address": "Praça 25 de Abril, 2460-018 Alcobaça",
+    "description": "유네스코 세계유산. 포르투갈 최대 규모의 초기 고딕 성당과 비극적인 사랑이 깃든 왕실 석관",
+    "days": ["DAY 5"]
   }
 ];
 
@@ -4306,7 +4372,7 @@ const ITINERARY = [
   },
   {
     day: "DAY 5", date: "5/5 (화)",
-    title: "🚗 중부 드라이브 — 오비두스 ➡️ 바탈랴 ➡️ 토마르 ➡️ 코임브라",
+    title: "🚗 중부 유네스코 3대 수도원 그랜드 투어 — 오비두스 ➡️ 알코바사 ➡️ 바탈랴 ➡️ 토마르",
     schedule: [
       { time: "09:30", activity: "🚗 렌트카 픽업 수속 — 리스본 공항 (서류 확인 및 대기)" },
       { time: "10:15", activity: "🚗 리스본 출발 → 오비두스 이동 (80km, 약 1시간)" },
@@ -4315,26 +4381,23 @@ const ITINERARY = [
       { time: "11:30", activity: "🏰 [Porta da Vila] (오비두스 성문) 진입 → 성벽 위 산책 ⭐" },
       { time: "12:00", activity: "🍒 진자(Ginjinha) 시음 — 초콜릿 잔에 담긴 체리술 마시기 (운전자 주의!)" },
       { time: "12:15", activity: "📍 [Igreja de Santa Maria] (산타 마리아 성당) — 구시가 골목 및 아줄레주 감상" },
-      { time: "12:45", activity: "🍽️ 오비두스 점심 — 성벽 내 식당 (또는 이동 중 식사)" },
-      { time: "14:00", activity: "🚗 바탈랴 이동 (드라이브 치트키! / 50km, 약 40분)" },
-      { time: "14:40", activity: "⛪ [Mosteiro da Batalha] (바탈랴 수도원) ⭐⭐⭐ — 미완성 예배당의 압도적 뷰 📸" },
-      { time: "15:25", activity: "🚗 토마르 이동 (35km, 약 35분)" },
-      { time: "16:00", activity: "🏰 [Convento de Cristo] (그리스도 수도원) ⭐⭐ — 마누엘 양식 창문 📸" },
-      { time: "16:45", activity: "💎 [Charola do Convento de Cristo] — 템플 기사단의 8각 황금 예배당 관람" },
-      { time: "17:35", activity: "💎 히든 스팟: [Aqueduto dos Pegões] 도착 — 30m 높이의 아찔한 수도교 위 걷기 📸" },
-      { time: "18:00", activity: "🏨 토마르 시내 진입 (5분 소요) → 나바옹 강변 산책" },
-      { time: "18:30", activity: "📍 [Praça da República] (헤푸블리카 광장) — 토마르 구시가 중심 (세례 요한 성당 외관)" },
-      { time: "19:00", activity: "🚗 코임브라 코임브라(으)로 이동 (75km, 약 55분)" },
-      { time: "20:00", activity: "🏨 Hotel D. Luís 주차 및 체크인 (Santa Clara)" },
-      { time: "20:30", activity: "🍽️ 저녁 식사 — 코임브라 맛집에서 식사" }
+      { time: "12:45", activity: "🚗 오비두스 출발 → 알코바사 이동 (40km, 약 35분 / 이동 전 샌드위치 등 간식 포장)" },
+      { time: "13:20", activity: "⛪ [알코바사 수도원] ⭐⭐ — 포르투갈 최대 고딕 성당 & 왕실 비극의 석관 관람" },
+      { time: "14:05", activity: "🚗 알코바사 출발 → 바탈랴 이동 (20km, 약 25분)" },
+      { time: "14:30", activity: "⛪ [바탈랴 수도원] ⭐⭐⭐ — 미완성 예배당과 화려한 고딕 양식 감상" },
+      { time: "15:15", activity: "🚗 바탈랴 출발 → 토마르 이동 (45km, 약 40분)" },
+      { time: "15:55", activity: "🏰 [그리스도 수도원] ⭐⭐ — 17:30 입장 마감 전 템플 기사단 본거지 관람" },
+      { time: "17:30", activity: "💎 [페고잉스 수도교] — 30m 높이의 아찔한 수도교 위 걷기 📸" },
+      { time: "17:50", activity: "🚗 토마르 출발 → 코임브라 이동 (75km, 약 55분)" },
+      { time: "18:45", activity: "🏨 코임브라 Hotel D. Luís 주차 및 체크인" },
+      { time: "19:30", activity: "🍽️ 저녁 식사 — Zé Manel dos Ossos 등 코임브라 맛집에서 휴식" }
     ],
     tips: [
-      "💡 구글맵 검색 팁: 대괄호 [ ] 안의 단어를 구글 지도에 그대로 검색하시면 100% 정확합니다.",
-      "🚗 주차 꿀팁: 오비두스는 'Obidos parking'을 찍고 가세요.",
-      "📸 페고잉스 수도교(Aqueduto dos Pegões)는 렌트카 여행객만 누릴 수 있는 특권입니다. 꼭 들러보세요!",
-      "⚠️ 토마르 그리스도 수도원은 17:30까지 입장해야 하므로 바탈랴에서 일찍 출발하세요."
+      "💡 알코바사 추가로 일정이 타이트합니다. 점심은 오비두스에서 간단히 해결하거나 이동 중 차 안에서 드시는 것을 권장합니다.",
+      "⚠️ 토마르 그리스도 수도원의 17:30 입장 마감을 최우선으로 염두에 두고 바탈랴에서 늦지 않게 출발하세요.",
+      "📸 알코바사 수도원은 정문 앞 광장에 주차장이 잘 되어 있어 동선 낭비가 적습니다."
     ],
-    transport: "🏨 Hotel D. Luís (코임브라) 🚗 렌트카 (총 이동거리 약 240km)"
+    transport: "🏨 Hotel D. Luís (코임브라) 🚗 렌트카 (총 이동거리 약 280km)"
   },
   {
     day: "DAY 6", date: "5/6 (수)",
@@ -4431,36 +4494,28 @@ const ITINERARY = [
   },
   {
     day: "DAY 9", date: "5/9 (토)",
-    title: "🚗 포르투갈의 기원과 바로크의 절정 — 기마랑이스 & 브라가 (QA 무결점 패치)",
+    title: "🚗 북부 및 동부 12시간 루프 (기마랑이스/브라가/도우루 밸리)",
     schedule: [
-      { time: "09:00", activity: "🚗 포르투 출발 → 기마랑이스 이동 (55km, 50분 / 고속도로 A3, A7 이용)" },
-      { time: "09:50", activity: "🅿️ 주차: [Parque de Estacionamento do Castelo] — 기마랑이스 성 바로 옆 대형 주차장 진입" },
-      { time: "10:00", activity: "🏰 [Castelo de Guimarães] (기마랑이스 성) ⭐ — 포르투갈 초대 국왕 아폰수 엔히게스의 탄생지" },
-      { time: "10:30", activity: "🏛️ [Paço dos Duques de Bragança] (브라간사 공작 궁전) ⭐ — 39개의 특이한 굴뚝과 15세기 건축물" },
-      { time: "11:15", activity: "🚶‍♂️ 내리막 도보: 성에서 구시가지 중심 광장으로 낭만적인 중세 골목 산책" },
-      { time: "11:30", activity: "📍 [Largo da Oliveira] & [Praça de S. Tiago] — 고딕 양식의 살라도 기념비(Padrão do Salado)와 중세 광장 구경" },
-      { time: "11:50", activity: "📸 지도 스캔 보석💎: [Largo República do Brasil] 꽃길 정원 산책 및 [Igreja de São Gualter] (상 괄테르 성당) 배경으로 엽서 사진 남기기" },
-      { time: "12:15", activity: "🚗 렌트카 탑승 → 브라가로 이동 (25km, 25분)" },
-      { time: "12:40", activity: "🅿️ 주차: [Parque de Estacionamento Campo da Vinha] — 브라가 시내 중심 대형 지하 주차장" },
-      { time: "12:45", activity: "🍽️ 점심 — [Ó Brunch Café] ⭐ (브라가 최고 평점 브런치 4.9) 또는 인근 로컬 식당" },
-      { time: "13:50", activity: "🏛️ 지도 스캔 보석💎: [Arco da Porta Nova] (포르타 노바 아치) — 브라가의 옛 출입구인 아름다운 개선문 통과" },
-      { time: "14:00", activity: "⛪ [Sé de Braga] (브라가 대성당) ⭐ — 11세기에 지어진 포르투갈 최고(最古)의 대성당" },
-      { time: "14:30", activity: "🌺 지도 스캔 보석💎: [Jardim de Santa Bárbara] (산타 바바라 정원) — 옛 주교궁 벽면을 배경으로 한 브라가 최고의 꽃 정원 산책" },
-      { time: "14:45", activity: "📍 [Praça da República] (레푸블리카 광장) — 브라가의 중심 아케이드와 탁 트인 분수대 산책" },
-      { time: "15:20", activity: "🚗 브라가 외곽 이동 → [Estacionamento Elevador Bom Jesus] (푸니쿨라 하부 주차장) 도착" },
-      { time: "15:30", activity: "🚠 궁극의 치트키: [Elevador do Bom Jesus] ⭐ — 세계 최초 수력 푸니쿨라 타고 산 정상 '편하게' 올라가기" },
-      { time: "15:45", activity: "🌅 [Santuário do Bom Jesus do Monte] (봉 제수스 두 몬치) ⭐⭐ — 브라가 시내 파노라마 뷰 감상" },
-      { time: "16:15", activity: "🚶‍♂️ 하산 산책: [Escadórios do Bom Jesus] — 화려한 바로크 양식의 지그재그 계단을 '걸어 내려오며' 인생샷 📸" },
-      { time: "16:45", activity: "🚗 주차장 복귀 후 포르투 귀환 (55km, 1시간 / 고속도로 A3)" },
-      { time: "18:00", activity: "🏨 포르투 도착 — 숙소 휴식 또는 렌트카 사전 반납 (일정에 맞춰 유동적 진행)" },
-      { time: "18:45", activity: "🍽️ 포르투 마지막 저녁 — 리베이라 광장 인근 또는 가이아 강변 레스토랑" },
-      { time: "20:15", activity: "🌅 일몰 타임 적중: [Jardim do Morro] (모루 정원) — 20:40 일몰 시간에 맞춰 포르투의 붉은 노을 감상" },
-      { time: "21:15", activity: "🌃 도루 강변을 따라 야경을 눈에 담으며 아쉬운 마지막 밤 산책 마무리" }
+      { time: "08:30", activity: "🚗 포르투 일찍 출발 → 기마랑이스 이동 (55km, 약 45분)" },
+      { time: "09:30", activity: "🏰 [Castelo de Guimarães] (기마랑이스 성) — 포르투갈 초대 국왕 탄생지 산책" },
+      { time: "10:30", activity: "🚗 기마랑이스 출발 → 브라가 이동 (25km, 약 25분)" },
+      { time: "11:00", activity: "🚠 궁극의 대자연 뷰: [Elevador do Bom Jesus] — 수력 푸니쿨라로 산 정상 이동" },
+      { time: "11:15", activity: "🌅 [Santuário do Bom Jesus do Monte] (봉 제수스) — 브라가 시내 뷰 감상 및 계단 하산" },
+      { time: "12:15", activity: "🚗 브라가 출발 → 아마란치(Amarante) 이동 (60km, 약 50분)" },
+      { time: "13:15", activity: "🏛️ [아마란치 구시가] — 낭만적인 상 곤살루 다리 및 강변 산책" },
+      { time: "13:45", activity: "🍽️ 아마란치 로컬 상점 구경 및 베이커리 픽업 (피크닉용 간식 대비)" },
+      { time: "14:30", activity: "🚗 아마란치 출발 → [N222 도로] 드라이브 진입 (아름다운 강변 도로 산책)" },
+      { time: "15:30", activity: "🚉 [피냐오 기차역] — 화려한 아줄레주가 빛나는 와인 마을 구경" },
+      { time: "16:15", activity: "🌄 [카자우 드 로이부스 전망대] — 영국 BBC 선정 세계 최고의 절경 뷰" },
+      { time: "17:00", activity: "📍 [상 레오나르두 갈라푸라] — 해발 640m 정상에서 낭만적인 풍경 피크닉" },
+      { time: "18:00", activity: "🚗 포르투 귀환 시작 (약 110km, 1시간 30분 소요)" },
+      { time: "19:30", activity: "🌅 [Jardim do Morro] (모루 공원) — 도착 후 포르투의 마지막 노을 감상" },
+      { time: "20:30", activity: "🍽️ 종착지 저녁 식사 — 강변에서 마스터 루프 완주 기념 만찬" }
     ],
     tips: [
-      "📸 기마랑이스 사진 팁: 성과 궁전은 웅장하지만, 진짜 예쁜 인생샷은 '상 괄테르 성당(Igreja de São Gualter)' 앞 정원 벤치에서 나옵니다.",
-      "💡 봉 제수스 동선: 무조건 밑에 차를 대고 푸니쿨라로 '올라가서' 계단으로 '내려오는' 것이 체력과 뷰를 모두 잡는 정답입니다.",
-      "🚗 톨게이트 팁: 북부 고속도로는 하이패스 격인 전자 톨게이트(Via Verde)가 많으니 렌트카 단말기 장착을 꼭 확인하세요."
+      "⚠️ 운전만 하루 종일 약 4시간 30분이 걸리는 매우 꽉 찬 일정이니 체력 분배가 중요합니다.",
+      "🥖 피냐오 쪽 뷰포인트는 상점이 거의 없으니 아마란치나 가는 길 마트에서 피크닉 음식을 사두세요.",
+      "🚗 도우루 밸리의 강변 뷰 국도는 경치가 끝내주지만 길이 매우 구불구불합니다."
     ],
     transport: "🏨 포르투 에어비앤비 (4/4박) 🚗 렌트카"
   },
@@ -4630,31 +4685,35 @@ const ROUTES = {
     tips: ["페나궁전 예약 시간 엄수!", "헤갈레이라→까보다로카 우버 추천", "카스카이스에서 젤라또 먹고 기차로 귀환"]
   },
   "DAY 5": {
-    title: "🚗 중부 드라이브 (오비두스/바탈랴/토마르/코임브라)",
-    subtitle: "리스본→오비두스→바탈랴→토마르→코임브라 (북쪽으로 이동)",
+    title: "🚗 중부 유네스코 3대 수도원 그랜드 투어",
+    subtitle: "리스본→오비두스→알코바사→바탈랴→토마르→코임브라",
     sections: [
       {
-        icon: "🏰", title: "오비두스 (80km, 1시간)", time: "10:30~13:00",
+        icon: "🏰", title: "오비두스 (80km, 1시간)", time: "10:15~12:45",
         places: ["우세이라 수도교", "오비두스 성문", "오비두스 성벽", "오비두스 구시가", "산타 마리아 성당 (오비두스)"],
-        highlights: ["우세이라 수도교", "오비두스 성문"]
+        highlights: ["우세이라 수도교", "오비두스 구시가"]
       },
       {
-        icon: "⛪", title: "바탈랴 (50km, 40분)", time: "14:00~14:45",
-        places: ["바탈랴 수도원"],
-        highlights: ["바탈랴 수도원"]
+        icon: "⛪", title: "알코바사 & 바탈랴 (60km, 1시간)", time: "13:20~15:15",
+        places: ["알코바사 수도원", "바탈랴 수도원"],
+        highlights: ["알코바사 수도원", "바탈랴 수도원"]
       },
       {
-        icon: "🏰", title: "토마르 시내 및 수도원 (35km, 35분)", time: "15:30~18:00",
-        places: ["페고잉스 수도교", "그리스도 수도원 (토마르)", "샤롤라", "레푸블리카 광장 (토마르)", "성 주앙 바티스타 성당"],
-        highlights: ["페고잉스 수도교", "그리스도 수도원 (토마르)"]
+        icon: "🏰", title: "토마르 시내 및 수도원 (45km, 40분)", time: "15:55~17:50",
+        places: ["그리스도 수도원 (토마르)", "샤롤라", "페고잉스 수도교", "레푸블리카 광장 (토마르)", "성 주앙 바티스타 성당"],
+        highlights: ["그리스도 수도원 (토마르)", "페고잉스 수도교"]
       },
       {
-        icon: "🏨", title: "코임브라 이동 및 저녁 (75km, 55분)", time: "19:00~",
-        places: ["Restaurante Sete", "Solar do Bacalhau"],
-        highlights: ["Restaurante Sete"]
+        icon: "🏨", title: "코임브라 이동 및 저녁 (75km, 55분)", time: "17:50~",
+        places: ["Hotel D. Luís", "Restaurante Sete", "Solar do Bacalhau"],
+        highlights: ["Hotel D. Luís", "Restaurante Sete"]
       }
     ],
-    tips: ["오비두스 주차: Obidos parking", "토마르 수도원: 문 닫기 전 17:30까지 입장", "포르투갈 중부 고속도로 톨게이트 유의"]
+    tips: [
+      "오비두스 주차: Obidos parking 검색", 
+      "점심 식사는 샌드위치 등으로 가볍게 해결하여 시간을 절약하세요.", 
+      "토마르 수도원: 문 닫기 전 17:30까지 무조건 입장해야 합니다."
+    ]
   },
   "DAY 6": {
     title: "🏰 코임브라 → 포르투",
@@ -4662,8 +4721,8 @@ const ROUTES = {
     sections: [
       {
         icon: "🏛️", title: "코임브라 대학 (09:00~11:30)", time: "09:00~11:30",
-        places: ["철의 문 (포르타 페레아)", "구대학 광장", "조아니나 도서관", "상 미겔 예배당", "시계탑 (염소탑)"],
-        highlights: ["조아니나 도서관", "구대학 광장"]
+        places: ["Hotel D. Luís", "철의 문 (포르타 페레아)", "구대학 광장", "조아니나 도서관", "상 미겔 예배당", "시계탑 (염소탑)"],
+        highlights: ["Hotel D. Luís", "조아니나 도서관", "구대학 광장"]
       },
       {
         icon: "🚶", title: "코임브라 하산 및 구시가 (11:30~13:00)", time: "11:30~13:00",
@@ -4684,31 +4743,31 @@ const ROUTES = {
     tips: ["조아니나 도서관 예약 시간 엄수!", "Zé Manel dos Ossos는 대기 줄이 길 수 있음", "포르투 숙소 주차장 위치 사전 확인"]
   },
   "DAY 9": {
-    title: "🚗 포르투갈의 기원과 바로크의 절정 — 기마랑이스 & 브라가",
-    subtitle: "삼각형 루트: 포르투→기마랑이스→브라가→포르투 (같은 길 반복 ❌)",
+    title: "🚗 북부 및 동부 12시간 렌트카 루프 (기마랑이스/브라가/도우루 밸리)",
+    subtitle: "그랜드 로드트립: 포르투→기마랑이스→브라가→아마란치→뷰포인트 피크닉→포르투",
     sections: [
       {
-        icon: "🏰", title: "기마랑이스 (55km, 50분)", time: "10:00~12:15",
-        places: ["기마랑이스 성", "브라간사 공작 궁전", "올리베이라 광장", "산티아고 광장", "상 괄테르 성당"],
-        highlights: ["기마랑이스 성", "상 괄테르 성당"]
+        icon: "🏰", title: "기마랑이스 & 브라가 (오전)", time: "09:30~12:30",
+        places: ["기마랑이스 성", "상 괄테르 성당", "봉 제수스 푸니쿨라", "봉 제수스 전망대"],
+        highlights: ["기마랑이스 성", "봉 제수스 전망대"]
       },
       {
-        icon: "🍽️", title: "브라가 시내 (25km, 25분)", time: "12:45~15:00",
-        places: ["Ó Brunch Café (Braga)", "포르타 노바 아치", "브라가 대성당", "산타 바바라 정원", "레푸블리카 광장 (브라가)"],
-        highlights: ["브라가 대성당", "산타 바바라 정원"]
+        icon: "🏘️", title: "아마란치 (점심 구간)", time: "13:15~14:45",
+        places: ["아마란치 구시가"],
+        highlights: ["아마란치 구시가"]
       },
       {
-        icon: "⛪", title: "봉 제수스 성지 (15:30~16:45)", time: "15:30~16:45",
-        places: ["봉 제수스 푸니쿨라", "봉 제수스 두 몬치", "봉 제수스 계단"],
-        highlights: ["봉 제수스 두 몬치", "봉 제수스 계단"]
+        icon: "🍇", title: "도우루 밸리 뷰포인트 피크닉", time: "15:30~18:00",
+        places: ["카자우 드 로이부스 전망대", "피냐오 기차역", "상 레오나르두 갈라푸라"],
+        highlights: ["카자우 드 로이부스 전망대", "상 레오나르두 갈라푸라"]
       },
       {
-        icon: "🌅", title: "포르투 귀환 (55km, 1시간)", time: "17:30~",
+        icon: "🌅", title: "포르투 귀환 및 휴식", time: "19:30~",
         places: ["모루 공원"],
         highlights: ["모루 공원"]
       }
     ],
-    tips: ["기마랑이스 인생샷: 상 괄테르 성당 앞", "봉 제수스: 푸니쿨라 상행 + 계단 하행", "포르투 귀환 후 모루 공원 일몰 필수"]
+    tips: ["전체 운전 시간이 약 4.5시간에 달하므로 일찍 출발하세요.", "도우루 밸리 N222 도로 산비탈 절경이 하이라이트입니다.", "상 레오나르두 갈라푸라 파노라마 뷰는 인생샷 명소입니다."]
   }
 };
 const NEARBY_LANDMARKS = {
@@ -5156,6 +5215,19 @@ const NEARBY_LANDMARKS = {
 // 관광지 상세 정보 (역사, 포토스팟, 방문팁, 주의사항 등)
 // ═══════════════════════════════════════════════════════════════
 const LANDMARK_DETAILS = {
+  "알코바사 수도원": {
+    icon: "⛪",
+    subtitle: "포르투갈 고딕 건축의 정수, 텅 빈 공간의 미학",
+    history: "1153년 포르투갈 초대 국왕 아폰수 1세가 무어인들과의 전투에서 승리한 후 시토회 수사들에게 기증하여 지어진 수도원입니다. 장식이 철저히 배제된 거대한 V자형 고딕 회랑이 만들어내는 공간감이 압도적이며, 페드루 1세와 이네스 데 카스트루의 정교한 왕실 석관이 마주 보고 안치되어 있습니다.",
+    photoSpots: [
+      "중앙 네이브의 거대한 고딕 기둥 뷰",
+      "페드루 1세와 이네스 석관 디테일",
+      "수도원 정면 파사드 전체샷"
+    ],
+    duration: "45분",
+    tips: "장식이 없어 오히려 웅장함을 줍니다. 정문 앞 광장에 노상 주차가 가능하여 접근성이 매우 뛰어납니다.",
+    nearbyNote: "광장 주변 노천 카페 다수"
+  },
   "클레리구스 성당/탑": {
     icon: "⛪",
     subtitle: "225계단 끝 포르투 최고의 전망",
