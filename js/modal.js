@@ -32,7 +32,7 @@ const Modal = {
         <div class="modal-header-rich">
           <div class="modal-icon">${detail.icon || '📍'}</div>
           <div class="modal-title-area">
-            <div class="modal-name">${esc(p.name)}</div>
+            <div class="modal-name">${esc(p.name)}${typeof getLCBadgeHtml === 'function' ? getLCBadgeHtml(p.name) : ''}</div>
             <div class="modal-subtitle">${esc(detail.subtitle || p.description)}</div>
           </div>
         </div>
@@ -84,7 +84,7 @@ const Modal = {
     } else {
       const showNearbyBtn = isLandmark && nearbyFoods.length > 0;
       modalHtml = `
-        <div class="modal-name">${esc(p.name)}</div>
+        <div class="modal-name">${esc(p.name)}${typeof getLCBadgeHtml === 'function' ? getLCBadgeHtml(p.name) : ''}</div>
         <div class="place-badges" style="margin:8px 0">
           <span class="badge badge-rating">★ ${p.rating}</span>
           <span class="badge badge-price">${p.price}</span>

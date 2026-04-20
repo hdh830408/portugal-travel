@@ -168,7 +168,7 @@ function renderSchedule() {
           ${scheduleData.map(s => `
             <div class="schedule-item">
               <span class="sched-time">${s.time||''}</span>
-              <span class="sched-activity">${esc(s.activity)}</span>
+              <span class="sched-activity">${esc(s.activity)}${typeof getLCBadgeHtml === 'function' ? getLCBadgeHtml('', s.activity) : ''}</span>
             </div>
           `).join('')}
         </div>
@@ -274,7 +274,7 @@ function renderRoute(routesData) {
             const name = isId ? (MASTER_PLACES[id]?.name || id) : item;
             const isHighlight = isId ? section.highlightIds?.includes(id) : section.highlights?.includes(name);
             
-            return `<span class="route-place ${isHighlight ? 'highlight' : ''}" onclick="showPlaceFromRoute('${isId ? id : name}')">${name}</span>` +
+            return `<span class="route-place ${isHighlight ? 'highlight' : ''}" onclick="showPlaceFromRoute('${isId ? id : name}')">${name}</span>${typeof getLCBadgeHtml === 'function' ? getLCBadgeHtml(name) : ''}` +
               (i < (section.placeIds || section.places).length - 1 ? '<span class="route-arrow">→</span>' : '');
           }).join('')}
         </div>
@@ -605,7 +605,7 @@ function openGuide(placeName) {
     : { emoji: "📍", subtitle: placeName, history: null, photoSpots: [], visitTips: null, nearbyFood: [] };
   
   document.getElementById('guideEmoji').textContent = guide.emoji || '📍';
-  document.getElementById('guideTitle').textContent = placeName;
+  document.getElementById('guideTitle').innerHTML = placeName + (typeof getLCBadgeHtml === 'function' ? getLCBadgeHtml(placeName) : '');
   document.getElementById('guideSubtitle').textContent = guide.subtitle || '';
   
   let html = '';

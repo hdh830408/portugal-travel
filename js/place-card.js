@@ -46,7 +46,7 @@ const PlaceCard = {
 
     const name = document.createElement('div');
     name.className = 'place-name';
-    name.textContent = place.name;
+    name.innerHTML = place.name + (typeof getLCBadgeHtml === 'function' ? getLCBadgeHtml(place.name) : '');
     info.appendChild(name);
 
     if (place.image) {

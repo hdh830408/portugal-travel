@@ -27,3 +27,16 @@ function esc(str) {
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 window.esc = esc;
+
+const LC_FREE_PLACES = [
+  '글로리아 푸니쿨라', '산타 주스타', '개선문', '상 조르제', 
+  '제로니무스', '발견기념비', '발견 기념비', '벨렝탑', '벨렝 탑', '아주다 궁전', '카르무 성당', 
+  '마프라 국립 궁전', '알코바사 수도원', '바탈랴 수도원', '그리스도 수도원'
+];
+
+window.getLCBadgeHtml = function(name, activity = '') {
+  if (!name && !activity) return '';
+  const isTarget = LC_FREE_PLACES.some(p => (name && name.includes(p)) || (activity && activity.includes(p)));
+  if (isTarget) return '<span class=\"lc-badge\">LC Free</span>';
+  return '';
+};
