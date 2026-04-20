@@ -1,4 +1,8 @@
 const PLACE_COORDS = {
+  "마프라 국립 궁전": {
+    "lat": 38.9366,
+    "lng": -9.3262
+  },
   "호시우 광장": {
     "lat": 38.7139,
     "lng": -9.1398
@@ -1151,5 +1155,24 @@ Object.assign(PLACE_COORDS, {
   "카스카이스 역": { "lat": 38.7005, "lng": -9.4185 },
   "Mar do Inferno": { "lat": 38.6915, "lng": -9.4235 },
   "Hifen": { "lat": 38.6960, "lng": -9.4210 },
-  "House of Wonders": { "lat": 38.6965, "lng": -9.4205 }
+  "House of Wonders": { "lat": 38.6965, "lng": -9.4205 },
+  "Casa das Natas": { "lat": 41.5540, "lng": -8.3780 },
+  "Restaurante Panorâmico": { "lat": 41.5545, "lng": -8.3782 },
+  "아르코 다 포르타 노바": { "lat": 41.5513, "lng": -8.4292 },
+  "Frigideiras do Cantinho": { "lat": 41.5508, "lng": -8.4277 },
+  "Bira dos Namorados": { "lat": 41.5516, "lng": -8.4262 },
+  "브라가 시청": { "lat": 41.5512, "lng": -8.4285 },
+  "산타 바바라 정원": { "lat": 41.5517, "lng": -8.4261 },
+  "Tasquinha do Fujacal": { "lat": 41.5478, "lng": -8.4261 },
+  "브라가 타워": { "lat": 41.5518, "lng": -8.4258 },
+  "라이우 궁전": { "lat": 41.5492, "lng": -8.4227 },
+  "페냐 성지": { "lat": 41.4288, "lng": -8.2721 },
+  "포르투갈 탄생지 성벽": { "lat": 41.4418, "lng": -8.2933 },
+  "파드랑 두 살라두": { "lat": 41.4426, "lng": -8.2917 },
+  "Buxa": { "lat": 41.4425, "lng": -8.2921 },
+  "Histórico by Papaboa": { "lat": 41.4431, "lng": -8.2925 },
+  "상 곤살루 다리": { "lat": 41.2701, "lng": -8.0772 },
+  "아마란치 구시가": { "lat": 41.2707, "lng": -8.0771 },
+  "Padaria e Pastelaria da Ponte": { "lat": 41.2699, "lng": -8.0776 },
+  "Confeitaria da Ponte": { "lat": 41.2703, "lng": -8.0775 }
 });

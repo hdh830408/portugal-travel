@@ -32,6 +32,17 @@ const LANDMARK_TYPES = ['landmark', 'church', 'viewpoint', 'square', 'transport'
 
 const PLACES = [
   {
+    "name": "마프라 국립 궁전",
+    "searchName": "Palacio Nacional de Mafra",
+    "rating": 4.6,
+    "price": "€",
+    "hours": "09:30~17:30",
+    "type": "landmark",
+    "address": "Terreiro D. Joao V, Mafra",
+    "description": "포르투갈 최대 규모의 바로크 궁전이자 수도원",
+    "days": ["DAY 5"]
+  },
+  {
     "name": "피게이라 광장",
     "searchName": "Praça da Figueira Lisboa",
     "rating": 4.5,
@@ -4276,6 +4287,78 @@ const PLACES = [
     "address": "Praça 25 de Abril, 2460-018 Alcobaça",
     "description": "유네스코 세계유산. 포르투갈 최대 규모의 초기 고딕 성당과 비극적인 사랑이 깃든 왕실 석관",
     "days": ["DAY 5"]
+  },
+  {
+    "name": "Casa das Natas", "searchName": "Casa das Natas Braga", "rating": 4.5, "price": "€", "hours": "-",
+    "type": "cafe", "address": "Braga", "description": "따뜻하고 맛있는 에그타르트와 커피", "days": ["DAY 9"]
+  },
+  {
+    "name": "Restaurante Panorâmico", "searchName": "Restaurante Panorâmico Braga", "rating": 4.4, "price": "€€", "hours": "-",
+    "type": "restaurant", "address": "Bom Jesus do Monte, Braga", "description": "브라가 시내를 내려다보며 식사할 수 있는 뷰 레스토랑", "days": ["DAY 9"]
+  },
+  {
+    "name": "아르코 다 포르타 노바", "searchName": "Arco da Porta Nova", "rating": 4.7, "price": "무료", "hours": "24시간",
+    "type": "landmark", "address": "R. Dom Diogo de Sousa 127", "description": "브라가 구시가의 낭만적인 바로크 관문성벽", "days": ["DAY 9"]
+  },
+  {
+    "name": "Frigideiras do Cantinho", "searchName": "Frigideiras do Cantinho", "rating": 4.4, "price": "€", "hours": "-",
+    "type": "restaurant", "address": "Largo de São João do Souto 1, Braga", "description": "1796년 개업한 브라가 전통 미트파이 맛집", "days": ["DAY 9"]
+  },
+  {
+    "name": "Bira dos Namorados", "searchName": "Bira dos Namorados Braga", "rating": 4.7, "price": "€€", "hours": "-",
+    "type": "restaurant", "address": "R. Dom Gonçalo Pereira 85, Braga", "description": "아기자기한 인테리어와 훌륭한 햄버거, 스테이크", "days": ["DAY 9"]
+  },
+  {
+    "name": "브라가 시청", "searchName": "Câmara Municipal de Braga", "rating": 4.5, "price": "무료", "hours": "평일",
+    "type": "landmark", "address": "Praça do Município, Braga", "description": "기품 있는 파사드를 자랑하는 건축 천재의 바로크 양식 시청", "days": ["DAY 9"]
+  },
+  {
+    "name": "산타 바바라 정원", "searchName": "Jardim de Santa Bárbara", "rating": 4.8, "price": "무료", "hours": "24시간",
+    "type": "landmark", "address": "Praça do Município, Braga", "description": "중세 주교궁을 배경으로 펼쳐진 브라가 최고의 인생샷 명소 낭만적 정원", "days": ["DAY 9"]
+  },
+  {
+    "name": "Tasquinha do Fujacal", "searchName": "Tasquinha do Fujacal", "rating": 4.5, "price": "€", "hours": "-",
+    "type": "budget", "address": "Braga", "description": "가성비 좋고 푸짐한 로컬 전통 타파스 요리", "days": ["DAY 9"]
+  },
+  {
+    "name": "브라가 타워", "searchName": "Torre de Menagem Braga", "rating": 4.4, "price": "무료", "hours": "외관 상시",
+    "type": "landmark", "address": "Largo do Paço, Braga", "description": "사라진 브라가 옛 성의 마지막 흔적이 남은 탑", "days": ["DAY 9"]
+  },
+  {
+    "name": "라이우 궁전", "searchName": "Palácio do Raio", "rating": 4.7, "price": "€2", "hours": "10:00–18:30",
+    "type": "landmark", "address": "R. do Raio, Braga", "description": "파란 아줄레주와 화려한 굴곡이 매혹적인 무어풍 멕시코 느낌 바로크 궁전", "days": ["DAY 9"]
+  },
+  {
+    "name": "페냐 성지", "searchName": "Santuário da Penha", "rating": 4.8, "price": "무료", "hours": "24시간",
+    "type": "landmark", "address": "Guimarães", "description": "거대한 이끼 바위산 해발 600m 정상에서 내려다보는 기마랑이스 아르데코 파노라마 성지", "days": ["DAY 9"]
+  },
+  {
+    "name": "포르투갈 탄생지 성벽", "searchName": "Aqui Nasceu Portugal Guimarães", "rating": 4.7, "price": "무료", "hours": "24시간",
+    "type": "landmark", "address": "Guimarães", "description": "기마랑이스 구시가에 있는 '포르투갈이 태어난 곳' 상징적 성벽 포토스팟", "days": ["DAY 9"]
+  },
+  {
+    "name": "파드랑 두 살라두", "searchName": "Padrão do Salado", "rating": 4.6, "price": "무료", "hours": "24시간",
+    "type": "landmark", "address": "Largo da Oliveira, Guimarães", "description": "고딕 양식으로 세워진 이베리아 반도의 십자군 승리 기념비", "days": ["DAY 9"]
+  },
+  {
+    "name": "Buxa", "searchName": "Restaurante Buxa Guimarães", "rating": 4.4, "price": "€€", "hours": "-",
+    "type": "restaurant", "address": "Largo da Oliveira, Guimarães", "description": "광장을 바라보며 여유롭게 식사할 수 있는 테라스 레스토랑", "days": ["DAY 9"]
+  },
+  {
+    "name": "Histórico by Papaboa", "searchName": "Histórico by Papaboa", "rating": 4.6, "price": "€€", "hours": "-",
+    "type": "restaurant", "address": "Guimarães", "description": "고풍스러운 인테리어의 기마랑이스 추천 최고 평점 레스토랑", "days": ["DAY 9"]
+  },
+  {
+    "name": "상 곤살루 다리", "searchName": "Ponte de São Gonçalo Amarante", "rating": 4.7, "price": "무료", "hours": "24시간",
+    "type": "landmark", "address": "Amarante", "description": "타메가 강변의 낭만적인 풍경, 나폴레옹 방어 전설의 성인 아치형 다리", "days": ["DAY 9"]
+  },
+  {
+    "name": "Padaria e Pastelaria da Ponte", "searchName": "Padaria e Pastelaria da Ponte Amarante", "rating": 4.3, "price": "€", "hours": "-",
+    "type": "cafe", "address": "Amarante", "description": "다리 근처 베이커리. 샌드위치와 전통 과자 피크닉 픽업용", "days": ["DAY 9"]
+  },
+  {
+    "name": "Confeitaria da Ponte", "searchName": "Confeitaria da Ponte Amarante", "rating": 4.4, "price": "€", "hours": "-",
+    "type": "cafe", "address": "Amarante", "description": "포르투갈 로컬 커피와 함께 피크닉 당 충전하기 좋은 강변 베이커리", "days": ["DAY 9"]
   }
 ];
 
@@ -4374,13 +4457,15 @@ const ITINERARY = [
     day: "DAY 5", date: "5/5 (화)",
     title: "🚗 중부 유네스코 3대 수도원 그랜드 투어 — 오비두스 ➡️ 알코바사 ➡️ 바탈랴 ➡️ 토마르",
     schedule: [
-      { time: "09:30", activity: "🚗 렌트카 픽업 수속 — 리스본 공항 (서류 확인 및 대기)" },
-      { time: "10:15", activity: "🚗 리스본 출발 → 오비두스 이동 (80km, 약 1시간)" },
-      { time: "11:15", activity: "🅿️ 주차: [Obidos parking] 검색 후 주차 (가장 넓은 메인 공영 주차장)" },
-      { time: "11:20", activity: "📸 [Aqueduto de Usseira] (우세이라 수도교) — 주차장 앞 로마식 수도교 감상" },
-      { time: "11:30", activity: "🏰 [Porta da Vila] (오비두스 성문) 진입 → 성벽 위 산책 ⭐" },
-      { time: "12:00", activity: "🍒 진자(Ginjinha) 시음 — 초콜릿 잔에 담긴 체리술 마시기 (운전자 주의!)" },
-      { time: "12:15", activity: "📍 [Igreja de Santa Maria] (산타 마리아 성당) — 구시가 골목 및 아줄레주 감상" },
+      { time: "08:30", activity: "🚗 렌트카 픽업 수속 — 리스본 (일찍 서두르세요!)" },
+      { time: "09:00", activity: "🚗 리스본 출발 → 마프라 이동 (40km, 약 40분)" },
+      { time: "09:40", activity: "🏛️ [마프라 국립 궁전] ⭐ — 1시간 핵심 압축 코스 관람" },
+      { time: "10:45", activity: "🚗 마프라 출발 → 오비두스 이동 (60km, 약 45분)" },
+      { time: "11:30", activity: "🅿️ 주차: [Obidos parking] 검색 후 주차 (구시가 바로 앞 공영)" },
+      { time: "11:35", activity: "📸 [Aqueduto de Usseira] (우세이라 수도교) — 주차장 앞 로마식 수도교 감상" },
+      { time: "11:45", activity: "🏰 [Porta da Vila] (오비두스 성문) 진입 → 성벽 위 산책 ⭐" },
+      { time: "12:15", activity: "🍒 진자(Ginjinha) 시음 — 초콜릿 잔에 담긴 체리술 마시기 (운전자 주의!)" },
+      { time: "12:30", activity: "📍 [Igreja de Santa Maria] (산타 마리아 성당) — 구시가 골목 및 아줄레주 감상" },
       { time: "12:45", activity: "🚗 오비두스 출발 → 알코바사 이동 (40km, 약 35분 / 이동 전 샌드위치 등 간식 포장)" },
       { time: "13:20", activity: "⛪ [알코바사 수도원] ⭐⭐ — 포르투갈 최대 고딕 성당 & 왕실 비극의 석관 관람" },
       { time: "14:05", activity: "🚗 알코바사 출발 → 바탈랴 이동 (20km, 약 25분)" },
@@ -4494,28 +4579,31 @@ const ITINERARY = [
   },
   {
     day: "DAY 9", date: "5/9 (토)",
-    title: "🚗 북부 및 동부 12시간 루프 (기마랑이스/브라가/도우루 밸리)",
+    title: "🚗 북부 3대 역사 도시 순례 (브라가/기마랑이스/아마란테)",
     schedule: [
-      { time: "08:30", activity: "🚗 포르투 일찍 출발 → 기마랑이스 이동 (55km, 약 45분)" },
-      { time: "09:30", activity: "🏰 [Castelo de Guimarães] (기마랑이스 성) — 포르투갈 초대 국왕 탄생지 산책" },
-      { time: "10:30", activity: "🚗 기마랑이스 출발 → 브라가 이동 (25km, 약 25분)" },
-      { time: "11:00", activity: "🚠 궁극의 대자연 뷰: [Elevador do Bom Jesus] — 수력 푸니쿨라로 산 정상 이동" },
-      { time: "11:15", activity: "🌅 [Santuário do Bom Jesus do Monte] (봉 제수스) — 브라가 시내 뷰 감상 및 계단 하산" },
-      { time: "12:15", activity: "🚗 브라가 출발 → 아마란치(Amarante) 이동 (60km, 약 50분)" },
-      { time: "13:15", activity: "🏛️ [아마란치 구시가] — 낭만적인 상 곤살루 다리 및 강변 산책" },
-      { time: "13:45", activity: "🍽️ 아마란치 로컬 상점 구경 및 베이커리 픽업 (피크닉용 간식 대비)" },
-      { time: "14:30", activity: "🚗 아마란치 출발 → [N222 도로] 드라이브 진입 (아름다운 강변 도로 산책)" },
-      { time: "15:30", activity: "🚉 [피냐오 기차역] — 화려한 아줄레주가 빛나는 와인 마을 구경" },
-      { time: "16:15", activity: "🌄 [카자우 드 로이부스 전망대] — 영국 BBC 선정 세계 최고의 절경 뷰" },
-      { time: "17:00", activity: "📍 [상 레오나르두 갈라푸라] — 해발 640m 정상에서 낭만적인 풍경 피크닉" },
-      { time: "18:00", activity: "🚗 포르투 귀환 시작 (약 110km, 1시간 30분 소요)" },
-      { time: "19:30", activity: "🌅 [Jardim do Morro] (모루 공원) — 도착 후 포르투의 마지막 노을 감상" },
-      { time: "20:30", activity: "🍽️ 종착지 저녁 식사 — 강변에서 마스터 루프 완주 기념 만찬" }
+      { time: "09:00", activity: "🚗 포르투 출발 → 브라가(봉 제수스) 이동 (약 50분)" },
+      { time: "10:00", activity: "🚠 [봉 제수스 두 몬치] — 세계 최고(最古) 수력 푸니쿨라 등정 및 계단 하산" },
+      { time: "11:00", activity: "🚗 렌트카 이동 및 브라가 구시가 주차 (Parque Campo da Vinha)" },
+      { time: "11:15", activity: "🏛️ [아르코 다 포르타 노바] — 구시가 관문 통과 및 [브라가 시청] 광장 감상" },
+      { time: "11:45", activity: "⛪ [브라가 대성당] — 포르투갈에서 가장 오래된 대성당 쌍둥이 오르간 관람" },
+      { time: "12:30", activity: "🌺 [산타 바바라 정원] & [브라가 타워] — 중세 주교궁 정원과 브라가 타워 산책" },
+      { time: "13:00", activity: "💎 [라이우 궁전] — 화려한 무어풍 바로크 양식 아줄레주 감상" },
+      { time: "13:15", activity: "🍽️ 브라가 구시가 로컬 점심 (Frigideiras do Cantinho, Bira dos Namorados 등 자유 식사)" },
+      { time: "14:15", activity: "🚗 브라가 출발 → 기마랑이스 페냐 성지 이동 (약 40분)" },
+      { time: "14:55", activity: "⛰️ [페냐 성지] — 기마랑이스 정상 파노라마 뷰 및 거석 동굴 탐험" },
+      { time: "15:45", activity: "🚗 페냐 성지 하산 및 기마랑이스 구시가 초입 주차장 진입" },
+      { time: "16:00", activity: "📍 [포르투갈 탄생지 성벽] — (Aqui Nasceu Portugal) 인증샷" },
+      { time: "16:15", activity: "⛲ [올리베이라 광장] & [파드랑 두 살라두] — 올리브 광장과 십자군 승리 기념비" },
+      { time: "16:30", activity: "🏘️ [기마랑이스 구시가] — 유네스코 세계문화유산인 중세 아치 골목 산책" },
+      { time: "17:00", activity: "🏰 [브라간사 공작 궁전] & [기마랑이스 성] — 브라간사 궁전과 기마랑이스 성 톱니 요새 관람" },
+      { time: "17:45", activity: "🚗 기마랑이스 출발 → 아마란테 이동 (약 40분)" },
+      { time: "18:25", activity: "🌉 [아마란치 구시가] & [상 곤살루 다리] — 로맨틱한 뷰 및 타메가 강변 자유 산책" },
+      { time: "19:00", activity: "🥖 아마란테 피크닉 간식 구매 및 저녁 휴식 (Padaria e Pastelaria da Ponte 등)" }
     ],
     tips: [
-      "⚠️ 운전만 하루 종일 약 4시간 30분이 걸리는 매우 꽉 찬 일정이니 체력 분배가 중요합니다.",
-      "🥖 피냐오 쪽 뷰포인트는 상점이 거의 없으니 아마란치나 가는 길 마트에서 피크닉 음식을 사두세요.",
-      "🚗 도우루 밸리의 강변 뷰 국도는 경치가 끝내주지만 길이 매우 구불구불합니다."
+      "📌 봉 제수스 성당에서는 빛의 방향을 위해 반드시 오전에 먼저 다녀오는 것을 추천합니다.",
+      "🚗 브라가에서 기마랑이스로 넘어갈 때, 시내를 거치지 않고 산 정상인 페냐 성지로 먼저 이동하는 동선이 훨씬 효율적입니다.",
+      "🥖 아마란테 매장들은 저녁 19시에 닫을 수 있으니 피크닉 및 식량을 미리 확보해두세요!"
     ],
     transport: "🏨 포르투 에어비앤비 (4/4박) 🚗 렌트카"
   },
@@ -4689,7 +4777,12 @@ const ROUTES = {
     subtitle: "리스본→오비두스→알코바사→바탈랴→토마르→코임브라",
     sections: [
       {
-        icon: "🏰", title: "오비두스 (80km, 1시간)", time: "10:15~12:45",
+        icon: "🏛️", title: "마프라 궁전 (40km, 40분)", time: "09:40~10:45",
+        places: ["마프라 국립 궁전"],
+        highlights: ["마프라 국립 궁전"]
+      },
+      {
+        icon: "🏰", title: "오비두스 (60km, 45분)", time: "11:30~12:45",
         places: ["우세이라 수도교", "오비두스 성문", "오비두스 성벽", "오비두스 구시가", "산타 마리아 성당 (오비두스)"],
         highlights: ["우세이라 수도교", "오비두스 구시가"]
       },
@@ -4743,31 +4836,26 @@ const ROUTES = {
     tips: ["조아니나 도서관 예약 시간 엄수!", "Zé Manel dos Ossos는 대기 줄이 길 수 있음", "포르투 숙소 주차장 위치 사전 확인"]
   },
   "DAY 9": {
-    title: "🚗 북부 및 동부 12시간 렌트카 루프 (기마랑이스/브라가/도우루 밸리)",
-    subtitle: "그랜드 로드트립: 포르투→기마랑이스→브라가→아마란치→뷰포인트 피크닉→포르투",
+    title: "🚗 브라가 → 기마랑이스 → 아마란테 로드트립",
+    subtitle: "천년의 종교 도시부터 포르투갈의 요람, 그리고 낭만의 타메가 강변까지",
     sections: [
       {
-        icon: "🏰", title: "기마랑이스 & 브라가 (오전)", time: "09:30~12:30",
-        places: ["기마랑이스 성", "상 괄테르 성당", "봉 제수스 푸니쿨라", "봉 제수스 전망대"],
-        highlights: ["기마랑이스 성", "봉 제수스 전망대"]
+        icon: "⛪", title: "1단계: 브라가 (오전 코스)", time: "10:00~13:15",
+        places: ["봉 제수스 두 몬치", "아르코 다 포르타 노바", "브라가 시청", "브라가 대성당", "산타 바바라 정원", "브라가 타워", "라이우 궁전"],
+        highlights: ["봉 제수스 두 몬치", "브라가 대성당"]
       },
       {
-        icon: "🏘️", title: "아마란치 (점심 구간)", time: "13:15~14:45",
-        places: ["아마란치 구시가"],
-        highlights: ["아마란치 구시가"]
+        icon: "🏰", title: "2단계: 기마랑이스 (한낮 코스)", time: "14:15~17:00",
+        places: ["페냐 성지", "포르투갈 탄생지 성벽", "올리베이라 광장", "파드랑 두 살라두", "기마랑이스 구시가", "브라간사 공작 궁전", "기마랑이스 성"],
+        highlights: ["페냐 성지", "기마랑이스 성"]
       },
       {
-        icon: "🍇", title: "도우루 밸리 뷰포인트 피크닉", time: "15:30~18:00",
-        places: ["카자우 드 로이부스 전망대", "피냐오 기차역", "상 레오나르두 갈라푸라"],
-        highlights: ["카자우 드 로이부스 전망대", "상 레오나르두 갈라푸라"]
-      },
-      {
-        icon: "🌅", title: "포르투 귀환 및 휴식", time: "19:30~",
-        places: ["모루 공원"],
-        highlights: ["모루 공원"]
+        icon: "🍇", title: "3단계: 아마란테 (오후/저녁 코스)", time: "17:45~19:00",
+        places: ["아마란치 구시가", "상 곤살루 다리"],
+        highlights: ["아마란치 구시가", "상 곤살루 다리"]
       }
     ],
-    tips: ["전체 운전 시간이 약 4.5시간에 달하므로 일찍 출발하세요.", "도우루 밸리 N222 도로 산비탈 절경이 하이라이트입니다.", "상 레오나르두 갈라푸라 파노라마 뷰는 인생샷 명소입니다."]
+    tips: ["전체 운전 코스가 조금 변동되었습니다. 브라가에서 기마랑이스로 갈 때 산 정상인 페냐 성지로 먼저 가는 것이 팁입니다."]
   }
 };
 const NEARBY_LANDMARKS = {
