@@ -6,6 +6,17 @@ const DataService = {
 
   init: function() {
     console.log('🔄 [DataService] Initializing...');
+    
+    try {
+      const customPlacesJson = localStorage.getItem('custom_places');
+      if (customPlacesJson) {
+        const customPlaces = JSON.parse(customPlacesJson);
+        if (Array.isArray(customPlaces)) {
+          PLACES.push(...customPlaces);
+        }
+      }
+    } catch(e) { console.error('Failed to load custom places', e); }
+
     this.initializeIdSystem();
     this.buildMasterData();
     this.buildReverseMaps();

@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>포르투갈 9박 10일 여행 일정 · 2026.05.01 ~ 05.10</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  :root{
+    --terracotta:#C0584A;
+    --terracotta-dark:#8C3B2F;
+    --azulejo:#2B6B8F;
+    --azulejo-dark:#1B4A66;
+    --forest:#3E6B4A;
+    --gold:#C9A24D;
+    --cream:#FBF5EC;
+    --paper:#FFFFFF;
+    --ink:#2A2A2A;
+    --ink-soft:#4B4B4B;
+    --line:#E4DCCE;
+    --line-soft:#F0E9DC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{
+    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    color:var(--ink);
+    background:#EEE8DB;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+    font-feature-settings:"tnum" 1;
+  }
+  @page{
+    size:A4;
+    margin:0;
+  }
+  .page{
+    width:210mm;
+    height:297mm;
+    background:var(--paper);
+    page-break-after:always;
+    page-break-inside:avoid;
+    break-after:page;
+    break-inside:avoid;
+    position:relative;
+    overflow:hidden;
+    padding:14mm 14mm 12mm 14mm;
+    margin:8mm auto;
+    box-shadow:0 4px 24px rgba(0,0,0,.08);
+  }
+  .page:last-child{page-break-after:auto;break-after:auto;}
+
+  /* ============ COVER ============ */
+  .cover{
+    padding:0;
+    background:
+      radial-gradient(ellipse at 18% 12%, rgba(201,162,77,.22) 0%, transparent 46%),
+      radial-gradient(ellipse at 82% 88%, rgba(43,107,143,.22) 0%, transparent 46%),
+      linear-gradient(160deg,#FBF5EC 0%,#F2E6D0 55%,#E8D6B3 100%);
+    color:var(--ink);
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .cover-inner{padding:24mm 20mm 18mm 20mm;height:100%;display:flex;flex-direction:column;}
+  .cover-flag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:10.5pt;letter-spacing:.2em;color:var(--terracotta-dark);font-weight:600;
+    text-transform:uppercase;
+  }
+  .cover-flag::before{content:"";display:inline-block;width:28px;height:2px;background:var(--terracotta);}
+  .cover h1{
+    font-size:56pt;font-weight:800;line-height:1.02;margin-top:14mm;
+    letter-spacing:-.02em;
+  }
+  .cover h1 .accent{color:var(--terracotta);}
+  .cover .subtitle{
+    font-size:18pt;font-weight:500;margin-top:6mm;color:var(--ink-soft);
+    letter-spacing:-.01em;
+  }
+  .cover-meta{
+    margin-top:auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:10mm 14mm;
+    padding-top:12mm;border-top:1.5px solid var(--line);
+  }
+  .meta-block .meta-label{
+    font-size:9pt;letter-spacing:.16em;color:var(--terracotta-dark);
+    font-weight:700;text-transform:uppercase;margin-bottom:3mm;
+  }
+  .meta-block .meta-value{font-size:12.5pt;font-weight:600;line-height:1.5;}
+  .meta-block .meta-sub{font-size:10pt;color:var(--ink-soft);margin-top:1.5mm;}
+  .cover-footer{
+    padding:8mm 20mm;background:var(--terracotta);color:#FFF;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:9.5pt;letter-spacing:.1em;font-weight:500;
+  }
+  .cover-footer strong{letter-spacing:.2em;font-weight:700;}
+
+  /* ============ OVERVIEW PAGE ============ */
+  .overview h2{
+    font-size:22pt;font-weight:800;color:var(--azulejo-dark);
+    letter-spacing:-.01em;margin-bottom:2mm;
+  }
+  .overview .lead{font-size:10.5pt;color:var(--ink-soft);margin-bottom:6mm;}
+  .route-map{
+    background:linear-gradient(135deg,#FBF5EC,#F5EBD7);
+    border:1px solid var(--line);border-radius:8px;
+    padding:4mm 5mm;margin-bottom:4mm;
+  }
+  .route-map .route-line{
+    display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+    font-size:10pt;font-weight:600;gap:2mm 0;
+  }
+  .route-map .route-line > span:not(.line){
+    white-space:nowrap;flex-shrink:0;padding:0 2mm;
+  }
+  .route-map .route-line .rt-cluster{
+    white-space:nowrap;padding:.8mm 2.5mm;border-radius:3mm;
+    font-size:9pt;font-weight:700;
+  }
+  .route-map .route-line .rt-cluster.gold{
+    background:rgba(201,162,77,.18);color:#8B6B20;border:1px solid rgba(201,162,77,.5);
+  }
+  .route-map .route-line .rt-cluster.azulejo{
+    background:rgba(43,107,143,.15);color:var(--azulejo-dark);border:1px solid rgba(43,107,143,.45);
+  }
+  .route-map .route-line .dot{
+    width:10px;height:10px;border-radius:50%;background:var(--terracotta);
+    display:inline-block;margin:0 4px;vertical-align:middle;
+  }
+  .route-map .route-line .line{
+    flex:1;min-width:6mm;height:2px;background:var(--terracotta);margin:0 3px;opacity:.5;
+  }
+  .overview-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:3mm;
+  }
+  .ov-card{
+    border:1px solid var(--line);border-radius:6px;
+    padding:3mm 4mm;background:#FFFDF9;
+    display:flex;flex-direction:column;gap:1mm;
+  }
+  .ov-card .ov-day{
+    font-size:8pt;letter-spacing:.1em;font-weight:700;color:var(--terracotta);
+  }
+  .ov-card .ov-title{font-size:10.5pt;font-weight:700;line-height:1.22;}
+  .ov-card .ov-desc{font-size:8.5pt;color:var(--ink-soft);line-height:1.35;}
+  .ov-card.lisbon{border-left:4px solid var(--terracotta);}
+  .ov-card.central{border-left:4px solid var(--gold);}
+  .ov-card.porto{border-left:4px solid var(--azulejo);}
+  .summary-box{
+    margin-top:3.5mm;display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;
+  }
+  .summary-box .sb{
+    background:var(--cream);border-radius:6px;padding:2.8mm 3.5mm;
+    border-left:3px solid var(--azulejo);
+  }
+  .summary-box .sb .sb-label{font-size:8pt;color:var(--ink-soft);font-weight:600;letter-spacing:.05em;}
+  .summary-box .sb .sb-value{font-size:9.8pt;font-weight:700;margin-top:.8mm;line-height:1.35;}
+
+  /* ============ DAY PAGE ============ */
+  .day-header{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    padding-bottom:3.5mm;border-bottom:2.5px solid var(--ink);
+    margin-bottom:4mm;
+  }
+  .day-header .tag{
+    font-size:9.5pt;letter-spacing:.2em;font-weight:700;
+    color:var(--terracotta);text-transform:uppercase;
+  }
+  .day-header h2{
+    font-size:24pt;font-weight:800;letter-spacing:-.02em;line-height:1.05;margin-top:1.5mm;
+  }
+  .day-header h2 .day-num{color:var(--terracotta);margin-right:2mm;}
+  .day-header .date-badge{
+    text-align:right;
+  }
+  .day-header .date-badge .date{
+    font-size:14pt;font-weight:700;color:var(--azulejo-dark);letter-spacing:-.01em;
+  }
+  .day-header .date-badge .weekday{
+    font-size:9pt;color:var(--ink-soft);font-weight:500;
+  }
+
+  .day-meta{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-bottom:4mm;
+  }
+  .day-meta .dm{
+    background:var(--cream);border-radius:5px;padding:2.8mm 3.5mm;
+    display:flex;align-items:center;gap:2.5mm;
+  }
+  .day-meta .dm .dm-icon{
+    font-size:14pt;line-height:1;
+  }
+  .day-meta .dm .dm-text{display:flex;flex-direction:column;}
+  .day-meta .dm .dm-label{font-size:8pt;color:var(--ink-soft);font-weight:600;letter-spacing:.05em;}
+  .day-meta .dm .dm-value{font-size:9.8pt;font-weight:700;line-height:1.25;margin-top:.5mm;}
+
+  .day-theme{
+    background:linear-gradient(90deg,rgba(192,88,74,.08),rgba(192,88,74,0));
+    border-left:3px solid var(--terracotta);
+    padding:2.8mm 4mm;margin-bottom:4mm;border-radius:0 4px 4px 0;
+  }
+  .day-theme .theme-label{font-size:8.5pt;color:var(--terracotta-dark);font-weight:700;letter-spacing:.1em;}
+  .day-theme .theme-text{font-size:10pt;font-weight:600;color:var(--ink);margin-top:.8mm;line-height:1.4;}
+
+  /* TIMELINE */
+  .timeline{
+    position:relative;
+    padding-left:8mm;
+  }
+  .timeline::before{
+    content:"";position:absolute;left:2.6mm;top:2mm;bottom:2mm;width:1.5px;
+    background:linear-gradient(180deg,var(--terracotta),var(--azulejo));
+    opacity:.35;
+  }
+  .tl-item{
+    position:relative;padding:2mm 0;display:grid;grid-template-columns:19mm 1fr;gap:2mm;
+  }
+  .tl-item::before{
+    content:"";position:absolute;left:-6mm;top:3.2mm;width:3mm;height:3mm;
+    border-radius:50%;background:var(--terracotta);
+    box-shadow:0 0 0 2.5px #FFF, 0 0 0 3.5px var(--terracotta);
+  }
+  .tl-item.meal::before{background:var(--forest);box-shadow:0 0 0 2.5px #FFF,0 0 0 3.5px var(--forest);}
+  .tl-item.transit::before{background:var(--gold);box-shadow:0 0 0 2.5px #FFF,0 0 0 3.5px var(--gold);}
+  .tl-item.hotel::before{background:var(--azulejo);box-shadow:0 0 0 2.5px #FFF,0 0 0 3.5px var(--azulejo);}
+  .tl-time{
+    font-size:9.5pt;font-weight:800;color:var(--terracotta-dark);
+    letter-spacing:-.01em;padding-top:1mm;
+  }
+  .tl-item.meal .tl-time{color:var(--forest);}
+  .tl-item.transit .tl-time{color:#8B7026;}
+  .tl-item.hotel .tl-time{color:var(--azulejo-dark);}
+  .tl-content{padding-top:.6mm;}
+  .tl-title{font-size:10pt;font-weight:700;line-height:1.35;color:var(--ink);}
+  .tl-desc{font-size:8.8pt;color:var(--ink-soft);line-height:1.45;margin-top:.8mm;}
+  .tl-desc .hl{color:var(--terracotta);font-weight:600;}
+
+  /* TIPS */
+  .tips{
+    margin-top:4mm;padding:3.5mm 4mm;
+    background:linear-gradient(135deg,#F3ECDA,#F8F1DD);
+    border-radius:6px;border:1px dashed var(--gold);
+  }
+  .tips-title{
+    font-size:9.5pt;font-weight:800;color:#8B7026;letter-spacing:.05em;
+    margin-bottom:1.5mm;display:flex;align-items:center;gap:1.5mm;
+  }
+  .tips ul{list-style:none;padding:0;margin:0;}
+  .tips li{
+    font-size:8.8pt;line-height:1.45;color:var(--ink);padding:.6mm 0 .6mm 5mm;
+    position:relative;
+  }
+  .tips li::before{
+    content:"›";position:absolute;left:0.5mm;color:var(--gold);font-weight:800;font-size:10.5pt;line-height:1;top:.6mm;
+  }
+  .tips li b{color:var(--terracotta-dark);font-weight:700;}
+
+  /* Footer on each day */
+  .day-footer{
+    position:absolute;bottom:7mm;left:14mm;right:14mm;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:8pt;color:var(--ink-soft);border-top:1px solid var(--line-soft);padding-top:2.5mm;
+  }
+  .day-footer .brand{color:var(--terracotta);font-weight:700;letter-spacing:.1em;}
+
+  /* Region color accents */
+  .page.region-lisbon .day-header h2 .day-num{color:var(--terracotta);}
+  .page.region-central .day-header h2 .day-num{color:var(--gold);}
+  .page.region-central .day-header{border-color:var(--azulejo-dark);}
+  .page.region-central .day-header .tag{color:#8B7026;}
+  .page.region-porto .day-header h2 .day-num{color:var(--azulejo);}
+  .page.region-porto .day-header{border-color:var(--azulejo-dark);}
+  .page.region-porto .day-header .tag{color:var(--azulejo-dark);}
+  .page.region-porto .day-theme{border-left-color:var(--azulejo);background:linear-gradient(90deg,rgba(43,107,143,.09),rgba(43,107,143,0));}
+  .page.region-porto .day-theme .theme-label{color:var(--azulejo-dark);}
+  .page.region-central .day-theme{border-left-color:var(--gold);background:linear-gradient(90deg,rgba(201,162,77,.12),rgba(201,162,77,0));}
+  .page.region-central .day-theme .theme-label{color:#8B7026;}
+
+  /* === Lisboa Card FREE badge === */
+  .lc-badge{
+    display:inline-flex;align-items:center;
+    padding:.8mm 1.8mm;margin-left:1.5mm;
+    background:linear-gradient(135deg,#F4D68B,#C9A24D);
+    color:#3A2706;
+    font-size:7.2pt;font-weight:800;letter-spacing:.02em;
+    border-radius:2.5mm;vertical-align:1pt;
+    white-space:nowrap;
+    box-shadow:0 .3mm 1px rgba(0,0,0,.08);
+    border:.3mm solid #B08833;
+  }
+  .lc-badge::before{content:"🎫";margin-right:.7mm;font-size:7.5pt;}
+  .lc-badge.warn{
+    background:linear-gradient(135deg,#F2E6C6,#D9C389);
+    color:#5A4416;
+    border-color:#B9A26A;
+  }
+  .lc-badge.warn::after{content:"*";margin-left:.8mm;font-weight:900;}
+
+  /* === Lisboa Card summary card (overview page) === */
+  .lc-summary{
+    margin-top:3mm;
+    padding:3mm 4mm;
+    background:linear-gradient(135deg,#FBF1D8 0%,#F3E2B4 100%);
+    border:1.2px solid #C9A24D;
+    border-left:4px solid #B08833;
+    border-radius:6px;
+  }
+  .lc-summary .lc-head{
+    font-size:10pt;font-weight:800;color:#5A4416;
+    letter-spacing:-.01em;margin-bottom:1.8mm;
+    display:flex;align-items:center;gap:2mm;
+  }
+  .lc-summary .lc-head .ticket{font-size:12pt;}
+  .lc-summary .lc-head .total{
+    margin-left:auto;font-size:8pt;font-weight:700;
+    color:#3A2706;background:#F4D68B;
+    padding:.5mm 1.8mm;border-radius:2mm;letter-spacing:0;
+  }
+  .lc-summary .lc-row{
+    display:grid;grid-template-columns:11mm 1fr;gap:2mm;
+    padding:.9mm 0;border-top:1px dashed rgba(176,136,51,.3);
+    font-size:8.6pt;line-height:1.38;
+  }
+  .lc-summary .lc-row:first-of-type{border-top:none;}
+  .lc-summary .lc-row .d{
+    font-size:7.5pt;font-weight:800;color:#B08833;letter-spacing:.05em;
+    padding-top:.4mm;
+  }
+  .lc-summary .lc-row .v{color:var(--ink);}
+  .lc-summary .lc-row .v b{color:#8B6B20;font-weight:700;}
+  .lc-summary .lc-note{
+    margin-top:1.5mm;padding-top:1.5mm;
+    border-top:1px dashed rgba(176,136,51,.3);
+    font-size:7.6pt;color:#5A4416;line-height:1.38;
+  }
+
+  /* Compact variant for dense day pages (e.g. Day 9) */
+  .page.compact .day-meta{margin-bottom:2mm;}
+  .page.compact .day-meta .dm{padding:2mm 3mm;}
+  .page.compact .day-meta .dm-value{font-size:9.2pt;}
+  .page.compact .day-theme{margin-bottom:2mm;padding:2mm 4mm;}
+  .page.compact .day-theme .theme-text{font-size:9.2pt;line-height:1.32;}
+  .page.compact .tl-item{padding:0.85mm 0;grid-template-columns:17mm 1fr;gap:1.5mm;}
+  .page.compact .tl-item::before{top:2mm;}
+  .page.compact .tl-time{font-size:8.8pt;padding-top:.3mm;}
+  .page.compact .tl-title{font-size:9.3pt;line-height:1.28;}
+  .page.compact .tl-desc{font-size:8.1pt;line-height:1.3;margin-top:.3mm;}
+  .page.compact .tips{margin-top:2mm;padding:2.2mm 4mm;}
+  .page.compact .tips-title{font-size:9pt;margin-bottom:1mm;}
+  .page.compact .tips li{font-size:8.1pt;line-height:1.32;padding:.3mm 0 .3mm 5mm;}
+  .page.compact .day-header{padding-bottom:2mm;margin-bottom:2.5mm;}
+  .page.compact .day-header h2{font-size:17pt;}
+  .page.compact .day-footer{position:relative;bottom:auto;left:auto;right:auto;margin-top:2mm;}
+
+  /* Ultra-compact for extreme density (23+ items) */
+  .page.ultra{padding:16mm 14mm 14mm;}
+  .page.ultra .day-header{padding-bottom:1.5mm;margin-bottom:2mm;}
+  .page.ultra .day-header h2{font-size:16pt;}
+  .page.ultra .day-meta{margin-bottom:1.5mm;}
+  .page.ultra .day-meta .dm{padding:1.5mm 2.5mm;}
+  .page.ultra .day-meta .dm-icon{font-size:14pt;}
+  .page.ultra .day-meta .dm-value{font-size:8.8pt;}
+  .page.ultra .day-theme{margin-bottom:1.5mm;padding:1.8mm 3.5mm;}
+  .page.ultra .day-theme .theme-text{font-size:8.8pt;line-height:1.28;}
+  .page.ultra .tl-item{padding:0.5mm 0;grid-template-columns:15mm 1fr;gap:1.2mm;}
+  .page.ultra .tl-item::before{top:1.6mm;width:2.6mm;height:2.6mm;left:-5.2mm;}
+  .page.ultra .tl-time{font-size:8.4pt;padding-top:.2mm;}
+  .page.ultra .tl-title{font-size:8.9pt;line-height:1.24;}
+  .page.ultra .tl-desc{font-size:7.8pt;line-height:1.28;margin-top:.2mm;}
+  .page.ultra .timeline::before{left:2.2mm;}
+  .page.ultra .tips{margin-top:1.5mm;padding:1.8mm 3.5mm;}
+  .page.ultra .tips-title{font-size:8.6pt;margin-bottom:.6mm;}
+  .page.ultra .tips li{font-size:7.8pt;line-height:1.28;padding:.2mm 0 .2mm 4.5mm;}
+  .page.ultra .day-footer{position:relative;bottom:auto;left:auto;right:auto;margin-top:1.5mm;padding-top:1.5mm;}
+
+  /* ============ SHOPPING GUIDE PAGE ============ */
+  .page.shopping{padding:16mm 14mm 14mm;}
+  .page.shopping h2{
+    font-size:18pt;font-weight:800;color:var(--terracotta-dark);
+    letter-spacing:-.02em;margin-bottom:0.5mm;line-height:1.1;
+  }
+  .page.shopping .lead{font-size:8.5pt;color:var(--ink-soft);margin-bottom:2.5mm;}
+  .shop-tier{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2.5mm;margin-bottom:2.5mm;
+  }
+  .shop-tier .tier{
+    background:linear-gradient(135deg,#FBF5EC,#F5EBD7);
+    border:1px solid var(--line);border-radius:5px;padding:2mm 2.5mm;
+    border-top:3px solid var(--gold);
+  }
+  .shop-tier .tier.lisbon{border-top-color:var(--terracotta);}
+  .shop-tier .tier.porto{border-top-color:var(--azulejo);}
+  .shop-tier .tier-name{font-size:9.2pt;font-weight:800;color:var(--ink);margin-bottom:.6mm;}
+  .shop-tier .tier-tag{font-size:7pt;color:var(--terracotta);font-weight:700;letter-spacing:.05em;margin-bottom:.8mm;}
+  .shop-tier .tier-desc{font-size:7.6pt;color:var(--ink-soft);line-height:1.32;}
+  .shop-tier .tier-desc b{color:var(--ink);}
+  .shop-table{
+    width:100%;border-collapse:collapse;margin-bottom:2.5mm;
+    font-size:7.8pt;line-height:1.28;
+  }
+  .shop-table th{
+    background:#F3ECDA;color:#8B6B20;font-weight:800;
+    padding:1.2mm 1.8mm;text-align:left;font-size:7.5pt;
+    letter-spacing:.03em;border-bottom:1.3px solid var(--gold);
+  }
+  .shop-table td{
+    padding:1mm 1.8mm;border-bottom:1px solid var(--line-soft);
+    vertical-align:top;
+  }
+  .shop-table tr:last-child td{border-bottom:none;}
+  .shop-table td b{color:var(--terracotta-dark);}
+  .shop-table .c-price{color:#8B6B20;font-weight:700;white-space:nowrap;}
+  .shop-table .c-where{font-size:7.3pt;font-weight:700;}
+  .shop-table .c-where.cnt{color:#B08833;}
+  .shop-table .c-where.por{color:var(--azulejo-dark);}
+  .shop-split{
+    display:grid;grid-template-columns:1.05fr 1fr;gap:2.5mm;margin-bottom:2mm;
+  }
+  .shop-map{
+    background:var(--cream);border:1px solid var(--line);
+    border-radius:5px;padding:2mm 2.8mm;
+  }
+  .shop-map .sm-title{font-size:9pt;font-weight:800;color:var(--azulejo-dark);margin-bottom:.8mm;}
+  .shop-map .sm-street{
+    font-size:7.3pt;color:var(--ink-soft);margin-bottom:.6mm;font-style:italic;
+  }
+  .shop-map ul{list-style:none;padding:0;margin:0;}
+  .shop-map li{
+    font-size:7.7pt;line-height:1.35;padding:.4mm 0;
+    border-bottom:1px dashed var(--line-soft);
+  }
+  .shop-map li:last-child{border-bottom:none;}
+  .shop-map li b{color:var(--terracotta-dark);}
+  .shop-map li .addr{color:var(--ink-soft);font-size:6.8pt;}
+  .shop-budget{
+    background:linear-gradient(135deg,#FBF1D8,#F3E2B4);
+    border:1px solid #C9A24D;border-radius:5px;padding:2mm 2.8mm;
+  }
+  .shop-budget .sb-title{font-size:9pt;font-weight:800;color:#5A4416;margin-bottom:.8mm;}
+  .shop-budget .sb-row{
+    font-size:7.5pt;line-height:1.32;padding:.8mm 0;
+    border-top:1px dashed rgba(176,136,51,.35);
+  }
+  .shop-budget .sb-row:first-of-type{border-top:none;}
+  .shop-budget .sb-row .amount{font-weight:800;color:#B08833;margin-right:1mm;}
+  .shop-tips{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2.5mm;margin-top:2mm;
+  }
+  .shop-tips .st{
+    background:#FFFDF9;border:1px dashed var(--gold);border-radius:4px;
+    padding:1.8mm 2.3mm;
+  }
+  .shop-tips .st-title{font-size:8.2pt;font-weight:800;color:var(--terracotta-dark);margin-bottom:.6mm;}
+  .shop-tips .st-desc{font-size:7.2pt;line-height:1.32;color:var(--ink);}
+  .shop-tips .st-desc b{color:#8B6B20;}
+
+  /* Print adjustments */
+  @media print{
+    body{background:#FFF;}
+    .page{margin:0;box-shadow:none;border-radius:0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========================================= -->
+<!-- COVER PAGE                                  -->
+<!-- ========================================= -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div class="cover-flag">PORTUGAL · 9 NIGHTS 10 DAYS</div>
+    <h1>포르투갈<br><span class="accent">9박 10일</span></h1>
+    <div class="subtitle">리스본 · 오비두스 · 토마르 · 코임브라 · 포르투 · 도우루 밸리</div>
+
+    <div class="cover-meta">
+      <div class="meta-block">
+        <div class="meta-label">Date</div>
+        <div class="meta-value">2026년 5월 1일 (금) — 5월 10일 (일)</div>
+        <div class="meta-sub">9박 10일 · 총 10개국 문화유산 지역 경유</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Route</div>
+        <div class="meta-value">리스본 (4박) → 코임브라 (1박) → 포르투 (4박)</div>
+        <div class="meta-sub">중부 유네스코 수도원 + 도우루 밸리 포함</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Flight</div>
+        <div class="meta-value">대한항공 KE921 / KE922 직항</div>
+        <div class="meta-sub">ICN ⇄ LIS</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Vehicle</div>
+        <div class="meta-value">렌트카 6일 (VW Polo급, Centauro)</div>
+        <div class="meta-sub">5/5 09:30 픽업 — 5/10 17:00 반납 · 리스본 공항</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span><strong>ITINERARY</strong> &nbsp; v7.0 Final</span>
+    <span>Prepared for 하이 · Seongnam-si</span>
+  </div>
+</section>
+
+<!-- ========================================= -->
+<!-- OVERVIEW PAGE                               -->
+<!-- ========================================= -->
+<section class="page overview">
+  <h2>전체 일정 한눈에 보기</h2>
+  <p class="lead">리스본 구시가 → 중부 수도원 드라이브 → 포르투 & 대서양 → 북부 마스터 루프로 이어지는 포르투갈 종단 코스.</p>
+
+  <div class="route-map">
+    <div class="route-line">
+      <span>🇰🇷 인천</span><span class="line"></span>
+      <span style="color:var(--terracotta);font-weight:700">리스본</span><span class="line"></span>
+      <span>신트라</span><span class="line"></span>
+      <span class="rt-cluster gold">마프라 · 오비두스 · 알코바사 · 바탈랴 · 토마르</span>
+    </div>
+    <div class="route-line" style="margin-top:2.5mm">
+      <span>코임브라</span><span class="line"></span>
+      <span style="color:var(--azulejo);font-weight:700">포르투</span><span class="line"></span>
+      <span class="rt-cluster azulejo">브라가 · 기마랑이스 · 아마란테</span><span class="line"></span>
+      <span>🇰🇷 인천</span>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <div class="ov-card lisbon"><div class="ov-day">DAY 1 · 5/1 (금)</div><div class="ov-title">인천 → 리스본 (노동절)</div><div class="ov-desc">KE921 직항 · 바이샤 저녁 워밍업</div></div>
+    <div class="ov-card lisbon"><div class="ov-day">DAY 2 · 5/2 (토)</div><div class="ov-title">리스본 ① 바이샤·시아두·알파마</div><div class="ov-desc">U자형 동선 · 상 조르즈 성 일몰</div></div>
+    <div class="ov-card lisbon"><div class="ov-day">DAY 3 · 5/3 (일)</div><div class="ov-title">벨렝·아주다·Time Out 야시장</div><div class="ov-desc">제로니무스 · Frade dos Mares · 핑크 스트리트</div></div>
+    <div class="ov-card lisbon"><div class="ov-day">DAY 4 · 5/4 (월)</div><div class="ov-title">신트라·까보다로카·카스카이스 루프</div><div class="ov-desc">페나·헤갈레이라·Santini 본점</div></div>
+    <div class="ov-card central"><div class="ov-day">DAY 5 · 5/5 (화)</div><div class="ov-title">마프라 + 3대 UNESCO 수도원 투어</div><div class="ov-desc">마프라 · 오비두스 · 알코바사 · 바탈랴 · 토마르</div></div>
+    <div class="ov-card central"><div class="ov-day">DAY 6 · 5/6 (수)</div><div class="ov-title">코임브라 → 포르투 이동</div><div class="ov-desc">조아니나 도서관 · 산타크루스 · 모루 일몰</div></div>
+    <div class="ov-card porto"><div class="ov-day">DAY 7 · 5/7 (목)</div><div class="ov-title">포르투 시내 완전 정복 (23 스팟)</div><div class="ov-desc">렐루·회랑·비토리아·세하 두 필라르 야경</div></div>
+    <div class="ov-card porto"><div class="ov-day">DAY 8 · 5/8 (금)</div><div class="ov-title">아베이루·코스타노바·Continente</div><div class="ov-desc">줄무늬 집 · 오보스 몰레스 · 포트와인 쇼핑</div></div>
+    <div class="ov-card porto"><div class="ov-day">DAY 9 · 5/9 (토)</div><div class="ov-title">북부 3대 역사 도시 로드트립</div><div class="ov-desc">브라가 · 기마랑이스(페냐) · 아마란테</div></div>
+    <div class="ov-card porto"><div class="ov-day">DAY 10 · 5/10 (일)</div><div class="ov-title">포르투 → 리스본 → 귀국</div><div class="ov-desc">렌트카 반납 · KE922 귀국</div></div>
+  </div>
+
+  <div class="summary-box">
+    <div class="sb"><div class="sb-label">숙박</div><div class="sb-value">My Story Tejo (4박)<br>Hotel D. Luís (1박) · Porto Airbnb (4박)</div></div>
+    <div class="sb"><div class="sb-label">렌트카 비용</div><div class="sb-value">₩261,200 / 6일<br>클룩 프로텍트 플러스(완전 자차)</div></div>
+    <div class="sb"><div class="sb-label">총 이동</div><div class="sb-value">렌트카 약 900km<br>리스본·포르투 시내 대중교통</div></div>
+  </div>
+
+  <div class="lc-summary">
+    <div class="lc-head">
+      <span class="ticket">🎫</span>
+      <span>리스보아 카드 무료 입장 장소</span>
+      <span class="total">72h · €44</span>
+    </div>
+    <div class="lc-row"><div class="d">DAY 2</div><div class="v"><b>상 조르즈 성</b> · <b>아우구스타 개선문</b> · 글로리아 푸니쿨라 · 산타 후스타 엘리베이터 · 28번 트램 · 리스보아 카드 교통 전체</div></div>
+    <div class="lc-row"><div class="d">DAY 3</div><div class="v"><b>제로니무스 수도원</b> · <b>벨렝탑</b> · <b>아주다 궁전 + 왕립보물관(Tesouro Real)</b> · 발견기념비</div></div>
+    <div class="lc-row"><div class="d">DAY 5</div><div class="v"><b>마프라 궁전</b> · <b>알코바사</b> · <b>바탈랴</b> · <b>토마르 수도원</b> <span style="font-size:7.5pt;color:#8B6B20">— * 72h 카드 유효 시점 내</span></div></div>
+    <div class="lc-note">※ 벨렝탑 · 산타 후스타 엘리베이터는 2024년 가이드 기준 임시 휴관. 2026년 5월 방문 전 visitlisboa.com에서 재개 여부 확인 필수. 페나 궁전 · MAAT · 리스본 대성당 등은 무료가 아닌 10–20% 할인.</div>
+  </div>
+</section>
+
+<!-- ========================================= -->
+<!-- SHOPPING GUIDE PAGE (NEW)                   -->
+<!-- ========================================= -->
+<section class="page shopping">
+  <h2>🛒 포르투갈 쇼핑 가이드</h2>
+  <p class="lead">어디서 무엇을 살까? — 3-Tier 쇼핑처 전략 · 카테고리별 Best Buy · 예산별 바구니 · 포장 팁까지 한 페이지에.</p>
+
+  <!-- Tier 1: 3 shopping locations -->
+  <div class="shop-tier">
+    <div class="tier porto">
+      <div class="tier-tag">DAY 8 저녁 · 쇼핑 본거지</div>
+      <div class="tier-name">🛒 Continente GaiaShopping</div>
+      <div class="tier-desc">포르투갈 최저가 · 대용량 가능 · <b>무료 주차</b> · 08:00–23:00. <b>포트와인·통조림·올리브오일·커피·초콜릿</b>.</div>
+    </div>
+    <div class="tier lisbon">
+      <div class="tier-tag">DAY 7 오후 · 수공예 전문</div>
+      <div class="tier-name">🎨 Rua das Flores (포르투)</div>
+      <div class="tier-desc">전문점 집중 · 편집샵 · 장인 브랜드. <b>코르크·비누·아줄레주·도자기</b>. Day 7 플로레스 거리 하산 동선 삽입.</div>
+    </div>
+    <div class="tier">
+      <div class="tier-tag">DAY 10 · 마지막 기회</div>
+      <div class="tier-name">✈️ 리스본 공항 면세점</div>
+      <div class="tier-desc">비상 보충용 · 자동 Tax Free · 시간 압박 시 편의. 가격은 <b>시내 대비 15–30% 비쌈</b>. 셀렉션 제한.</div>
+    </div>
+  </div>
+
+  <!-- Category table -->
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th style="width:14%">카테고리</th>
+        <th style="width:38%">추천 상품·브랜드</th>
+        <th style="width:16%">가격대</th>
+        <th style="width:16%">구매처</th>
+        <th>가이드 한줄 팁</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🍷 <b>포트와인</b></td>
+        <td><b>Sandeman 10yr Tawny</b> · Taylor's LBV · Ferreira Dona Antónia</td>
+        <td class="c-price">€10 ~ €25</td>
+        <td class="c-where cnt">🛒 Continente</td>
+        <td>첫 구매자는 <b>10yr Tawny</b>부터. 선물용 3병 세트.</td>
+      </tr>
+      <tr>
+        <td>🥫 <b>사르딘하 통조림</b></td>
+        <td><b>Nuri (José Gourmet)</b> · Tricana · Santa Catarina</td>
+        <td class="c-price">€3 ~ €6</td>
+        <td class="c-where cnt">🛒 Continente</td>
+        <td>한국 편집샵가 1/3. <b>10~15개 대량 구매</b> 추천.</td>
+      </tr>
+      <tr>
+        <td>🫒 <b>올리브오일</b></td>
+        <td>Gallo · <b>Esporão</b> · CARM (유기농)</td>
+        <td class="c-price">€6 ~ €15</td>
+        <td class="c-where cnt">🛒 Continente</td>
+        <td>반드시 <b>다크 그린 병(빛 차단)</b> 확인. DOP 지역 표시.</td>
+      </tr>
+      <tr>
+        <td>☕ <b>커피</b></td>
+        <td><b>Delta Platinum</b> · Nicola · Sical · Delta Q 캡슐</td>
+        <td class="c-price">€4 ~ €8</td>
+        <td class="c-where cnt">🛒 Continente</td>
+        <td><b>Delta Q 캡슐</b>은 한국 미유통. 수집가용 선물.</td>
+      </tr>
+      <tr>
+        <td>🍒 <b>리큐어</b></td>
+        <td><b>Licor Beirão</b> · Ginja de Óbidos · Medronho</td>
+        <td class="c-price">€5 ~ €15</td>
+        <td class="c-where cnt">🛒 Continente</td>
+        <td>Beirão은 <b>포르투갈의 예거</b>. 국민 허브 리큐어.</td>
+      </tr>
+      <tr>
+        <td>🧂 <b>바다소금 · 꿀</b></td>
+        <td><b>Flor de Sal</b> · Mel da Serra · Geleia de Vinho do Porto</td>
+        <td class="c-price">€3 ~ €10</td>
+        <td class="c-where cnt">🛒 Continente</td>
+        <td>한국 수입가 1/5. <b>포트와인 잼</b>은 포르투 한정 희귀템.</td>
+      </tr>
+      <tr>
+        <td>🍫 <b>초콜릿</b></td>
+        <td><b>Arcádia (포트와인 봉봉)</b> · Regina · Pantagruel</td>
+        <td class="c-price">€5 ~ €15</td>
+        <td class="c-where cnt">🛒 Continente</td>
+        <td>Arcádia는 150년 포르투 초콜릿 하우스.</td>
+      </tr>
+      <tr>
+        <td>🫧 <b>비누</b></td>
+        <td><b>Claus Porto</b> (1887) · Ach Brito · Benamôr</td>
+        <td class="c-price">€8 ~ €30</td>
+        <td class="c-where por">🎨 Rua das Flores</td>
+        <td>Claus Porto는 <b>포장이 예술</b> — 선물용 최강.</td>
+      </tr>
+      <tr>
+        <td>👜 <b>코르크 제품</b></td>
+        <td><b>Pelcor</b> · Cork &amp; Co · Corkado</td>
+        <td class="c-price">€30 ~ €150</td>
+        <td class="c-where por">🎨 Rua das Flores</td>
+        <td>세계 코르크 1위 국가. 가방·지갑·모자.</td>
+      </tr>
+      <tr>
+        <td>🏺 <b>도자기·아줄레주</b></td>
+        <td><b>Bordallo Pinheiro 양배추</b> · Vista Alegre · 아줄레주 컵받침</td>
+        <td class="c-price">€8 ~ €100</td>
+        <td class="c-where por">🎨 Rua das Flores</td>
+        <td>Bordallo 양배추 접시는 <b>트렌디 인테리어</b>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Rua das Flores shops + Budget basket -->
+  <div class="shop-split">
+    <div class="shop-map">
+      <div class="sm-title">🎨 포르투 시내 4대 전통 상품 매장</div>
+      <div class="sm-street">Rua das Flores (플로레스 거리) 도보 5분 내 집중 — Day 7 17:00 동선에서 방문</div>
+      <ul>
+        <li><b>Pelcor</b> — 럭셔리 코르크 브랜드, 뉴욕·파리 수출<br><span class="addr">📍 Rua das Flores 46 · €50~300</span></li>
+        <li><b>Cork &amp; Co</b> — 젊은 감각 코르크 디자인<br><span class="addr">📍 Rua das Flores 74 · €30~150</span></li>
+        <li><b>Claus Porto 본점</b> — 1887년 전통 비누·향수<br><span class="addr">📍 Rua das Flores 22 · €8~60</span></li>
+        <li><b>A Vida Portuguesa</b> — 포르투갈 전통 상품 편집샵 <span style="color:var(--terracotta);font-weight:700">(한 곳에 다!)</span><br><span class="addr">📍 Rua Galeria de Paris 20 · €5~200</span></li>
+      </ul>
+    </div>
+    <div class="shop-budget">
+      <div class="sb-title">💰 예산별 쇼핑 바구니</div>
+      <div class="sb-row"><span class="amount">🥉 €100</span><b>가족 기본</b>: 통조림 10개 · Delta 커피 2팩 · Ferreira 포트와인 · Gallo 올리브오일 · Flor de Sal · 모과잼 · Arcádia · Bordallo 소접시</div>
+      <div class="sb-row"><span class="amount">🥈 €230</span><b>직장+선물</b>: 포트와인 3병 · Licor Beirão · Claus Porto 3개 · 사르딘하 15개 · CARM 프리미엄 · Delta Q 50캡슐 · 치즈 · 포트와인 잼 · 아줄레주 컵받침</div>
+      <div class="sb-row"><span class="amount">🥇 €450+</span><b>프리미엄</b>: Graham's 20yr · Taylor's Vintage · 마데이라 · Esporão 레드 2병 · Claus Porto 기프트박스 · Bordallo 대형 · Vista Alegre · Comur 세트</div>
+    </div>
+  </div>
+
+  <!-- Bottom tips -->
+  <div class="shop-tips">
+    <div class="st">
+      <div class="st-title">📦 무료 와인박스</div>
+      <div class="st-desc">Continente 계산대에서 "<b>Caixa de vinho, por favor</b>" — <b>무료 와인박스</b> 제공. 청바지·수건 3중 래핑 + 지퍼백 2중 → 위탁수하물 중앙 배치.</div>
+    </div>
+    <div class="st">
+      <div class="st-title">✈️ 수하물 규정</div>
+      <div class="st-desc">1인 위탁 액체 합계 <b>5L 제한</b>(와인 약 6병). 100ml+ 주류는 <b>반드시 위탁</b>. 한국 입국 주류 <b>1L 면세</b>, 초과분은 신고.</div>
+    </div>
+    <div class="st">
+      <div class="st-title">🧾 Tax Free 환급</div>
+      <div class="st-desc">Continente는 가맹점 O · <b>€50 이상 구매 + 여권</b> 필요. 공항 Global Blue/Planet 키오스크에서 <b>수하물 부치기 전</b> 승인 도장.</div>
+    </div>
+  </div>
+
+  <div class="day-footer" style="position:relative;bottom:auto;left:auto;right:auto;margin-top:3mm;padding-top:2.5mm;"><span><b>SHOPPING GUIDE</b> · 3-Tier Strategy</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+<!-- ========================================= -->
+<!-- DAY 1                                        -->
+<!-- ========================================= -->
+<section class="page region-lisbon">
+  <div class="day-header">
+    <div>
+      <div class="tag">Departure · Incheon to Lisbon</div>
+      <h2><span class="day-num">DAY 01</span>인천 → 리스본 비행</h2>
+    </div>
+    <div class="date-badge"><div class="date">5 / 1</div><div class="weekday">Friday · 금</div></div>
+  </div>
+
+  <div class="day-meta">
+    <div class="dm"><div class="dm-icon">✈️</div><div class="dm-text"><div class="dm-label">FLIGHT</div><div class="dm-value">대한항공 KE921 직항</div></div></div>
+    <div class="dm"><div class="dm-icon">🏨</div><div class="dm-text"><div class="dm-label">STAY (1/4)</div><div class="dm-value">My Story Hotel Tejo · 리스본</div></div></div>
+    <div class="dm"><div class="dm-icon">🕓</div><div class="dm-text"><div class="dm-label">FLIGHT TIME</div><div class="dm-value">약 14시간 40분</div></div></div>
+  </div>
+
+  <div class="day-theme">
+    <div class="theme-label">TODAY'S THEME</div>
+    <div class="theme-text">대한항공 직항으로 이베리아 반도 서쪽 끝, 리스본에 도착. 공항에서 숙소까지 이동 후 체력 회복에 집중.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">17:30</div><div class="tl-content"><div class="tl-title">인천국제공항 제2터미널 도착</div><div class="tl-desc">KE921 편, 체크인 및 출국 수속. 출발 2시간 전 공항 도착 권장.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">20:40</div><div class="tl-content"><div class="tl-title">✈️ 인천 출발 (KE921)</div><div class="tl-desc">대한항공 직항 · 리스본 포르텔라 공항(LIS)까지 <span class="hl">14시간 40분</span>.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">03:20 <sup style="font-size:6pt">+1</sup></div><div class="tl-content"><div class="tl-title">🛬 리스본 도착 (현지 시각)</div><div class="tl-desc">입국 심사 → 수하물 수취 → 심카드/유심 활성화. 환전은 시내 ATM이 환율 유리.</div></div></div>
+    <div class="tl-item"><div class="tl-time">04:30</div><div class="tl-content"><div class="tl-title">공항 → 숙소 이동</div><div class="tl-desc">Bolt/Uber 택시 약 <span class="hl">€10–15</span>, 20분 소요. 또는 공항 메트로(붉은선)로 바이샤-시아두 역까지.</div></div></div>
+    <div class="tl-item hotel"><div class="tl-time">05:00</div><div class="tl-content"><div class="tl-title">🏨 My Story Hotel Tejo 체크인</div><div class="tl-desc">얼리 체크인 안 되면 짐만 맡기고 근처 카페에서 일출 감상. 정식 체크인 14:00.</div></div></div>
+    <div class="tl-item"><div class="tl-time">오전</div><div class="tl-content"><div class="tl-title">휴식 &amp; 리스본 감각 적응</div><div class="tl-desc">무리 없이. 시차 적응 낮잠은 짧게(90분 이내).</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">저녁</div><div class="tl-content"><div class="tl-title">🍺 바이샤 거리 산책 + 맥주 한 잔</div><div class="tl-desc">호시우 광장 · 피게이라 광장 주변 가볍게 워밍업. 본격 투어는 내일부터.</div></div></div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">🧳 오늘의 핵심 팁</div>
+    <ul>
+      <li><b>⚠️ 5월 1일은 포르투갈 노동절(공휴일)</b> — 상점·박물관 대부분 휴무. 식당도 일부 운영 안 함. 당일은 시내 산책 위주로.</li>
+      <li><b>리스보아 카드</b>는 내일 오전부터 사용. 72시간권 €44 — <b>5/2 오후 개시</b>로 Day 5 오후 바탈랴·토마르까지 커버 가능.</li>
+      <li>도착 시간이 새벽이므로 <b>Bolt/Uber가 가장 안전</b>. 메트로 첫차 06:30.</li>
+      <li>포르투갈 전원 플러그 <b>C/F타입, 220V</b>. 한국 어댑터 없이 호환.</li>
+    </ul>
+  </div>
+
+  <div class="day-footer"><span><b>DAY 1</b> · Incheon → Lisbon</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+<!-- ========================================= -->
+<!-- DAY 2                                        -->
+<!-- ========================================= -->
+<section class="page region-lisbon">
+  <div class="day-header">
+    <div>
+      <div class="tag">Lisbon · Baixa · Chiado · Alfama</div>
+      <h2><span class="day-num">DAY 02</span>리스본 구도심 완전 정복</h2>
+    </div>
+    <div class="date-badge"><div class="date">5 / 2</div><div class="weekday">Saturday · 토</div></div>
+  </div>
+
+  <div class="day-meta">
+    <div class="dm"><div class="dm-icon">🚶</div><div class="dm-text"><div class="dm-label">MOVE</div><div class="dm-value">도보 + 트램 + 푸니쿨라</div></div></div>
+    <div class="dm"><div class="dm-icon">🏨</div><div class="dm-text"><div class="dm-label">STAY (2/4)</div><div class="dm-value">My Story Hotel Tejo</div></div></div>
+    <div class="dm"><div class="dm-icon">🎫</div><div class="dm-text"><div class="dm-label">CARD</div><div class="dm-value">리스보아 카드 72h 개시</div></div></div>
+  </div>
+
+  <div class="day-theme">
+    <div class="theme-label">TODAY'S THEME</div>
+    <div class="theme-text">바이샤(시작) ▸ 바이루알투(상승) ▸ 시아두 ▸ 바이샤(하강) ▸ 알파마(상승) — U자형 단방향 흐름으로 언덕 오르내림 최소화.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-content"><div class="tl-title">피게이라 광장 → 호시우 광장 → 상 도밍구스 성당</div><div class="tl-desc">리스본의 가장 활기찬 중심부. 물결무늬 포석(Calçada)과 아침 햇살.</div></div></div>
+    <div class="tl-item"><div class="tl-time">09:45</div><div class="tl-content"><div class="tl-title">비파나 아침 → 글로리아 푸니쿨라 <span class="lc-badge">LC FREE</span></div><div class="tl-desc">As Bifanas do Afonso에서 돼지고기 샌드위치. <span class="hl">글로리아 푸니쿨라 리스보아 카드 무료</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-content"><div class="tl-title">상 페드로 디 알칸타라 전망대 · 상 로케 성당</div><div class="tl-desc">바이루알투 언덕에서 상 조르즈 성을 마주 보는 절경. 황금빛 예배당의 보석.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-content"><div class="tl-title">시아두: Manteigaria · 베르트랑 서점</div><div class="tl-desc">세계 최고 에그타르트 중 하나, 그리고 기네스 등재 세계 최고(最古) 서점.</div></div></div>
+    <div class="tl-item"><div class="tl-time">12:15</div><div class="tl-content"><div class="tl-title">카르모 수녀원 · 산타 후스타 엘리베이터 <span class="lc-badge">LC FREE</span></div><div class="tl-desc">1755년 대지진의 흔적이 남은 미완성 수녀원 → 철제 엘리베이터(카드 무료).</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">13:00</div><div class="tl-content"><div class="tl-title">🍽️ 점심: 레스토랑 우마 (해물밥)</div><div class="tl-desc">리스본 여행의 대명사. 깊은 국물의 해물밥(Arroz de Marisco).</div></div></div>
+    <div class="tl-item"><div class="tl-time">14:30</div><div class="tl-content"><div class="tl-title">통조림 가게 (Fantastic World) → 아우구스타 거리 → Amorino</div><div class="tl-desc">화려한 통조림 놀이공원, 장미모양 젤라또로 휴식.</div></div></div>
+    <div class="tl-item"><div class="tl-time">15:30</div><div class="tl-content"><div class="tl-title">시청 · 개선문 <span class="lc-badge">LC FREE</span> · 코메르시우 광장</div><div class="tl-desc">타구스 강변으로 탁 트이는 도시의 정중앙.</div></div></div>
+    <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-content"><div class="tl-title">리스본 대성당 · 산투 안토니우 성당</div><div class="tl-desc">28번 노란 트램이 낡은 대성당 앞을 도는 리스본 엽서 풍경.</div></div></div>
+    <div class="tl-item"><div class="tl-time">17:15</div><div class="tl-content"><div class="tl-title">Café da Garagem 휴식 → 🌅 상 조르즈 성 (일몰) <span class="lc-badge">LC FREE</span></div><div class="tl-desc">독특한 파노라마 카페에서 체력 회복 후 성곽 위 일몰.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">19:30</div><div class="tl-content"><div class="tl-title">🌃 포르타스 두 솔 전망대 → 🍽️ 저녁: O Castiço</div><div class="tl-desc">알파마 최고의 뷰포인트 후 아늑한 로컬 식당.</div></div></div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">💡 오늘의 핵심 팁</div>
+    <ul>
+      <li><b>리스보아 카드 활용</b>: 글로리아 푸니쿨라 + 산타 후스타 엘리베이터(€5.3) 둘 다 <b>무료</b>.</li>
+      <li><b>해산물 성지 Ramiro</b>가 땡긴다면 저녁을 대체: 택시 10분, <b>예약 필수</b>.</li>
+      <li><b>언덕 체력 안배</b>: 상 조르즈 성 직전 Café da Garagem에서 커피/스낵으로 리필.</li>
+    </ul>
+  </div>
+
+  <div class="day-footer"><span><b>DAY 2</b> · Lisbon Old Town</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+<!-- ========================================= -->
+<!-- DAY 3                                        -->
+<!-- ========================================= -->
+<section class="page region-lisbon compact">
+  <div class="day-header">
+    <div>
+      <div class="tag">Lisbon · Belém · Ajuda · Nightlife</div>
+      <h2><span class="day-num">DAY 03</span>벨렝 &amp; 아주다 궁전 (꽉 찬 일정)</h2>
+    </div>
+    <div class="date-badge"><div class="date">5 / 3</div><div class="weekday">Sunday · 일</div></div>
+  </div>
+
+  <div class="day-meta">
+    <div class="dm"><div class="dm-icon">🚋</div><div class="dm-text"><div class="dm-label">MOVE</div><div class="dm-value">트램 15E + Uber/Bolt</div></div></div>
+    <div class="dm"><div class="dm-icon">🏨</div><div class="dm-text"><div class="dm-label">STAY (3/4)</div><div class="dm-value">My Story Hotel Tejo</div></div></div>
+    <div class="dm"><div class="dm-icon">⏰</div><div class="dm-text"><div class="dm-label">오픈런</div><div class="dm-value">제로니무스 09:30</div></div></div>
+  </div>
+
+  <div class="day-theme">
+    <div class="theme-label">TODAY'S THEME</div>
+    <div class="theme-text">대항해시대의 영광 벨렝 → 언덕 위 왕실 거주지 아주다 궁전 → 강변 루프탑 MAAT → LX Factory 힙스터 지구 → <b>일요일 야시장</b> 핑크 스트리트까지. 하루 꽉 찬 14개 스팟.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item transit"><div class="tl-time">08:30</div><div class="tl-content"><div class="tl-title">🚋 피게이라 광장에서 트램 15E 탑승 → 벨렝</div><div class="tl-desc">30분 일찍 출발. 숙소 바로 앞에서 승차.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">09:00</div><div class="tl-content"><div class="tl-title">🥮 Pastéis de Belém (포장) + 제로니무스 오픈런 대기</div><div class="tl-desc">1837년 원조 에그타르트 — 테이크아웃 줄이 압도적으로 짧음.</div></div></div>
+    <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-content"><div class="tl-title">제로니무스 수도원 <span class="lc-badge">LC FREE</span> + 산타 마리아 성당</div><div class="tl-desc">마누엘 양식의 정수. 바스코 다 가마의 무덤. <span class="hl">일요일은 오픈런 필수</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-content"><div class="tl-title">⚓ 국립 해양 박물관 (또는 마차 박물관)</div><div class="tl-desc">대항해시대의 항해도구·범선 모형. 시간 촉박 시 마차 박물관(Museu dos Coches)로 대체.</div></div></div>
+    <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-content"><div class="tl-title">임페리우 광장 → 지하도로 강변 이동 → 발견기념비 <span class="lc-badge">LC FREE</span></div><div class="tl-desc">광장 횡단 후 지하도로 안전하게 강변으로.</div></div></div>
+    <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-content"><div class="tl-title">벨렝탑 <span class="lc-badge warn">LC FREE</span> (외부 관람 위주) → 🍽️ 점심</div><div class="tl-desc">내부 대기 긴 날은 외부 위주로. 점심은 벨렝 지구 A Margem 등.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">14:00</div><div class="tl-content"><div class="tl-title">🚕 우버 → 아주다 국립 궁전 (언덕 필수)</div><div class="tl-desc">강변에서 언덕 2.5km, <span class="hl">도보 불가 수준 오르막</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">14:15</div><div class="tl-content"><div class="tl-title">👑 아주다 국립 궁전 + 왕립 보물관 <span class="lc-badge">LC FREE</span></div><div class="tl-desc">포르투갈 왕실의 마지막 거주지. 관광객 적어 여유롭게 감상.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">15:45</div><div class="tl-content"><div class="tl-title">🚕 우버 → MAAT</div><div class="tl-desc">언덕에서 강변으로 10분.</div></div></div>
+    <div class="tl-item"><div class="tl-time">16:00</div><div class="tl-content"><div class="tl-title">🎨 MAAT 루프탑 산책 — 테주강 뷰 인생샷</div><div class="tl-desc">물결 형상 현대미술관. <span class="hl">루프탑 무료 입장</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><div class="tl-title">🛍️ LX Factory — 힙한 상점·서점 구경</div><div class="tl-desc">복합문화공간. Ler Devagar 서점 하늘 자전거 포토스팟.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">19:30</div><div class="tl-content"><div class="tl-title">🐙 🍽️ 저녁: Frade dos Mares (문어 요리)</div><div class="tl-desc">🚕 우버로 시내 복귀. <span class="hl">⚠️ 일요일 예약 필수</span> — 만석 주의.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">21:00</div><div class="tl-content"><div class="tl-title">🍻 Time Out Market — 일요일 밤 야시장</div><div class="tl-desc">Frade dos Mares에서 도보 5분. 저녁 먹고 맥주·칵테일 한 잔 분위기.</div></div></div>
+    <div class="tl-item"><div class="tl-time">21:45</div><div class="tl-content"><div class="tl-title">🌃 핑크 스트리트 (Rua Cor-de-Rosa) 산책</div><div class="tl-desc">과거 선원 거리 → 힙스터 핫스팟. Pensão Amor 등 바.</div></div></div>
+    <div class="tl-item hotel"><div class="tl-time">22:15</div><div class="tl-content"><div class="tl-title">🛏️ 숙소 복귀</div><div class="tl-desc">도보 또는 우버 10분.</div></div></div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">💡 오늘의 핵심 팁</div>
+    <ul>
+      <li><b>💡 언덕 이동 필수 팁</b>: 벨렝탑(강변) → 아주다(언덕) → MAAT 구간은 <b>반드시 우버/볼트</b>. 도보는 탈진 위험.</li>
+      <li><b>⚠️ 일요일 팁</b>: 제로니무스 오픈런 필수, 저녁 Frade dos Mares <b>사전 예약 필수</b>.</li>
+      <li><b>💡 아주다 궁전</b>은 관광객 적어 여유로움. 화려한 왕실 문화 제대로 감상.</li>
+      <li><b>📸 MAAT 루프탑</b>은 인생샷 명소 — 물결 건축 위 일몰.</li>
+    </ul>
+  </div>
+
+  <div class="day-footer"><span><b>DAY 3</b> · Belém · Ajuda · Nightlife</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+<!-- ========================================= -->
+<!-- DAY 4                                        -->
+<!-- ========================================= -->
+<section class="page region-lisbon compact">
+  <div class="day-header">
+    <div>
+      <div class="tag">Sintra · Cabo da Roca · Cascais</div>
+      <h2><span class="day-num">DAY 04</span>신트라 — 동화 궁전 &amp; 유라시아 최서단</h2>
+    </div>
+    <div class="date-badge"><div class="date">5 / 4</div><div class="weekday">Monday · 월</div></div>
+  </div>
+
+  <div class="day-meta">
+    <div class="dm"><div class="dm-icon">🚂</div><div class="dm-text"><div class="dm-label">MOVE</div><div class="dm-value">기차 + 툭툭/우버 + 1624번 버스</div></div></div>
+    <div class="dm"><div class="dm-icon">🏨</div><div class="dm-text"><div class="dm-label">STAY (4/4)</div><div class="dm-value">My Story Hotel Tejo</div></div></div>
+    <div class="dm"><div class="dm-icon">🏰</div><div class="dm-text"><div class="dm-label">HIGHLIGHT</div><div class="dm-value">페나 궁전 + 헤갈레이라</div></div></div>
+  </div>
+
+  <div class="day-theme">
+    <div class="theme-label">TODAY'S THEME</div>
+    <div class="theme-text">중력 도움 동선 — 툭툭으로 페나궁전 정상 → 무어성 → <b>산타 마리아 트레일 숲길 하산</b> → 헤갈레이라 → 까보다로카 → 카스카이스 완벽 루프. 숨은 명소 Lawrence's Hotel(바이런 숙박) &amp; Santini 본점까지.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item transit"><div class="tl-time">08:30</div><div class="tl-content"><div class="tl-title">🚂 호시우역 → 신트라역 (40분, €2.4)</div><div class="tl-desc">진행 방향 <b>오른쪽 창가</b> 추천.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">09:15</div><div class="tl-content"><div class="tl-title">☕ Café Saudade — 커피 한 잔</div><div class="tl-desc">역 바로 앞 로컬 카페. 대기열 버스 회피용 워밍업.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">09:30</div><div class="tl-content"><div class="tl-title">🚕 툭툭/우버 → 페나 궁전 매표소 직행</div><div class="tl-desc">툭툭 흥정 약 <b>€10–15</b>, 산길 드라이브. 버스 대기 회피.</div></div></div>
+    <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-content"><div class="tl-title">🌳 페나 궁전 정문 → 궁전 입구 도보 15분 언덕길</div><div class="tl-desc">매표소에서 궁전까지 도보 이동.</div></div></div>
+    <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-content"><div class="tl-title">🏰 페나 궁전 내부 입장 <span style="font-size:7pt;color:#8B7026">(LC 10% 할인)</span></div><div class="tl-desc">알록달록 동화 궁전. <span class="hl">⚠️ 사전예약 시간 칼같이 엄수</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:45</div><div class="tl-content"><div class="tl-title">🏯 무어성 — 페나 궁전에서 도보 10분</div><div class="tl-desc">8세기 이슬람 요새. 만리장성 축소판의 돌벽 뷰.</div></div></div>
+    <div class="tl-item"><div class="tl-time">12:45</div><div class="tl-content"><div class="tl-title">💎 산타 마리아 트레일 숲길 하산 (35분)</div><div class="tl-desc">무어성에서 구시가지로 <b>버스보다 빠른 도보 루트</b>. 인적 드문 숨은 보석.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">13:30</div><div class="tl-content"><div class="tl-title">🍽️ 점심: Tasco do Strauss 등 구시가 골목 맛집</div><div class="tl-desc"><span class="hl">예약 필수</span>. 대안: Incomum 또는 Piriquita Dois.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">14:30</div><div class="tl-content"><div class="tl-title">🥐 Casa Piriquita — 150년 원조 트라베세이루 &amp; 케이자다</div><div class="tl-desc">신트라 전통 페이스트리 <b>반드시 당 충전</b>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-content"><div class="tl-title">📸 💎 Lawrence's Hotel 외관 감상</div><div class="tl-desc">바이런이 머문 <b>이베리아 반도 최고령 호텔(1764)</b>. 헤갈레이라 가는 길목.</div></div></div>
+    <div class="tl-item"><div class="tl-time">15:15</div><div class="tl-content"><div class="tl-title">🏛️ 헤갈레이라 별장 (Quinta da Regaleira)</div><div class="tl-desc"><b>9층 지하 나선형 우물(가장 먼저 줄 서기!)</b> · 비밀 동굴 · 신비주의 정원.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">16:45</div><div class="tl-content"><div class="tl-title">🚕 치트키: 별장 앞 우버/볼트 → 까보다로카 직행</div><div class="tl-desc"><b>버스 타러 역으로 돌아가지 말 것!</b> 우버 직행이 정답.</div></div></div>
+    <div class="tl-item"><div class="tl-time">17:15</div><div class="tl-content"><div class="tl-title">🌅 까보다로카 — 유라시아 최서단</div><div class="tl-desc">십자가 기념비 인증샷 &amp; 절벽 산책. <span class="hl">⚠️ 강풍 주의</span>, 방풍 자켓 필수.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">18:15</div><div class="tl-content"><div class="tl-title">🚌 1624번 버스(구 403번) → 카스카이스 역</div><div class="tl-desc"><b>우측 창가</b> 대서양 뷰 추천.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">19:00</div><div class="tl-content"><div class="tl-title">🍦 💎 카스카이스 해변 + Santini 본점 젤라또</div><div class="tl-desc">포르투갈 국민 젤라또 <b>원조 본점</b>. 왕실 휴양지 해변 산책.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">20:00</div><div class="tl-content"><div class="tl-title">🚂 카스카이스역 → 리스본 (Cais do Sodré)</div><div class="tl-desc">환상의 루프 코스 완성. 약 40분.</div></div></div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">💡 오늘의 핵심 팁</div>
+    <ul>
+      <li><b>💡 이동 치트키 1</b>: 역 → 페나궁전 <b>툭툭 흥정 €10–15</b>가 정신건강에 좋음.</li>
+      <li><b>💡 이동 치트키 2</b>: 무어성 → 구시가는 <b>도보(Caminho de Santa Maria)</b>가 풍경·시간 모두 승.</li>
+      <li><b>💡 동선 치트키 3</b>: 헤갈레이라 → 까보다로카는 <b>무조건 우버</b>, 까보다로카 → 카스카이스는 <b>1624번 버스</b>가 진리.</li>
+      <li><b>🧥 복장</b>: 신트라 산꼭대기·까보다로카는 리스본보다 <b>5℃ 이상 춥고</b> 바람이 셈. 바람막이 필수.</li>
+    </ul>
+  </div>
+
+  <div class="day-footer"><span><b>DAY 4</b> · Sintra & Atlantic Loop</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+<!-- ========================================= -->
+<!-- DAY 5                                        -->
+<!-- ========================================= -->
+<section class="page region-central compact ultra">
+  <div class="day-header">
+    <div>
+      <div class="tag">Central Portugal · UNESCO 3 Monasteries</div>
+      <h2><span class="day-num">DAY 05</span>3대 유네스코 수도원 그랜드 투어</h2>
+    </div>
+    <div class="date-badge"><div class="date">5 / 5</div><div class="weekday">Tuesday · 화</div></div>
+  </div>
+
+  <div class="day-meta">
+    <div class="dm"><div class="dm-icon">🚗</div><div class="dm-text"><div class="dm-label">MOVE</div><div class="dm-value">렌트카 · 약 280km</div></div></div>
+    <div class="dm"><div class="dm-icon">🏨</div><div class="dm-text"><div class="dm-label">STAY</div><div class="dm-value">Hotel D. Luís · 코임브라</div></div></div>
+    <div class="dm"><div class="dm-icon">⏰</div><div class="dm-text"><div class="dm-label">PICKUP</div><div class="dm-value">08:30 LIS 공항 Centauro</div></div></div>
+  </div>
+
+  <div class="day-theme">
+    <div class="theme-label">TODAY'S THEME</div>
+    <div class="theme-text">렌트카 개막전. <b>마프라 국립 궁전 → 오비두스 → 알코바사 → 바탈랴 → 토마르</b> 4대 수도원·궁전 그랜드 투어 → 코임브라 숙박. 총 280km 대장정.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item transit"><div class="tl-time">08:30</div><div class="tl-content"><div class="tl-title">🚗 리스본 공항 렌트카 픽업 (Centauro)</div><div class="tl-desc">VW Polo급. 비아베르데 신청 필수. <span class="hl">일찍 서두르기</span>.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">09:00</div><div class="tl-content"><div class="tl-title">🚗 리스본 → 마프라 (40km, 약 40분)</div><div class="tl-desc">A8 고속도로 북서행.</div></div></div>
+    <div class="tl-item"><div class="tl-time">09:40</div><div class="tl-content"><div class="tl-title">🏛️ 마프라 국립 궁전 <span class="lc-badge warn">LC FREE</span> (1시간 압축)</div><div class="tl-desc">포르투갈 최대 바로크 걸작. <b>38,000㎡ · 34,000권의 세계적 도서관</b> · 유럽 희귀 왕립 병원.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">10:45</div><div class="tl-content"><div class="tl-title">🚗 마프라 → 오비두스 (60km, 약 45분)</div><div class="tl-desc">국도 + A8.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-content"><div class="tl-title">🅿️ 오비두스 도착 — Obidos parking 주차</div><div class="tl-desc">구시가 성벽 바로 앞 공영 주차장.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:35</div><div class="tl-content"><div class="tl-title">📸 💎 Aqueduto de Usseira (우세이라 수도교)</div><div class="tl-desc">주차장 앞 <b>로마식 수도교</b> — 많이 모르는 숨은 포토스팟.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:45</div><div class="tl-content"><div class="tl-title">🏰 Porta da Vila → 오비두스 성벽 산책</div><div class="tl-desc">아치형 성문 통과, 성벽 위 워킹.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">12:15</div><div class="tl-content"><div class="tl-title">🍒 진자(Ginjinha) 시음 — 초콜릿 잔 체리술</div><div class="tl-desc">운전자 제외! 동승자만. <b>전통 리큐어 &amp; 초콜릿 컵</b>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-content"><div class="tl-title">📍 Igreja de Santa Maria (산타 마리아 성당)</div><div class="tl-desc">구시가 골목 + 내부 아줄레주 감상. 점심 대신 빵 포장.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">12:45</div><div class="tl-content"><div class="tl-title">🚗 오비두스 → 알코바사 (40km, 35분) · 샌드위치 포장</div><div class="tl-desc">이동 중 차내 간단식사.</div></div></div>
+    <div class="tl-item"><div class="tl-time">13:20</div><div class="tl-content"><div class="tl-title">⛪ 알코바사 수도원 <span class="lc-badge warn">LC FREE</span></div><div class="tl-desc">1178년 시토회 · UNESCO. <b>돈 페드로 &amp; 이네스 비극 석관</b>, 중세 최대 주방.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">14:05</div><div class="tl-content"><div class="tl-title">🚗 알코바사 → 바탈랴 (20km, 25분)</div><div class="tl-desc">근거리 국도.</div></div></div>
+    <div class="tl-item"><div class="tl-time">14:30</div><div class="tl-content"><div class="tl-title">⛪ 바탈랴 수도원 <span class="lc-badge warn">LC FREE</span></div><div class="tl-desc">고딕 양식 걸작. <b>미완성 예배당 · 왕의 회랑</b>.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">15:15</div><div class="tl-content"><div class="tl-title">🚗 바탈랴 → 토마르 (45km, 40분)</div><div class="tl-desc">A19 → A23.</div></div></div>
+    <div class="tl-item"><div class="tl-time">15:55</div><div class="tl-content"><div class="tl-title">🏰 토마르 그리스도 수도원 + 샤롤라 <span class="lc-badge warn">LC FREE</span></div><div class="tl-desc">템플 기사단 본거지. <span class="hl">⚠️ 17:30 입장 마감 엄수</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">17:30</div><div class="tl-content"><div class="tl-title">💎 페고잉스 수도교 — 30m 아찔한 수도교</div><div class="tl-desc">국내외 잘 알려지지 않은 고가 수도교 위 산책.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">17:50</div><div class="tl-content"><div class="tl-title">🚗 토마르 → 코임브라 (75km, 55분)</div><div class="tl-desc">A13 → A1 고속도로.</div></div></div>
+    <div class="tl-item hotel"><div class="tl-time">18:45</div><div class="tl-content"><div class="tl-title">🏨 Hotel D. Luís 주차 &amp; 체크인</div><div class="tl-desc">강 건너편 언덕 호텔. 구시가 파노라마 뷰.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">19:30</div><div class="tl-content"><div class="tl-title">🍽️ 저녁: Zé Manel dos Ossos 등 코임브라 맛집</div><div class="tl-desc">코임브라 전통. 대안: Restaurante Sete · Solar do Bacalhau.</div></div></div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">💡 오늘의 핵심 팁</div>
+    <ul>
+      <li><b>💡 일정 타이트</b> — 알코바사 추가로 점심은 오비두스 간단 or 이동 중 차 안 샌드위치.</li>
+      <li><b>⚠️ 최우선 데드라인</b>: 토마르 그리스도 수도원 <b>17:30 입장 마감</b>. 바탈랴에서 45분 이상 지체 금지.</li>
+      <li><b>📸 알코바사 주차</b>: 정문 앞 광장 주차 잘 되어 있음. 동선 낭비 적음.</li>
+      <li><b>🎫 3대 수도원 + 마프라 궁전 모두 LC FREE</b> — 5/2 오후 개시로 Day 5 오후까지 커버.</li>
+    </ul>
+  </div>
+
+  <div class="day-footer"><span><b>DAY 5</b> · UNESCO Monasteries Grand Tour</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+<!-- ========================================= -->
+<!-- DAY 6                                        -->
+<!-- ========================================= -->
+<section class="page region-central compact">
+  <div class="day-header">
+    <div>
+      <div class="tag">Coimbra · University · Transition to Porto</div>
+      <h2><span class="day-num">DAY 06</span>코임브라 → 포르투 (대학도시와 중세)</h2>
+    </div>
+    <div class="date-badge"><div class="date">5 / 6</div><div class="weekday">Wednesday · 수</div></div>
+  </div>
+
+  <div class="day-meta">
+    <div class="dm"><div class="dm-icon">🚗</div><div class="dm-text"><div class="dm-label">MOVE</div><div class="dm-value">렌트카 · 약 120km</div></div></div>
+    <div class="dm"><div class="dm-icon">🏨</div><div class="dm-text"><div class="dm-label">STAY (1/4)</div><div class="dm-value">Porto Airbnb · Rua da Vitoria</div></div></div>
+    <div class="dm"><div class="dm-icon">📚</div><div class="dm-text"><div class="dm-label">예약 엄수</div><div class="dm-value">조아니나 도서관 09:30</div></div></div>
+  </div>
+
+  <div class="day-theme">
+    <div class="theme-label">TODAY'S THEME</div>
+    <div class="theme-text">세계 최고 바로크 도서관 '조아니나' → <b>구대학 광장 파노라마</b> → 💎 <b>마샤두 드 카스트루 로마 지하 통로</b> → <b>산타크루스 수도원 + Café Santa Cruz 고딕 아치</b> → Zé Manel 점심 → 포르투 일몰.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item transit"><div class="tl-time">09:00</div><div class="tl-content"><div class="tl-title">🚕 언덕 회피 치트키: 호텔에서 우버/볼트 → Porta Férrea 직행</div><div class="tl-desc">강 건너 호텔에서 구시가 상단까지 우버 직행. 도보 20분 오르막 스킵.</div></div></div>
+    <div class="tl-item"><div class="tl-time">09:15</div><div class="tl-content"><div class="tl-title">🏛️ Paço das Escolas (구대학 광장) 진입 + 파노라마</div><div class="tl-desc">강 건너 코임브라 뷰. 조아니나 대기.</div></div></div>
+    <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-content"><div class="tl-title">📚 조아니나 도서관 (Biblioteca Joanina)</div><div class="tl-desc">황금빛 바로크. 박쥐가 책 지키는 전설. <span class="hl">⚠️ 예약 시간 엄수 · 내부 촬영 금지</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-content"><div class="tl-title">⛪ Capela de São Miguel (상 미겔 예배당) + 시계탑(염소탑)</div><div class="tl-desc">대학교 예배당 + 76m 종탑. 학생들이 '염소탑'이라 부름.</div></div></div>
+    <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-content"><div class="tl-title">💎 마샤두 드 카스트루 박물관 — 로마 지하 통로 (Cryptoporticus)</div><div class="tl-desc"><b>1~2층 전시는 스킵 가능</b>. 지하 로마 크립토포르티쿠스만 봐도 감동.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:15</div><div class="tl-content"><div class="tl-title">⛪ Sé Velha de Coimbra (코임브라 구 대성당)</div><div class="tl-desc">12세기 로마네스크 양식 + 요새형 외관. 하산 동선.</div></div></div>
+    <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-content"><div class="tl-title">⛪ 💎 Mosteiro de Santa Cruz (산타크루스 수도원) + ☕ Café Santa Cruz</div><div class="tl-desc">포르투갈 초대 국왕 무덤. 카페 <b>고딕 아치 아래 커피 휴식</b> — 독특한 분위기.</div></div></div>
+    <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-content"><div class="tl-title">🏃 Zé Manel dos Ossos 오픈런 대기</div><div class="tl-desc">테이블 3개 뿐인 전설의 식당. <span class="hl">예약 불가 · 현금만</span>.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">13:00</div><div class="tl-content"><div class="tl-title">🍽️ 점심 — 뼈 있는 돼지고기 구이</div><div class="tl-desc">실패 시 대안: Solar do Bacalhau / Restaurante Sete.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">14:30</div><div class="tl-content"><div class="tl-title">🚗 주차장 복귀 → 포르투 이동 (120km, 1h 15m)</div><div class="tl-desc">A1 고속도로 북상.</div></div></div>
+    <div class="tl-item hotel"><div class="tl-time">16:00</div><div class="tl-content"><div class="tl-title">🏨 포르투 에어비앤비 체크인 + 주차</div><div class="tl-desc">Rua da Vitoria 152. 주차는 SABA 공영 or 호스트 안내.</div></div></div>
+    <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><div class="tl-title">🌉 Ponte Luís I (동 루이스 1세 다리) — 상층부 도보 횡단</div><div class="tl-desc">에펠의 제자 설계. 다리 윗길에서 도루강 파노라마.</div></div></div>
+    <div class="tl-item"><div class="tl-time">17:30</div><div class="tl-content"><div class="tl-title">🌅 💎 Jardim do Morro (모루 정원) — 포르투 최고의 일몰</div><div class="tl-desc">가이아 지구 잔디밭에서 <span class="hl">구시가지 황금빛 일몰</span>. 편의점 맥주 픽업 필수.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">19:00</div><div class="tl-content"><div class="tl-title">🍽️ 저녁 — Cais de Gaia 강변 or Ribeira 광장</div><div class="tl-desc">바칼라우 + 비뉴 베르드 한 잔.</div></div></div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">💡 오늘의 핵심 팁</div>
+    <ul>
+      <li><b>🎫 조아니나 도서관</b>: 정해진 슬롯 시간 지각하면 <b>입장 불가</b>. 10분 전 광장 대기 필수.</li>
+      <li><b>🏛️ 마샤두 드 카스트루</b>: 시간 촉박 시 1~2층 전시 패스하고 <b>로마 지하 통로만</b> 봐도 훌륭.</li>
+      <li><b>📸 동 루이스 다리</b>는 <b>윗길(상층부)</b>이 뷰 폭발. 고소공포증 주의.</li>
+      <li><b>🍽️ Zé Manel 실패 대비 플랜</b>: Solar do Bacalhau / Restaurante Sete.</li>
+    </ul>
+  </div>
+
+  <div class="day-footer"><span><b>DAY 6</b> · Coimbra → Porto</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+<!-- ========================================= -->
+<!-- DAY 7                                        -->
+<!-- ========================================= -->
+<section class="page region-porto compact ultra">
+  <div class="day-header">
+    <div>
+      <div class="tag">Porto · City Core · QA Verified Route</div>
+      <h2><span class="day-num">DAY 07</span>포르투 시내 완전 정복</h2>
+    </div>
+    <div class="date-badge"><div class="date">5 / 7</div><div class="weekday">Thursday · 목</div></div>
+  </div>
+
+  <div class="day-meta">
+    <div class="dm"><div class="dm-icon">🚶</div><div class="dm-text"><div class="dm-label">MOVE</div><div class="dm-value">전 일정 도보 + 가이아 케이블카</div></div></div>
+    <div class="dm"><div class="dm-icon">🏨</div><div class="dm-text"><div class="dm-label">STAY (2/4)</div><div class="dm-value">Porto Airbnb</div></div></div>
+    <div class="dm"><div class="dm-icon">⚠️</div><div class="dm-text"><div class="dm-label">예약 필수</div><div class="dm-value">렐루 14:45 · 볼사 17:15</div></div></div>
+  </div>
+
+  <div class="day-theme">
+    <div class="theme-label">TODAY'S THEME</div>
+    <div class="theme-text">북부(쇼핑) → 중앙(역사) → 남부(강변) → 가이아(야경). 크리티컬 버그 패치: <b>대성당 회랑</b> · <b>비토리아 전망대</b> · <b>세하 두 필라르 수도원</b> 등 놓치기 쉬운 핵심 스팟 모두 반영.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item meal"><div class="tl-time">09:00</div><div class="tl-content"><div class="tl-title">🍳 조식: Balta Brunch</div><div class="tl-desc">든든한 브런치로 시작.</div></div></div>
+    <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-content"><div class="tl-title">⛪ Capela das Almas (알마스 성당)</div><div class="tl-desc">외벽 전체 푸른 아줄레주 포토스팟.</div></div></div>
+    <div class="tl-item"><div class="tl-time">10:15</div><div class="tl-content"><div class="tl-title">📍 Rua de Santa Catarina → ☕ Majestic Café 외관</div><div class="tl-desc">포르투 쇼핑 거리. 1921년 벨에포크 카페 — 외관만.</div></div></div>
+    <div class="tl-item"><div class="tl-time">10:45</div><div class="tl-content"><div class="tl-title">⛪ Igreja de Santo Ildefonso — 외관 인생샷</div><div class="tl-desc">푸른 아줄레주로 뒤덮인 바로크 교회.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-content"><div class="tl-title">🛒 Mercado do Bolhão (볼량 시장)</div><div class="tl-desc">새단장한 포르투 전통 시장.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">11:45</div><div class="tl-content"><div class="tl-title">🍽️ 점심 병목 방어: Cafe Santiago (12시 전 입장)</div><div class="tl-desc">포르투 최고 <b>프란세지냐</b>. <span class="hl">12시 이후 1h+ 대기</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-content"><div class="tl-title">🚉 Estação de São Bento (상벤투 역)</div><div class="tl-desc">2만여 개 푸른 아줄레주 덮인 전설적 기차역.</div></div></div>
+    <div class="tl-item"><div class="tl-time">13:30</div><div class="tl-content"><div class="tl-title">⛪ 💎 Sé do Porto 대성당 + 회랑(Claustros) 필수!</div><div class="tl-desc">회랑 입장 €3 — <b>놓치기 쉬운 포르투 최고 포토스팟</b>. 절대 돈 아깝지 않음.</div></div></div>
+    <div class="tl-item"><div class="tl-time">14:15</div><div class="tl-content"><div class="tl-title">📍 Avenida dos Aliados + 💎 McDonald's Imperial 내부</div><div class="tl-desc">세계에서 가장 아름다운 맥도날드. 아르데코 샹들리에 · 스테인드글라스.</div></div></div>
+    <div class="tl-item"><div class="tl-time">14:45</div><div class="tl-content"><div class="tl-title">📚 Livraria Lello (렐루 서점)</div><div class="tl-desc">해리포터 모티브 나선 계단. <span class="hl">⚠️ 사전 예약 시간 엄수</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">15:30</div><div class="tl-content"><div class="tl-title">⛪ 💎 Igreja do Carmo — 거대 아줄레주 + <b>1m 숨겨진 집</b></div><div class="tl-desc">두 성당 사이에 끼인 <b>폭 1미터 집</b> 찾기. 숨은 명소.</div></div></div>
+    <div class="tl-item"><div class="tl-time">16:00</div><div class="tl-content"><div class="tl-title">🗼 Torre dos Clérigos (클레리구스 탑) — 225 계단</div><div class="tl-desc">76m · 포르투 360도 파노라마.</div></div></div>
+    <div class="tl-item"><div class="tl-time">16:45</div><div class="tl-content"><div class="tl-title">🌅 💎 Miradouro da Vitória — 무료 파노라마</div><div class="tl-desc"><b>포르투 최고의 무료 전망대</b>. 구시가·강·가이아 삼면 뷰.</div></div></div>
+    <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><div class="tl-title">🚶 Rua das Flores (플로레스 거리) 하산</div><div class="tl-desc">낭만 카페와 버스킹 감상.</div></div></div>
+    <div class="tl-item"><div class="tl-time">17:15</div><div class="tl-content"><div class="tl-title">🏛️ Palácio da Bolsa (볼사 궁전) — 아랍의 방</div><div class="tl-desc">옛 증권거래소. <b>무어식 장식 아라비아 홀</b>. <span class="hl">가이드 투어 사전 예약 필수</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">18:15</div><div class="tl-content"><div class="tl-title">⛪ 💎 Igreja de São Francisco — 황금 400kg 내부</div><div class="tl-desc"><b>내부 전체에 황금 400kg 도금</b>. 세계 최대 규모 금박 장식.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">18:45</div><div class="tl-content"><div class="tl-title">📍 Praça da Ribeira — 강변 노천카페 샹그리아 🍹</div><div class="tl-desc">도루강변 UNESCO 구시가 광장.</div></div></div>
+    <div class="tl-item"><div class="tl-time">19:30</div><div class="tl-content"><div class="tl-title">🌉 동 루이스 1세 다리 1층(하층) 도보 횡단</div><div class="tl-desc">강변 레벨. 위와는 다른 뷰.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">19:45</div><div class="tl-content"><div class="tl-title">🚠 체력 세이브 치트키: Teleférico de Gaia 케이블카</div><div class="tl-desc">공중 뷰 감상하며 가이아 상층부로 쾌적 이동.</div></div></div>
+    <div class="tl-item"><div class="tl-time">20:00</div><div class="tl-content"><div class="tl-title">🌅 Jardim do Morro — 황금빛 일몰 + 버스킹</div><div class="tl-desc">잔디밭 피크닉 분위기.</div></div></div>
+    <div class="tl-item"><div class="tl-time">21:00</div><div class="tl-content"><div class="tl-title">🌃 💎 Mosteiro da Serra do Pilar — 완벽한 야경</div><div class="tl-desc">동 루이스 다리 & 포르투 스카이라인 <b>최고의 야경 포인트</b>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">21:30</div><div class="tl-content"><div class="tl-title">🌉 다리 2층 횡단 → 상벤투 방향 야경 산책 → 숙소</div><div class="tl-desc">야경 피날레.</div></div></div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">💡 오늘의 핵심 팁</div>
+    <ul>
+      <li><b>⚠️ 필수 예약</b>: 렐루 14:45 · 볼사 17:15 슬롯. 미리 시간 확정.</li>
+      <li><b>💡 회랑(Claustros)</b>: 입장료 €3, 절대 돈 아깝지 않은 <b>포르투 최고 포토스팟</b>.</li>
+      <li><b>🚠 가이아 케이블카</b>: 일몰 전후 줄 발생. <b>편도 티켓 미리 구매</b>.</li>
+    </ul>
+  </div>
+
+  <div class="day-footer"><span><b>DAY 7</b> · Porto City Core</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+<!-- ========================================= -->
+<!-- DAY 8                                        -->
+<!-- ========================================= -->
+<section class="page region-porto compact ultra">
+  <div class="day-header">
+    <div>
+      <div class="tag">Aveiro · Costa Nova · Continente Shopping</div>
+      <h2><span class="day-num">DAY 08</span>남쪽 해안 루프 &amp; Continente 쇼핑</h2>
+    </div>
+    <div class="date-badge"><div class="date">5 / 8</div><div class="weekday">Friday · 금</div></div>
+  </div>
+
+  <div class="day-meta">
+    <div class="dm"><div class="dm-icon">🚗</div><div class="dm-text"><div class="dm-label">MOVE</div><div class="dm-value">렌트카 · 약 160km</div></div></div>
+    <div class="dm"><div class="dm-icon">🏨</div><div class="dm-text"><div class="dm-label">STAY (3/4)</div><div class="dm-value">Porto Airbnb</div></div></div>
+    <div class="dm"><div class="dm-icon">🛒</div><div class="dm-text"><div class="dm-label">SHOPPING</div><div class="dm-value">17:00 Continente GaiaShopping</div></div></div>
+  </div>
+
+  <div class="day-theme">
+    <div class="theme-label">TODAY'S THEME</div>
+    <div class="theme-text">바위 예배당 → <b>코스타노바 줄무늬 집(오전 순광!)</b> → 아베이루 운하 &amp; 오보스 몰레스 → Foz 등대 → <b>Continente 쇼핑(포트와인+기념품)</b> → 시내 야경 피날레. 일방향 남쪽 루프.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item meal"><div class="tl-time">08:00</div><div class="tl-content"><div class="tl-title">🍳 조식: CA Downtown (1시간 조기)</div><div class="tl-desc">든든하게 먹고 렌트카 탑승.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">09:00</div><div class="tl-content"><div class="tl-title">🚗 포르투 출발 남하 (A29)</div><div class="tl-desc">A1/A29 경유.</div></div></div>
+    <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-content"><div class="tl-title">🌊 Capela do Senhor da Pedra — 바다 위 바위 예배당 ⭐⭐⭐</div><div class="tl-desc">포르투 최고 포토스팟. <b>썰물 때 걸어들어갈 수 있음</b>. 30분.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">10:15</div><div class="tl-content"><div class="tl-title">🚗 코스타노바 이동 (55km, 45분)</div><div class="tl-desc">A29 남행. 대서양 해안으로.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-content"><div class="tl-title">🏖️ 💎 코스타노바 줄무늬 판잣집 — <b>오전 순광 포토 투어</b></div><div class="tl-desc">19세기 어부 집. <span class="hl">Av. José Estevão 오전 햇빛이 컬러 대비 극대화</span>. 해변 산책 포함 45분.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:45</div><div class="tl-content"><div class="tl-title">🗼 Farol da Barra (일랴부 등대)</div><div class="tl-desc">포르투갈 최고(最高) 등대. 포토 스톱 15분.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">12:15</div><div class="tl-content"><div class="tl-title">🚗 아베이루 이동 (15km, 20분)</div><div class="tl-desc">해안도로 → 내륙 운하 도시로.</div></div></div>
+    <div class="tl-item"><div class="tl-time">12:35</div><div class="tl-content"><div class="tl-title">🌉 Ponte do Laço de Amizade (우정의 매듭 다리)</div><div class="tl-desc">컬러풀 리본 물결 인증샷.</div></div></div>
+    <div class="tl-item"><div class="tl-time">12:45</div><div class="tl-content"><div class="tl-title">🚶 아베이루 운하 산책 + 🚤 몰리세이로 감상 (지상)</div><div class="tl-desc">알록달록 곤돌라형 배 — <b>지상 관람이 포토 퀄리티 더 좋음</b>.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">13:15</div><div class="tl-content"><div class="tl-title">🍽️ 점심: Salpoente</div><div class="tl-desc">아베이루 대표 해산물 레스토랑. 바칼라우·새우밥 추천.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">14:30</div><div class="tl-content"><div class="tl-title">🥮 💎 Confeitaria Peixinho (1856 원조) — 오보스 몰레스</div><div class="tl-desc">수녀원 레시피 계란노른자 디저트. <b>대나무 상자(barrica) €10~15</b> 기념품 완벽.</div></div></div>
+    <div class="tl-item"><div class="tl-time">14:50</div><div class="tl-content"><div class="tl-title">🚉 아베이루 중앙역 아줄레주 + 아르누보 건축 산책</div><div class="tl-desc">20세기 초 청색 아줄레주 · Av. Dr. Lourenço Peixinho 아르누보 건물.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">15:30</div><div class="tl-content"><div class="tl-title">🚗 포르투 복귀 (75km, 55분)</div><div class="tl-desc">A1 북상.</div></div></div>
+    <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-content"><div class="tl-title">🌊 ⭐ Pérgola da Foz + Farolim de Felgueiras</div><div class="tl-desc">노란 낭만 산책로 + 강·바다 방파제 등대. <span class="hl">⚠️ 거친 파도 거리 유지</span>. 20분.</div></div></div>
+    <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><div class="tl-title">🛒 ⭐⭐ Continente GaiaShopping — 포트와인 &amp; 기념품 쇼핑 (1h)</div><div class="tl-desc"><b>포트와인·통조림·올리브오일·커피·초콜릿</b> 한번에. 🅿️ <b>무료 주차</b> · 렌트카 트렁크 직행. 상세 리스트는 <b>p.3 쇼핑 가이드</b> 참고.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">18:00</div><div class="tl-content"><div class="tl-title">🚗 Cais de Gaia 공영주차장 이동 (차 7분)</div><div class="tl-desc">쇼핑 짐 트렁크에 두고 시내 진입.</div></div></div>
+    <div class="tl-item"><div class="tl-time">18:15</div><div class="tl-content"><div class="tl-title">📸 💎 Half Rabbit (하프 래빗) 벽화</div><div class="tl-desc">케이블카 하차장 뒤 골목 · 쓰레기로 만든 토끼 반쪽 정크아트.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">18:30</div><div class="tl-content"><div class="tl-title">🍽️ 저녁: Brasão Aliados ⭐</div><div class="tl-desc">포르투 최고 프란세지냐 &amp; 스테이크. <span class="hl">⚠️ 구글맵 사전예약 필수</span>.</div></div></div>
+    <div class="tl-item"><div class="tl-time">20:00</div><div class="tl-content"><div class="tl-title">🌉 동 루이스 1세 다리 2층 상층부 도보 횡단</div><div class="tl-desc">상벤투 경유 낭만 야경 산책.</div></div></div>
+    <div class="tl-item"><div class="tl-time">20:30</div><div class="tl-content"><div class="tl-title">🌃 Jardim do Morro — 일몰 매직 아워 + 버스킹</div><div class="tl-desc">잔디밭 포르투 야경 피날레.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">21:30</div><div class="tl-content"><div class="tl-title">🚶 Cais de Gaia 주차장 복귀 → 렌트카 → 숙소</div><div class="tl-desc">쇼핑 짐과 함께 귀가.</div></div></div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">💡 오늘의 핵심 팁</div>
+    <ul>
+      <li><b>📸 코스타노바 오전 순광</b>: 11:00 Av. José Estevão 동쪽 면이 햇빛 베스트. 오후 역광 피함.</li>
+      <li><b>🥮 오보스 몰레스</b>: 유통기한 15일 — 한국 선물은 <b>출국 이틀 전 이내</b> 구매 권장.</li>
+      <li><b>🛒 Continente 쇼핑 17:00</b>: 영업 23:00까지 여유. 계산대 "Caixa de vinho"로 <b>무료 와인박스</b> 요청.</li>
+      <li><b>🚗 Cais de Gaia 공영주차</b>: WOW 대비 €1.5/h 저렴. 쇼핑 후 짐 분리 편리.</li>
+    </ul>
+  </div>
+
+  <div class="day-footer"><span><b>DAY 8</b> · Aveiro · Costa Nova · Shopping</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+<!-- ========================================= -->
+<!-- DAY 9                                        -->
+<!-- ========================================= -->
+<section class="page region-porto compact ultra">
+  <div class="day-header">
+    <div>
+      <div class="tag">North Trinity · Braga · Guimarães · Amarante</div>
+      <h2><span class="day-num">DAY 09</span>북부 3대 역사 도시 로드트립</h2>
+    </div>
+    <div class="date-badge"><div class="date">5 / 9</div><div class="weekday">Saturday · 토</div></div>
+  </div>
+
+  <div class="day-meta">
+    <div class="dm"><div class="dm-icon">🚗</div><div class="dm-text"><div class="dm-label">MOVE</div><div class="dm-value">렌트카 · 약 220km</div></div></div>
+    <div class="dm"><div class="dm-icon">🏨</div><div class="dm-text"><div class="dm-label">STAY (4/4)</div><div class="dm-value">Porto Airbnb · 마지막 밤</div></div></div>
+    <div class="dm"><div class="dm-icon">⛪</div><div class="dm-text"><div class="dm-label">HIGHLIGHT</div><div class="dm-value">봉 제수스 · 페냐 성지</div></div></div>
+  </div>
+
+  <div class="day-theme">
+    <div class="theme-label">TODAY'S THEME</div>
+    <div class="theme-text">천년의 종교 도시 <b>브라가</b> → 포르투갈의 요람 <b>기마랑이스</b> → 낭만의 타메가 강변 <b>아마란테</b>. 세계 최고 수력 푸니쿨라, 페냐 성지 거석 동굴, 포르투갈 탄생지 성벽까지.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item transit"><div class="tl-time">09:00</div><div class="tl-content"><div class="tl-title">🚗 포르투 → 브라가 봉 제수스 (50분)</div><div class="tl-desc">A3 고속도로 북상.</div></div></div>
+    <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-content"><div class="tl-title">🚠 봉 제수스 두 몬치 — 세계 최고 수력 푸니쿨라 ⭐</div><div class="tl-desc">1882년 개통 · <b>오직 물의 무게만으로</b> 움직이는 푸니쿨라. 바로크 지그재그 계단 하산.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">11:00</div><div class="tl-content"><div class="tl-title">🚗 브라가 구시가 주차 (Parque Campo da Vinha)</div><div class="tl-desc">구시가 공영 주차장.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:15</div><div class="tl-content"><div class="tl-title">🏛️ Arco da Porta Nova + 브라가 시청 광장</div><div class="tl-desc">구시가 관문 통과. 신고전주의 시청사.</div></div></div>
+    <div class="tl-item"><div class="tl-time">11:45</div><div class="tl-content"><div class="tl-title">⛪ 브라가 대성당 (Sé de Braga)</div><div class="tl-desc"><b>포르투갈에서 가장 오래된 대성당</b>(1089). 쌍둥이 오르간 관람.</div></div></div>
+    <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-content"><div class="tl-title">🌺 Jardim de Santa Bárbara + 브라가 타워</div><div class="tl-desc">중세 주교궁 정원 · 타워에서 구시가 내려다보기.</div></div></div>
+    <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-content"><div class="tl-title">💎 Palácio do Raio (라이우 궁전)</div><div class="tl-desc"><b>무어풍 바로크 양식 아줄레주</b> 외관이 강렬. 많은 여행자가 모르는 숨은 보석.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">13:15</div><div class="tl-content"><div class="tl-title">🍽️ 브라가 점심 (Frigideiras do Cantinho · Bira dos Namorados)</div><div class="tl-desc">구시가 자유 식사.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">14:15</div><div class="tl-content"><div class="tl-title">🚗 브라가 → 기마랑이스 페냐 성지 (40분)</div><div class="tl-desc"><span class="hl">💡 산 정상부터 먼저 공략</span>하는 것이 효율적!</div></div></div>
+    <div class="tl-item"><div class="tl-time">14:55</div><div class="tl-content"><div class="tl-title">⛰️ 💎 페냐 성지 (Santuário da Penha) — 정상 파노라마 + 거석 동굴</div><div class="tl-desc">기마랑이스 최고 뷰포인트. <b>거대 암석 틈새 동굴 탐험</b> 포함.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">15:45</div><div class="tl-content"><div class="tl-title">🚗 페냐 하산 → 기마랑이스 구시가 초입 주차</div><div class="tl-desc">구시가 공영 주차장.</div></div></div>
+    <div class="tl-item"><div class="tl-time">16:00</div><div class="tl-content"><div class="tl-title">📍 포르투갈 탄생지 성벽 — "Aqui Nasceu Portugal"</div><div class="tl-desc"><b>포르투갈이 여기서 태어났다</b> 비석 인증샷. 1139년 아폰수 엔히케스 초대 왕 탄생지.</div></div></div>
+    <div class="tl-item"><div class="tl-time">16:15</div><div class="tl-content"><div class="tl-title">⛲ Largo da Oliveira (올리베이라 광장) + Padrão do Salado</div><div class="tl-desc">올리브나무 광장 · 십자군 승리 기념비.</div></div></div>
+    <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-content"><div class="tl-title">🏘️ 기마랑이스 구시가 — UNESCO 중세 아치 골목</div><div class="tl-desc">고즈넉한 중세 분위기.</div></div></div>
+    <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><div class="tl-title">🏰 Paço dos Duques de Bragança + 기마랑이스 성</div><div class="tl-desc">브라간사 공작 궁전 + 톱니 요새. 아폰수 엔히케스 고향.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">17:45</div><div class="tl-content"><div class="tl-title">🚗 기마랑이스 → 아마란테 (40분)</div><div class="tl-desc">A7 → A4 남동행.</div></div></div>
+    <div class="tl-item"><div class="tl-time">18:25</div><div class="tl-content"><div class="tl-title">🌉 아마란치 구시가 + Ponte de São Gonçalo 상 곤살루 다리</div><div class="tl-desc">로맨틱한 타메가 강변 산책. 동화 같은 분위기.</div></div></div>
+    <div class="tl-item meal"><div class="tl-time">19:00</div><div class="tl-content"><div class="tl-title">🥖 아마란테 피크닉 간식 구매 + 저녁 휴식</div><div class="tl-desc">Padaria e Pastelaria da Ponte 등. <span class="hl">⚠️ 상점 19시 마감</span> — 미리 확보.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">20:00</div><div class="tl-content"><div class="tl-title">🚗 아마란테 → 포르투 복귀 (약 1시간)</div><div class="tl-desc">A4 서행. 포르투 마지막 밤.</div></div></div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">💡 오늘의 핵심 팁</div>
+    <ul>
+      <li><b>📌 봉 제수스 순서</b>: 빛 방향상 <b>반드시 오전</b> 먼저 다녀올 것.</li>
+      <li><b>🚗 동선 치트키</b>: 브라가 → 기마랑이스 시내 거치지 말고 <b>산 정상 페냐 성지 먼저</b>가 훨씬 효율적.</li>
+      <li><b>🥖 아마란테 마감</b>: 상점들 19시 마감. 피크닉/저녁 식량 미리 확보.</li>
+      <li><b>💎 라이우 궁전</b>: 많은 여행자가 놓침. 브라가 대성당에서 도보 3분.</li>
+    </ul>
+  </div>
+
+  <div class="day-footer"><span><b>DAY 9</b> · North Historic Trinity</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+<!-- ========================================= -->
+<!-- DAY 10                                       -->
+<!-- ========================================= -->
+<section class="page region-porto">
+  <div class="day-header">
+    <div>
+      <div class="tag">Return · Porto → Lisbon → Incheon</div>
+      <h2><span class="day-num">DAY 10</span>귀국의 날</h2>
+    </div>
+    <div class="date-badge"><div class="date">5 / 10</div><div class="weekday">Sunday · 일</div></div>
+  </div>
+
+  <div class="day-meta">
+    <div class="dm"><div class="dm-icon">🚗</div><div class="dm-text"><div class="dm-label">MOVE</div><div class="dm-value">렌트카 · 약 320km</div></div></div>
+    <div class="dm"><div class="dm-icon">✈️</div><div class="dm-text"><div class="dm-label">FLIGHT</div><div class="dm-value">KE922 직항 · 22:10 LIS</div></div></div>
+    <div class="dm"><div class="dm-icon">🔑</div><div class="dm-text"><div class="dm-label">RETURN</div><div class="dm-value">17:00 렌트카 반납</div></div></div>
+  </div>
+
+  <div class="day-theme">
+    <div class="theme-label">TODAY'S THEME</div>
+    <div class="theme-text">포르투 → 리스본 공항까지 약 320km(3시간). 여유 있게 조식 → 드라이브 → 반납 → 체크인 → 직항 귀국.</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item meal"><div class="tl-time">09:00</div><div class="tl-content"><div class="tl-title">☕ 포르투 조식 + 마지막 산책</div><div class="tl-desc">Ribeira 강변 카페에서 파스텔 데 나타 한 번 더. 짐 정리.</div></div></div>
+    <div class="tl-item hotel"><div class="tl-time">11:00</div><div class="tl-content"><div class="tl-title">🏨 에어비앤비 체크아웃</div><div class="tl-desc">호스트에게 열쇠 반납. 주유소 방문(공항 반납 전 Full Tank 필수).</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">14:00</div><div class="tl-content"><div class="tl-title">🚗 포르투 → 리스본 공항 (320km)</div><div class="tl-desc">A1 고속도로 직진. 소요 약 3시간. 휴게소 1회 휴식.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">17:00</div><div class="tl-content"><div class="tl-title">🔑 리스본 공항 렌트카 반납 (Centauro)</div><div class="tl-desc">연료 Full Tank 영수증 제시. 스크래치 확인 후 계약 종료.</div></div></div>
+    <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-content"><div class="tl-title">✈️ KE922 체크인</div><div class="tl-desc">대한항공 카운터 오픈 시간 확인. <b>부가세 환급(Tax Refund)</b> 필요 시 공항 내 키오스크.</div></div></div>
+    <div class="tl-item"><div class="tl-time">19:00</div><div class="tl-content"><div class="tl-title">🛍️ 공항 면세 + 저녁</div><div class="tl-desc">출국 심사 후 <b>포르투갈 와인 · 올리브유 · 사르데냐 통조림</b>. 저녁은 기내식 전 가볍게.</div></div></div>
+    <div class="tl-item transit"><div class="tl-time">22:10</div><div class="tl-content"><div class="tl-title">✈️ 리스본 출발 (KE922)</div><div class="tl-desc">직항 인천행. 약 13시간 비행.</div></div></div>
+    <div class="tl-item"><div class="tl-time">+1일 17:10</div><div class="tl-content"><div class="tl-title">🛬 인천국제공항 도착</div><div class="tl-desc">5/11 (월) 오후. 직장 복귀 하루 쉬기 권장.</div></div></div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">💡 오늘의 핵심 팁</div>
+    <ul>
+      <li><b>연료 Full Tank 영수증</b>은 반드시 공항 3km 이내 주유소 것으로. 없으면 페널티 청구.</li>
+      <li>리스본 공항은 <b>탑승 3시간 전 도착</b> 권장. 대한항공 카운터는 출발 4시간 전 오픈.</li>
+      <li>부가세 환급(Global Blue/Planet)은 <b>수하물 부치기 전 키오스크</b>에서 승인 도장.</li>
+      <li>와인은 <b>수하물 5병까지 안전</b>. 뽁뽁이로 포장 후 옷 사이에.</li>
+    </ul>
+  </div>
+
+  <div class="day-footer"><span><b>DAY 10</b> · Obrigado, Portugal 🇵🇹</span><span class="brand">PORTUGAL 2026</span></div>
+</section>
+
+</body>
+</html>

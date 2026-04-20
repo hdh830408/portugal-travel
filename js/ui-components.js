@@ -136,38 +136,125 @@ function renderSchedule() {
   const container = document.getElementById('scheduleList');
   if (!container) return;
   
-  container.innerHTML = APP_DATA.itinerary.map(d => `
-    <div class="day-card-full">
+  // Load Day 8 custom schedule from localStorage if it exists
+  const customDay8 = localStorage.getItem('day8_schedule');
+  let day8ScheduleItems = [];
+  if (customDay8) {
+    try {
+      day8ScheduleItems = JSON.parse(customDay8);
+    } catch(e) {}
+  }
+
+  container.innerHTML = APP_DATA.itinerary.map(d => {
+    let scheduleData = d.schedule;
+    if (d.day === 'DAY 8' && day8ScheduleItems.length > 0) {
+      scheduleData = day8ScheduleItems;
+    }
+
+    const editBtnHtml = d.day === 'DAY 8' 
+      ? `<button class="schedule-edit-btn" onclick="event.stopPropagation(); UI.editDay8Schedule(this)" style="margin-left:auto;margin-right:8px;">✏️ 수정</button>` 
+      : `<div style="margin-left:auto;"></div>`; // push chevron to right
+
+    return `
+    <div class="day-card-full" id="schedule-${d.day.replace(' ', '')}">
       <div class="day-card-header" onclick="toggleDay(this)">
         <span class="dc-num">${d.day}</span>
         <span class="dc-title">${esc(d.title)}</span>
+        ${editBtnHtml}
         <span class="dc-chevron">▼</span>
       </div>
       <div class="day-card-body">
-        ${d.schedule.map(s => `
-          <div class="schedule-item">
-            <span class="sched-time">${s.time||''}</span>
-            <span class="sched-activity">${esc(s.activity)}</span>
-          </div>
-        `).join('')}
+        <div class="schedule-list-container">
+          ${scheduleData.map(s => `
+            <div class="schedule-item">
+              <span class="sched-time">${s.time||''}</span>
+              <span class="sched-activity">${esc(s.activity)}</span>
+            </div>
+          `).join('')}
+        </div>
         ${d.tips?.map(t => `<div class="tip-box">${esc(t)}</div>`).join('') || ''}
         <div style="font-size:11px;color:var(--muted);margin-top:8px">${esc(d.transport||'')}</div>
       </div>
     </div>
-  `).join('');
+  `}).join('');
+}
+
+function editDay8Schedule(btn) {
+  const cardFull = btn.closest('.day-card-full');
+  const body = cardFull.querySelector('.day-card-body');
+  
+  // Header should remain open
+  const header = cardFull.querySelector('.day-card-header');
+  if(!header.classList.contains('open')) {
+    header.classList.add('open');
+    body.classList.add('open');
+  }
+
+  // Get current data
+  let customDay8 = localStorage.getItem('day8_schedule');
+  let day8ScheduleItems = [];
+  if (customDay8) {
+    try { day8ScheduleItems = JSON.parse(customDay8); } catch(e){}
+  } else {
+    const defaultData = APP_DATA.itinerary.find(d => d.day === 'DAY 8');
+    if(defaultData) day8ScheduleItems = defaultData.schedule;
+  }
+
+  let textContent = day8ScheduleItems.map(s => `${s.time} - ${s.activity}`).join('\n');
+
+  body.innerHTML = `
+    <div class="schedule-editor-area" onclick="event.stopPropagation()">
+      <div style="font-size:12px;color:var(--accent);margin-bottom:8px;font-weight:700;">자유롭게 나만의 일정을 작성하세요.<br><span style="color:var(--muted);font-weight:400;font-size:11px;">형식: "시간 - 할 일" (예: 15:00 - 카페 가기)</span></div>
+      <textarea id="day8Editor" class="schedule-textarea" rows="10">${textContent}</textarea>
+      <div class="schedule-editor-actions">
+        <button class="btn-cancel" onclick="UI.renderSchedule()">취소</button>
+        <button class="btn-save" onclick="UI.saveDay8Schedule()">저장</button>
+      </div>
+    </div>
+  `;
+}
+
+function saveDay8Schedule() {
+  const textarea = document.getElementById('day8Editor');
+  if (!textarea) return;
+
+  const lines = textarea.value.split('\n').filter(l => l.trim() !== '');
+  const parsedItems = lines.map(line => {
+    const parts = line.split('-');
+    if (parts.length > 1) {
+      const time = parts[0].trim();
+      const activity = parts.slice(1).join('-').trim();
+      return { time, activity };
+    } else {
+      return { time: '•', activity: line.trim() };
+    }
+  });
+
+  localStorage.setItem('day8_schedule', JSON.stringify(parsedItems));
+  if (typeof UI.showToast === 'function') UI.showToast('✅ DAY 8 일정이 저장되었습니다.');
+  else if (typeof Toast !== 'undefined' && Toast.show) Toast.show('✅ DAY 8 일정이 저장되었습니다.');
+  
+  if (typeof UI !== 'undefined' && UI.renderSchedule) UI.renderSchedule();
 }
 
 function renderRoute(routesData) {
   const container = document.getElementById('routeContent');
   if (!container) return;
 
-  const data = routesData[AppState.route.day];
+  const currentDay = AppState.route.day;
+  let data = routesData[currentDay];
   if (!data) return;
+
+  const customRouteJson = localStorage.getItem('route_' + currentDay.replace(' ', ''));
+  if (customRouteJson) {
+    try { data = JSON.parse(customRouteJson); } catch(e) {}
+  }
   
   let html = `<div class="route-container">`;
-  html += `<div class="route-summary">
+  html += `<div class="route-summary" style="position:relative;">
     <div class="route-summary-title">${data.title}</div>
     <div class="route-summary-text">${data.subtitle}</div>
+    <button class="schedule-edit-btn" onclick="UI.editRoute()" style="position:absolute; top: 12px; right: 12px; background: rgba(46,196,160,.15); border: 1px solid rgba(46,196,160,.3); color: var(--teal);">✏️ 수정</button>
   </div>`;
   
   data.sections.forEach((section, idx) => {
@@ -212,6 +299,244 @@ function renderRoute(routesData) {
   
   html += `</div>`;
   container.innerHTML = html;
+}
+
+function editRoute() {
+  const container = document.getElementById('routeContent');
+  const currentDay = AppState.route.day;
+  
+  let data = ROUTES[currentDay];
+  const customRouteJson = localStorage.getItem('route_' + currentDay.replace(' ', ''));
+  if (customRouteJson) {
+    try { data = JSON.parse(customRouteJson); } catch(e) {}
+  }
+  
+  if (!data) return;
+
+  let textContent = '';
+  data.sections.forEach(sec => {
+    textContent += `[${sec.title}]\n`;
+    const placesList = sec.placeIds || sec.places || [];
+    const placeNames = placesList.map(item => {
+      if (sec.placeIds && typeof MASTER_PLACES !== 'undefined' && MASTER_PLACES[item]) return MASTER_PLACES[item].name;
+      return item;
+    });
+    textContent += placeNames.join(' -> ') + '\n\n';
+  });
+
+  container.innerHTML = `
+    <div class="route-container">
+      <div class="schedule-editor-area" style="border-radius: 8px; border-top: none;">
+        <div style="font-size:12px;color:var(--teal);margin-bottom:8px;font-weight:700;">
+          동선을 자유롭게 편집하세요.<br>
+          <span style="color:var(--muted);font-weight:400;font-size:11px;">형식: [1단계: 제목]<br>장소1 -> 장소2 -> 장소3</span>
+        </div>
+        <textarea id="routeEditor" class="schedule-textarea" rows="12">${textContent.trim()}</textarea>
+        <div class="schedule-editor-actions">
+          <button class="btn-cancel" onclick="UI.renderRoute(ROUTES)">취소</button>
+          <button class="btn-save" style="background:var(--teal);color:#000;" onclick="UI.saveRoute()">저장</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function saveRoute() {
+  const textarea = document.getElementById('routeEditor');
+  if (!textarea) return;
+
+  const currentDay = AppState.route.day;
+  const originalData = ROUTES[currentDay];
+  
+  const text = textarea.value;
+  const lines = text.split('\n').filter(l => l.trim() !== '');
+  
+  const newSections = [];
+  let currentSection = null;
+  
+  lines.forEach(line => {
+    const t = line.trim();
+    if (t.startsWith('[') && t.endsWith(']')) {
+      if (currentSection) newSections.push(currentSection);
+      currentSection = {
+        icon: "📍", 
+        title: t.substring(1, t.length - 1),
+        time: "",
+        places: [],
+        highlights: []
+      };
+    } else {
+      if (!currentSection) {
+        currentSection = { icon: "📍", title: "사용자 커스텀 단계", time: "", places: [], highlights: [] };
+      }
+      const pArr = t.split(/->|,/).map(x => x.trim()).filter(x => x);
+      currentSection.places.push(...pArr);
+    }
+  });
+  if (currentSection) newSections.push(currentSection);
+  
+  const newData = Object.assign({}, originalData, { sections: newSections });
+  
+  localStorage.setItem('route_' + currentDay.replace(' ', ''), JSON.stringify(newData));
+  
+  if (typeof UI.showToast === 'function') UI.showToast('✅ 동선이 저장되었습니다.');
+  else if (typeof Toast !== 'undefined' && Toast.show) Toast.show('✅ 동선이 저장되었습니다.');
+  
+  if (typeof UI !== 'undefined' && UI.renderRoute) UI.renderRoute(ROUTES);
+}
+
+function openPlaceEditor(defaultType) {
+  const modal = document.getElementById('placeEditorModal');
+  if (modal) {
+    document.getElementById('peName').value = '';
+    document.getElementById('peType').value = defaultType === 'landmark' ? 'landmark' : 'cafe';
+    const activeDay = AppState.filters[AppState.tab]?.day;
+    document.getElementById('peDay').value = (activeDay && activeDay !== 'all') ? activeDay : 'DAY 1';
+    document.getElementById('peRating').value = '';
+    document.getElementById('pePrice').value = '';
+    document.getElementById('peHours').value = '';
+    document.getElementById('peAddress').value = '';
+    document.getElementById('peDesc').value = '';
+    document.getElementById('peUrl').value = '';
+    modal.classList.add('open');
+  }
+}
+
+function closePlaceEditor() {
+  const modal = document.getElementById('placeEditorModal');
+  if (modal) modal.classList.remove('open');
+}
+
+async function fetchGoogleMapsData() {
+  const urlEl = document.getElementById('peUrl');
+  if (!urlEl || !urlEl.value) {
+    if (typeof UI !== 'undefined' && UI.showToast) UI.showToast('⚠️ 구글 지도 URL을 입력해주세요.');
+    return;
+  }
+  
+  const url = urlEl.value.trim();
+  try {
+    if (typeof UI !== 'undefined' && UI.showToast) UI.showToast('⏳ URL 정보 분석 중...');
+    
+    let targetUrl = url;
+    
+    // 단축 URL인 경우 unshorten.me API를 활용
+    if (url.includes('goo.gl') || url.includes('maps.app.goo.gl')) {
+      try {
+        const unshortenRes = await fetch('https://unshorten.me/json/' + url);
+        if (unshortenRes.ok) {
+          const unshortenData = await unshortenRes.json();
+          if (unshortenData.resolved_url) targetUrl = unshortenData.resolved_url;
+        }
+      } catch (e) { console.warn('Unshorten failed', e); }
+    }
+    
+    // URL에서 상호명 1차 추출 시도 (/place/상호명)
+    let decoded = '';
+    try { decoded = decodeURIComponent(targetUrl); } catch(e) { decoded = targetUrl; }
+    
+    const placeMatch = decoded.match(/\/place\/([^\/]+)/);
+    let extractedName = '';
+    if (placeMatch) {
+      extractedName = placeMatch[1].replace(/\+/g, ' ');
+      try { extractedName = decodeURIComponent(extractedName); } catch(e){}
+    }
+    
+    let success = false;
+    
+    // 스크래핑 우회 시도 (CORS 프록시)
+    try {
+      const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(targetUrl);
+      const response = await fetch(proxyUrl);
+      if (response.ok) {
+        const htmlText = await response.text();
+        const titleMatch = htmlText.match(/<meta[^>]*property=\"og:title\"[^>]*content=\"([^\"]+)\"/i);
+        const descMatch = htmlText.match(/<meta[^>]*property=\"og:description\"[^>]*content=\"([^\"]+)\"/i);
+        
+        let gTitle = titleMatch ? titleMatch[1] : '';
+        let gDesc = descMatch ? descMatch[1] : '';
+        gTitle = gTitle.replace('· Google Maps', '').replace('- Google Maps', '').trim();
+        
+        if (gTitle && gTitle !== 'Google Maps') {
+          document.getElementById('peName').value = gTitle;
+          success = true;
+        }
+        
+        if (gDesc) {
+          const parts = gDesc.split('·').map(s => s.trim());
+          const starsStr = parts.find(p => p.includes('★'));
+          if (starsStr) {
+            const starCount = (starsStr.match(/★/g) || []).length;
+            if (starCount > 0) document.getElementById('peRating').value = starCount + '.0';
+          }
+          const addressCand = parts.find(p => p.includes(',') || p.match(/[0-9]/) && !p.includes('리뷰'));
+          if (addressCand) document.getElementById('peAddress').value = addressCand;
+        }
+      }
+    } catch(e) {
+      console.warn('Scraping proxy failed or blocked by Google Maps CORS.');
+    }
+    
+    // 스크래핑 실패했으나 URL에서 이름은 건진 경우
+    if (!success && extractedName && !extractedName.includes('http')) {
+      document.getElementById('peName').value = extractedName;
+      if (typeof UI !== 'undefined' && UI.showToast) UI.showToast('✨ 추출 성공! (구글 보안으로 상세정보는 막혀 이름만 추출됨)');
+      return;
+    }
+    
+    if (success) {
+      if (typeof UI !== 'undefined' && UI.showToast) UI.showToast('✨ 성공적으로 분석되었습니다!');
+    } else {
+      throw new Error('All parsing attempts failed');
+    }
+    
+  } catch (error) {
+    console.error('Map scrape error', error);
+    if (typeof UI !== 'undefined' && UI.showToast) UI.showToast('⚠️ 구글 차단으로 보안 파싱 실패. 직접 입력해주세요.');
+  }
+}
+
+function saveCustomPlace() {
+  const name = document.getElementById('peName').value.trim();
+  if(!name) { alert('장소 이름을 입력해주세요!'); return; }
+  
+  const place = {
+    name: name,
+    type: document.getElementById('peType').value,
+    rating: parseFloat(document.getElementById('peRating').value) || 0,
+    price: document.getElementById('pePrice').value || '',
+    hours: document.getElementById('peHours').value || '',
+    address: document.getElementById('peAddress').value || '',
+    description: document.getElementById('peDesc').value || '',
+    days: [document.getElementById('peDay').value],
+    searchName: name
+  };
+  
+  let customPlaces = [];
+  try {
+    const customPlacesJson = localStorage.getItem('custom_places');
+    if (customPlacesJson) customPlaces = JSON.parse(customPlacesJson);
+  } catch(e){}
+  
+  customPlaces.push(place);
+  localStorage.setItem('custom_places', JSON.stringify(customPlaces));
+  
+  PLACES.push(place);
+  if (typeof DataService !== 'undefined') {
+    DataService.initializeIdSystem();
+    DataService.buildMasterData();
+    DataService.buildAppData();
+  }
+  
+  closePlaceEditor();
+  if (typeof UI !== 'undefined' && UI.showToast) UI.showToast('✅ 새로운 장소가 추가되었습니다!');
+  
+  if (typeof UI !== 'undefined' && UI.renderCustomFilters) UI.renderCustomFilters();
+  if (place.type === 'landmark') {
+    if (typeof UI !== 'undefined' && UI.renderLandmarks) UI.renderLandmarks();
+  } else {
+    if (typeof UI !== 'undefined' && UI.renderPlaces) UI.renderPlaces();
+  }
 }
 
 function renderSaved() {
@@ -439,5 +764,13 @@ const UI = {
   closeTagPopup,
   setupEventDelegation,
   renderSkeleton,
-  addAIMessage
+  addAIMessage,
+  editDay8Schedule,
+  saveDay8Schedule,
+  editRoute,
+  saveRoute,
+  openPlaceEditor,
+  closePlaceEditor,
+  fetchGoogleMapsData,
+  saveCustomPlace
 };
