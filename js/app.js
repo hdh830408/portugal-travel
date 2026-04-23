@@ -184,28 +184,19 @@ function showNearbyPlacesFromUser(lat, lng) {
 function setupSubscriptions() {
   // 1. 탭 변경
   Store.subscribe('tabChange', (tab) => {
-<<<<<<< HEAD
     document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const targetPage = document.getElementById('page-' + tab);
     if (targetPage) targetPage.classList.add('active');
-=======
-    document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', ['food','landmark','schedule','route','saved','carhotel'][i] === tab));
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + tab).classList.add('active');
->>>>>>> 3830c2bb584d369ad44ff7c4a41dff3a32e3285f
     
     if (tab === 'landmark') UI.renderLandmark();
     if (tab === 'saved') UI.renderSaved();
     if (tab === 'route') UI.renderRoute(ROUTES);
     if (tab === 'schedule') UI.renderSchedule();
     if (tab === 'food') UI.renderFood();
-<<<<<<< HEAD
     if (tab === 'museum') renderMuseumPins();
     if (tab === 'batalha') renderBatalhaPins();
     if (tab === 'alcobaca') renderAlcobacaPins();
-=======
->>>>>>> 3830c2bb584d369ad44ff7c4a41dff3a32e3285f
   });
 
   // 2. 맛집 필터 변경
@@ -386,7 +377,6 @@ window.toggleDay = toggleDay;
 window.updateModalSaveBtn = updateModalSaveBtn;
 window.toggleSaveFromGuide = toggleSaveFromGuide;
 
-<<<<<<< HEAD
 function renderMuseumPins() {
   const wrapper = document.getElementById('museumMapWrapper');
   if (!wrapper || wrapper.dataset.rendered === 'true') return;
@@ -395,6 +385,7 @@ function renderMuseumPins() {
   if (typeof MUSEUM_ROUTE_DATA === 'undefined') return;
 
   MUSEUM_ROUTE_DATA.forEach(data => {
+    // 핀 생성
     const pin = document.createElement('div');
     pin.className = 'museum-pin';
     pin.style.left = data.x;
@@ -402,6 +393,15 @@ function renderMuseumPins() {
     pin.textContent = data.id;
     pin.onclick = () => openMuseumModal(data.id);
     wrapper.appendChild(pin);
+    
+    // 라벨 생성
+    const label = document.createElement('div');
+    label.className = 'museum-pin-label';
+    label.style.left = data.x;
+    label.style.top = `calc(${data.y} + 18px)`;
+    const shortName = data.title.replace(/^\d+\.\s*/, '').split(' —')[0];
+    label.textContent = shortName;
+    wrapper.appendChild(label);
   });
 }
 
@@ -434,6 +434,7 @@ function renderBatalhaPins() {
   if (typeof BATALHA_ROUTE_DATA === 'undefined') return;
 
   BATALHA_ROUTE_DATA.forEach(data => {
+    // 핀 생성
     const pin = document.createElement('div');
     pin.className = 'museum-pin';
     pin.style.left = data.x;
@@ -441,6 +442,15 @@ function renderBatalhaPins() {
     pin.textContent = data.id;
     pin.onclick = () => openBatalhaModal(data.id);
     wrapper.appendChild(pin);
+    
+    // 라벨 생성
+    const label = document.createElement('div');
+    label.className = 'museum-pin-label';
+    label.style.left = data.x;
+    label.style.top = `calc(${data.y} + 18px)`;
+    const shortName = data.title.replace(/^\d+\.\s*/, '').split(' —')[0];
+    label.textContent = shortName;
+    wrapper.appendChild(label);
   });
 }
 
@@ -473,6 +483,7 @@ function renderAlcobacaPins() {
   if (typeof ALCOBACA_ROUTE_DATA === 'undefined') return;
 
   ALCOBACA_ROUTE_DATA.forEach(data => {
+    // 핀 생성
     const pin = document.createElement('div');
     pin.className = 'museum-pin';
     pin.style.left = data.x;
@@ -480,6 +491,15 @@ function renderAlcobacaPins() {
     pin.textContent = data.id;
     pin.onclick = () => openAlcobacaModal(data.id);
     wrapper.appendChild(pin);
+    
+    // 라벨 생성
+    const label = document.createElement('div');
+    label.className = 'museum-pin-label';
+    label.style.left = data.x;
+    label.style.top = `calc(${data.y} + 18px)`;
+    const shortName = data.title.replace(/^\d+\.\s*/, '').split(' —')[0];
+    label.textContent = shortName;
+    wrapper.appendChild(label);
   });
 }
 
@@ -504,6 +524,4 @@ function openAlcobacaModal(id) {
 
 window.openAlcobacaModal = openAlcobacaModal;
 
-=======
->>>>>>> 3830c2bb584d369ad44ff7c4a41dff3a32e3285f
 document.addEventListener('DOMContentLoaded', init);

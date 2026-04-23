@@ -1,0 +1,41 @@
+  font-size: 10px;
+  font-weight: 800;
+  vertical-align: middle;
+  margin-left: 6px;
+  line-height: normal;
+}
+.lc-badge::before { content: '💳'; margin-right: 3px; }
+<<<<<<< HEAD
+
+/* ── MUSEUM PIN ── */
+.museum-pin {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: var(--red);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 10;
+}
+.museum-pin:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  background: var(--gold);
+  border-color: #000;
+  color: #000;
+  z-index: 11;
+}
+.museum-pin:active {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+=======
+>>>>>>> 3830c2bb584d369ad44ff7c4a41dff3a32e3285f

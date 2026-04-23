@@ -1,4 +1,6 @@
-const BATALHA_ROUTE_DATA = [
+import os
+
+data_content = """const BATALHA_ROUTE_DATA = [
   {
     id: 1,
     title: "1. 서쪽 광장 & 외관 감상",
@@ -63,3 +65,9 @@ const BATALHA_ROUTE_DATA = [
     x: "70%", y: "90%"
   }
 ];
+"""
+
+with open(r"c:\Users\skplanet\Downloads\portugal-travel-main\js\batalha_data.js", "w", encoding="utf-8") as f:
+    f.write(data_content)
+
+print("success!")

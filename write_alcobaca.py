@@ -1,4 +1,6 @@
-const ALCOBACA_ROUTE_DATA = [
+import os
+
+data_content = """const ALCOBACA_ROUTE_DATA = [
   {
     id: 1,
     title: "1. 정면 파사드 — 세 시대의 만남",
@@ -70,3 +72,9 @@ const ALCOBACA_ROUTE_DATA = [
     x: "34%", y: "33%"
   }
 ];
+"""
+
+with open(r"c:\Users\skplanet\Downloads\portugal-travel-main\js\alcobaca_data.js", "w", encoding="utf-8") as f:
+    f.write(data_content)
+
+print("success!")
