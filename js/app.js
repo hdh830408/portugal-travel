@@ -384,24 +384,31 @@ function renderMuseumPins() {
 
   if (typeof MUSEUM_ROUTE_DATA === 'undefined') return;
 
+  const listWrapper = document.getElementById('museumListWrapper');
+  if (!listWrapper) return;
+
   MUSEUM_ROUTE_DATA.forEach(data => {
-    // 핀 생성
-    const pin = document.createElement('div');
-    pin.className = 'museum-pin';
-    pin.style.left = data.x;
-    pin.style.top = data.y;
-    pin.textContent = data.id;
-    pin.onclick = () => openMuseumModal(data.id);
-    wrapper.appendChild(pin);
+    const btn = document.createElement('div');
+    btn.className = 'route-list-btn';
     
-    // 라벨 생성
-    const label = document.createElement('div');
-    label.className = 'museum-pin-label';
-    label.style.left = data.x;
-    label.style.top = `calc(${data.y} + 18px)`;
-    const shortName = data.title.replace(/^\d+\.\s*/, '').split(' —')[0];
-    label.textContent = shortName;
-    wrapper.appendChild(label);
+    const num = document.createElement('div');
+    num.className = 'route-list-num';
+    num.textContent = data.id;
+    
+    const name = document.createElement('div');
+    name.className = 'route-list-name';
+    name.textContent = data.title;
+    
+    const arrow = document.createElement('div');
+    arrow.className = 'route-list-arrow';
+    arrow.textContent = '〉';
+    
+    btn.appendChild(num);
+    btn.appendChild(name);
+    btn.appendChild(arrow);
+    
+    btn.onclick = () => openMuseumModal(data.id);
+    listWrapper.appendChild(btn);
   });
 }
 
@@ -433,24 +440,31 @@ function renderBatalhaPins() {
 
   if (typeof BATALHA_ROUTE_DATA === 'undefined') return;
 
+  const listWrapper = document.getElementById('batalhaListWrapper');
+  if (!listWrapper) return;
+
   BATALHA_ROUTE_DATA.forEach(data => {
-    // 핀 생성
-    const pin = document.createElement('div');
-    pin.className = 'museum-pin';
-    pin.style.left = data.x;
-    pin.style.top = data.y;
-    pin.textContent = data.id;
-    pin.onclick = () => openBatalhaModal(data.id);
-    wrapper.appendChild(pin);
+    const btn = document.createElement('div');
+    btn.className = 'route-list-btn';
     
-    // 라벨 생성
-    const label = document.createElement('div');
-    label.className = 'museum-pin-label';
-    label.style.left = data.x;
-    label.style.top = `calc(${data.y} + 18px)`;
-    const shortName = data.title.replace(/^\d+\.\s*/, '').split(' —')[0];
-    label.textContent = shortName;
-    wrapper.appendChild(label);
+    const num = document.createElement('div');
+    num.className = 'route-list-num';
+    num.textContent = data.id;
+    
+    const name = document.createElement('div');
+    name.className = 'route-list-name';
+    name.textContent = data.title;
+    
+    const arrow = document.createElement('div');
+    arrow.className = 'route-list-arrow';
+    arrow.textContent = '〉';
+    
+    btn.appendChild(num);
+    btn.appendChild(name);
+    btn.appendChild(arrow);
+    
+    btn.onclick = () => openBatalhaModal(data.id);
+    listWrapper.appendChild(btn);
   });
 }
 
@@ -482,24 +496,31 @@ function renderAlcobacaPins() {
 
   if (typeof ALCOBACA_ROUTE_DATA === 'undefined') return;
 
+  const listWrapper = document.getElementById('alcobacaListWrapper');
+  if (!listWrapper) return;
+
   ALCOBACA_ROUTE_DATA.forEach(data => {
-    // 핀 생성
-    const pin = document.createElement('div');
-    pin.className = 'museum-pin';
-    pin.style.left = data.x;
-    pin.style.top = data.y;
-    pin.textContent = data.id;
-    pin.onclick = () => openAlcobacaModal(data.id);
-    wrapper.appendChild(pin);
+    const btn = document.createElement('div');
+    btn.className = 'route-list-btn';
     
-    // 라벨 생성
-    const label = document.createElement('div');
-    label.className = 'museum-pin-label';
-    label.style.left = data.x;
-    label.style.top = `calc(${data.y} + 18px)`;
-    const shortName = data.title.replace(/^\d+\.\s*/, '').split(' —')[0];
-    label.textContent = shortName;
-    wrapper.appendChild(label);
+    const num = document.createElement('div');
+    num.className = 'route-list-num';
+    num.textContent = data.id;
+    
+    const name = document.createElement('div');
+    name.className = 'route-list-name';
+    name.textContent = data.title;
+    
+    const arrow = document.createElement('div');
+    arrow.className = 'route-list-arrow';
+    arrow.textContent = '〉';
+    
+    btn.appendChild(num);
+    btn.appendChild(name);
+    btn.appendChild(arrow);
+    
+    btn.onclick = () => openAlcobacaModal(data.id);
+    listWrapper.appendChild(btn);
   });
 }
 
