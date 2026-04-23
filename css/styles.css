@@ -123,7 +123,11 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 }
 .tabs::-webkit-scrollbar{display:none}
 .tab{
+<<<<<<< HEAD
   flex:0 0 auto;padding:10px 16px;text-align:center;
+=======
+  flex:1;min-width:50px;padding:10px 4px;text-align:center;
+>>>>>>> 3830c2bb584d369ad44ff7c4a41dff3a32e3285f
   font-size:11px;color:var(--muted);cursor:pointer;
   border-bottom:2px solid transparent;transition:all .2s;
   white-space:nowrap;
@@ -766,6 +770,7 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
   line-height: normal;
 }
 .lc-badge::before { content: '💳'; margin-right: 3px; }
+<<<<<<< HEAD
 
 /* ── MUSEUM PIN ── */
 .museum-pin {
@@ -797,3 +802,5 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 .museum-pin:active {
   transform: translate(-50%, -50%) scale(0.9);
 }
+=======
+>>>>>>> 3830c2bb584d369ad44ff7c4a41dff3a32e3285f

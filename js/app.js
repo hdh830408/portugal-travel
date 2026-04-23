@@ -184,19 +184,28 @@ function showNearbyPlacesFromUser(lat, lng) {
 function setupSubscriptions() {
   // 1. 탭 변경
   Store.subscribe('tabChange', (tab) => {
+<<<<<<< HEAD
     document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const targetPage = document.getElementById('page-' + tab);
     if (targetPage) targetPage.classList.add('active');
+=======
+    document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', ['food','landmark','schedule','route','saved','carhotel'][i] === tab));
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + tab).classList.add('active');
+>>>>>>> 3830c2bb584d369ad44ff7c4a41dff3a32e3285f
     
     if (tab === 'landmark') UI.renderLandmark();
     if (tab === 'saved') UI.renderSaved();
     if (tab === 'route') UI.renderRoute(ROUTES);
     if (tab === 'schedule') UI.renderSchedule();
     if (tab === 'food') UI.renderFood();
+<<<<<<< HEAD
     if (tab === 'museum') renderMuseumPins();
     if (tab === 'batalha') renderBatalhaPins();
     if (tab === 'alcobaca') renderAlcobacaPins();
+=======
+>>>>>>> 3830c2bb584d369ad44ff7c4a41dff3a32e3285f
   });
 
   // 2. 맛집 필터 변경
@@ -377,6 +386,7 @@ window.toggleDay = toggleDay;
 window.updateModalSaveBtn = updateModalSaveBtn;
 window.toggleSaveFromGuide = toggleSaveFromGuide;
 
+<<<<<<< HEAD
 function renderMuseumPins() {
   const wrapper = document.getElementById('museumMapWrapper');
   if (!wrapper || wrapper.dataset.rendered === 'true') return;
@@ -494,4 +504,6 @@ function openAlcobacaModal(id) {
 
 window.openAlcobacaModal = openAlcobacaModal;
 
+=======
+>>>>>>> 3830c2bb584d369ad44ff7c4a41dff3a32e3285f
 document.addEventListener('DOMContentLoaded', init);
