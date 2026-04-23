@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a0a00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <title>포르투갈 여행</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="app">
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <h1 id="appTitle">🇵🇹 Portugal 2026</h1>
+      <div class="dates" id="appDates">May 1–10 · 9박10일 여행 가이드 (v9)</div>
+    </div>
+    <div class="header-right">
+      <button class="ai-badge" id="btnToggleAI">✨ AI Agent</button>
+      <button class="settings-btn" id="settingsBtn">⚙️</button>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <div class="tab active" data-tab="food">
+      <span class="tab-icon">🍽️</span>맛집
+    </div>
+    <div class="tab" data-tab="landmark">
+      <span class="tab-icon">🏛️</span>관광지
+    </div>
+    <div class="tab" data-tab="schedule">
+      <span class="tab-icon">📅</span>일정
+    </div>
+    <div class="tab" data-tab="route">
+      <span class="tab-icon">🗺️</span>동선
+    </div>
+    <div class="tab" data-tab="saved">
+      <span class="tab-icon">⭐</span>저장됨
+    </div>
+    <div class="tab" data-tab="carhotel">
+      <span class="tab-icon">🏨</span>예약
+    </div>
+    <div class="tab" data-tab="shopping">
+      <span class="tab-icon">🛒</span>쇼핑
+    </div>
+    <div class="tab" data-tab="museum">
+      <span class="tab-icon">🏛️</span>토마르
+    </div>
+    <div class="tab" data-tab="batalha">
+      <span class="tab-icon">🕍</span>바탈랴
+    </div>
+    <div class="tab" data-tab="alcobaca">
+      <span class="tab-icon">⛪</span>알코바사
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <!-- FOOD PAGE -->
+    <div id="page-food" class="page active">
+      <div class="search-bar">
+        <input class="search-input" placeholder="🔍 식당 이름, 주소 검색..." id="searchInput">
+        <button class="place-btn btn-map" style="width:auto;padding:0 12px;margin-left:8px;height:42px;flex-shrink:0" id="btnFindLocationFood">📍 내 주변</button>
+        <button class="place-btn" style="width:auto;padding:0 12px;margin-left:8px;height:42px;flex-shrink:0;background:rgba(46,196,160,.15);border:1px solid rgba(46,196,160,.3);color:var(--teal)" onclick="UI.openPlaceEditor('food')">➕ 추가</button>
+      </div>
+      <div class="landmark-filter-bar" id="landmarkFilterBar">
+        <span class="landmark-filter-text">📍 <span id="landmarkFilterName"></span> 근처 맛집</span>
+        <button class="landmark-filter-close" id="btnClearLandmarkFilter">✕</button>
+      </div>
+      <div class="day-pills" id="dayPills"></div>
+      <div class="cat-filter" id="catFilter"></div>
+      <div id="placeList"></div>
+    </div>
+
+    <!-- LANDMARK PAGE -->
+    <div id="page-landmark" class="page">
+      <div class="search-bar">
+        <input class="search-input" placeholder="🔍 관광지 이름, 주소 검색..." id="landmarkSearchInput">
+        <button class="place-btn btn-map" style="width:auto;padding:0 12px;margin-left:8px;height:42px;flex-shrink:0" id="btnFindLocationLandmark">📍 내 주변</button>
+        <button class="place-btn" style="width:auto;padding:0 12px;margin-left:8px;height:42px;flex-shrink:0;background:rgba(46,196,160,.15);border:1px solid rgba(46,196,160,.3);color:var(--teal)" onclick="UI.openPlaceEditor('landmark')">➕ 추가</button>
+      </div>
+      <div class="day-pills" id="landmarkDayPills"></div>
+      <div class="cat-filter" id="landmarkCatFilter"></div>
+      <div id="landmarkList"></div>
+    </div>
+
+    <!-- SCHEDULE PAGE -->
+    <div id="page-schedule" class="page">
+      <div id="scheduleList"></div>
+    </div>
+
+    <!-- ROUTE PAGE -->
+    <div id="page-route" class="page">
+      <div class="route-day-selector">
+        <button class="route-day-btn" data-day="DAY 2">DAY 2</button>
+        <button class="route-day-btn" data-day="DAY 3">DAY 3</button>
+        <button class="route-day-btn" data-day="DAY 4">DAY 4</button>
+        <button class="route-day-btn" data-day="DAY 5">DAY 5</button>
+        <button class="route-day-btn" data-day="DAY 6">DAY 6</button>
+        <button class="route-day-btn active" data-day="DAY 7">DAY 7</button>
+        <button class="route-day-btn" data-day="DAY 8">DAY 8</button>
+        <button class="route-day-btn" data-day="DAY 9">DAY 9</button>
+      </div>
+      <div id="routeContent"></div>
+    </div>
+
+    <!-- SAVED PAGE -->
+    <div id="page-saved" class="page">
+      <div id="savedList"></div>
+    </div>
+
+    <!-- CARHOTEL PAGE -->
+    <div id="page-carhotel" class="page">
+      <div class="booking-grid">
+        
+        <!-- 리스본 숙소 -->
+        <div class="booking-card">
+          <div class="booking-card-header">
+            🏨 리스본 숙소 <span class="booking-badge confirmed">✅ 확정</span>
+          </div>
+          <div class="booking-rows">
+            <div class="booking-row"><span class="booking-label">숙소명</span><span class="booking-value">My Story Hotel Tejo</span></div>
+            <div class="booking-row"><span class="booking-label">기간</span><span class="booking-value">5/1(금) 15:00 → 5/5(화) 11:00 (4박)</span></div>
+            <div class="booking-row"><span class="booking-label">객실</span><span class="booking-value">Double Room (성인 2명)</span></div>
+            <div class="booking-row"><span class="booking-label">예약상세</span><span class="booking-value">아고다 (Agoda) · ID 1699672486</span></div>
+          </div>
+        </div>
+
+        <!-- 코임브라 숙소 -->
+        <div class="booking-card">
+          <div class="booking-card-header">
+            🏨 코임브라 숙소 <span class="booking-badge confirmed">✅ 확정</span>
+          </div>
+          <div class="booking-rows">
+            <div class="booking-row"><span class="booking-label">숙소명</span><span class="booking-value">Hotel D. Luís ***</span></div>
+            <div class="booking-row"><span class="booking-label">기간</span><span class="booking-value">5/5(화) 15:00 → 5/6(수) 11:00 (1박)</span></div>
+            <div class="booking-row"><span class="booking-label">주소</span><span class="booking-value">Santa Clara, 3040-091 - Coimbra</span></div>
+            <div class="booking-row"><span class="booking-label">객실</span><span class="booking-value">트윈룸 시티뷰 (조식 포함)</span></div>
+            <div class="booking-row"><span class="booking-label">예약/결제</span><span class="booking-value">PIN: 4777374 · €73.32 (선결제 완료)</span></div>
+          </div>
+        </div>
+
+        <!-- 포르투 숙소 -->
+        <div class="booking-card">
+          <div class="booking-card-header">
+            🏨 포르투 숙소 <span class="booking-badge confirmed">✅ 확정</span>
+          </div>
+          <div class="booking-rows">
+            <div class="booking-row"><span class="booking-label">숙소명</span><span class="booking-value">Porto Historic center - garage and balcony</span></div>
+            <div class="booking-row"><span class="booking-label">기간</span><span class="booking-value">5/6(수) 16:00 → 5/10(일) 11:00 (4박)</span></div>
+            <div class="booking-row"><span class="booking-label">주소</span><span class="booking-value">Rua da Vitória 152, Porto (호스트: Jéssica)</span></div>
+            <div class="booking-row"><span class="booking-label">특징</span><span class="booking-value">무료 차고(Garage) · 발코니 전망</span></div>
+            <div class="booking-row"><span class="booking-label">예약/결제</span><span class="booking-value">에어비앤비 (HMSHN3F2BA) · ₩1,184,255</span></div>
+          </div>
+        </div>
+
+        <!-- 렌트카 -->
+        <div class="booking-card" style="margin-top:8px">
+          <div class="booking-card-header">
+            🚗 렌트카 <span class="booking-badge confirmed">✅ 확정</span>
+          </div>
+          <div class="booking-rows">
+            <div class="booking-row"><span class="booking-label">차량</span><span class="booking-value">토요타 코롤라 또는 동급 (오토/에어컨)</span></div>
+            <div class="booking-row"><span class="booking-label">업체</span><span class="booking-value">Dollar (클룩 예약 RAG624220)</span></div>
+            <div class="booking-row"><span class="booking-label">픽업</span><span class="booking-value">5/5(화) 08:00 — 리스본 공항 (터미널 내)</span></div>
+            <div class="booking-row"><span class="booking-label">반납</span><span class="booking-value">5/10(일) 20:00 — 리스본 공항 (여유 예약)</span></div>
+            <div class="booking-row"><span class="booking-label">비용/보험</span><span class="booking-value">€246.60 (결제완료) · 보험 CDW/TP 포함</span></div>
+          </div>
+          <div class="booking-alert">
+            💡 <strong>픽업 팁:</strong> Aeroporto De Portela 공항 터미널 내<br>운전자: 황도현 (보증금을 위한 본인 명의 신용카드 지참!)
+          </div>
+          <div class="booking-checklist">
+            <div class="check-item check-ok">✅ 여권 원본</div>
+            <div class="check-item check-ok">✅ 실물 운전면허증</div>
+            <div class="check-item check-ok">✅ 국제운전면허증</div>
+            <div class="check-item check-ok">✅ 신용카드(VISA 등)</div>
+            <div class="check-item check-ok">✅ 출력된 바우처</div>
+            <div class="check-item check-no">❌ 체크/직불카드 불가</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SHOPPING PAGE -->
+    <div id="page-shopping" class="page shopping-page" style="overflow-y:auto; height:100%;">
+      <div style="padding:16px; padding-bottom:80px;">
+        <h2 style="font-size:20px;font-weight:800;color:var(--accent);margin-bottom:4px;">🛒 포르투갈 쇼핑 가이드</h2>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:16px;">어디서 무엇을 살까? — 3-Tier 쇼핑처 전략 · 카테고리별 Best Buy · 예산별 바구니 · 포장 팁까지 한 페이지에.</p>
+
+        <!-- Tier 1: 3 shopping locations -->
+        <div class="shop-tier" style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <div class="tier" style="background:var(--card);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:6px;padding:12px;">
+            <div style="font-size:10px;color:var(--blue);font-weight:700;margin-bottom:4px;">DAY 8 저녁 · 쇼핑 본거지</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text);margin-bottom:4px;">🛒 Continente GaiaShopping</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.4;">포르투갈 최저가 · 대용량 가능 · <b style="color:var(--text);">무료 주차</b> · 08:00–23:00.<br><b style="color:var(--text);">포트와인·통조림·올리브오일·커피·초콜릿</b>.</div>
+          </div>
+          <div class="tier" style="background:var(--card);border:1px solid var(--border);border-left:4px solid var(--red);border-radius:6px;padding:12px;">
+            <div style="font-size:10px;color:var(--red);font-weight:700;margin-bottom:4px;">DAY 7 오후 · 수공예 전문</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text);margin-bottom:4px;">🎨 Rua das Flores (포르투)</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.4;">전문점 집중 · 편집샵 · 장인 브랜드.<br><b style="color:var(--text);">코르크·비누·아줄레주·도자기</b>. Day 7 플로레스 거리 하산 동선.</div>
+          </div>
+          <div class="tier" style="background:var(--card);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:6px;padding:12px;">
+            <div style="font-size:10px;color:var(--gold);font-weight:700;margin-bottom:4px;">DAY 10 · 마지막 기회</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text);margin-bottom:4px;">✈️ 리스본 공항 면세점</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.4;">비상 보충용 · 자동 Tax Free · 시간 압박 시 편의.<br>가격은 <b style="color:var(--text);">시내 대비 15–30% 비쌈</b>. 셀렉션 제한.</div>
+          </div>
+        </div>
+
+        <!-- Category table -->
+        <h3 style="font-size:16px;font-weight:800;color:var(--accent);margin-bottom:10px;">카테고리별 Best Buy</h3>
+        <div style="overflow-x:auto;margin-bottom:20px;border-radius:6px;border:1px solid var(--border);">
+          <table style="width:100%;border-collapse:collapse;font-size:12px;line-height:1.4;">
+            <thead style="background:var(--card2);color:var(--gold);text-align:left;">
+              <tr>
+                <th style="padding:10px;border-bottom:1px solid var(--border);min-width:100px;">카테고리</th>
+                <th style="padding:10px;border-bottom:1px solid var(--border);min-width:180px;">추천 상품</th>
+                <th style="padding:10px;border-bottom:1px solid var(--border);min-width:120px;">가이드 팁</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:10px;border-bottom:1px solid var(--line);color:var(--text);vertical-align:top;">🍷 <b>포트와인</b><br><span style="color:var(--gold);font-size:11px;">€10~25</span><br><span style="color:var(--blue);font-size:10px;">🛒 Continente</span></td>
+                <td style="padding:10px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top;"><b>Sandeman 10yr Tawny</b><br>Taylor's LBV<br>Ferreira Dona Antónia</td>
+                <td style="padding:10px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top;">첫 구매자는 <b>10yr Tawny</b>부터. 선물용 3병 세트.</td>
+              </tr>
+              <tr>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;">🥫 <b>통조림</b><br><span style="color:var(--gold);font-size:11px;">€3~6</span><br><span style="color:var(--blue);font-size:10px;">🛒 Continente</span></td>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;"><b>Nuri (José Gourmet)</b><br>Tricana<br>Santa Catarina</td>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;">한국가의 1/3. <b>10~15개 대량 구매</b> 추천.</td>
+              </tr>
+              <tr>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;">🫒 <b>올리브오일</b><br><span style="color:var(--gold);font-size:11px;">€6~15</span><br><span style="color:var(--blue);font-size:10px;">🛒 Continente</span></td>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;">Gallo<br><b>Esporão</b><br>CARM (유기농)</td>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;">반드시 <b>다크 그린 병</b> 확인. DOP 지역 표시.</td>
+              </tr>
+              <tr>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;">☕ <b>커피/꿀/소금</b><br><span style="color:var(--gold);font-size:11px;">€3~10</span><br><span style="color:var(--blue);font-size:10px;">🛒 Continente</span></td>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;"><b>Delta Platinum</b> / Delta Q<br><b>Flor de Sal</b><br>포트와인 잼</td>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;"><b>Delta Q 캡슐</b>은 수집가 선물용. 포트와인 잼 한정판.</td>
+              </tr>
+              <tr>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;">🫧 <b>비누</b><br><span style="color:var(--gold);font-size:11px;">€8~30</span><br><span style="color:var(--red);font-size:10px;">🎨 Rua das Flores</span></td>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;"><b>Claus Porto</b><br>Ach Brito<br>Benamôr</td>
+                <td style="padding:10px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;">Claus Porto는 <b>포장이 예술</b> 선물 1순위.</td>
+              </tr>
+              <tr>
+                <td style="padding:10px;border-bottom:none;color:var(--text);vertical-align:top;">👜 <b>코르크/도자기</b><br><span style="color:var(--gold);font-size:11px;">€30~150</span><br><span style="color:var(--red);font-size:10px;">🎨 Rua das Flores</span></td>
+                <td style="padding:10px;border-bottom:none;color:var(--muted);vertical-align:top;"><b>Pelcor</b><br><b>Bordallo Pinheiro</b><br>아줄레주 컵받침</td>
+                <td style="padding:10px;border-bottom:none;color:var(--muted);vertical-align:top;">세계 코르크 1위 국가. 양배추 접시 트렌디.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:20px;">
+          <!-- Budget -->
+          <div style="background:var(--card);border:1px solid var(--gold);border-radius:6px;padding:12px;">
+            <div style="font-size:14px;font-weight:800;color:var(--gold);margin-bottom:8px;">💰 예산별 쇼핑 바구니</div>
+            <div style="font-size:12px;line-height:1.4;padding:8px 0;border-bottom:1px dashed var(--border);"><span style="color:var(--gold);font-weight:800;margin-right:8px;">🥉 €100</span>통조림 10개·Delta 커피 2팩·Ferreira 포트와인·Gallo 올리브오일·소금·모과잼·Bordallo 소접시</div>
+            <div style="font-size:12px;line-height:1.4;padding:8px 0;border-bottom:1px dashed var(--border);"><span style="color:var(--gold);font-weight:800;margin-right:8px;">🥈 €230</span>포트와인 3병·Licor Beirão·Claus Porto 3개·초콜릿·와인 잼·아줄레주 컵받침</div>
+            <div style="font-size:12px;line-height:1.4;padding:8px 0;"><span style="color:var(--gold);font-weight:800;margin-right:8px;">🥇 €450+</span>Graham's 20yr·마데이라·Esporão 레드 2병·Claus Porto 박스·Bordallo 대형</div>
+          </div>
+          
+          <!-- Tips -->
+          <div style="background:var(--card);border:1px dashed var(--muted);border-radius:6px;padding:12px;">
+            <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:12px;">💡 알아두면 좋은 팁</div>
+            <div style="margin-bottom:10px;">
+              <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:2px;">📦 무료 와인박스</div>
+              <div style="font-size:11px;color:var(--muted);line-height:1.4;">Continente 계산대에서 "Caixa de vinho, por favor" 요청. 수건 3중 래핑 후 수하물 중앙 배치.</div>
+            </div>
+            <div style="margin-bottom:10px;">
+              <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:2px;">✈️ 수하물 규정</div>
+              <div style="font-size:11px;color:var(--muted);line-height:1.4;">1인 위탁 액체 합계 5L 제한(와인 약 6병). 한국 입국 주류 1L 면세.</div>
+            </div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:2px;">🧾 Tax Free 환급</div>
+              <div style="font-size:11px;color:var(--muted);line-height:1.4;">€50 이상 구매+여권 필요. 공항 키오스크에서 <b>수하물 부치기 전</b> 승인 도장.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MUSEUM PAGE -->
+    <div id="page-museum" class="page museum-page" style="overflow-y:auto; height:100%; position:relative;">
+      <div style="padding:16px; padding-bottom:80px;">
+        <h2 style="font-size:20px;font-weight:800;color:var(--accent);margin-bottom:4px;">🏛️ 토마르 그리스도 수도원 관람 동선</h2>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:16px;">지도 위의 번호를 클릭하시면 상세 해설이 나타납니다.</p>
+
+        <div class="museum-map-container" style="background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; position:relative; width:100%;">
+          <div class="museum-map-wrapper" id="museumMapWrapper" style="position:relative; width:100%; min-height:200px; background:#2a1000; overflow:hidden;">
+            <!-- 실제 이미지가 있을 경우: src="images/tomar_map.png" -->
+            <img src="images/tomar_map.png" alt="동선 맵" class="museum-map-img" style="width:100%; height:auto; display:block;" onerror="this.style.display='none'; document.getElementById('mapPlaceholder').style.display='flex';">
+            
+            <div id="mapPlaceholder" style="display:none; position:absolute; inset:0; flex-direction:column; align-items:center; justify-content:center; padding:20px; text-align:center;">
+              <span style="font-size:30px; margin-bottom:10px;">🗺️</span>
+              <span style="color:var(--muted); font-size:12px;">images/tomar_map.png 파일을<br>업로드해주세요.</span>
+            </div>
+            
+            <!-- 핀 마커들이 동적으로 여기에 삽입됩니다 -->
+          </div>
+        </div>
+
+        <div class="route-summary" style="background:linear-gradient(135deg,rgba(232,168,74,.1),rgba(201,115,32,.05)); border:1px solid var(--accent); border-radius:12px; padding:14px; margin-top:16px;">
+          <div class="route-summary-title" style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;">💡 관람 팁</div>
+          <div class="route-summary-text" style="font-size:12px;color:var(--text);line-height:1.6;">
+            1번부터 12번까지 순서대로 따라가시면 수도원 중복 없이 효율적으로 관람하실 수 있습니다. 
+            총 소요시간은 약 2.5~3시간입니다.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BATALHA PAGE -->
+    <div id="page-batalha" class="page museum-page" style="overflow-y:auto; height:100%; position:relative;">
+      <div style="padding:16px; padding-bottom:80px;">
+        <h2 style="font-size:20px;font-weight:800;color:var(--accent);margin-bottom:4px;">🕍 바탈랴 수도원 관람 동선</h2>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:16px;">지도 위의 번호를 클릭하시면 상세 해설이 나타납니다.</p>
+
+        <div class="museum-map-container" style="background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; position:relative; width:100%;">
+          <div class="museum-map-wrapper" id="batalhaMapWrapper" style="position:relative; width:100%; min-height:200px; background:#2a1000; overflow:hidden;">
+            <!-- 실제 이미지가 있을 경우: src="images/batalha_map.png" -->
+            <img src="images/batalha_map.png" alt="바탈랴 동선 맵" class="museum-map-img" style="width:100%; height:auto; display:block;" onerror="this.style.display='none'; document.getElementById('batalhaPlaceholder').style.display='flex';">
+            
+            <div id="batalhaPlaceholder" style="display:none; position:absolute; inset:0; flex-direction:column; align-items:center; justify-content:center; padding:20px; text-align:center;">
+              <span style="font-size:30px; margin-bottom:10px;">🗺️</span>
+              <span style="color:var(--muted); font-size:12px;">images/batalha_map.png 파일을<br>업로드해주세요.</span>
+            </div>
+            
+            <!-- 핀 마커들이 동적으로 여기에 삽입됩니다 -->
+          </div>
+        </div>
+
+        <div class="route-summary" style="background:linear-gradient(135deg,rgba(232,168,74,.1),rgba(201,115,32,.05)); border:1px solid var(--accent); border-radius:12px; padding:14px; margin-top:16px;">
+          <div class="route-summary-title" style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;">⚠️ 가장 흔한 실수 주의!</div>
+          <div class="route-summary-text" style="font-size:12px;color:var(--text);line-height:1.6;">
+            미완성의 예배당(9번)은 본당에서 나가는 가장 흔한 경로와 단절되어 있습니다. 
+            반드시 <b>건물 밖으로 완전히 나와서 100m 외부를 따라 돌아가야</b> 절벽처럼 끊어진 출입구가 보입니다. (절대 놓치지 마세요!)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALCOBACA PAGE -->
+    <div id="page-alcobaca" class="page museum-page" style="overflow-y:auto; height:100%; position:relative;">
+      <div style="padding:16px; padding-bottom:80px;">
+        <h2 style="font-size:20px;font-weight:800;color:var(--accent);margin-bottom:4px;">⛪ 알코바사 수도원 관람 동선</h2>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:16px;">지도 위의 번호를 클릭하시면 상세 해설이 나타납니다.</p>
+
+        <div class="museum-map-container" style="background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; position:relative; width:100%;">
+          <div class="museum-map-wrapper" id="alcobacaMapWrapper" style="position:relative; width:100%; min-height:200px; background:#2a1000; overflow:hidden;">
+            <!-- 실제 이미지가 있을 경우: src="images/alcobaca_map.png" -->
+            <img src="images/alcobaca_map.png" alt="알코바사 동선 맵" class="museum-map-img" style="width:100%; height:auto; display:block;" onerror="this.style.display='none'; document.getElementById('alcobacaPlaceholder').style.display='flex';">
+            
+            <div id="alcobacaPlaceholder" style="display:none; position:absolute; inset:0; flex-direction:column; align-items:center; justify-content:center; padding:20px; text-align:center;">
+              <span style="font-size:30px; margin-bottom:10px;">🗺️</span>
+              <span style="color:var(--muted); font-size:12px;">images/alcobaca_map.png 파일을<br>업로드해주세요.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-summary" style="background:linear-gradient(135deg,rgba(232,168,74,.1),rgba(201,115,32,.05)); border:1px solid var(--accent); border-radius:12px; padding:14px; margin-top:16px;">
+          <div class="route-summary-title" style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;">💡 관람 팁</div>
+          <div class="route-summary-text" style="font-size:12px;color:var(--text);line-height:1.6;">
+            페드루 1세 무덤(3번)과 이네스 무덤(4번)의 배치를 유심히 살펴보세요. 
+            두 무덤의 발끝이 마주보는 형태로 배치된 깊은 사연이 있습니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS PANEL -->
+<div class="settings-panel" id="settingsPanel">
+  <div class="settings-card" style="max-height:85vh;overflow-y:auto">
+    <div class="settings-title">⚙️ AI 설정</div>
+    
+    <div id="apiStatus"></div>
+
+    <!-- Provider 탭 -->
+    <div class="api-section-title">AI 제공자 선택</div>
+    <div class="provider-tabs">
+      <button class="provider-tab" id="tab-openrouter" data-provider="openrouter">
+        🔀 OpenRouter<br><span style="font-size:9px;font-weight:400">크레딧필요</span>
+      </button>
+      <button class="provider-tab active" id="tab-google" data-provider="google">
+        🆓 Google<br><span style="font-size:9px;font-weight:400">완전무료</span>
+      </button>
+      <button class="provider-tab" id="tab-anthropic" data-provider="anthropic">
+        🤖 Claude<br><span style="font-size:9px;font-weight:400">유료</span>
+      </button>
+    </div>
+
+    <!-- OpenRouter 섹션 -->
+    <div id="section-openrouter" style="display:none">
+      <div class="api-section-title">무료 모델 선택</div>
+      <div class="model-list" id="modelList">
+        <div class="model-option selected" data-model="google/gemini-2.0-flash-lite-preview-02-05:free">
+          <span class="model-option-badge badge-free">🆓 무료</span>
+          <div class="model-option-name">Gemini 2.0 Flash Lite ⭐ 추천</div>
+          <div class="model-option-desc">Google 최신 모델 · 빠르고 똑똑함</div>
+        </div>
+        <div class="model-option" data-model="meta-llama/llama-3.3-70b-instruct:free">
+          <span class="model-option-badge badge-free">🆓 무료</span>
+          <div class="model-option-name">Llama 3.3 70B</div>
+          <div class="model-option-desc">Meta 최신 고성능 모델</div>
+        </div>
+        <div class="model-option" data-model="qwen/qwen-2.5-72b-instruct:free">
+          <span class="model-option-badge badge-free">🆓 무료</span>
+          <div class="model-option-name">Qwen 2.5 72B</div>
+          <div class="model-option-desc">알리바바 최신 · 한국어 잘함</div>
+        </div>
+        <div class="model-option" data-model="openrouter/free">
+          <span class="model-option-badge badge-free" style="background:rgba(167,139,250,.15);color:#a78bfa">🔀 자동</span>
+          <div class="model-option-name">Free Router (자동)</div>
+          <div class="model-option-desc">가용한 무료 모델 자동 선택</div>
+        </div>
+      </div>
+
+      <div class="api-section-title">OPENROUTER API KEY</div>
+      <input class="settings-input" id="apiKeyInput" type="password"
+        placeholder="sk-or-v1-..."
+        autocomplete="off" autocorrect="off" autocapitalize="none">
+      <a class="settings-link" href="https://openrouter.ai/keys" target="_blank">
+        🔗 openrouter.ai/keys 에서 무료 발급 (신용카드 불필요)
+      </a>
+    </div>
+
+    <!-- Google AI Studio 섹션 -->
+    <div id="section-google">
+      <div class="model-list">
+        <div class="model-option selected" data-model="gemini-1.5-flash">
+          <span class="model-option-badge badge-free">🆓 완전무료</span>
+          <div class="model-option-name">Gemini 1.5 Flash ⭐ 추천</div>
+          <div class="model-option-desc">무료 제공량 넉넉함 · 빠르고 안정적</div>
+        </div>
+        <div class="model-option" data-model="gemini-2.0-flash">
+          <span class="model-option-badge" style="background:rgba(234,179,8,.15);color:#eab308">최신형</span>
+          <div class="model-option-name">Gemini 2.0 Flash</div>
+          <div class="model-option-desc">최신 모델 (※계정에 따라 할당량 0 에러 발생할 수 있음)</div>
+        </div>
+      </div>
+      <div class="api-section-title">GOOGLE AI STUDIO API KEY</div>
+      <input class="settings-input" id="apiKeyInputGoogle" type="password"
+        placeholder="AIzaSy..."
+        autocomplete="off" autocorrect="off" autocapitalize="none">
+      <a class="settings-link" href="https://aistudio.google.com/apikey" target="_blank">
+        🔗 aistudio.google.com/apikey 에서 무료 발급 (카드 불필요)
+      </a>
+    </div>
+
+    <!-- Anthropic 섹션 -->
+    <div id="section-anthropic" style="display:none">
+      <div class="model-list">
+        <div class="model-option selected" data-model="claude-sonnet-4-20250514">
+          <span class="model-option-badge badge-paid">💳 유료</span>
+          <div class="model-option-name">Claude Sonnet 4</div>
+          <div class="model-option-desc">가장 균형잡힌 성능 · 한국어 최고 품질</div>
+        </div>
+        <div class="model-option" data-model="claude-haiku-4-5-20251001">
+          <span class="model-option-badge badge-paid">💳 유료 (저렴)</span>
+          <div class="model-option-name">Claude Haiku 4.5</div>
+          <div class="model-option-desc">빠르고 저렴 · 간단한 추천에 적합</div>
+        </div>
+      </div>
+      <div class="api-section-title">ANTHROPIC API KEY</div>
+      <input class="settings-input" id="apiKeyInputAnthropic" type="password"
+        placeholder="sk-ant-api03-..."
+        autocomplete="off" autocorrect="off" autocapitalize="none">
+      <a class="settings-link" href="https://console.anthropic.com" target="_blank">
+        🔗 console.anthropic.com 에서 발급
+      </a>
+    </div>
+
+    <div class="settings-actions">
+      <button class="btn-cancel" id="btnSettingsClose">닫기</button>
+      <button class="btn-clear" id="btnResetApp">전체 초기화</button>
+      <button class="btn-save" id="btnSaveApiKey">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- AI PANEL -->
+<div class="ai-panel" id="aiPanel">
+  <div class="ai-panel-header">
+    <span class="ai-panel-title">✨ 포르투갈 여행 AI</span>
+    <button class="ai-close" id="btnAIClose">×</button>
+  </div>
+  <div class="ai-suggestions">
+    <div class="ai-sug" data-sug="오늘 저녁 해산물 추천해줘">🦐 해산물 추천</div>
+    <div class="ai-sug" data-sug="가성비 좋은 맛집 알려줘">💰 가성비 맛집</div>
+    <div class="ai-sug" data-sug="리스본 브런치 어디가 좋아?">☕ 브런치 추천</div>
+  </div>
+  <div class="ai-messages" id="aiMessages">
+    <div class="msg msg-ai">안녕하세요! 포르투갈 여행 도우미예요 🇵🇹<br>맛집, 일정, 꿀팁 뭐든 물어보세요!</div>
+  </div>
+  <div class="ai-input-row">
+    <input class="ai-input" id="aiInput" placeholder="여행에 대해 뭐든 물어보세요...">
+    <button class="ai-send" id="aiSend">전송</button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="placeModal">
+  <div class="modal-card" id="modalCard">
+    <button class="modal-close" id="btnModalClose">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- GUIDE MODAL (장소 해설 팝업) -->
+<div class="guide-modal" id="guideModal">
+  <div class="guide-card">
+    <div class="guide-header">
+      <div class="guide-header-top">
+        <span class="guide-emoji" id="guideEmoji">📍</span>
+        <div class="guide-title" id="guideTitle">장소명</div>
+        <button class="guide-close" id="btnGuideClose">✕</button>
+      </div>
+      <div class="guide-subtitle" id="guideSubtitle">장소 설명</div>
+    </div>
+    <div class="guide-content" id="guideContent">
+      <!-- 동적으로 채워짐 -->
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- LANDMARK TAG POPUP -->
+<div class="tag-popup-overlay" id="tagPopupOverlay">
+  <div class="tag-popup">
+    <div class="tag-popup-title">📍 <span id="tagPopupName"></span></div>
+    <button class="tag-popup-btn" id="btnFilterByLandmark">
+      <span class="tag-popup-btn-icon">🔍</span> 근처 맛집 보기
+    </button>
+    <button class="tag-popup-btn" id="btnOpenLandmarkMap">
+      <span class="tag-popup-btn-icon">🗺️</span> 지도에서 보기
+    </button>
+    <button class="tag-popup-btn" id="btnOpenLandmarkGuide">
+      <span class="tag-popup-btn-icon">ℹ️</span> 장소 정보
+    </button>
+  </div>
+</div>
+
+<!-- Place Editor Modal -->
+<div class="modal" id="placeEditorModal">
+  <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
+    <div class="modal-header">
+      <h2 id="placeEditorTitle" style="font-size: 18px; margin: 0;">➕ 장소 추가</h2>
+      <button class="modal-close" onclick="UI.closePlaceEditor()">×</button>
+    </div>
+    
+    <div style="padding: 16px;">
+      <!-- Google Maps Fetcher -->
+      <div style="background: rgba(46,196,160,.1); border: 1px solid rgba(46,196,160,.3); padding: 12px; border-radius: 8px; margin-bottom: 20px;">
+        <label style="font-size: 11px; font-weight: 700; color: var(--teal); display: block; margin-bottom: 6px;">🌐 구글 지도 URL로 장난감 정보 자동 채우기</label>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="peUrl" placeholder="https://goo.gl/maps/..." style="flex: 1; min-width: 0; background: var(--bg2); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 13px;">
+          <button onclick="UI.fetchGoogleMapsData()" style="background: var(--teal); color: #000; border: none; padding: 0 12px; border-radius: 6px; font-weight: 700; white-space: nowrap;">🪄 파싱</button>
+        </div>
+      </div>
+
+      <div style="display: grid; gap: 12px;">
+        <div>
+          <label class="pe-label">장소 이름 *</label>
+          <input type="text" id="peName" class="pe-input" placeholder="예: 구제리 로스터리">
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div>
+            <label class="pe-label">구분</label>
+            <select id="peType" class="pe-input">
+              <option value="cafe">맛집/카페</option>
+              <option value="landmark">관광지</option>
+            </select>
+          </div>
+          <div>
+            <label class="pe-label">선택 DAY</label>
+            <select id="peDay" class="pe-input">
+              <option value="DAY 1">DAY 1</option><option value="DAY 2">DAY 2</option><option value="DAY 3">DAY 3</option><option value="DAY 4">DAY 4</option><option value="DAY 5">DAY 5</option><option value="DAY 6">DAY 6</option><option value="DAY 7">DAY 7</option><option value="DAY 8">DAY 8</option><option value="DAY 9">DAY 9</option><option value="DAY 10">DAY 10</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div><label class="pe-label">별점</label><input type="text" id="peRating" class="pe-input" placeholder="4.5"></div>
+          <div><label class="pe-label">가격대</label><input type="text" id="pePrice" class="pe-input" placeholder="€€"></div>
+        </div>
+
+        <div>
+          <label class="pe-label">운영시간</label>
+          <input type="text" id="peHours" class="pe-input" placeholder="예: 08:00~20:00">
+        </div>
+        
+        <div>
+          <label class="pe-label">주소 / 위치</label>
+          <input type="text" id="peAddress" class="pe-input" placeholder="리스본">
+        </div>
+
+        <div>
+           <label class="pe-label">메모사항</label>
+           <textarea id="peDesc" class="pe-input" rows="3" placeholder="메뉴 추천, 방문 시 주의점 등"></textarea>
+        </div>
+      </div>
+
+      <button style="width: 100%; margin-top: 24px; background: var(--accent); color: #000; border: none; padding: 14px; border-radius: 8px; font-weight: 700; font-size: 15px;" onclick="UI.saveCustomPlace()">저장 및 반영하기</button>
+    </div>
+  </div>
+</div>
+
+    <script src="coords_data.js"></script>
+    <script src="portugal_guides.js"></script>
+    <script src="portugal_data.js"></script>
+    <script src="js/museum_data.js"></script>
+    <script src="js/batalha_data.js"></script>
+    <script src="js/alcobaca_data.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/data-service.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/skeleton.js"></script>
+    <script src="js/place-card.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/ui-components.js?v=37"></script>
+    <script src="js/ai-service.js"></script>
+    <script src="js/ai-controller.js"></script>
+    <script src="js/app.js?v=37"></script>
+</body>
+</html>
