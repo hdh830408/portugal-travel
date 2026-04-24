@@ -388,6 +388,7 @@ function renderMuseumPins() {
   if (!listWrapper) return;
 
   MUSEUM_ROUTE_DATA.forEach(data => {
+    // 2. Create list button
     const btn = document.createElement('div');
     btn.className = 'route-list-btn';
     
@@ -444,6 +445,7 @@ function renderBatalhaPins() {
   if (!listWrapper) return;
 
   BATALHA_ROUTE_DATA.forEach(data => {
+    // 2. Create list button
     const btn = document.createElement('div');
     btn.className = 'route-list-btn';
     
@@ -500,6 +502,7 @@ function renderAlcobacaPins() {
   if (!listWrapper) return;
 
   ALCOBACA_ROUTE_DATA.forEach(data => {
+    // 2. Create list button
     const btn = document.createElement('div');
     btn.className = 'route-list-btn';
     
