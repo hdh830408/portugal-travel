@@ -197,6 +197,7 @@ function setupSubscriptions() {
     if (tab === 'museum') renderMuseumPins();
     if (tab === 'batalha') renderBatalhaPins();
     if (tab === 'alcobaca') renderAlcobacaPins();
+    if (tab === 'checklist') UI.renderChecklist();
   });
 
   // 2. 맛집 필터 변경

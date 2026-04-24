@@ -742,6 +742,77 @@ function addAIMessage(text, type) {
   return el;
 }
 
+// ── 체크리스트 렌더링 ──
+function renderChecklist() {
+  const container = document.getElementById('checklistContainer');
+  if (!container) return;
+  
+  let visitedPlaces = [];
+  try {
+    visitedPlaces = JSON.parse(localStorage.getItem('visited_places')) || [];
+  } catch(e) {
+    visitedPlaces = [];
+  }
+  
+  const lisbonPlaces = PLACES.filter(p => LANDMARK_TYPES.includes(p.type) && (p.address.includes('Lisboa') || p.searchName.includes('Lisboa') || p.name.includes('벨렝')));
+  const portoPlaces = PLACES.filter(p => LANDMARK_TYPES.includes(p.type) && (p.address.includes('Porto') || p.address.includes('Gaia') || p.searchName.includes('Porto') || p.name.includes('포르투')));
+  
+  let html = '';
+  
+  const buildSection = (title, places) => {
+    if (places.length === 0) return '';
+    let sectionHtml = `<div class="route-summary" style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; margin-bottom:16px;">`;
+    sectionHtml += `<div style="font-size:14px;font-weight:800;color:var(--accent);margin-bottom:12px;">📍 ${title}</div>`;
+    sectionHtml += `<div style="display:flex; flex-direction:column; gap:8px;">`;
+    
+    places.forEach(p => {
+      const isChecked = visitedPlaces.includes(p.name);
+      const searchName = p.searchName || p.name;
+      const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchName)}`;
+      sectionHtml += `
+        <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid ${isChecked ? 'var(--teal)' : 'var(--border)'}; transition:all 0.2s; padding:8px;">
+          <label style="display:flex; align-items:center; gap:10px; cursor:pointer; flex:1;">
+            <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="UI.toggleChecklist('${p.name.replace(/'/g, "\\'")}')" style="accent-color:var(--teal); width:18px; height:18px; cursor:pointer;">
+            <span style="font-size:13px; color:${isChecked ? 'var(--muted)' : 'var(--text)'}; text-decoration:${isChecked ? 'line-through' : 'none'}; font-weight:${isChecked ? '400' : '600'};">${p.name}</span>
+          </label>
+          <button onclick="window.open('${mapUrl}', '_blank')" style="background:var(--card2); border:1px solid var(--border); color:var(--text); border-radius:6px; padding:4px 8px; font-size:11px; cursor:pointer; display:flex; align-items:center; gap:4px; flex-shrink:0;">
+            📍 지도
+          </button>
+        </div>
+      `;
+    });
+    
+    sectionHtml += `</div></div>`;
+    return sectionHtml;
+  };
+  
+  html += buildSection('리스본 (Lisboa)', lisbonPlaces);
+  html += buildSection('포르투 (Porto)', portoPlaces);
+  
+  container.innerHTML = html;
+}
+
+function toggleChecklist(name) {
+  let visitedPlaces = [];
+  try {
+    visitedPlaces = JSON.parse(localStorage.getItem('visited_places')) || [];
+  } catch(e) {
+    visitedPlaces = [];
+  }
+  
+  const index = visitedPlaces.indexOf(name);
+  if (index > -1) {
+    visitedPlaces.splice(index, 1);
+    UI.showToast(`➖ ${name} 방문 취소`);
+  } else {
+    visitedPlaces.push(name);
+    UI.showToast(`✅ ${name} 방문 완료!`);
+  }
+  
+  localStorage.setItem('visited_places', JSON.stringify(visitedPlaces));
+  renderChecklist();
+}
+
 // UI 객체로 묶어서 전역에 노출 (app.js에서 사용)
 const UI = {
   esc,
@@ -772,5 +843,7 @@ const UI = {
   openPlaceEditor,
   closePlaceEditor,
   fetchGoogleMapsData,
-  saveCustomPlace
+  saveCustomPlace,
+  renderChecklist,
+  toggleChecklist
 };
